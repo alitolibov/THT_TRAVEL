@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
-import eng from '../../../public/lang/eng';
 import Language from './Language';
+import en from '../../../public/lang/en';
 
 interface HeaderProps {
     
@@ -20,7 +20,7 @@ const Header: React.FC<HeaderProps> = () => {
         lang = ru
           break
         default:
-            lang = eng
+            lang = en
           break
       }
 

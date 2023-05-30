@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import uz from "../../../public/lang/uz";
-import ru from "../../../public/lang/ru";
-import eng from "../../../public/lang/eng";
+import { usePathname } from 'next/navigation';
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -43,21 +41,16 @@ function useMenuAnimation(isOpen: boolean) {
 }
 
 export default function Language() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const scope = useMenuAnimation(isOpen);
-  const {locale} = useRouter()
-  let lang
-  switch(locale) {
-      case 'uz':
-          lang = uz
-        break
-      case 'ru': 
-      lang = ru
-        break
-      default:
-          lang = eng
-        break
-    }
+  const [lang, setLang] = useState('ru')
+  const {locale, push, replace} = useRouter()
+  const pathname = usePathname();
+  
+
+  useEffect(() => {
+      push('/', '/', {locale: lang})
+  }, [lang])
 
   return (
     <div className="menu relative" ref={scope}>
@@ -79,11 +72,11 @@ export default function Language() {
           pointerEvents: isOpen ? "auto" : "none",
           clipPath: "inset(10% 50% 90% 50% round 10px)"
         }}
-        className="px-[10px] py-[5px] right-0"
+        className="px-[10px] py-[5px] right-0 w-[45px] space-y-[7px]"
       >
-        <li className="text-[#fff] text-[14px]">ru</li>
-        <li className="text-[#fff] text-[14px]">uz</li>
-        <li className="text-[#fff] text-[14px]">eng</li>
+        <li onClick={(e) => setLang('ru')}><img className="w-[26px] h-[24px]" src="/images/rus.png" alt="" /></li>
+        <li onClick={(e) => setLang('uz')}><img className="w-[24px] h-[24px]" src="https://cdn0.iconfinder.com/data/icons/world-flags-1/100/uzbekistan-2-1024.png" alt="" /></li>
+        <li onClick={(e) => setLang('en')}><img className="w-[24px] h-[24px]" src="https://cdn1.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_United_Kingdom_-_Circle-1024.png" alt="" /></li>
       </ul>
     </div>
   );
