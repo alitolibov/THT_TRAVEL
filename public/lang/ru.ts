@@ -1,7 +1,9 @@
 export default {
     header: {
         about: 'О нас',
-        employees: 'Сотрудники'
+        services: 'Услуги',
+        employees: 'Сотрудники',
+        greetings: 'Путешествуй'
     }
     
 }

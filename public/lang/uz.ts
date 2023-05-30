@@ -1,7 +1,9 @@
 export default {
     header: {
         about: 'Biz haqida',
-        employees: 'Xodimlar'
+        services: 'Xizmatlar',
+        employees: 'Xodimlar',
+        greetings: 'Sayohatlarni'
     }
     
 }

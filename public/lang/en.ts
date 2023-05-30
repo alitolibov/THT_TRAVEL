@@ -1,7 +1,9 @@
 export default {
     header: {
         about: 'About us',
-        employees: 'Employees'
+        services: 'Services',
+        employees: 'Employees',
+        greetings: 'Travel with'
     }
     
 }
