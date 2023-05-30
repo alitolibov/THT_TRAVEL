@@ -44,11 +44,12 @@ export default function Language() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const scope = useMenuAnimation(isOpen);
   const [lang, setLang] = useState('ru')
-  const {locale, push, replace} = useRouter()
+  const {locale, push} = useRouter()
   const pathname = usePathname();
   
 
   useEffect(() => {
+      setIsOpen(!open)
       push('/', '/', {locale: lang})
   }, [lang])
 
