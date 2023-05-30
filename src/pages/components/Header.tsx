@@ -28,12 +28,14 @@ const Header: React.FC<HeaderProps> = () => {
         <header className='bg px-[15px] pt-[27px]'>
             <div className="flex w-full items-center justify-between max-h-[57px] h-[57px]">
                 <img src="/images/logo.png" className='w-[60px]' alt="" />
-                <div className="flex gap-x-[10px]">
+                <nav className="flex gap-x-[10px]">
                 <p className="text-[#fff] text-[14px]">{lang.header.about}</p>
                 <p className="text-[#fff] text-[14px]">{lang.header.employees}</p>
-                </div>
+                </nav>
                 <Language/>
             </div>
+            <h1 className={`text-center font-[700]`}>ПУТЕШЕСТВУЙ <br/>
+            PERO TRAVEL</h1>
         </header>
     );
 };
