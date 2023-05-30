@@ -3,7 +3,8 @@ export default {
         about: 'Biz haqida',
         services: 'Xizmatlar',
         employees: 'Xodimlar',
-        greetings: 'Sayohatlarni'
+        greetings: 'Sayohatlar THT TRAVEL bilan',
+        scroll: 'Pastga aylantiring'
     }
     
 }

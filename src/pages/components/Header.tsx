@@ -36,8 +36,8 @@ const Header: React.FC<HeaderProps> = () => {
                 <Language/>
             </div>
             <div className="absolute translate-y-[-50%] top-[50%] space-y-[20px]">
-            <h1 className='font-[700] text-[36px] text-white leading-[44px]'>{lang.header.greetings}<br/>THT TRAVEL</h1>
-            <div className="flex items-center gap-x-[5px]"><p className="font-[500] text-[12px] text-white">Пролистываете вниз</p> <img className='h-[16px]' src="/images/bottom.png" alt="" /></div>
+            <h1 className='font-[700] text-[36px] text-white leading-[44px] w-[285px]'>{lang.header.greetings}</h1>
+            <div className="flex items-center gap-x-[5px]"><p className="font-[500] text-[12px] text-white">{lang.header.scroll}</p> <img className='h-[16px]' src="/images/bottom.png" alt="" /></div>
             </div>
         </header>
     );

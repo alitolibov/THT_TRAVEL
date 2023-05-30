@@ -3,7 +3,8 @@ export default {
         about: 'О нас',
         services: 'Услуги',
         employees: 'Сотрудники',
-        greetings: 'Путешествуй'
+        greetings: 'Путешествуй с THT TRAVEL',
+        scroll: 'Пролистываете вниз'
     }
     
 }
