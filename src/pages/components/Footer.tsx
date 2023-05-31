@@ -41,7 +41,7 @@ const Footer: React.FC<FooterProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.2, once: true}}
-         className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] md:px-[25px] lg:flex-row lg:justify-between xl:w-[1250px] xl:mx-auto'>
+         className='py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between xl:w-[1250px] xl:mx-auto'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.png" className='h-[75px] md:h-[85px]' alt="" />
             <nav className='space-y-[5px] md:space-y-[7px]'>
                 <motion.p custom={1} variants={animation} className="text-[#fff] text-[14px] text-center md:text-[16px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-[17px]">{lang.header.about}</motion.p>

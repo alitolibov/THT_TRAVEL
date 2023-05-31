@@ -8,9 +8,9 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
-        <div>
+        <div className='bg'>
             <Header/>
-            <main>
+            <main className='px-[15px] md:px-[25px] xl:px-0 xl:w-[1250px] xl:mx-auto'>
             {children}
             </main>
             <Footer/>
