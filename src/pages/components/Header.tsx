@@ -38,10 +38,10 @@ const Header: React.FC<HeaderProps> = () => {
         variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
         className='px-[15px] h-[20vh] flex items-center justify-between md:px-[25px] xl:px-0 xl:w-[1250px] xl:mx-auto'>
                 <img src="/images/logo.png" className='w-[60px] md:w-[77px] xl:w-[85px]' alt="" />
-                <nav className="flex gap-x-[10px] md:gap-x-[15px]">
-                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px]">{lang.header.services}</p>
-                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px]">{lang.header.about}</p>
-                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px]">{lang.header.employees}</p>
+                <nav className="flex gap-x-[10px] md:gap-x-[15px] lg:gap-x-[20px]">
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px] xl:font-semibold xl:text-[16px]">{lang.header.services}</p>
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px] xl:font-semibold xl:text-[16px]">{lang.header.about}</p>
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px] xl:font-semibold xl:text-[16px]">{lang.header.employees}</p>
                 </nav>
                 <Language/>
         </motion.header>
