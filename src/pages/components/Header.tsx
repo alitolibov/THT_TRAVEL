@@ -38,11 +38,11 @@ const Header: React.FC<HeaderProps> = () => {
         variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
         className='bg px-[15px] pt-[27px] relative md:px-[25px]'>
             <div className="flex w-full items-center justify-between h-[57px] md:h-[77px]">
-                <img src="/images/logo.png" className='w-[60px] md:w-[77px]' alt="" />
+                <img src="/images/logo.png" className='w-[60px] md:w-[77px] lg:w-[85px]' alt="" />
                 <nav className="flex gap-x-[10px] md:gap-x-[15px]">
-                <p className="text-[#fff] text-[13px] md:text-[15px]">{lang.header.services}</p>
-                <p className="text-[#fff] text-[13px] md:text-[15px]">{lang.header.about}</p>
-                <p className="text-[#fff] text-[13px] md:text-[15px]">{lang.header.employees}</p>
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[#F6B011] lg:text-[15px]">{lang.header.services}</p>
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[#F6B011] lg:text-[15px]">{lang.header.about}</p>
+                <p className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[#F6B011] lg:text-[15px]">{lang.header.employees}</p>
                 </nav>
                 <Language/>
             </div>
