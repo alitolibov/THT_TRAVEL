@@ -4,7 +4,7 @@ import {motion} from 'framer-motion'
 interface AboutUsProps {
     
 }
-const visible:object = { opacity: 1, y: 0, transition: { duration: 0.5 } };
+const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     const itemVariants = {
         hidden: { opacity: 0, y: 10 },
         visible
@@ -29,7 +29,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
         id='about'
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.4, once: true}}
+        viewport={{ amount: 0.5, once: true}}
         className='space-y-[20px] sm:flex sm:justify-between sm:items-center'>
             <div className="space-y-[40px] sm:w-[50%]">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative">
@@ -41,7 +41,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
             <motion.div 
             initial='hidden'
             whileInView='visible'
-            viewport={{ amount: 0.4, once: true}}
+            viewport={{ amount: 0.5, once: true}}
             variants={animation} className='aspect-square sm:w-[40%] bg-[url("/images/traveler.png")] bg-center bg-no-repeat bg-contain' />
         </motion.section>
     );
