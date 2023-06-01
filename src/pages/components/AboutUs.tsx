@@ -23,8 +23,10 @@ const animation = {
 }
 
 const AboutUs: React.FC<AboutUsProps> = () => {
+    
     return (
         <motion.section 
+        id='about'
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
