@@ -15,7 +15,7 @@ const animation:{hidden: object, visible: object} = {
     visible: (custom: number) => ({
         y: 0,
         opacity: 1,
-        transition: {duration: 0.5}
+        transition: {duration: 0.7}
     })
 }
 
@@ -24,7 +24,7 @@ const Item: React.FC<ItemProps> = ({img, price, title}) => {
         <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.2, once: true}}
+        viewport={{ amount: 0.3, once: true}}
         variants={animation}
         className={`gradient aspect-[1/1.33] bg-org lg:hover:bg-full duration-300 flex flex-col justify-end items-center text-[#fff] pb-[20px]`} style={{backgroundImage: `url('/images/${img}')`}}>
             <div className="space-y-[16px] flex flex-col items-center">
