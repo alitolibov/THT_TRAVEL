@@ -46,7 +46,7 @@ const Header: React.FC<HeaderProps> = () => {
         animate="visible"
         exit={{ opacity: 0, transition: { duration: 1 } }}
         variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
-        className='px-[15px] h-[20vh] flex items-center justify-between md:px-[25px] xl:px-0 xl:w-[1250px] xl:mx-auto'>
+        className='h-[20vh] flex items-center justify-between px-[15px] lt:max-w-[510px] lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px]'>
                 <img src="/images/logo.png" className='w-[60px] md:w-[77px] xl:w-[85px]' alt="" />
                 <nav className="flex gap-x-[10px] md:gap-x-[15px] lg:gap-x-[20px]">
                 <a href='#' className="text-[#fff] text-[13px] duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[15px] xl:font-semibold xl:text-[16px]">{lang.header.services}</a>

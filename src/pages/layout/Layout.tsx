@@ -10,7 +10,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <div className='bg'>
             <Header/>
-            <main className='px-[15px] md:px-[25px] xl:px-0 xl:w-[1250px] xl:mx-auto'>
+            <main className='px-[15px] lt:max-w-[510px] lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px]'>
             {children}
             </main>
             <Footer/>

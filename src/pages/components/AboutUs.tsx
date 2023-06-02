@@ -30,11 +30,11 @@ const AboutUs: React.FC<AboutUsProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.5, once: true}}
-        className='space-y-[20px] sm:flex sm:justify-between sm:items-center'>
-            <div className="space-y-[40px] sm:w-[50%]">
+        className='space-y-[20px] md:flex md:justify-between md:items-center'>
+            <div className="space-y-[40px] md:w-[50%]">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative">
-                    <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">STORY</p>
-                    <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:text-[1.75rem]">Our Story</p>
+                    <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] md:text-[5rem] md:leading-[5rem]">STORY</p>
+                    <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] md:text-[1.75rem]">Our Story</p>
                 </motion.div>
                 <motion.p variants={itemVariants} className="text-[#fff]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam eveniet eos numquam placeat rem blanditiis enim? Eius, illum molestias animi aut, ullam error deleniti alias saepe vitae dolore illo ab.</motion.p>
             </div>
@@ -42,7 +42,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
             initial='hidden'
             whileInView='visible'
             viewport={{ amount: 0.5, once: true}}
-            variants={animation} className='aspect-square sm:w-[40%] bg-[url("/images/traveler.png")] bg-center bg-no-repeat bg-contain' />
+            variants={animation} className='aspect-square md:w-[40%] bg-[url("/images/traveler.png")] bg-center bg-no-repeat bg-contain' />
         </motion.section>
     );
 };

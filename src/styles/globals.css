@@ -29,4 +29,10 @@ body{
     background-position: center;
   }
 }
+.spacing{
+  letter-spacing: .2em;
+}
 
+.coverd{
+  background-size: 100%;
+}
