@@ -5,6 +5,7 @@ import uz from '../../public/lang/uz';
 import ru from '../../public/lang/ru';
 import en from '../../public/lang/en';
 import AboutUs from './components/AboutUs';
+import Services from './components/Services';
 
 interface MainProps {
     
@@ -40,6 +41,7 @@ const Main: React.FC<MainProps> = () => {
             <motion.div variants={itemVariants} className="flex items-center gap-x-[5px]"><p className="font-[500] text-[12px] text-white md:text-[14px] lg:text-[15px] xl:text-[16px]">{lang.header.scroll}</p> <img className='h-[16px]' src="/images/bottom.png" alt="" /></motion.div>
             </div>
             <AboutUs/>
+            <Services/>
         </motion.div>
     );
 };
