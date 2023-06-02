@@ -34,5 +34,11 @@ body{
 }
 
 .coverd{
+  transition: 300ms;
+  background-size: 110%;
+  background-position: center;
+
+}
+.coverd:hover{
   background-size: 100%;
 }
