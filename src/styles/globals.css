@@ -33,7 +33,7 @@ body{
   letter-spacing: .2em;
 }
 
-.coverd{
+/* .coverd{
   transition: 300ms;
   background-size: 110%;
   background-position: center;
@@ -41,4 +41,4 @@ body{
 }
 .coverd:hover{
   background-size: 100%;
-}
+} */

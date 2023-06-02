@@ -11,6 +11,7 @@ const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 const Services: React.FC<ServicesProps> = () => {
     return (
         <section 
+        id='services'
         className='space-y-[40px] my-[48px]'>
             <motion.div
             initial='hidden'
