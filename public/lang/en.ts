@@ -5,6 +5,13 @@ export default {
         employees: 'Employees',
         greetings: 'Travel with THT TRAVEL',
         scroll: 'Scroll down'
+    },
+    about: {
+        title: 'Why We Are Chosen',
+        one: 'Years in tourism',
+        two: 'Ready tours',
+        three: 'Satisfied customers',
+        four: 'Airfare discounts'
     }
     
 }
