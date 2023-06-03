@@ -1,6 +1,10 @@
 import React from 'react';
 import {motion} from 'framer-motion'
 import Item from './Item';
+import { useRouter } from 'next/router';
+import uz from '../../../public/lang/uz';
+import ru from '../../../public/lang/ru';
+import en from '../../../public/lang/en';
 
 interface ServicesProps {
     
@@ -9,6 +13,21 @@ interface ServicesProps {
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
 const Services: React.FC<ServicesProps> = () => {
+
+    const {locale} = useRouter()
+    let lang
+    switch(locale) {
+        case 'uz':
+            lang = uz
+          break
+        case 'ru': 
+        lang = ru
+          break
+        default:
+            lang = en
+          break
+      }
+
     return (
         <section 
         id='services'
@@ -20,7 +39,7 @@ const Services: React.FC<ServicesProps> = () => {
             className="">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">JOURNEY</p>
-                    <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">Your Journey Starts Here</p>
+                    <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{lang.services.title}</p>
                 </motion.div>
             </motion.div>
         <motion.div

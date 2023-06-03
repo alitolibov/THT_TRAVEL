@@ -12,6 +12,11 @@ export default {
         two: 'Tayyor turlar',
         three: 'Qoniqan mijozlar',
         four: 'Aviachiptalarga chegirmalar'
+    },
+    story: {
+        title: 'Hikoyamiz'
+    },
+    services: {
+        title: 'Sayohatingiz shu yerda boshlanadi”'
     }
-    
 }

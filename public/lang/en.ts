@@ -12,6 +12,11 @@ export default {
         two: 'Ready tours',
         three: 'Satisfied customers',
         four: 'Airfare discounts'
+    },
+    story: {
+        title: 'Our Story'
+    },
+    services: {
+        title: 'Your Journey Starts Here'
     }
-    
 }

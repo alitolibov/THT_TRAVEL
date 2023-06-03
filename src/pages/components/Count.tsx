@@ -27,7 +27,7 @@ const animation = {
 
 
 const Count: React.FC<CountProps> = () => {
-
+    
     const {locale} = useRouter()
     let lang
     switch(locale) {
@@ -41,7 +41,6 @@ const Count: React.FC<CountProps> = () => {
             lang = en
           break
       }
-
 
     const time = 1500
     const step = 1
