@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {motion} from 'framer-motion'
 
 interface CountProps {
@@ -18,7 +18,48 @@ const animation = {
     })
 }
 
+
+
+
+
 const Count: React.FC<CountProps> = () => {
+
+
+    const time = 3000
+    const step = 1
+
+    const outNum = (num : any, elem : any) => {
+        let n = 0
+        let t = Math.round(time / (num / step))
+        let interval = setInterval(() => {
+            n = n + step
+            if (n === num) {
+                clearInterval(interval)
+            }
+            elem.firstChild.firstChild.innerHTML = String(n)
+    }, t)
+    }
+
+    useEffect(() => {
+        const elem:any = document.querySelector('.scrollBlock');
+
+        document.addEventListener('scroll', onScroll);
+        
+        function onScroll() {
+          const posTop = elem.getBoundingClientRect().top;
+          
+          if(!elem.classList.contains('visible')) {
+            if(posTop + elem.clientHeight <= window.innerHeight && posTop >= 0) {
+                elem.childNodes.forEach((el: any) => {
+                            outNum(+el.firstChild.firstChild.getAttribute('data-num'), el)
+                        })
+                elem.classList.add('visible');
+                document.removeEventListener('scroll', onScroll);
+              }
+          }
+        }
+    }, [])
+
     return (
         <motion.section
         id='about'
@@ -35,21 +76,31 @@ const Count: React.FC<CountProps> = () => {
                 whileInView='visible'
                 viewport={{ amount: 0.3, once: true}}
                 variants={animation}
-                className="grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
-                    <div className="space-y-[5px]">
-                        <p className="text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">3</p>
+                className="scrollBlock grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
+                    <div id='num' className="space-y-[5px]">
+                    <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
+                            <p data-num="3" className="">0</p>
+                        </div>
                         <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">Лет в сфере туризма</p>
                     </div>
-                    <div className="space-y-[5px]">
-                        <p className="text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">100</p>
+                    <div id='num' className="space-y-[5px]">
+                    <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
+                            <p data-num="100" className="">0</p>
+                        </div>
                         <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">Готовых туров</p>
                     </div>
-                    <div className="space-y-[5px]">
-                        <p className="text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">100+</p>
+                    <div id='num' className="space-y-[5px]">
+                        <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
+                            <p data-num="100" className="">0</p>
+                            <span>+</span>
+                        </div>
                         <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">Доволных клиентов</p>
                     </div>
-                    <div className="space-y-[5px]">
-                        <p className="text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">10<span>%</span></p>
+                    <div id='num' className="space-y-[5px]">
+                        <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
+                            <p data-num="10" className="">0</p>
+                            <span>%</span>
+                        </div>
                         <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">Скидки на авиабилеты</p>
                     </div>
                 </motion.div>
