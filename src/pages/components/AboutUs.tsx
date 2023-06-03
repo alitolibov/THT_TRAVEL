@@ -18,7 +18,7 @@ const animation = {
     visible: (custom: number) => ({
         x: 0,
         opacity: 1,
-        transition: {duration: 1}
+        transition: {duration: 0.7}
     })
 }
 
