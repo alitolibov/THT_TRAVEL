@@ -12,7 +12,7 @@ const Services: React.FC<ServicesProps> = () => {
     return (
         <section 
         id='services'
-        className='space-y-[40px] my-[100px]'>
+        className='space-y-[40px] mt-[150px] mb-[50px]'>
             <motion.div
             initial='hidden'
             whileInView='visible'

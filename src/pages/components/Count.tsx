@@ -30,7 +30,7 @@ const Count: React.FC<CountProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.5, once: true}}
-        className='space-y-[40px]  my-[100px]'>
+        className='space-y-[40px] mb-[150px] mt-[50px]'>
                 {/* <h1 className='w-[290px] text-[#fff] mx-auto text-[24px] text-center font-semibold leading-[24px]'>Почему выбирают именно нас</h1> */}
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">ABOUT</p>
