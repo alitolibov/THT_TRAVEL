@@ -12,7 +12,7 @@ const Services: React.FC<ServicesProps> = () => {
     return (
         <section 
         id='services'
-        className='space-y-[40px] my-[48px]'>
+        className='space-y-[40px] my-[100px]'>
             <motion.div
             initial='hidden'
             whileInView='visible'
@@ -20,7 +20,7 @@ const Services: React.FC<ServicesProps> = () => {
             className="">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">JOURNEY</p>
-                    <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">Your Journey Starts Here</p>
+                    <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">Your Journey Starts Here</p>
                 </motion.div>
             </motion.div>
         <motion.div
