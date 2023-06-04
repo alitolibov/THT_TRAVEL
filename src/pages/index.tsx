@@ -8,6 +8,7 @@ import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Count from './components/Count';
 import Vises from './components/Vises';
+import Teem from './components/Teem';
 
 interface MainProps {
     
@@ -46,6 +47,7 @@ const Main: React.FC<MainProps> = () => {
             <AboutUs/>
             <Services/>
             <Vises/>
+            <Teem/>
         </motion.div>
     );
 };

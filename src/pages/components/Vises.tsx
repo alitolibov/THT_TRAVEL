@@ -5,9 +5,7 @@ import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
 
-interface VisesProps {
-    
-}
+interface VisesProps {}
 
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     const itemVariants = {
@@ -20,11 +18,11 @@ const animation = {
         y: 30,
         opacity: 0
     },
-    visible: (custom: number) => ({
+    visible: {
         y: 0,
         opacity: 1,
         transition: {duration: 0.7}
-    })
+    }
 }
 
 const Vises: React.FC<VisesProps> = () => {
@@ -54,7 +52,7 @@ const Vises: React.FC<VisesProps> = () => {
 
     return (
         <section 
-        className='space-y-[20px] my-[100px] md:flex md:justify-between md:items-center md:space-y-[50px]'>
+        className='space-y-[20px] my-[150px] md:flex md:justify-between md:items-center md:space-y-[50px]'>
             <motion.div 
             initial='hidden'
             whileInView='visible'
@@ -71,7 +69,6 @@ const Vises: React.FC<VisesProps> = () => {
                     <br/>
                     <p id='three'></p>
                 </motion.div>
-
             </motion.div>
             <motion.div 
             initial='hidden'

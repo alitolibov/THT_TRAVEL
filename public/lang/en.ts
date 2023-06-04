@@ -55,6 +55,9 @@ export default {
         title: 'Visa application',
         one: "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour",
         two: "Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support",
-        three: 'Applying for a US visa <br/> -B1-B2 <br/> - F1 <br/> - DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!!'
+        three: 'Applying for a US visa <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!!'
+    },
+    teem: {
+        title: 'Meet Our The Best Team'
     }
 }
