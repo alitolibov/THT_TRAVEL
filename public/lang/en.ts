@@ -50,5 +50,11 @@ export default {
                 img: 'https://images.unsplash.com/photo-1567527259232-3a7fcd490c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
             },
         ]
+    },
+    vises: {
+        title: 'Visa application',
+        one: "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour",
+        two: "Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support",
+        three: 'Applying for a US visa <br/> -B1-B2 <br/> - F1 <br/> - DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!!'
     }
 }

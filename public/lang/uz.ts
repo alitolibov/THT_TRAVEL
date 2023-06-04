@@ -50,5 +50,11 @@ export default {
                 img: 'https://images.unsplash.com/photo-1567527259232-3a7fcd490c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
             },
         ]
+    },
+    vises: {
+        title: 'Vizalar',
+        one: "Shengen vizasini C toifasiga topshirish <br/> -Полый пакет <br/> -Faqat sayohat",
+        two: "Shengen ish vizasini olish uchun ariza berish D <br/> -Kafolatlangan taklifnoma olish <br/> -To'liq qo'llab-quvvatlash",
+        three: 'AQSh vizasini olish uchun ariza berish <br/> -B1-B2 <br/> - F1 <br/> - DV1 <br/> -B3A <br/> Taklifnomaga garant!'
     }
 }

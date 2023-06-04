@@ -50,5 +50,11 @@ export default {
                 img: 'https://images.unsplash.com/photo-1567527259232-3a7fcd490c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
             },
         ]
+    },
+    vises: {
+        title: 'Оформление визы',
+        one: "Оформление шенгенской визы категория С <br/> -Полный пакет <br/> -Только тур",
+        two: "Оформление шенгенской рабочий визы D <br/> -Получение гарантированный приглашение <br/> -Полное сопровождение",
+        three: 'Оформление визы в США <br/> -B1-B2 <br/> - F1 <br/> - DV1 <br/> -B3A <br/> Получение гарант приглашении!'
     }
 }
