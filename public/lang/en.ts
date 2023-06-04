@@ -3,7 +3,7 @@ export default {
         about: 'About us',
         services: 'Services',
         employees: 'Employees',
-        greetings: 'Travel with THT TRAVEL',
+        greetings: 'Travel with THT VISA',
         scroll: 'Scroll down'
     },
     about: {
@@ -17,6 +17,38 @@ export default {
         title: 'Our Story'
     },
     services: {
-        title: 'Your Journey Starts Here'
+        title: 'Your Journey Starts Here',
+        tours: [
+            {
+                id: 1,
+                country: 'Dubai',
+                img: 'dubai'
+            },
+            {
+                id: 2,
+                country: 'Thailand',
+                img: 'thailand'
+            },
+            {
+                id: 3,
+                country: 'Egypt',
+                img: 'egypt'
+            },
+            {
+                id: 4,
+                country: 'Europe',
+                img: 'europe'
+            },
+            {
+                id: 5,
+                country: 'Georgia',
+                img: 'georgia'
+            },
+            {
+                id: 6,
+                country: 'Turkey',
+                img: 'turkey'
+            },
+        ]
     }
 }

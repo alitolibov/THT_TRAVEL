@@ -30,8 +30,8 @@ const Services: React.FC<ServicesProps> = () => {
 
     return (
         <section 
-        id='services'
-        className='space-y-[40px] mt-[150px] mb-[50px] md:space-y-[50px]'>
+            id='services'
+            className='space-y-[40px] mt-[150px] mb-[50px] md:space-y-[50px]'>
             <motion.div
             initial='hidden'
             whileInView='visible'
@@ -47,12 +47,9 @@ const Services: React.FC<ServicesProps> = () => {
         whileInView='visible'
         viewport={{ amount: 0.5, once: true}}
         className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
-            <Item img='bg.png'/>
-            <Item img='bg.png'/>
-            <Item img='bg.png'/>
-            <Item img='bg.png'/>
-            <Item img='bg.png'/>
-            <Item img='bg.png'/>
+            {
+                lang.services.tours.map(item => <Item key={item.id} img={item.img} title={item.country} id={item.id}/>)
+            }
         </motion.div>
         </section>
     );

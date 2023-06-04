@@ -3,8 +3,8 @@ import { motion } from "framer-motion";
 
 interface ItemProps {
     img: string
-    price?: number
-    title?: string
+    id: number
+    title: string
 }
 
 const animation:{hidden: object, visible: object} = {
@@ -19,18 +19,15 @@ const animation:{hidden: object, visible: object} = {
     })
 }
 
-const Item: React.FC<ItemProps> = ({img, price, title}) => {
+const Item: React.FC<ItemProps> = ({img, id, title}) => {
     return (
         <motion.div
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.3, once: true}}
         variants={animation}
-        className={`gradient aspect-[1/1.33] bg-org lg:hover:bg-full duration-300 flex flex-col justify-end items-center text-[#fff] pb-[20px]`} style={{backgroundImage: `url('/images/${img}')`}}>
-            <div className="space-y-[16px] flex flex-col items-center">
-                <div className="px-[16px] py-[5px] bg-[var(--main-color-two)] flex items-center justify-center w-fit text-[12px] rounded-[30px] spacing">$250.00</div>
-                <p className="text-[18px] font-[500]">Samarkand tour</p>
-            </div>
+        className={`gradient relative aspect-[1/1.33] bg-org lg:hover:bg-full duration-300 flex flex-col justify-end items-center pb-[20px]`} style={{backgroundImage: `url('/images/${img}.jpeg')`}}>
+            <p className="text-[20px] text-center font-[500] text-[#fff]">{title}</p>
         </motion.div>
     );
 };
