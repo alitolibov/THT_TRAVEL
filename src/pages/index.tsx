@@ -7,6 +7,7 @@ import en from '../../public/lang/en';
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Count from './components/Count';
+import Vises from './components/Vises';
 
 interface MainProps {
     
@@ -44,6 +45,7 @@ const Main: React.FC<MainProps> = () => {
             <Count/>
             <AboutUs/>
             <Services/>
+            <Vises/>
         </motion.div>
     );
 };
