@@ -32,6 +32,9 @@ body{
 .spacing{
   letter-spacing: .2em;
 }
+.spacing_two {
+  letter-spacing: .1rem
+}
 
 
 
