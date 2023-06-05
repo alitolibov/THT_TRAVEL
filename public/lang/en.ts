@@ -12,6 +12,8 @@ export default {
         two: 'Ready tours',
         three: 'Satisfied customers',
         four: 'Airfare discounts',
+        show: 'Show more',
+        hidden: 'Hide',
         dsc: 'Our travel agency is a real success story. We started our journey in 2020 as a small company. Today we are one of the leaders in the travel services market, offering trips all over the world.',
         dsc2: "<br/>Our success is built on the work of a team of highly qualified specialists, each of whom loves his job and gives it all his strength. We want to help people see the world and make it accessible to everyone. We offer travel all over the world, from small day trips to full world tours. In addition, we offer visa processing services for other countries. Thanks to a deep knowledge of the rules of migration legislation and the history of each country, we are ready to provide high-quality assistance in obtaining visas for everyone who wants to travel abroad."
     },

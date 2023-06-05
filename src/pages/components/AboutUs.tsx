@@ -66,7 +66,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                     <p id='dsc'></p>
                     <p className={`${show ? 'block' : 'hidden'}`} id='dsc2'></p>
                     <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
-                        <p className='text-[var(--main-color-two)]'>{show ? 'Свернуть' : 'Показать ещё'}</p>
+                        <p className='text-[var(--main-color-two)]'>{show ? lang.about.hidden : lang.about.show}</p>
                         <img src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
                     </div>
                 </motion.div>

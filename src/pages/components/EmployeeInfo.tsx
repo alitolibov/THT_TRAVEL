@@ -1,4 +1,5 @@
 import React from 'react';
+import {motion} from 'framer-motion'
 
 interface EmployeeInfoProps {
     photo?: string
@@ -9,9 +10,26 @@ interface EmployeeInfoProps {
     phone?: string
 }
 
+const animation:{hidden: object, visible: object} = {
+    hidden: {
+        y: 30,
+        opacity: 0
+    },
+    visible: (custom: number) => ({
+        y: 0,
+        opacity: 1,
+        transition: {duration: 0.7}
+    })
+}
+
 const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, tg, phone}) => {
     return (
-        <div className='space-y-[24px]'>
+        <motion.div
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ amount: 0.3, once: true}}
+        variants={animation}
+        className='space-y-[24px]'>
             <div className={`mx-auto w-[260px] h-[260px] bg-cover bg-center`} style={{backgroundImage: `url('${photo}')`}}></div>
             <div className="space-y-[2px] w-fit mx-auto">
                 <h1 className='text-[18px] font-semibold text-[var(--main-color-two)] text-center'>{name}</h1>
@@ -29,7 +47,7 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
                     <img src="/images/tg_bio.png" height='25px' width='25px' className='object-[-2px]'/>
                 </div>
             </div>
-        </div>
+        </motion.div>
     )
 };
 

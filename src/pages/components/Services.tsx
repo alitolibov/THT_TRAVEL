@@ -42,15 +42,12 @@ const Services: React.FC<ServicesProps> = () => {
                     <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{lang.services.title}</p>
                 </motion.div>
             </motion.div>
-        <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ amount: 0.5, once: true}}
+        <div
         className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
             {
                 lang.services.tours.map(item => <Item key={item.id} img={item.img} title={item.country} id={item.id}/>)
             }
-        </motion.div>
+        </div>
         </section>
     );
 };

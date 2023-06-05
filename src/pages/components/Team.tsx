@@ -1,6 +1,5 @@
 import React from 'react';
 import {motion} from 'framer-motion'
-import Item from './Item';
 import { useRouter } from 'next/router';
 import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
@@ -45,7 +44,9 @@ const Team: React.FC<TeamProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.5, once: true}}
-        className="grid grid-cols-1 gap-y-[24px] md:grid-cols-3 md:gap-x-[30px] md:gap-y-[30px]">
+        className="grid grid-cols-1 gap-y-[24px] lg:grid-cols-3 lg:gap-x-[30px] lg:gap-y-[30px]">
+            <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
+            <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
             <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
         </motion.div>
         </section>

@@ -60,11 +60,8 @@ const Vises: React.FC<VisesProps> = () => {
                 </motion.div>
                     <motion.p variants={itemVariants} className="text-[#fff]" id='one'></motion.p>
             </motion.div>
-            <motion.div 
-            initial='hidden'
-            whileInView='visible'
-            viewport={{ amount: 0.5, once: true}}
-            variants={animation} className='aspect-square md:w-[40%] bg-[url("/images/visa.png")] bg-center bg-no-repeat bg-contain' />
+            <div 
+             className='aspect-square md:w-[40%] bg-[url("/images/visa.png")] bg-center bg-no-repeat bg-contain' />
         </section>
     );
 };
