@@ -9,6 +9,7 @@ import Services from './components/Services';
 import Count from './components/Count';
 import Vises from './components/Vises';
 import Team from './components/Team';
+import Head from 'next/head';
 
 interface MainProps {
     
@@ -34,6 +35,11 @@ const Main: React.FC<MainProps> = () => {
           break
       }
     return (
+        <>
+        <Head>
+            <title>THT VISA</title>
+            <link rel="icon" sizes="48x48" href="/images/logo.png" />
+        </Head>
         <motion.div 
         initial="hidden"
         animate="visible"
@@ -49,6 +55,7 @@ const Main: React.FC<MainProps> = () => {
             <Vises/>
             <Team/>
         </motion.div>
+        </>
     );
 };
 
