@@ -55,9 +55,7 @@ export default {
     },
     vises: {
         title: 'Visa Application',
-        one: "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour",
-        two: "Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support",
-        three: 'Applying for a US visa <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!!'
+        dsc: "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour <br/><br/> Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support <br/> <br/> Applying for a US visa <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!"
     },
     team: {
         title: 'Meet Our Team'

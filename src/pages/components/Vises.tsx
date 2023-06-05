@@ -43,11 +43,7 @@ const Vises: React.FC<VisesProps> = () => {
 
       useEffect(() => {
             let one:any = document.querySelector('#one')
-            let two:any = document.querySelector('#two')
-            let three:any = document.querySelector('#three')
-            one.innerHTML = lang.vises.one
-            two.innerHTML = lang.vises.two
-            three.innerHTML = lang.vises.three
+            one.innerHTML = lang.vises.dsc
       }, [lang])
 
     return (
@@ -62,13 +58,7 @@ const Vises: React.FC<VisesProps> = () => {
                     <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">VISES</p>
                     <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{lang.vises.title}</p>
                 </motion.div>
-                <motion.div variants={itemVariants} className="text-[#fff]">
-                    <p id='one'></p>
-                    <br/>
-                    <p id='two'></p>
-                    <br/>
-                    <p id='three'></p>
-                </motion.div>
+                    <motion.p variants={itemVariants} className="text-[#fff]" id='one'></motion.p>
             </motion.div>
             <motion.div 
             initial='hidden'

@@ -55,9 +55,7 @@ export default {
     },
     vises: {
         title: 'Vizalar',
-        one: "Shengen vizasini C toifasiga topshirish <br/> -To'liq paket <br/> -Faqat sayohat",
-        two: "Shengen ish vizasini olish uchun ariza berish D <br/> -Kafolatlangan taklifnoma olish <br/> -To'liq qo'llab-quvvatlash",
-        three: 'AQSh vizasini olish uchun ariza berish <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Taklifnomaga garant!'
+        dsc: "Shengen vizasini C toifasiga topshirish <br/> -To'liq paket <br/> -Faqat sayohat <br/><br/>Shengen ish vizasini olish uchun ariza berish D <br/> -Kafolatlangan taklifnoma olish <br/> -To'liq qo'llab-quvvatlash  <br/><br/> AQSh vizasini olish uchun ariza berish <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Taklifnomaga garant!"
     },
     team: {
         title: 'Bizning Jamoamiz Bilan Tanishing'
