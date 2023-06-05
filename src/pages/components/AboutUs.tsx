@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {motion} from 'framer-motion'
 import { useRouter } from 'next/router';
 import uz from '../../../public/lang/uz';
@@ -27,9 +27,10 @@ const animation = {
 }
 
 const AboutUs: React.FC<AboutUsProps> = () => {
-    
+
     const {locale} = useRouter()
-    let lang
+    const [show, setShow] = useState<boolean>(false)
+    let lang:any
     switch(locale) {
         case 'uz':
             lang = uz
@@ -41,6 +42,15 @@ const AboutUs: React.FC<AboutUsProps> = () => {
             lang = en
           break
       }
+
+      useEffect(() => {
+        let dsc:any = document.querySelector('#dsc')
+        let dsc2:any = document.querySelector('#dsc2')
+        dsc.innerHTML = lang.about.dsc
+        dsc2.innerHTML = lang.about.dsc2
+      }, [lang])
+
+
     return (
         <motion.section 
         initial='hidden'
@@ -52,7 +62,14 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                     <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">STORY</p>
                     <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{lang.story.title}</p>
                 </motion.div>
-                <motion.p variants={itemVariants} className="text-[#fff]">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veniam eveniet eos numquam placeat rem blanditiis enim? Eius, illum molestias animi aut, ullam error deleniti alias saepe vitae dolore illo ab.</motion.p>
+                <motion.div variants={itemVariants} className="text-[#fff]">
+                    <p id='dsc'></p>
+                    <p className={`${show ? 'block' : 'hidden'}`} id='dsc2'></p>
+                    <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
+                        <p className='text-[var(--main-color-two)]'>{show ? 'Свернуть' : 'Показать ещё'}</p>
+                        <img src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
+                    </div>
+                </motion.div>
             </div>
             <motion.div 
             initial='hidden'

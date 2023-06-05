@@ -6,11 +6,11 @@ import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
 
-interface TeemProps {}
+interface TeamProps {}
 
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
-const Teem: React.FC<TeemProps> = () => {
+const Team: React.FC<TeamProps> = () => {
 
     const {locale} = useRouter()
     let lang
@@ -37,7 +37,7 @@ const Teem: React.FC<TeemProps> = () => {
             className="">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.14rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">OUR TEAM</p>
-                    <p className="sm:max-w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{lang.teem.title}</p>
+                    <p className="sm:max-w-[287px] left-[50%] translate-x-[-50%] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{lang.team.title}</p>
                 </motion.div>
             </motion.div>
         <motion.div
@@ -50,4 +50,4 @@ const Teem: React.FC<TeemProps> = () => {
     );
 };
 
-export default Teem;
+export default Team;

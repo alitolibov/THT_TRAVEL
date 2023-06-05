@@ -11,7 +11,9 @@ export default {
         one: 'Yil turizm sohasida',
         two: 'Tayyor turlar',
         three: 'Qoniqan mijozlar',
-        four: 'Aviachiptalarga chegirmalar'
+        four: 'Aviachiptalarga chegirmalar',
+        dsc: "Bizning sayyohlik agentligimiz haqiqiy muvaffaqiyat tarixidir. Biz sayohatimizni 2020 yilda kichik kompaniya sifatida boshladik. Bugun biz butun dunyo bo'ylab sayohatlarni taklif etuvchi sayyohlik xizmatlari bozorida yetakchilardanmiz.",
+        dsc2: "<br/>Bizning muvaffaqiyatlarimiz har biri o‘z ishini sevib, unga bor kuch-g‘ayratini bag‘ishlagan yuqori malakali mutaxassislar jamoasi mehnatiga asoslanadi. Biz odamlarga dunyoni ko'rishga va uni hamma uchun ochiq qilishiga yordam berishni xohlaymiz. Biz butun dunyo bo'ylab sayohatlarni taklif qilamiz, kichik kunlik sayohatlardan to to'liq dunyo turlarigacha. Bundan tashqari, biz boshqa mamlakatlar uchun vizalarni rasmiylashtirish xizmatlarini taklif qilamiz. Migratsiya qonunchiligi qoidalari va har bir davlat tarixini chuqur bilishimiz tufayli biz chet elga chiqishni xohlovchi har bir kishiga viza olishda sifatli yordam berishga tayyormiz."
     },
     story: {
         title: 'Hikoyamiz'
@@ -57,7 +59,7 @@ export default {
         two: "Shengen ish vizasini olish uchun ariza berish D <br/> -Kafolatlangan taklifnoma olish <br/> -To'liq qo'llab-quvvatlash",
         three: 'AQSh vizasini olish uchun ariza berish <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Taklifnomaga garant!'
     },
-    teem: {
+    team: {
         title: 'Bizning Jamoamiz Bilan Tanishing'
     }
 }

@@ -11,7 +11,9 @@ export default {
         one: 'Years in tourism',
         two: 'Ready tours',
         three: 'Satisfied customers',
-        four: 'Airfare discounts'
+        four: 'Airfare discounts',
+        dsc: 'Our travel agency is a real success story. We started our journey in 2020 as a small company. Today we are one of the leaders in the travel services market, offering trips all over the world.',
+        dsc2: "<br/>Our success is built on the work of a team of highly qualified specialists, each of whom loves his job and gives it all his strength. We want to help people see the world and make it accessible to everyone. We offer travel all over the world, from small day trips to full world tours. In addition, we offer visa processing services for other countries. Thanks to a deep knowledge of the rules of migration legislation and the history of each country, we are ready to provide high-quality assistance in obtaining visas for everyone who wants to travel abroad."
     },
     story: {
         title: 'Our Story'
@@ -52,12 +54,12 @@ export default {
         ]
     },
     vises: {
-        title: 'Visa application',
+        title: 'Visa Application',
         one: "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour",
         two: "Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support",
         three: 'Applying for a US visa <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!!'
     },
-    teem: {
-        title: 'Meet Our The Best Team'
+    team: {
+        title: 'Meet Our Team'
     }
 }
