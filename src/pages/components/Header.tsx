@@ -12,10 +12,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = () => {
     const visible = { opacity: 1, y: 0, transition: { duration: 0.5 } };
-    const itemVariants = {
-        hidden: { opacity: 0, y: 10 },
-        visible
-      };
     const {locale} = useRouter()
     let lang
     switch(locale) {
@@ -32,7 +28,7 @@ const Header: React.FC<HeaderProps> = () => {
       
       const anchor = (e:any) => {
         e.preventDefault()
-        const blockID = e.target.getAttribute('href')
+        const blockID = e.target.getAttribute('href') as HTMLElement
         document.querySelector('' + blockID)?.scrollIntoView({
             behavior: 'smooth',
             block: 'start'

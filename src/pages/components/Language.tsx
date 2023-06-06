@@ -43,9 +43,9 @@ function useMenuAnimation(isOpen: boolean) {
 export default function Language() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const scope = useMenuAnimation(isOpen);
-  const [lang, setLang] = useState('ru')
+  const [lang, setLang] = useState<string>('ru')
   const {locale, push} = useRouter()
-  const pathname = usePathname();
+  const pathname:string = usePathname();
   
 
   useEffect(() => {

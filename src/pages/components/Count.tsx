@@ -58,7 +58,7 @@ const Count: React.FC<CountProps> = () => {
     }
 
     useEffect(() => {
-        const elem:any = document.querySelector('.scrollBlock');
+        const elem = document.querySelector('.scrollBlock') as HTMLElement;
 
         document.addEventListener('scroll', onScroll);
         
