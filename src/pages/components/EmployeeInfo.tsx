@@ -1,5 +1,5 @@
 import React from 'react';
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 
 interface EmployeeInfoProps {
     photo?: string
@@ -15,11 +15,11 @@ const animation:{hidden: object, visible: object} = {
         y: 30,
         opacity: 0
     },
-    visible: (custom: number) => ({
+    visible: {
         y: 0,
         opacity: 1,
         transition: {duration: 0.7}
-    })
+    }
 }
 
 const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, tg, phone}) => {

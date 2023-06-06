@@ -19,11 +19,11 @@ const animation = {
         x: -30,
         opacity: 0
     },
-    visible: (custom: number) => ({
+    visible: {
         x: 0,
         opacity: 1,
         transition: {duration: 0.7}
-    })
+    }
 }
 
 const AboutUs: React.FC<AboutUsProps> = () => {

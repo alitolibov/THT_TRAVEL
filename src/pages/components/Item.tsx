@@ -12,11 +12,11 @@ const animation:{hidden: object, visible: object} = {
         y: 30,
         opacity: 0
     },
-    visible: (custom: number) => ({
+    visible: {
         y: 0,
         opacity: 1,
         transition: {duration: 0.7}
-    })
+    }
 }
 
 const Item: React.FC<ItemProps> = ({img, id, title}) => {
