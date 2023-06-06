@@ -82,7 +82,7 @@ const Count: React.FC<CountProps> = () => {
         id='about'
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.5, once: true}}
+        viewport={{ amount: 0.4, once: true}}
         className='space-y-[40px] mb-[150px] mt-[50px] md:space-y-[50px]'>
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">ABOUT</p>
@@ -91,7 +91,7 @@ const Count: React.FC<CountProps> = () => {
                 <motion.div 
                 initial='hidden'
                 whileInView='visible'
-                viewport={{ amount: 0.3, once: true}}
+                viewport={{ amount: 0.4, once: true}}
                 variants={animation}
                 className="scrollBlock grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
                     <div id='num' className="space-y-[5px]">

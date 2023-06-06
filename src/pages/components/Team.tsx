@@ -33,7 +33,7 @@ const Team: React.FC<TeamProps> = () => {
             <motion.div
             initial='hidden'
             whileInView='visible'
-            viewport={{ amount: 0.5, once: true}}
+            viewport={{ amount: 0.4, once: true}}
             className="">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.14rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">OUR TEAM</p>
@@ -43,7 +43,7 @@ const Team: React.FC<TeamProps> = () => {
         <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.5, once: true}}
+        viewport={{ amount: 0.4, once: true}}
         className="grid grid-cols-1 gap-y-[24px] lg:grid-cols-3 lg:gap-x-[30px] lg:gap-y-[30px]">
             <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
             <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>

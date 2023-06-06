@@ -27,7 +27,7 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
         <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.3, once: true}}
+        viewport={{ amount: 0.4, once: true}}
         variants={animation}
         className='space-y-[24px]'>
             <div className={`mx-auto w-[260px] h-[260px] bg-cover bg-center`} style={{backgroundImage: `url('${photo}')`}}></div>

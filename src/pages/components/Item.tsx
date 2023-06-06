@@ -24,7 +24,7 @@ const Item: React.FC<ItemProps> = ({img, id, title}) => {
         <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.3, once: true}}
+        viewport={{ amount: 0.4, once: true}}
         variants={animation}
         className={`gradient relative bg-center aspect-[1/1.33] bg-org lg:hover:bg-full duration-300 flex flex-col justify-end items-center pb-[20px]`} style={{backgroundImage: `url('${img}')`}}>
             <p className="text-[20px] text-center font-[500] text-[#fff]">{title}</p>

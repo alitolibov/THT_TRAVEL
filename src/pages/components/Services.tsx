@@ -35,7 +35,7 @@ const Services: React.FC<ServicesProps> = () => {
             <motion.div
             initial='hidden'
             whileInView='visible'
-            viewport={{ amount: 0.5, once: true}}
+            viewport={{ amount: 0.4, once: true}}
             className="">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative w-fit mx-auto">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">JOURNEY</p>

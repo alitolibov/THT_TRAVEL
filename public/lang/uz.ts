@@ -7,7 +7,7 @@ export default {
         scroll: 'Pastga aylantiring'
     },
     about: {
-        title: 'Nega aynan bizni tanlashadi',
+        title: 'Nega Aynan Bizni Tanlashadi',
         one: 'Yil turizm sohasida',
         two: 'Tayyor turlar',
         three: 'Qoniqan mijozlar',
@@ -21,7 +21,7 @@ export default {
         title: 'Hikoyamiz'
     },
     services: {
-        title: 'Sayohatingiz shu yerda boshlanadi',
+        title: 'Sayohatingiz Shu Yerda Boshlanadi',
         tours: [
             {
                 id: 1,
