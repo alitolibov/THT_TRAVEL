@@ -38,7 +38,7 @@ const Main: React.FC<MainProps> = () => {
         <>
         <Head>
             <title>THT VISA</title>
-            <link rel="icon" sizes="32x32" href="/images/logo.png" />
+            <link rel="icon" sizes="32x32" href="/images/logo_head.png" />
         </Head>
         <motion.div 
         initial="hidden"
