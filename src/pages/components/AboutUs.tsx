@@ -44,8 +44,8 @@ const AboutUs: React.FC<AboutUsProps> = () => {
       }
 
       useEffect(() => {
-        let dsc:any = document.querySelector('#dsc') as HTMLElement
-        let dsc2:any = document.querySelector('#dsc2') as HTMLElement
+        let dsc = document.querySelector('#dsc') as HTMLElement
+        let dsc2 = document.querySelector('#dsc2') as HTMLElement
         dsc.innerHTML = lang.about.dsc
         dsc2.innerHTML = lang.about.dsc2
       }, [lang])
