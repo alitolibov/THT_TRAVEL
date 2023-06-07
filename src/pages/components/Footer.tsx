@@ -75,8 +75,8 @@ const Footer: React.FC<FooterProps> = () => {
                 <a href="https://www.instagram.com/tht_viza/">
                     <img src="/images/insta.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
-                <a href="https://www.facebook.com/tht_viza/">
-                    <img src="/images/facebook.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
+                <a href="mailto:thtagency02@gmail.com">
+                    <img src="/images/gmail.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
             </div>
             <div className="space-y-[5px] hidden lg:block">
