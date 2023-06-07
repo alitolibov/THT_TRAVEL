@@ -10,6 +10,32 @@ interface TeamProps {}
 
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
+const arr:any = [
+    {
+        photo: 'photo_one2.jpeg',
+        name: 'Tagiev Khusen',
+        level: 'Manager',
+        phone: '+998915438880',
+        tg: 'https://t.me/+998915438880',
+        insta: 'https://www.instagram.com/husintagiyev/'
+    },
+    {
+        photo: 'photo_two.jpeg',
+        name: 'Tagiev Khasan',
+        level: 'CEO Director',
+        phone: '+998978980222',
+        tg: 'https://t.me/khasan_tagiev',
+        insta: 'https://www.instagram.com/khasan_tagiev/'
+    },{
+        photo: 'photo_3.jpeg',
+        name: 'Sherzod Khamidov',
+        level: 'Sales Manager',
+        phone: '+998907434442',
+        tg: 'https://t.me/khamidov_Sher',
+        insta: 'https://www.instagram.com/khamidov2o3/'
+    }
+]
+
 const Team: React.FC<TeamProps> = () => {
 
     const {locale} = useRouter()
@@ -45,9 +71,9 @@ const Team: React.FC<TeamProps> = () => {
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
         className="bgImges grid grid-cols-1 gap-y-[24px] lg:grid-cols-3 lg:gap-x-[30px] lg:gap-y-[30px]">
-            <EmployeeInfo photo='photo_one2.jpeg' name='Tagiev Khusen' level='Manager' phone='+998915438880' tg='https://t.me/+998915438880' insta='https://www.instagram.com/husintagiyev/'/>
-            <EmployeeInfo photo='photo_two.jpeg' name='Tagiev Khasan' level='CEO Director' phone='+998978980222' tg='https://t.me/khasan_tagiev' insta='https://www.instagram.com/khasan_tagiev/'/>
-            <EmployeeInfo photo='photo_three.jpeg' name='Sherzod Khamidov' level='Sales Manager' phone='+998907434442' tg='https://t.me/khamidov_Sher' insta='https://www.instagram.com/khamidov2o3/'/>
+            {
+                arr.map((item:any, idx:number) => <EmployeeInfo photo={item.photo} name={item.name} level={item.level} phone={item.phone} insta={item.insta} tg={item.tg} key={idx}/>)
+            }
         </motion.div>
         </section>
     );
