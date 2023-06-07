@@ -47,7 +47,7 @@ const Team: React.FC<TeamProps> = () => {
         className="bgImges grid grid-cols-1 gap-y-[24px] lg:grid-cols-3 lg:gap-x-[30px] lg:gap-y-[30px]">
             <EmployeeInfo photo='photo_one2.jpeg' name='Tagiev Khusen' level='Manager' phone='+998915438880' tg='https://t.me/+998915438880' insta='https://www.instagram.com/husintagiyev/'/>
             <EmployeeInfo photo='photo_two.jpeg' name='Tagiev Khasan' level='CEO Director' phone='+998978980222' tg='https://t.me/khasan_tagiev' insta='https://www.instagram.com/khasan_tagiev/'/>
-            <EmployeeInfo photo='' name='Sherzod Khamidov' level='Sales Manager' phone='+998907434442' tg='https://t.me/khamidov_Sher' insta='https://www.instagram.com/khamidov2o3/'/>
+            <EmployeeInfo photo='photo_three.jpeg' name='Sherzod Khamidov' level='Sales Manager' phone='+998907434442' tg='https://t.me/khamidov_Sher' insta='https://www.instagram.com/khamidov2o3/'/>
         </motion.div>
         </section>
     );
