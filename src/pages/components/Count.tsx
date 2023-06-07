@@ -5,9 +5,7 @@ import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
 
-interface CountProps {
-    
-}
+interface CountProps {}
 
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 const animation = {
@@ -15,11 +13,11 @@ const animation = {
         y:  30,
         opacity: 0
     },
-    visible: (custom: number) => ({
+    visible: {
         y: 0,
         opacity: 1,
         transition: {duration: 0.7}
-    })
+    }
 }
 
 
@@ -42,8 +40,8 @@ const Count: React.FC<CountProps> = () => {
           break
       }
 
-    const time = 1200
-    const step = 1
+    const time:number = 1200
+    const step:number = 1
 
     const outNum = (num : any, elem : any) => {
         let n = 0

@@ -47,7 +47,7 @@ const Team: React.FC<TeamProps> = () => {
         className="grid grid-cols-1 gap-y-[24px] lg:grid-cols-3 lg:gap-x-[30px] lg:gap-y-[30px]">
             <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
             <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='Steve Jobs' level='STAFF'/>
-            <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='John Sins' level='STAFF'/>
+            <EmployeeInfo photo='https://preview.colorlib.com/theme/trips/images/person_1.jpg' name='Mark' level='STAFF'/>
         </motion.div>
         </section>
     );
