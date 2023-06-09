@@ -16,13 +16,13 @@ interface MainProps {
 }
 
 const Main: React.FC<MainProps> = () => {
-    const visible = { opacity: 1, y: 0, transition: { duration: 0.7 } };
-    const itemVariants = {
+    const visible:any = { opacity: 1, y: 0, transition: { duration: 0.7 } };
+    const itemVariants:object = {
         hidden: { opacity: 0, y: 10 },
         visible
       };
     const {locale} = useRouter()
-    let lang
+    let lang:any
     switch(locale) {
         case 'uz':
             lang = uz
