@@ -29,6 +29,9 @@ body{
     background-position: center;
   }
 }
+.bottom_img {
+  background-image: url('../../public/images/bottom.png');
+}
 .spacing{
   letter-spacing: .2em;
 }
