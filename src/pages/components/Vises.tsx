@@ -65,7 +65,7 @@ const Vises: React.FC<VisesProps> = () => {
             whileInView='visible'
             viewport={{ amount: 0.4, once: true}}
             variants={animation}
-            className='aspect-square md:w-[40%] bg-[url("/images/visa.png")] bg-center bg-no-repeat bg-contain'></motion.div>
+            className='aspect-square md:w-[40%] bg-[url("/images/visa.webp")] bg-center bg-no-repeat bg-contain'></motion.div>
         </section>
     );
 };

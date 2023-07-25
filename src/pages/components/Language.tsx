@@ -75,7 +75,7 @@ export default function Language() {
         }}
         className="right-0 w-[45px]"
       >
-        <li className="px-[10px] py-[5px] duration-300 lg:cursor-pointer lg:hover:bg-[#ffffff50]" onClick={(e) => setLang('ru')}><img className="w-[26px] h-[24px]" src="/images/rus.png" alt="" /></li>
+        <li className="px-[10px] py-[5px] duration-300 lg:cursor-pointer lg:hover:bg-[#ffffff50]" onClick={(e) => setLang('ru')}><img className="w-[26px] h-[24px]" src="/images/rus.webp" alt="" /></li>
         <li className="px-[10px] py-[5px] duration-300 lg:cursor-pointer lg:hover:bg-[#ffffff50]" onClick={(e) => setLang('uz')}><img className="w-[24px] h-[24px]" src="https://cdn0.iconfinder.com/data/icons/world-flags-1/100/uzbekistan-2-1024.png" alt="" /></li>
         <li className="px-[10px] py-[5px] duration-300 lg:cursor-pointer lg:hover:bg-[#ffffff50]" onClick={(e) => setLang('en')}><img className="w-[24px] h-[24px]" src="https://cdn1.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_United_Kingdom_-_Circle-1024.png" alt="" /></li>
       </ul>
