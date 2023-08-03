@@ -1,11 +1,13 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
 
 interface ItemProps {
     img: string
     id: number
     title: string
 }
+
 
 const animation:{hidden: object, visible: object} = {
     hidden: {
@@ -20,8 +22,13 @@ const animation:{hidden: object, visible: object} = {
 }
 
 const Item: React.FC<ItemProps> = ({img, id, title}) => {
+
+    const {push} = useRouter()
+    
+
     return (
         <motion.div
+        onClick={() => push('/1213')}
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}

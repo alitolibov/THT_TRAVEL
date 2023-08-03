@@ -39,5 +39,8 @@ body{
   letter-spacing: .1rem
 }
 
+.swiper-button-prev:after, .swiper-button-next:after {
+  font-size: 20px !important;
+}
 
 
