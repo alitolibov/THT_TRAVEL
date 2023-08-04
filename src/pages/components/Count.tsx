@@ -1,9 +1,10 @@
-import React, { useEffect } from 'react';
-import {motion} from 'framer-motion'
+import React, { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
+import Counter from './Counter';
 
 interface CountProps {}
 
@@ -20,12 +21,8 @@ const animation = {
     }
 }
 
-
-
-
-
 const Count: React.FC<CountProps> = () => {
-
+    const arr = [{num: 3, t: 4, value: '', langs: 'one'}, {num: 100, t: 5.5, value: '', langs: 'two'}, {num: 100, t: 5, value: '+', langs: 'three'}, {num: 10, t: 5, value: '%', langs: 'four'}]
     const {locale} = useRouter()
     let lang
     switch(locale) {
@@ -40,20 +37,7 @@ const Count: React.FC<CountProps> = () => {
           break
       }
 
-    const time:number = 1200
-    const step:number = 1
-
-    const outNum = (num : any, elem : any) => {
-        let n = 0
-        let t = Math.round(time / (num / step))
-        let interval = setInterval(() => {
-            n = n + step
-            if (n === num) {
-                clearInterval(interval)
-            }
-            elem.firstChild.firstChild.innerHTML = String(n)
-    }, t)
-    }
+      const [isVisible, setIsVisible] = useState(false)
 
     useEffect(() => {
         const elem = document.querySelector('.scrollBlock') as HTMLElement;
@@ -65,10 +49,7 @@ const Count: React.FC<CountProps> = () => {
           
           if(!elem.classList.contains('visible')) {
             if(posTop + elem.clientHeight <= window.innerHeight && posTop >= 0) {
-                elem.childNodes.forEach((el: any) => {
-                            outNum(+el.firstChild.firstChild.getAttribute('data-num'), el)
-                        })
-                elem.classList.add('visible');
+                    setIsVisible(true)
                 document.removeEventListener('scroll', onScroll);
               }
           }
@@ -92,32 +73,9 @@ const Count: React.FC<CountProps> = () => {
                 viewport={{ amount: 0.4, once: true}}
                 variants={animation}
                 className="scrollBlock grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
-                    <div id='num' className="space-y-[5px]">
-                    <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
-                            <p data-num="3" className="">1</p>
-                        </div>
-                        <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">{lang.about.one}</p>
-                    </div>
-                    <div id='num' className="space-y-[5px]">
-                    <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
-                            <p data-num="100" className="">1</p>
-                        </div>
-                        <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">{lang.about.two}</p>
-                    </div>
-                    <div id='num' className="space-y-[5px]">
-                        <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
-                            <p data-num="100" className="">1</p>
-                            <span>+</span>
-                        </div>
-                        <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">{lang.about.three}</p>
-                    </div>
-                    <div id='num' className="space-y-[5px]">
-                        <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
-                            <p data-num="10" className="">1</p>
-                            <span>%</span>
-                        </div>
-                        <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">{lang.about.four}</p>
-                    </div>
+                    {
+                        isVisible ? arr.map((item, index) => <Counter num={item.num} t={item.t} value={item.value} langs={item.langs} key={index}/>) : null
+                    }
                 </motion.div>
         </motion.section>
     );
