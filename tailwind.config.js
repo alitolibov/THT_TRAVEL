@@ -17,7 +17,7 @@ module.exports = {
       },
       backgroundSize: {
          full: '100%',
-        org: '110%',
+          org: '110%',
       }
     },
   },

@@ -63,8 +63,8 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                     <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{lang.story.title}</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-[#fff]">
-                    <p id='dsc'></p>
-                    <p className={`${show ? 'block' : 'hidden'}`} id='dsc2'></p>
+                    <p id='dsc' className='xl:text-lg'></p>
+                    <p className={`${show ? 'block' : 'hidden'} xl:text-lg`} id='dsc2'></p>
                     <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
                         <p className='text-[var(--main-color-two)]'>{show ? lang.about.hidden : lang.about.show}</p>
                         <img src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />

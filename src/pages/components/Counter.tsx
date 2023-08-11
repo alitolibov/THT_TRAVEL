@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
-import { log } from 'console';
 
 interface CounterProps {
     num: number
@@ -35,13 +34,12 @@ const Counter: React.FC<CounterProps> = ({num, t, value, langs}) => {
           break
       }
       const text = lang.about[langs]
-      console.log(text);
       
     return (
         <div className="space-y-[5px]">
         <div className="flex justify-center text-[43px] font-bold text-center text-[var(--main-color-two)] lg:text-[53px]">
                 <motion.p>{rounded}</motion.p>
-                <span>{value}</span>
+                <span style={{display: value === '' ? 'none' : 'inline'}}>{value}</span>
             </div>
             <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">{text}</p>
         </div>

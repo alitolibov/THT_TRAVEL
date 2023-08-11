@@ -50,12 +50,12 @@ const Footer: React.FC<FooterProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
-         className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-[510px] lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px]'>
+         className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
-            <motion.nav custom={1} variants={animation} className='space-y-[5px] md:space-y-[7px]'>
-                <a href='#about' onClick={(e) => anchor(e)} className="block text-[#fff] text-[14px] text-center md:text-[16px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-[17px]">{lang.header.about}</a>
-                <a href='#services' onClick={(e) => anchor(e)} className="block text-[#fff] text-[14px] text-center md:text-[16px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-[17px]">{lang.header.services}</a>
-                <a href='#employess' onClick={(e) => anchor(e)} className="block text-[#fff] text-[14px] text-center md:text-[16px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-[17px]">{lang.header.employees}</a>
+            <motion.nav custom={1} variants={animation} className='space-y-[5px]'>
+                <a href='#about' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.about}</a>
+                <a href='#services' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.services}</a>
+                <a href='#employess' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.employees}</a>
             </motion.nav>
             <div className="gap-y-[5px] lg:hidden">
             <motion.a custom={1.3} variants={animation} className="flex items-center gap-x-[7px]" href="tel:+998953238880">

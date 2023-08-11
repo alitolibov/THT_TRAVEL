@@ -62,5 +62,13 @@ export default {
     },
     team: {
         title: 'Jamoamiz Bilan Tanishing'
+    },
+    dynamicPage: {
+        tourAbout: [
+            {icon: '/images/time.webp', title: 'Davomiyligi'},
+            {icon: '/images/shoes.webp', title: 'Turi'},
+            {icon: '/images/group.webp', title: 'Odamlar soni'},
+            {icon: '/images/lang.webp', title: 'Tillar'}
+        ]
     }
 }

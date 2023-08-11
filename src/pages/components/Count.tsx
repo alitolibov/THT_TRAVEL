@@ -22,7 +22,7 @@ const animation = {
 }
 
 const Count: React.FC<CountProps> = () => {
-    const arr = [{num: 3, t: 4, value: '', langs: 'one'}, {num: 100, t: 5.5, value: '', langs: 'two'}, {num: 100, t: 5, value: '+', langs: 'three'}, {num: 10, t: 5, value: '%', langs: 'four'}]
+    const arr = [{num: 3, t: 3, value: '', langs: 'one'}, {num: 100, t: 5.5, value: '', langs: 'two'}, {num: 100, t: 5, value: '+', langs: 'three'}, {num: 10, t: 5, value: '%', langs: 'four'}]
     const {locale} = useRouter()
     let lang
     switch(locale) {

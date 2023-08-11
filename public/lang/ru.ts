@@ -62,5 +62,8 @@ export default {
     },
     team: {
         title: 'Познакомьтесь С Нашей Командой'
+    },
+    dynamicPage: {
+        tourAbout: [{icon: '/images/time.webp', title: 'Длительность'}, {icon: '/images/shoes.webp', title: 'Тип тура'}, {icon: '/images/group.webp', title: 'Кол-во людей'}, {icon: '/images/lang.webp', title: 'Языки'}]
     }
 }
