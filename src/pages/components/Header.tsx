@@ -46,9 +46,9 @@ const Header: React.FC<HeaderProps> = () => {
         className='h-[20vh] flex items-center justify-between px-[15px] lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
                 <Link href={'/'}><Image src="/images/logo.webp" width={60} height={60} className='w-14 md:w-20 xl:w-24' alt=""/></Link>
                 <nav className="flex gap-x-[10px] md:gap-x-4 lg:gap-x-5 xxl:gap-x-6">
-                <a onClick={(e) => anchor(e)} href='#services' className="text-[#fff] text-xs font-semibold duration-300 md:text-sm lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-base xl:text-lg xxl:text-xl">{lang.header.services}</a>
-                <a onClick={(e) => anchor(e)} href='#about' className="text-[#fff] text-xs font-semibold duration-300 md:text-sm lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-base xl:text-lg xxl:text-xl">{lang.header.about}</a>
-                <a onClick={(e) => anchor(e)} href='#employess' className="text-[#fff] text-xs font-semibold duration-300 md:text-sm lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-base xl:text-lg xxl:text-xl">{lang.header.employees}</a>
+                <a onClick={(e) => anchor(e)} href='#services' className="text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl">{lang.header.services}</a>
+                <a onClick={(e) => anchor(e)} href='#about' className="text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl">{lang.header.about}</a>
+                <a onClick={(e) => anchor(e)} href='#employess' className="text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl">{lang.header.employees}</a>
                 </nav>
                 <Language/>
         </motion.header>
