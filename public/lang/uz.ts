@@ -66,9 +66,25 @@ export default {
     dynamicPage: {
         tourAbout: [
             {icon: '/images/time.webp', title: 'Davomiyligi'},
-            {icon: '/images/shoes.webp', title: 'Turi'},
             {icon: '/images/group.webp', title: 'Odamlar soni'},
-            {icon: '/images/lang.webp', title: 'Tillar'}
+            {icon: '/images/lang.webp', title: 'Tillar'},
+            {icon: '/images/money.webp', title: 'Narx'}
+        ],
+        accordionQuestion: [
+            {
+                title: 'Turini qanday bron qilishim mumkin?',
+                desc: "Siz turingizni onlayn tizimimizda joylashgan malumotlar formasini to'ldirib, oson bir tarzda bron qila olasiz.Bki, yordam olish uchun, telefon +998(95) 323-88 - 80 yoki thtagency02@gmail.com manzili orqali biz bilan boglanishingiz mumkin."
+            },
+            {
+                title: 'Safar uchun qanday hujjatlarga ega bolishim kerak?', desc: "Xalqaro safarlarda viza, pasport va mumkin, tibbiy sugurta zarur. Bron qilishda to'liq boshqaruv beriladi."
+            },
+            {
+                title: "Men qo'shilgan tunlarni qoshishim mumkinmi?", desc: 'Ha, siz mehmonxona davomiylikni qoshish orqali turingiz davomiylikni qoshishingiz mumkin. Ushbu opsiyani muloqot qilish uchun biz bilan boglaning.'
+            },
+            {
+                title: 'Uchirish yoki reysni kechiktirish qoidalari qanday?',
+                desc: 'Uchirish va reys kechiktirish siyosati aviakompaniyaga bogliq. Toliq malumot uchun, aviakompaniyaning veb-saytini tekshirib chiqish yoki toliq malumot uchun biz bilan boglanishingizni taklif qilamiz.'
+            }
         ]
     }
 }

@@ -50,7 +50,7 @@ const Footer: React.FC<FooterProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
-         className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[720px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
+         className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[745px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
             <motion.nav custom={1} variants={animation} className='space-y-[5px]'>
                 <a href='#about' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.about}</a>

@@ -66,9 +66,27 @@ export default {
     dynamicPage: {
         tourAbout: [
             {icon: '/images/time.webp', title: 'Duration'},
-            {icon: '/images/shoes.webp', title: 'Tour Type'},
             {icon: '/images/group.webp', title: 'Number of People'},
-            {icon: '/images/lang.webp', title: 'Languages'}
+            {icon: '/images/lang.webp', title: 'Languages'},
+            {icon: '/images/money.webp', title: 'Price'}
+        ],
+        accordionQuestion: [
+            {
+                title: 'How can I book a tour?',
+                desc: 'You can easily book a tour by filling out our convenient online form on the website. Alternatively, you can contact us by phone at +998 (95) 323-88-80 or by email at thtagency02@gmail.com for assistance.'
+            },
+            {
+                title: 'What documents will I need for the trip?',
+                desc: 'For international travel, you will need a visa, passport, and possibly medical insurance. Detailed instructions will be provided upon booking.'
+            },
+            {
+                title: 'Can I add additional nights of accommodation?',
+                desc: 'Yes, you can extend the duration of your stay by adding additional nights of accommodation. Please contact us to discuss this option.'
+            },
+            {
+                title: 'What are the rules for flight cancellation or delay?',
+                desc: "The cancellation and delay policy depends on the airline. We recommend reviewing the rules and recommendations on the airline's website or contacting us for detailed information"
+            }
         ]
     }
 }
