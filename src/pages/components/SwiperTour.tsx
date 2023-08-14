@@ -12,7 +12,7 @@ import Image from "next/image";
 
 
 export default function SwiperTour(props:any) {
-    const img = props.obj[0]?.img
+    const img = props?.obj?.img
     const {locale} = useRouter()
     let lang: any
     switch (locale) {
@@ -54,16 +54,14 @@ export default function SwiperTour(props:any) {
                 navigation={true}
                 spaceBetween={10}
                 loop={true}
-                initialSlide={2}
+                initialSlide={3}
                 modules={[Navigation]}
                 className="mySwiper aspect-[16/7.5] md:aspect-[16/5.5] rounded-2xl"
             >
                 {
                     [1,2,3,4].map((item) =>
-                        <SwiperSlide>
-                            <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}>
-                                {/*<Image src={`/images/toursImage/${img + item}.webp`} width={100} height={100} className={'w-full h-full'} alt={''}/>*/}
-                            </div>
+                        <SwiperSlide key={item}>
+                            <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
                         </SwiperSlide>
                     )
                 }

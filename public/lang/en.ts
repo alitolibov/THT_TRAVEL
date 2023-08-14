@@ -27,6 +27,7 @@ export default {
             {
                 id: 1,
                 country: 'Qatar',
+                typeTour: 'Daily tour',
                 duration: "6 nights / 7 days",
                 price: "from $550",
                 peoples: '10 people',
@@ -37,6 +38,7 @@ export default {
             {
                 id: 2,
                 country: 'Georgia',
+                typeTour: 'Daily tour',
                 duration: "7 nights",
                 price: "from $700",
                 peoples: '10 people',
@@ -47,6 +49,7 @@ export default {
             {
                 id: 3,
                 country: 'Sharm El Sheikh',
+                typeTour: 'Daily tour',
                 duration: "7 days",
                 price: "from $720",
                 peoples: '10 people',
@@ -57,6 +60,7 @@ export default {
             {
                 id: 4,
                 country: 'Prague',
+                typeTour: 'Daily tour',
                 duration: "7 days",
                 price: "from $1 588",
                 peoples: '10 people',
@@ -67,6 +71,7 @@ export default {
             {
                 id: 5,
                 country: 'Antalya',
+                typeTour: 'Daily tour',
                 duration: "7 nights",
                 price: "from $1 599",
                 peoples: '10 people',
@@ -77,6 +82,7 @@ export default {
             {
                 id: 6,
                 country: 'Bali',
+                typeTour: 'Daily tour',
                 duration: "8 days",
                 price: "from $1 630",
                 peoples: '10 people',
@@ -94,12 +100,10 @@ export default {
         title: 'Meet Our Team'
     },
     dynamicPage: {
-        tourAbout: [
-            {icon: '/images/time.webp', title: 'Duration'},
-            {icon: '/images/group.webp', title: 'Number of People'},
-            {icon: '/images/lang.webp', title: 'Languages'},
-            {icon: '/images/money.webp', title: 'Price'}
-        ],
+        title1: 'Duration',
+        title2: 'Number of People',
+        title3: 'Languages',
+        title4: 'Price',
         bookForm: {
             title: 'Book a Tour',
             leaveRequest: 'Leave a request and our manager will contact you',
@@ -112,6 +116,10 @@ export default {
             errorTel: 'Invalid number',
             btnBook: 'Book'
         },
+        aboutTour: 'About the tour',
+        duration: 'Duration:',
+        question: 'Frequently Asked Questions:',
+        price: "Price:",
         accordionQuestion: [
             {
                 title: 'How can I book a tour?',

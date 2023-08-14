@@ -62,7 +62,7 @@ const Book: React.FC = () => {
                     {errors?.name && <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.name.message}</p>}
                 </div>
                 <div>
-                    <p className={'text-sm text-white md:text-base mb-2'}>Tel</p>
+                    <p className={'text-sm text-white md:text-base mb-2'}>{lang.dynamicPage.bookForm.tel}</p>
                     <Controller
                         name="tel"
                         control={control}

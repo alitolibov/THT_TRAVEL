@@ -27,6 +27,7 @@ export default {
             {
                 id: 1,
                 country: 'Qatar',
+                typeTour: 'Har kunlik tur',
                 duration: "6 tungi / 7 kun",
                 price: "$550 dan",
                 peoples: '10 kishi',
@@ -37,6 +38,7 @@ export default {
             {
                 id: 2,
                 country: 'Gruziya',
+                typeTour: 'Har kunlik tur',
                 duration: "7 tungi",
                 price: "$700 dan",
                 peoples: '10 kishi',
@@ -47,6 +49,7 @@ export default {
             {
                 id: 3,
                 country: 'Sharm El Sheikh',
+                typeTour: 'Har kunlik tur',
                 duration: "7 kun",
                 price: "$720 dan",
                 peoples: '10 kishi',
@@ -57,6 +60,7 @@ export default {
             {
                 id: 4,
                 country: 'Praga',
+                typeTour: 'Har kunlik tur',
                 duration: "7 kun",
                 price: "$1 588 dan",
                 peoples: '10 kishi',
@@ -67,6 +71,7 @@ export default {
             {
                 id: 5,
                 country: 'Antaliya',
+                typeTour: 'Har kunlik tur',
                 duration: "7 tungi",
                 price: "$1 599 dan",
                 peoples: '10 kishi',
@@ -77,6 +82,7 @@ export default {
             {
                 id: 6,
                 country: 'Bali',
+                typeTour: 'Har kunlik tur',
                 duration: "8 kun",
                 price: "$1 630 dan",
                 peoples: '10 kishi',
@@ -94,12 +100,10 @@ export default {
         title: 'Jamoamiz Bilan Tanishing'
     },
     dynamicPage: {
-        tourAbout: [
-            {icon: '/images/time.webp', title: 'Davomiyligi'},
-            {icon: '/images/group.webp', title: 'Odamlar soni'},
-            {icon: '/images/lang.webp', title: 'Tillar'},
-            {icon: '/images/money.webp', title: 'Narx'}
-        ],
+        title1: 'Davomiyligi',
+        title2: 'Odamlar soni',
+        title3: 'Tillar',
+        title4: 'Narx',
         bookForm: {
             title: 'Tur buyurtirish',
             leaveRequest: "So'rov qoldiring va bizning boshqaruvchi siz bilan bog'lanadi",
@@ -112,7 +116,11 @@ export default {
             errorTel: "Noto'g'ri raqam",
             btnBook: 'Buyurtma berish'
             },
-            accordionQuestion: [
+            aboutTour: 'Sayohat haqida',
+            duration: 'Davomiyligi:',
+            question: "Ko'p so'raladigan savollar:",
+            price: "Narxi:",
+        accordionQuestion: [
             {
                 title: 'Turini qanday bron qilishim mumkin?',
                 desc: "Veb-saytdagi qulay onlayn shaklimizni to'ldirib, osongina turni bron qilishingiz mumkin. Shuningdek, yordam uchun +998 (95) 323-88-80 telefon raqami orqali yoki thtagency02@gmail.com elektron pochta manziliga murojaat qilishingiz mumkin."

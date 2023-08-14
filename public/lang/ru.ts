@@ -27,6 +27,7 @@ export default {
             {
                 id: 1,
                 country: 'Катар',
+                typeTour: 'Ежедневный тур',
                 duration: "6 ночей / 7 дней",
                 price: "от 550$",
                 peoples: '10 человек',
@@ -38,6 +39,7 @@ export default {
 
                 id: 2,
                 country: 'Грузия',
+                typeTour: 'Ежедневный тур',
                 duration: "7 ночей",
                 price: "от 700$",
                 peoples: '10 человек',
@@ -48,6 +50,7 @@ export default {
             {
                 id: 3,
                 country: 'Шарм эль шейх',
+                typeTour: 'Ежедневный тур',
                 duration: "7 дней",
                 price: "от 720$",
                 peoples: '10 человек',
@@ -58,6 +61,7 @@ export default {
             {
                 id: 4,
                 country: 'Прага',
+                typeTour: 'Ежедневный тур',
                 duration: "7 дней",
                 price: "от 1 588$",
                 peoples: '10 человек',
@@ -68,6 +72,7 @@ export default {
             {
                 id: 5,
                 country: 'Анталья',
+                typeTour: 'Ежедневный тур',
                 duration: "7 ночей",
                 price: "от 1 599$",
                 peoples: '10 человек',
@@ -78,6 +83,7 @@ export default {
             {
                 id: 6,
                 country: 'Бали',
+                typeTour: 'Ежедневный тур',
                 duration: "8 дней",
                 price: "от 1 630$",
                 peoples: '10 человек',
@@ -95,7 +101,10 @@ export default {
         title: 'Познакомьтесь С Нашей Командой'
     },
     dynamicPage: {
-        tourAbout: [{icon: '/images/time.webp', title: 'Длительность'}, {icon: '/images/group.webp', title: 'Кол-во людей'}, {icon: '/images/lang.webp', title: 'Языки'}, {icon: '/images/money.webp', title: 'Цена'}],
+        title1: 'Длительность',
+        title2: 'Кол-во людей',
+        title3: 'Языки',
+        title4: 'Цена',
         bookForm: {
             title: 'Забронировать тур',
             leaveRequest: 'Оставьте заявку и наш менеджер свяжется с вами',
@@ -108,6 +117,10 @@ export default {
             errorTel: 'Неверный номер',
             btnBook: 'Забронировать'
         },
+        aboutTour: 'О туре',
+        duration: 'Продолжительность:',
+        question: 'Часто задаваемые вопросы:',
+        price: "Цена:",
         accordionQuestion: [
             {
                 title: 'Как я могу забронировать тур?',

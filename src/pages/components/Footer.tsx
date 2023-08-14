@@ -70,7 +70,7 @@ const Footer: React.FC<FooterProps> = () => {
             </div>
             <motion.div custom={1.3} variants={animation} className="lg:space-y-[8px]">
             <div className="flex space-x-[12px] md:space-x-[15px]">
-                <a href="https://t.me/khasan_tagiev">
+                <a href="https://t.me/thtagency02">
                     <img src="/images/tg.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
                 <a href="https://www.instagram.com/tht_viza/">
