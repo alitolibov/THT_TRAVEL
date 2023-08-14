@@ -29,7 +29,7 @@ const modal = {
 
 
 const tourPage = () => {
-    const {locale} = useRouter()
+    const {locale, asPath} = useRouter()
     let lang: any
     switch (locale) {
         case 'uz':
@@ -44,6 +44,8 @@ const tourPage = () => {
     }
     const aboutTourArr = lang.dynamicPage.tourAbout
     const accordionArr = lang.dynamicPage.accordionQuestion
+    const editedId = asPath.split('/').at(-1)
+    const itemObj = lang.services.tours.filter(item => item.id == editedId)
 
     const animation: { hidden: object, visible: object } = {
         hidden: {
@@ -70,7 +72,7 @@ const tourPage = () => {
         <div className=''>
             <section
                 className='space-y-10'>
-                <SwiperTour/>
+                <SwiperTour obj={itemObj}/>
                 <div className="">
                     <motion.div
                         initial='hidden'

@@ -4,9 +4,28 @@ import {motion} from "framer-motion";
 import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import {useRouter} from "next/router";
+import uz from "../../../public/lang/uz";
+import ru from "../../../public/lang/ru";
+import en from "../../../public/lang/en";
+import Image from "next/image";
 
 
-export default function App() {
+export default function SwiperTour(props:any) {
+    const img = props.obj[0]?.img
+    const {locale} = useRouter()
+    let lang: any
+    switch (locale) {
+        case 'uz':
+            lang = uz
+            break
+        case 'ru':
+            lang = ru
+            break
+        default:
+            lang = en
+            break
+    }
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: -30,
@@ -39,51 +58,16 @@ export default function App() {
                 modules={[Navigation]}
                 className="mySwiper aspect-[16/7.5] md:aspect-[16/5.5] rounded-2xl"
             >
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-1.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-2.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-3.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-4.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-5.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-6.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-7.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-8.jpg"/>
-                    </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                    <div className="swiper-zoom-container">
-                        <img src="https://swiperjs.com/demos/images/nature-9.jpg"/>
-                    </div>
-                </SwiperSlide>
+                {
+                    [1,2,3,4].map((item) =>
+                        <SwiperSlide>
+                            <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}>
+                                {/*<Image src={`/images/toursImage/${img + item}.webp`} width={100} height={100} className={'w-full h-full'} alt={''}/>*/}
+                            </div>
+                        </SwiperSlide>
+                    )
+                }
+
             </Swiper>
         </motion.div>
     );

@@ -31,7 +31,7 @@ export default {
                 price: "from $550",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'qatar.webp',
+                img: 'qatar',
                 desc: 'Qatar - the modern pearl of the Persian Gulf! A blend of luxury, traditions, and innovations. From majestic skyscrapers to traditional bazaars, from desert safaris to exquisite restaurants - everyone will find their adventure here. Travel to Qatar is a chance to immerse yourself in the richness of culture and beauty of this amazing country. Trust us to organize your unforgettable journey!'
             },
             {
@@ -41,7 +41,7 @@ export default {
                 price: "from $700",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'georgia.webp',
+                img: 'georgia',
                 desc: 'Georgia - a country with a rich history and colorful landscapes. Tbilisi combines ancient streets and modern cafes. The caves of Uplistsikhe offer unique cave cities. Borjomi is a health oasis with mineral springs. Kakheti is an area of winemaking and cultural landmarks. Trust us with your journey and discover many amazing places in Georgia.'
             },
             {
@@ -51,7 +51,7 @@ export default {
                 price: "from $720",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'sharm.webp',
+                img: 'sharm',
                 desc: 'Sharm El Sheikh - crystal-clear waters, luxurious beaches, underwater world, and desert adventures await you here. Relax on the beach, explore coral reefs, enjoy active entertainment, and learn to dive with diverse marine life. Let us make your journey unforgettable.'
             },
             {
@@ -61,7 +61,7 @@ export default {
                 price: "from $1 588",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'prague.webp',
+                img: 'prague',
                 desc: 'Prague - a magical city of ancient castles, bridges, and streets. Every stone here holds a story, and architectural masterpieces transport you to a fairytale past century. Enjoy culture, romance, and the incomparable atmosphere of this magnificent European capital.'
             },
             {
@@ -71,7 +71,7 @@ export default {
                 price: "from $1 599",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'antalya.webp',
+                img: 'antalya',
                 desc: 'Antalya - the gem of the Turkish Riviera! Discover endless beaches, historical treasures, and the unique atmosphere of this resort area. Our tours to Antalya will give you the opportunity to immerse yourself in the beauty of the Mediterranean Sea, enjoy sunny days and nightlife. A variety of activities, amazing monuments, and the hospitality of this place will provide you with an unforgettable experience. Join us on a journey to Antalya and create your unforgettable memories.'
             },
             {
@@ -81,7 +81,7 @@ export default {
                 price: "from $1 630",
                 peoples: '10 people',
                 lang: 'Russian',
-                img: 'bali.webp',
+                img: 'bali',
                 desc: 'Bali - the gem of Indonesia! Heavenly beaches, ancient temples, and magnificent nature await you. Relax in luxurious villas, explore tropical forests, and immerse yourself in a unique culture. We will help you create an unforgettable journey to Bali, where every moment becomes a part of your own story.'
             },
         ]

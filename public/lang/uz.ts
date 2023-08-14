@@ -31,7 +31,7 @@ export default {
                 price: "$550 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'qatar.webp',
+                img: 'qatar',
                 desc: "Qatar - Fors ko'rfazining zamonaviy durdonasi! Hashamat, an'ana va innovatsiyalarning uyg'unligi. Ulug‘vor osmono‘par binolardan tortib an’anaviy bozorlargacha, cho‘l safarilaridan tortib gurme restoranlarigacha bu yerda hamma uchun nimadir bor. Qatarga sayohat - bu ajoyib mamlakatning madaniyati va go'zalligi boyligiga sho'ng'ish imkoniyati. Unutilmas sayohatingizni tashkil qilishda bizga ishoning!"
             },
             {
@@ -41,7 +41,7 @@ export default {
                 price: "$700 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'georgia.webp',
+                img: 'georgia',
                 desc: "Gruziya boy tarixga va rang-barang landshaftlarga ega mamlakatdir. Tbilisi qadimiy ko'chalar va zamonaviy kafelarni birlashtiradi. Gori noyob g'or shaharlarini taklif etadi. Borjomi - mineral buloqlarga ega salomatlik vohasi. Kaxeti - vinochilik va madaniy yodgorliklar hududi. Sayohatingizda bizga ishoning va Gruziyadagi ko'plab ajoyib joylarni kashf eting."
             },
             {
@@ -51,7 +51,7 @@ export default {
                 price: "$720 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'sharm.webp',
+                img: 'sharm',
                 desc: "Sharm al-Shayx bu yerda sizni billur suvlar, hashamatli plyajlar, suv osti dunyosi va cho'ldagi sarguzashtlar kutmoqda. Sohilda dam oling, marjon qoyalarini o'rganing, faol o'yin-kulgilardan zavqlaning va turli xil suv osti dunyosi bilan sho'ng'ishni o'rganing. Keling, sayohatingizni unutilmas qilaylik."
             },
             {
@@ -61,7 +61,7 @@ export default {
                 price: "$1 588 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'prague.webp',
+                img: 'prague',
                 desc: "Praga qadimiy qal'alar, ko'priklar va ko'chalardan iborat sehrli shahardir. Bu erda har bir tosh o'z tarixini saqlaydi va arxitektura durdonalari sizni ajoyib o'tgan asrga olib boradi. Ushbu ajoyib Evropa poytaxtining madaniyati, romantikasi va o'ziga xos atmosferasidan rohatlaning."
             },
             {
@@ -71,7 +71,7 @@ export default {
                 price: "$1 599 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'antalya.webp',
+                img: 'antalya',
                 desc: "Antaliya - Turk Rivierasining durdonasi! Cheksiz plyajlar, tarixiy xazinalar va ushbu kurort hududining o'ziga xos atmosferasi bilan tanishing. Bizning Antaliya turlarimiz sizga O'rta er dengizining go'zalligiga sho'ng'ish, quyoshli kunlar va tungi o'yin-kulgilardan zavqlanish imkoniyatini beradi. Bu joyning turli xil tadbirlari, ajoyib obidalari va mehmondo'stligi sizga unutilmas taassurot qoldiradi. Biz bilan Antaliyaga sayohat qiling va unutilmas xotiralaringizni yarating."
             },
             {
@@ -81,7 +81,7 @@ export default {
                 price: "$1 630 dan",
                 peoples: '10 kishi',
                 lang: 'Rus tili',
-                img: 'bali.webp',
+                img: 'bali',
                 desc: "Bali - Indoneziyaning marvarididir! Jannat plyajlari, qadimiy ibodatxonalar va ajoyib tabiat sizni kutmoqda. Hashamatli villalarda dam oling, tropik o'rmonni o'rganing va noyob madaniyatga sho'ng'ing. Biz sizga Baliga unutilmas sayohatni yaratishda yordam beramiz, bu erda har bir lahza shaxsiy tarixingizning bir qismiga aylanadi."
             }
         ]
