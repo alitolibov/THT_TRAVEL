@@ -45,7 +45,6 @@ export default function Language() {
   const scope = useMenuAnimation(isOpen);
   const [lang, setLang] = useState<string>('ru')
   const {locale, push} = useRouter()
-  const pathname:string = usePathname();
   
 
   useEffect(() => {

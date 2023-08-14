@@ -1,9 +1,9 @@
 /* eslint-disable import/no-anonymous-default-export */
 export default {
     header: {
-        about: 'About us',
+        index: 'Home',
         services: 'Services',
-        employees: 'Employees',
+        about: 'About us',
         greetings: 'Travel with THT VISA',
         scroll: 'Scroll down'
     },
@@ -26,33 +26,63 @@ export default {
         tours: [
             {
                 id: 1,
-                country: 'Dubai',
-                img: 'https://images.unsplash.com/photo-1634007626524-f47fa37810a7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+                country: 'Qatar',
+                duration: "6 nights / 7 days",
+                price: "from $550",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'qatar.webp',
+                desc: 'Qatar - the modern pearl of the Persian Gulf! A blend of luxury, traditions, and innovations. From majestic skyscrapers to traditional bazaars, from desert safaris to exquisite restaurants - everyone will find their adventure here. Travel to Qatar is a chance to immerse yourself in the richness of culture and beauty of this amazing country. Trust us to organize your unforgettable journey!'
             },
             {
                 id: 2,
-                country: 'Thailand',
-                img: 'https://images.unsplash.com/photo-1601225612316-b4733315a717?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80'
+                country: 'Georgia',
+                duration: "7 nights",
+                price: "from $700",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'georgia.webp',
+                desc: 'Georgia - a country with a rich history and colorful landscapes. Tbilisi combines ancient streets and modern cafes. The caves of Uplistsikhe offer unique cave cities. Borjomi is a health oasis with mineral springs. Kakheti is an area of winemaking and cultural landmarks. Trust us with your journey and discover many amazing places in Georgia.'
             },
             {
                 id: 3,
-                country: 'Egypt',
-                img: 'https://images.unsplash.com/photo-1568322445389-f64ac2515020?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2777&q=80'
+                country: 'Sharm El Sheikh',
+                duration: "7 days",
+                price: "from $720",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'sharm.webp',
+                desc: 'Sharm El Sheikh - crystal-clear waters, luxurious beaches, underwater world, and desert adventures await you here. Relax on the beach, explore coral reefs, enjoy active entertainment, and learn to dive with diverse marine life. Let us make your journey unforgettable.'
             },
             {
                 id: 4,
-                country: 'Europe',
-                img: 'https://images.unsplash.com/photo-1503917988258-f87a78e3c995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+                country: 'Prague',
+                duration: "7 days",
+                price: "from $1 588",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'prague.webp',
+                desc: 'Prague - a magical city of ancient castles, bridges, and streets. Every stone here holds a story, and architectural masterpieces transport you to a fairytale past century. Enjoy culture, romance, and the incomparable atmosphere of this magnificent European capital.'
             },
             {
                 id: 5,
-                country: 'Georgia',
-                img: 'https://images.unsplash.com/photo-1608499781813-44bd498ed089?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+                country: 'Antalya',
+                duration: "7 nights",
+                price: "from $1 599",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'antalya.webp',
+                desc: 'Antalya - the gem of the Turkish Riviera! Discover endless beaches, historical treasures, and the unique atmosphere of this resort area. Our tours to Antalya will give you the opportunity to immerse yourself in the beauty of the Mediterranean Sea, enjoy sunny days and nightlife. A variety of activities, amazing monuments, and the hospitality of this place will provide you with an unforgettable experience. Join us on a journey to Antalya and create your unforgettable memories.'
             },
             {
                 id: 6,
-                country: 'Turkey',
-                img: 'https://images.unsplash.com/photo-1567527259232-3a7fcd490c55?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
+                country: 'Bali',
+                duration: "8 days",
+                price: "from $1 630",
+                peoples: '10 people',
+                lang: 'Russian',
+                img: 'bali.webp',
+                desc: 'Bali - the gem of Indonesia! Heavenly beaches, ancient temples, and magnificent nature await you. Relax in luxurious villas, explore tropical forests, and immerse yourself in a unique culture. We will help you create an unforgettable journey to Bali, where every moment becomes a part of your own story.'
             },
         ]
     },
@@ -70,6 +100,18 @@ export default {
             {icon: '/images/lang.webp', title: 'Languages'},
             {icon: '/images/money.webp', title: 'Price'}
         ],
+        bookForm: {
+            title: 'Book a Tour',
+            leaveRequest: 'Leave a request and our manager will contact you',
+            name: 'Your name',
+            tel: 'Your phone',
+            email: "Your Email",
+            required: 'This field is required',
+            errorName: 'Name must be at least 3 characters',
+            errorEmail: 'This field must contain a valid E-mail',
+            errorTel: 'Invalid number',
+            btnBook: 'Book'
+        },
         accordionQuestion: [
             {
                 title: 'How can I book a tour?',

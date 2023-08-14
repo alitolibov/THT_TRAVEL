@@ -4,6 +4,7 @@ import React from 'react';
 import uz from '../../../public/lang/uz';
 import ru from '../../../public/lang/ru';
 import en from '../../../public/lang/en';
+import Link from "next/link";
 
 interface FooterProps {
     
@@ -53,9 +54,9 @@ const Footer: React.FC<FooterProps> = () => {
          className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[745px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
             <motion.nav custom={1} variants={animation} className='space-y-[5px]'>
-                <a href='#about' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.about}</a>
-                <a href='#services' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.services}</a>
-                <a href='#employess' onClick={(e) => anchor(e)} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.employees}</a>
+                <Link href={'/about'} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.about}</Link>
+                <Link href='/services' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.services}</Link>
+                <Link href='/' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.index}</Link>
             </motion.nav>
             <div className="gap-y-[5px] lg:hidden">
             <motion.a custom={1.3} variants={animation} className="flex items-center gap-x-[7px]" href="tel:+998953238880">

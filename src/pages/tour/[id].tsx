@@ -1,13 +1,13 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from 'react';
-import SwiperTour from './components/SwiperTour';
+import SwiperTour from '../components/SwiperTour';
 import {motion, useCycle} from "framer-motion";
-import TourAbout from './components/TourAbout';
-import uz from '../../public/lang/uz';
-import ru from '../../public/lang/ru';
-import en from '../../public/lang/en';
+import TourAbout from '../components/TourAbout';
+import uz from '../../../public/lang/uz';
+import ru from '../../../public/lang/ru';
+import en from '../../../public/lang/en';
 import {useRouter} from 'next/router';
-import Book from './components/Book';
+import Book from '../components/Book';
 import {AccordionComponent} from "@/pages/components/AccordionComponent";
 
 const modal = {
@@ -68,21 +68,27 @@ const tourPage = () => {
     const [open, setOpen] = useState(false);
     return (
         <div className=''>
-            <motion.section
-                className='space-y-10'
-                initial='hidden'
-                whileInView='visible'
-                viewport={{amount: 0.5, once: true}}
-                variants={animation}>
+            <section
+                className='space-y-10'>
                 <SwiperTour/>
                 <div className="">
-                    <div className="relative">
+                    <motion.div
+                        initial='hidden'
+                        whileInView='visible'
+                        viewport={{amount: 0.5, once: true}}
+                        variants={animation}
+                        className="relative">
                         <p className="font-[900] uppercase text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">TOUR</p>
                         <p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">ЧУДЕСА
                             ГРУЗИИ</p>
-                    </div>
+                    </motion.div>
                     <div className="mt-5 flex justify-between">
-                        <div className={'space-y-6 w-full lg:w-3/5 xl:w-8/12'}>
+                        <motion.div
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{amount: 0.4, once: true}}
+                            variants={animation}
+                            className={'space-y-6 w-full lg:w-3/5 xl:w-8/12'}>
                             <div
                                 className="grid h-fit grid-cols-2 gap-3.5 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 xl:gap-y-0 xl:w-[95%]">
                                 {
@@ -102,19 +108,26 @@ const tourPage = () => {
                             <h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>Цена:</h2>
                             <p className={'text-base text-white'}>от 2 000 000 UZS</p>
                             <div className={'border-t border-[var(--main-color-two)]'}></div>
-                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>Часто задаваемые вопросы</h1>
+                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>Часто задаваемые
+                                вопросы</h1>
                             {
-                                accordionArr.map((item:{title:string, desc:string},index:number) => <AccordionComponent title={item.title} desc={item.desc} key={index}/>)
+                                accordionArr.map((item: { title: string, desc: string }, index: number) =>
+                                    <AccordionComponent title={item.title} desc={item.desc} key={index}/>)
                             }
-                        </div>
-                        <div className={'hidden relative lg:block lg:max-w-[340px] xl:max-w-[350px]'}>
+                        </motion.div>
+                        <motion.div
+                            initial='hidden'
+                            whileInView='visible'
+                            viewport={{amount: 0.4, once: true}}
+                            variants={animation}
+                            className={'hidden relative lg:block lg:max-w-[340px] xl:max-w-[350px]'}>
                             <div className={'sticky top-0 bottom-0 w-full'}>
                                 <Book/>
                             </div>
-                        </div>
+                        </motion.div>
                     </div>
                 </div>
-            </motion.section>
+            </section>
             <motion.div initial={false} animate={isOpen ? "open" : "closed"} variants={modal}
                         className={`w-full bg-[var(--main-color)] overflow-y-scroll rounded-2xl overflow-hidden border-t border-[#ffffff] bottom-[75px] fixed left-0 z-10 h-4/5 lg:hidden`}>
                 <Book/>

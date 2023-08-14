@@ -7,10 +7,10 @@ import en from '../../public/lang/en';
 import AboutUs from './components/AboutUs';
 import Services from './components/Services';
 import Count from './components/Count';
-import Vises from './components/Vises';
 import Team from './components/Team';
 import Head from 'next/head';
 import Image from 'next/image';
+import {Maps} from "@/pages/components/Maps";
 
 interface MainProps {
     
@@ -53,10 +53,8 @@ const Main: React.FC<MainProps> = () => {
             </motion.div>
             </div>
             <Count/>
-            <AboutUs/>
             <Services/>
-            <Vises/>
-            <Team/>
+            <Maps/>
         </motion.div>
         </>
     );

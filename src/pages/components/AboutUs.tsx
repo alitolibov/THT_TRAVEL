@@ -56,7 +56,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
-        className='space-y-[20px] md:flex md:justify-between md:items-center md:space-y-[50px] lg:space-y-0'>
+        className='space-y-[20px] mb-[150px] md:flex md:justify-between md:items-center md:space-y-[50px] lg:space-y-0'>
             <div className="space-y-[40px] md:w-[50%]">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative">
                     <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">STORY</p>

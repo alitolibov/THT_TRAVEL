@@ -54,6 +54,7 @@ const Count: React.FC<CountProps> = () => {
               }
           }
         }
+        onScroll()
     }, [])
 
     return (
