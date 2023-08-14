@@ -112,7 +112,7 @@ export default {
             email: "Your Email",
             required: 'This field is required',
             errorName: 'Name must be at least 3 characters',
-            errorEmail: 'This field must contain a valid E-mail',
+            errorEmail: 'Invalid E-mail',
             errorTel: 'Invalid number',
             btnBook: 'Book'
         },

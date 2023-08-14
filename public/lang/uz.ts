@@ -112,7 +112,7 @@ export default {
             email: "Elektron pochtangiz",
             required: "Ushbu maydon to'ldirilishi shart",
             errorName: "Ism kamida 3 ta belgidan iborat bo'lishi kerak",
-            errorEmail: "Bu maydon to'g'ri e-pochta manzilini o'z ichiga olishi kerak",
+            errorEmail: "Noto'g'ri E-mail",
             errorTel: "Noto'g'ri raqam",
             btnBook: 'Buyurtma berish'
             },

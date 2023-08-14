@@ -113,7 +113,7 @@ export default {
             email: "Ваш E-mail",
             required: 'Это поле обязательно для заполнения',
             errorName: 'Имя должно содержать не менее 3 символов',
-            errorEmail: 'Это поле должно содержать действительный E-mail',
+            errorEmail: 'Неверный E-mail',
             errorTel: 'Неверный номер',
             btnBook: 'Забронировать'
         },
