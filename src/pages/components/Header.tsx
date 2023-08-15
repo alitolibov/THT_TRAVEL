@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
 import React from 'react';
-import uz from '../../../public/lang/uz';
-import ru from '../../../public/lang/ru';
+import uz from '../../../public/lang/uz.json';
+import ru from '../../../public/lang/ru.json';
 import Language from './Language';
-import en from '../../../public/lang/en';
+import en from '../../../public/lang/en.json';
 import Image from 'next/image';
 import Link from 'next/link';
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import {useRouter} from "next/router";
-import uz from "../../../public/lang/uz";
-import ru from "../../../public/lang/ru";
-import en from "../../../public/lang/en";
+import uz from "../../../public/lang/uz.json";
+import ru from "../../../public/lang/ru.json";
+import en from "../../../public/lang/en.json";
 
 interface TourAboutProps {
     item: any

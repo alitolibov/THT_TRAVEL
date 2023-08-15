@@ -1,11 +1,10 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React, {useEffect, useState} from 'react';
 import SwiperTour from '../components/SwiperTour';
 import {motion, useCycle} from "framer-motion";
 import TourAbout from '../components/TourAbout';
-import uz from '../../../public/lang/uz';
-import ru from '../../../public/lang/ru';
-import en from '../../../public/lang/en';
+import uz from '../../../public/lang/uz.json';
+import ru from '../../../public/lang/ru.json';
+import en from '../../../public/lang/en.json';
 import {useRouter} from 'next/router';
 import Book from '../components/Book';
 import {AccordionComponent} from "@/pages/components/AccordionComponent";
@@ -29,7 +28,7 @@ const modal = {
 };
 
 
-const tourPage = () => {
+const TourPage = () => {
     const {locale, asPath} = useRouter()
     let lang: any
     switch (locale) {
@@ -139,4 +138,4 @@ const tourPage = () => {
     );
 };
 
-export default tourPage;
+export default TourPage;
