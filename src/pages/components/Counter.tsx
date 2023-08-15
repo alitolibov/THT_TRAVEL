@@ -36,7 +36,7 @@ const Counter: React.FC<CounterProps> = ({num, t, value, language}) => {
             lang = en;
             break;
     }
-    const text = lang.about[language];
+    const text:any | string = lang.about[language];
 
     return (
         <div className="space-y-[5px]">
