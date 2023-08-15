@@ -41,7 +41,7 @@ const Book: React.FC = () => {
         console.log({data});
     };
 
-    const handleValidate = (value: string) => {
+    const HandleValidate = (value: string) => {
         const isValid = usePhoneValidation(value);
         return isValid.isValid;
     };
@@ -68,7 +68,7 @@ const Book: React.FC = () => {
                         control={control}
                         rules={{
                             required: lang.dynamicPage.bookForm.required,
-                            validate: (value) => handleValidate(value),
+                            validate: (value) => HandleValidate(value),
                         }}
                         render={({field: {onChange, value}}) => (
                             <PhoneInput defaultCountry="uz" value={value} onChange={onChange}/>
@@ -93,7 +93,7 @@ const Book: React.FC = () => {
                         <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.email.message}</p>
                     )}
                 </div>
-                <button className='rounded-3xl w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{lang.dynamicPage.bookForm.btnBook}
+                <button className='rounded-3xl duration-300 w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{lang.dynamicPage.bookForm.btnBook}
                 </button>
             </motion.form>
     );

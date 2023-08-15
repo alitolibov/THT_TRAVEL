@@ -51,7 +51,7 @@ body{
   text-align: center;
   font-size: 18px;
   background: #fff;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
 }
@@ -79,7 +79,7 @@ body{
   }
 
   .swiper-slide:nth-child(1n) {
-    width: 60%;
+    width: 70%;
   }
 }
 input {

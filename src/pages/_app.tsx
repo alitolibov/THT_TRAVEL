@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Layout from './layout/Layout'
 import { Montserrat } from 'next/font/google';
 import Head from 'next/head';
+import React from "react";
  
 const montserrat = Montserrat({ subsets: ['latin'] });
 
@@ -20,6 +21,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <meta property="og:description" content="Организация туров и путешествий по всему миру."/> 
             <meta property="og:type" content="website"/> 
             <meta property="og:site_name" content="THT VISA"/>
+            <link rel="icon" sizes="32x32" href="/images/logo_head.png" />
         </Head>
         <Component {...pageProps} />
       </Layout>

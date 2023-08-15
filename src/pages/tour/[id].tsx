@@ -9,6 +9,7 @@ import en from '../../../public/lang/en';
 import {useRouter} from 'next/router';
 import Book from '../components/Book';
 import {AccordionComponent} from "@/pages/components/AccordionComponent";
+import Head from "next/head";
 
 const modal = {
     open: {
@@ -70,6 +71,9 @@ const tourPage = () => {
     const [open, setOpen] = useState(false);
     return (
         <div className=''>
+            <Head>
+                <title>THT VISA - Tours</title>
+            </Head>
             <section
                 className='space-y-10'>
                 <SwiperTour obj={itemObj}/>

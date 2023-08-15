@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {motion} from "framer-motion";
 import {Navigation} from 'swiper/modules';
@@ -54,18 +54,17 @@ export default function SwiperTour(props:any) {
                 navigation={true}
                 spaceBetween={10}
                 loop={true}
-                initialSlide={3}
+                initialSlide={1}
                 modules={[Navigation]}
                 className="mySwiper aspect-[16/7.5] md:aspect-[16/5.5] rounded-2xl"
             >
                 {
-                    [1,2,3,4].map((item) =>
+                    [1,2,3,4].map((item:number) =>
                         <SwiperSlide key={item}>
                             <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
                         </SwiperSlide>
                     )
                 }
-
             </Swiper>
         </motion.div>
     );
