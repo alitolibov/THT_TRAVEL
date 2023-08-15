@@ -5,7 +5,7 @@ import Team from "@/pages/components/Team";
 import {Maps} from "@/pages/components/Maps";
 import Head from "next/head";
 
-const about = () => {
+const About = () => {
     return (
         <>
             <Head>

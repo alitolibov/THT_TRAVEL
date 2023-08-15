@@ -4,7 +4,7 @@ import Services from "@/pages/components/Services";
 import Vises from "@/pages/components/Vises";
 import Head from "next/head";
 
-const servicesPage = () => {
+const ServicesPage = () => {
 
     return (
         <>
@@ -17,4 +17,4 @@ const servicesPage = () => {
     )
 }
 
-export default servicesPage;
+export default ServicesPage;
