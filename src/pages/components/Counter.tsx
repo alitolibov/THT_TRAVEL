@@ -9,10 +9,10 @@ interface CounterProps {
     num: number;
     t: number;
     value: string;
-    langs: keyof typeof uz['about'] | keyof typeof ru['about'] | keyof typeof en['about']; // Adjust type based on lang files structure
+    language: string
 }
 
-const Counter: React.FC<CounterProps> = ({num, t, value, langs}) => {
+const Counter: React.FC<CounterProps> = ({num, t, value, language}) => {
     const count = useMotionValue(1);
     const rounded = useTransform(count, Math.round);
 
@@ -36,7 +36,7 @@ const Counter: React.FC<CounterProps> = ({num, t, value, langs}) => {
             lang = en;
             break;
     }
-    const text = lang.about[langs];
+    const text = lang.about[language];
 
     return (
         <div className="space-y-[5px]">
