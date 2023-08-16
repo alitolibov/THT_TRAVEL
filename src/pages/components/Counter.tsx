@@ -9,9 +9,7 @@ interface CounterProps {
     num: number;
     t: number;
     value: string;
-    language: {
-        about: LangAbout;
-    };
+    language: {title: string, one: string, two:string, three:string, four:string, show: string, hidden:string, dsc:string, dsc2:string};
     desc: string;
 }
 
