@@ -36,10 +36,10 @@ const animation = {
 
 const Count: React.FC<CountProps> = () => {
     const arr: Item[] = [
-        { num: 3, t: 3, value: '', lang: 'one' },
-        { num: 100, t: 5.5, value: '', lang: 'two' },
-        { num: 100, t: 5, value: '+', lang: 'three' },
-        { num: 10, t: 5, value: '%', lang: 'four' }
+        { num: 3, t: 3, value: '' },
+        { num: 100, t: 5.5, value: '' },
+        { num: 100, t: 5, value: '+' },
+        { num: 10, t: 5, value: '%' }
     ];
     const { locale } = useRouter();
     let lang: Language;
@@ -103,7 +103,7 @@ const Count: React.FC<CountProps> = () => {
                         num={item.num}
                         t={item.t}
                         value={item.value}
-                        language={lang.about[item.lang]}
+                        language={lang.about.advantagesTexts[index]}
                         key={index}
                     />
                 )) : null}

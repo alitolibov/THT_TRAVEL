@@ -8,10 +8,7 @@
     },
     "about": {
         "title": "Why We Are Chosen",
-        "one": "Years in tourism",
-        "two": "Ready tours",
-        "three": "Satisfied customers",
-        "four": "Airfare discounts",
+        "advantagesTexts": ["Years in tourism", "Ready tours", "Satisfied customers", "Airfare discounts"],
         "show": "Show more",
         "hidden": "Hide",
         "dsc": "Our travel agency is a real success story. We started our journey in 2020 as a small company. Today we are one of the leaders in the travel services market, offering trips all over the world.",
