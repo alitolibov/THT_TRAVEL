@@ -36,8 +36,6 @@ const Counter: React.FC<CounterProps> = ({num, t, value, language}) => {
             lang = en;
             break;
     }
-    const text:any | string = lang.about[language];
-
     return (
         <div className="space-y-[5px]">
             <div
@@ -46,7 +44,7 @@ const Counter: React.FC<CounterProps> = ({num, t, value, language}) => {
                 <span style={{display: value === '' ? 'none' : 'inline'}}>{value}</span>
             </div>
             <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">
-                {text}
+                {lang.about[language]}
             </p>
         </div>
     );
