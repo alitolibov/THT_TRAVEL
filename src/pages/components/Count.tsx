@@ -10,7 +10,6 @@ interface Item {
     num: number;
     t: number;
     value: string;
-    lang: string;
 }
 
 interface Language {
