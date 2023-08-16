@@ -35,7 +35,7 @@ const Count: React.FC<CountProps> = () => {
         { num: 10, t: 5, value: '%' }
     ];
     const { locale } = useRouter();
-    let lang;
+    let lang
     switch (locale) {
         case 'uz':
             lang = uz;
