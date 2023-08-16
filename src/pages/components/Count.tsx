@@ -103,7 +103,8 @@ const Count: React.FC<CountProps> = () => {
                         num={item.num}
                         t={item.t}
                         value={item.value}
-                        language={item.lang}
+                        desc={item.lang}
+                        language={lang.about}
                         key={index}
                     />
                 )) : null}
