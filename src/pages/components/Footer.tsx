@@ -37,15 +37,6 @@ const Footer: React.FC<FooterProps> = () => {
           break
       }
 
-      const anchor = (e:any) => {
-        e.preventDefault()
-        const blockID = e.target.getAttribute('href')
-        document.querySelector('' + blockID)?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-      }
-
     return (
         <motion.footer
         initial='hidden'

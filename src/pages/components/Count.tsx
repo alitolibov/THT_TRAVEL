@@ -12,12 +12,6 @@ interface Item {
     value: string;
 }
 
-interface Language {
-    about: {
-        title: string;
-    };
-}
-
 interface CountProps {}
 
 const visible: object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
@@ -41,7 +35,7 @@ const Count: React.FC<CountProps> = () => {
         { num: 10, t: 5, value: '%' }
     ];
     const { locale } = useRouter();
-    let lang: Language;
+    let lang;
     switch (locale) {
         case 'uz':
             lang = uz;
@@ -80,7 +74,6 @@ const Count: React.FC<CountProps> = () => {
 
     return (
         <motion.section
-            id='about'
             initial='hidden'
             whileInView='visible'
             viewport={{ amount: 0.4, once: true }}

@@ -53,8 +53,7 @@ const Team: React.FC<TeamProps> = () => {
       }
 
     return (
-        <section 
-            id='employess'
+        <section
             className='space-y-[40px] mt-[150px] mb-[50px] md:space-y-[50px]'>
             <motion.div
             initial='hidden'

@@ -26,16 +26,6 @@ const Header: React.FC<HeaderProps> = () => {
             lang = en
           break
       }
-      
-      const anchor = (e:any) => {
-        e.preventDefault()
-        const blockID = e.target.getAttribute('href') as HTMLElement
-        document.querySelector('' + blockID)?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-        })
-      }
-
 
     return (
         <motion.header
