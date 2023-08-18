@@ -4,7 +4,7 @@ import {motion, useCycle} from "framer-motion";
 import TourAbout from '../components/TourAbout';
 import {useRouter} from 'next/router';
 import Book from '../components/Book';
-import {AccordionComponent} from "@/pages/components/AccordionComponent";
+import AccordionComponent from "@/pages/components/AccordionComponent";
 import Head from "next/head";
 import {useTranslation} from "next-i18next";
 import {ToursInterface} from "@/pages/components/Services";

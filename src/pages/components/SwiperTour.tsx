@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 
 
-export default function SwiperTour(props:any) {
+function SwiperTour(props:any) {
     const img = props?.obj?.img
     const animation: { hidden: object, visible: object } = {
         hidden: {
@@ -47,3 +47,5 @@ export default function SwiperTour(props:any) {
         </motion.div>
     );
 }
+
+export default SwiperTour

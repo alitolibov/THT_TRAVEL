@@ -7,7 +7,7 @@ interface ServicesProps {
 
 }
 
-export const Maps = () => {
+const Maps = () => {
     const {locale, asPath} = useRouter()
     const {t} = useTranslation()
     const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
@@ -25,3 +25,5 @@ export const Maps = () => {
         </motion.section>
     )
 }
+
+export default Maps

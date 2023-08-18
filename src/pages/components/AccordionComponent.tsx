@@ -12,7 +12,7 @@ interface AccordionComponentProps {
 }
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-export const AccordionComponent: React.FC<AccordionComponentProps> = ({title, desc}) => {
+const AccordionComponent: React.FC<AccordionComponentProps> = ({title, desc}) => {
 
     return (
         <div>
@@ -33,3 +33,5 @@ export const AccordionComponent: React.FC<AccordionComponentProps> = ({title, de
         </div>
     )
 }
+
+export default AccordionComponent
