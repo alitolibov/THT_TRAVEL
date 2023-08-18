@@ -1,10 +1,7 @@
-import { useRouter } from 'next/router';
 import { motion } from "framer-motion";
 import React from 'react';
-import uz from '../../../public/lang/uz.json';
-import ru from '../../../public/lang/ru.json';
-import en from '../../../public/lang/en.json';
 import Link from "next/link";
+import {useTranslation} from "next-i18next";
 
 interface FooterProps {
     
@@ -23,19 +20,7 @@ const animation = {
 }
 
 const Footer: React.FC<FooterProps> = () => {
-    const {locale} = useRouter()
-    let lang
-    switch(locale) {
-        case 'uz':
-            lang = uz
-          break
-        case 'ru': 
-        lang = ru
-          break
-        default:
-            lang = en
-          break
-      }
+    const {t} = useTranslation()
 
     return (
         <motion.footer
@@ -45,9 +30,9 @@ const Footer: React.FC<FooterProps> = () => {
          className='px-[15px] py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[745px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
             <motion.nav custom={1} variants={animation} className='space-y-[5px]'>
-                <Link href={'/about'} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.about}</Link>
-                <Link href='/services' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.services}</Link>
-                <Link href='/' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{lang.header.index}</Link>
+                <Link href={'/about'} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.about')}</Link>
+                <Link href='/services' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.services')}</Link>
+                <Link href='/' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.index')}</Link>
             </motion.nav>
             <div className="gap-y-[5px] lg:hidden">
             <motion.a custom={1.3} variants={animation} className="flex items-center gap-x-[7px]" href="tel:+998953238880">

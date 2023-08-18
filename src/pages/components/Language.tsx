@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { usePathname } from 'next/navigation';
+import Link from "next/link";
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -44,13 +45,9 @@ export default function Language() {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const scope = useMenuAnimation(isOpen);
   const [lang, setLang] = useState<string>('ru')
-  const {locale, push} = useRouter()
+  const { push, pathname} = useRouter()
   
 
-  useEffect(() => {
-      setIsOpen(!open)
-      push('/', '/', {locale: lang})
-  }, [lang])
 
   return (
     <div className="menu relative" ref={scope}>
@@ -75,9 +72,9 @@ export default function Language() {
         }}
         className="right-0 w-[45px] xl:w-[px]"
       >
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]" onClick={(e) => setLang('ru')}><img className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] h-7" src="/images/rus.webp" alt="" /></li>
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]" onClick={(e) => setLang('uz')}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn0.iconfinder.com/data/icons/world-flags-1/100/uzbekistan-2-1024.png" alt="" /></li>
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]" onClick={(e) => setLang('en')}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn1.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_United_Kingdom_-_Circle-1024.png" alt="" /></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'ru'}><img className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] h-7" src="/images/rus.webp" alt="" /></Link></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'uz'}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn0.iconfinder.com/data/icons/world-flags-1/100/uzbekistan-2-1024.png" alt="" /></Link></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'en'}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn1.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_United_Kingdom_-_Circle-1024.png" alt="" /></Link></li>
       </ul>
     </div>
   );

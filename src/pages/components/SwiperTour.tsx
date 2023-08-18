@@ -1,31 +1,13 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import {motion} from "framer-motion";
 import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import {useRouter} from "next/router";
-import uz from "../../../public/lang/uz.json";
-import ru from "../../../public/lang/ru.json";
-import en from "../../../public/lang/en.json";
-import Image from "next/image";
 
 
 export default function SwiperTour(props:any) {
     const img = props?.obj?.img
-    const {locale} = useRouter()
-    let lang: any
-    switch (locale) {
-        case 'uz':
-            lang = uz
-            break
-        case 'ru':
-            lang = ru
-            break
-        default:
-            lang = en
-            break
-    }
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: -30,

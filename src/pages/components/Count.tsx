@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
-import { useRouter } from 'next/router';
-import uz from '../../../public/lang/uz.json';
-import ru from '../../../public/lang/ru.json';
-import en from '../../../public/lang/en.json';
 import Counter from './Counter';
+import {useTranslation} from "next-i18next";
 
 interface Item {
     num: number;
@@ -28,25 +25,14 @@ const animation = {
 };
 
 const Count: React.FC<CountProps> = () => {
+    const {t} = useTranslation()
+    const advantagesTexts: String = t('about.advantagesTexts', {returnObjects: true})
     const arr: Item[] = [
-        { num: 3, t: 3, value: '' },
-        { num: 100, t: 5.5, value: '' },
-        { num: 100, t: 5, value: '+' },
-        { num: 10, t: 5, value: '%' }
+        { num: 3, t: 3, value: ''},
+        { num: 100, t: 5.5, value: ''},
+        { num: 100, t: 5, value: '+'},
+        { num: 10, t: 5, value: '%'}
     ];
-    const { locale } = useRouter();
-    let lang
-    switch (locale) {
-        case 'uz':
-            lang = uz;
-            break;
-        case 'ru':
-            lang = ru;
-            break;
-        default:
-            lang = en;
-            break;
-    }
 
     const [isVisible, setIsVisible] = useState(false);
 
@@ -71,7 +57,6 @@ const Count: React.FC<CountProps> = () => {
             document.removeEventListener('scroll', onScroll);
         };
     }, []);
-
     return (
         <motion.section
             initial='hidden'
@@ -82,7 +67,7 @@ const Count: React.FC<CountProps> = () => {
                 variants={{ hidden: { opacity: 0, y: -20 }, visible }}
                 className="relative w-fit mx-auto">
                 <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">ABOUT</p>
-                <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{lang.about.title}</p>
+                <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{t('about.title')}</p>
             </motion.div>
             <motion.div
                 initial='hidden'
@@ -93,9 +78,9 @@ const Count: React.FC<CountProps> = () => {
                 {isVisible ? arr.map((item, index) => (
                     <Counter
                         num={item.num}
-                        t={item.t}
+                        time={item.t}
                         value={item.value}
-                        language={lang.about.advantagesTexts[index]}
+                        language={advantagesTexts[index]}
                         key={index}
                     />
                 )) : null}

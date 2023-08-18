@@ -4,10 +4,17 @@ import { useRouter } from 'next/router';
 import Image from "next/image";
 
 interface ItemProps {
-    img: string
-    id: number
-    title: string
-    price: string
+    item: {
+        id: number;
+        country: string;
+        typeTour: string;
+        duration: string;
+        price: string;
+        peoples: string;
+        lang: string;
+        img: string;
+        desc: string;
+    }
 }
 
 
@@ -23,20 +30,20 @@ const animation:{hidden: object, visible: object} = {
     }
 }
 
-const Item: React.FC<ItemProps> = ({img, id, title, price}) => {
+const Item: React.FC<ItemProps> = ({item}) => {
 
     const {push} = useRouter()
     return (
         <motion.div
-        onClick={() => push('tour/' + id)}
+        onClick={() => push('tour/' + item.id )}
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
         variants={animation}
-        className={`gradient relative bg-center aspect-[1/1.33] bg-full flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer`} style={{backgroundImage: `url("/images/toursImage/${img}.webp")`}}>
+        className={`gradient relative bg-center aspect-[1/1.33] bg-full flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer`} style={{backgroundImage: `url("/images/toursImage/${item.img}.webp")`}}>
             <div className={"w-full py-2 bg-[var(--main-color-two)] text-[#fff]"}>
-                <p className="text-lg text-center font-[500]">{title}</p>
-                <p className="text-base text-center font-[500]">{price}</p>
+                <p className="text-lg text-center font-[500]">{item.country}</p>
+                <p className="text-base text-center font-[500]">{item.price}</p>
             </div>
         </motion.div>
     );

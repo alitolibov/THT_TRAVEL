@@ -4,37 +4,26 @@ import {useRouter} from 'next/router';
 import uz from '../../../public/lang/uz.json';
 import ru from '../../../public/lang/ru.json';
 import en from '../../../public/lang/en.json';
+import {useTranslation} from "next-i18next";
 
 interface CounterProps {
     num: number;
-    t: number;
+    time: number;
     value: string;
     language: string;
 }
 
-const Counter: React.FC<CounterProps> = ({num, t, value, language}) => {
+const Counter: React.FC<CounterProps> = ({num, time, value, language}) => {
+    const {t} = useTranslation()
     const count = useMotionValue(1);
     const rounded = useTransform(count, Math.round);
     useEffect(() => {
-        const animation = animate(count, num, {duration: t});
+        const animation = animate(count, num, {duration: time});
         return () => {
             animation.stop();
         };
-    }, [count, num, t]);
+    }, [count, num, time]);
 
-    const {locale} = useRouter();
-    let lang;
-    switch (locale) {
-        case 'uz':
-            lang = uz;
-            break;
-        case 'ru':
-            lang = ru;
-            break;
-        default:
-            lang = en;
-            break;
-    }
     return (
         <div className="space-y-[5px]">
             <div

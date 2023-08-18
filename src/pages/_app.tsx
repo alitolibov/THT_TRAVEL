@@ -4,10 +4,12 @@ import Layout from './layout/Layout'
 import { Montserrat } from 'next/font/google';
 import Head from 'next/head';
 import React from "react";
+import {appWithTranslation} from "next-i18next";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
  
 const montserrat = Montserrat({ subsets: ['latin'] });
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${montserrat.className}`}>
       <Layout>
@@ -28,3 +30,6 @@ export default function App({ Component, pageProps }: AppProps) {
     </div>
   )
 }
+
+
+export default appWithTranslation(App)

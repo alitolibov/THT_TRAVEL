@@ -2,13 +2,13 @@ import React, {useEffect, useState} from 'react';
 import SwiperTour from '../components/SwiperTour';
 import {motion, useCycle} from "framer-motion";
 import TourAbout from '../components/TourAbout';
-import uz from '../../../public/lang/uz.json';
-import ru from '../../../public/lang/ru.json';
-import en from '../../../public/lang/en.json';
 import {useRouter} from 'next/router';
 import Book from '../components/Book';
 import {AccordionComponent} from "@/pages/components/AccordionComponent";
 import Head from "next/head";
+import {useTranslation} from "next-i18next";
+import {ToursInterface} from "@/pages/components/Services";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const modal = {
     open: {
@@ -29,24 +29,12 @@ const modal = {
 
 
 const TourPage = () => {
-    const {locale, asPath} = useRouter()
-    let lang: any
-    switch (locale) {
-        case 'uz':
-            lang = uz
-            break
-        case 'ru':
-            lang = ru
-            break
-        default:
-            lang = en
-            break
-    }
-    const accordionArr = lang.dynamicPage.accordionQuestion
-    const editedId = asPath.split('/').at(-1)
-    const itemArr = lang.services.tours.filter(item => item.id == editedId)
-    const itemObj = itemArr[0]
-
+    const { asPath, query} = useRouter()
+    const {id} = query
+    const {t} = useTranslation()
+    const accordionArr:[{title:string, desc:string}] = t('dynamicPage.accordionQuestion', {returnObjects: true})
+    const toursArr:ToursInterface[] | any = t('services.tours', {returnObjects: true}) || []
+    const itemObj:ToursInterface | undefined = toursArr.filter((item:ToursInterface) => item.id == +id)[0]
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: 30,
@@ -95,14 +83,14 @@ const TourPage = () => {
                             className={'space-y-6 w-full lg:w-3/5 xl:w-8/12'}>
                             <TourAbout item={itemObj}/>
                             <div className={'border-t border-[var(--main-color-two)]'}></div>
-                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>{lang.dynamicPage.aboutTour}</h1>
+                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>{t('dynamicPage.aboutTour')}</h1>
                             <p className={'text-base text-white md:max-w-lg'}>{itemObj?.desc}</p>
-                            <h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{lang.dynamicPage.duration}</h2>
+                            <h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{t('dynamicPage.duration')}</h2>
                             <p className={'text-lg text-white'}>{itemObj?.duration}</p>
-                            <h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{lang.dynamicPage.price}</h2>
+                            <h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{t('dynamicPage.price')}</h2>
                             <p className={'text-lg text-white'}>{itemObj?.price}</p>
                             <div className={'border-t border-[var(--main-color-two)]'}></div>
-                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>{lang.dynamicPage.question}</h1>
+                            <h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>{t('dynamicPage.question')}</h1>
                             {
                                 accordionArr.map((item: { title: string, desc: string }, index: number) =>
                                     <AccordionComponent title={item.title} desc={item.desc} key={index}/>)
@@ -130,12 +118,27 @@ const TourPage = () => {
                 <div className="flex items-center justify-between px-4 h-full">
                     <p className="text-lg font-semibold text-[var(--main-color-two)]">{itemObj?.price}</p>
                     <button onClick={() => toggleOpen()}
-                            className='rounded-3xl text-white px-4 py-2 bg-[var(--main-color-two)] font-medium'>{lang.dynamicPage.bookForm.btnBook}
+                            className='rounded-3xl text-white px-4 py-2 bg-[var(--main-color-two)] font-medium'>{t('dynamicPage.bookForm.btnBook')}
                     </button>
                 </div>
             </motion.div>
         </div>
     );
 };
+
+export async function getStaticProps(props:{locale:string}) {
+    return {
+        props: {
+            ...(await serverSideTranslations(props.locale, ['common']))
+        },
+    };
+}
+
+export async function getStaticPaths() {
+    return {
+        paths: [{ params: { id: '1' } }],
+        fallback: true
+    }
+}
 
 export default TourPage;

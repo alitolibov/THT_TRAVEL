@@ -1,28 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-import {useRouter} from "next/router";
-import uz from "../../../public/lang/uz.json";
-import ru from "../../../public/lang/ru.json";
-import en from "../../../public/lang/en.json";
+import {useTranslation} from "next-i18next";
 
 interface TourAboutProps {
     item: any
 }
 
 const TourAbout: React.FC<TourAboutProps> = ({item}) => {
-    const {locale} = useRouter()
-    let lang: any
-    switch (locale) {
-        case 'uz':
-            lang = uz
-            break
-        case 'ru':
-            lang = ru
-            break
-        default:
-            lang = en
-            break
-    }
+    const {t} = useTranslation()
     return (
         <div className="grid h-fit grid-cols-2 gap-3.5 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 xl:gap-y-0">
             <div className="flex items-center gap-x-3">
@@ -30,7 +15,7 @@ const TourAbout: React.FC<TourAboutProps> = ({item}) => {
                     <Image src={'/images/time.webp'} width={21} height={21} alt={''} className='w-full h-full'/>
                 </div>
                 <div className="space-y-[2%]">
-                    <p className='font-semibold text-sm text-white xl:text-[15px]'>{lang.dynamicPage.title1}</p>
+                    <p className='font-semibold text-sm text-white xl:text-[15px]'>{t('dynamicPage.title1')}</p>
                     <p className='text-xs text-[#c4c4c4] xl:text-[13px]'>{item?.typeTour}</p>
                 </div>
             </div>
@@ -39,7 +24,7 @@ const TourAbout: React.FC<TourAboutProps> = ({item}) => {
                     <Image src={'/images/group.webp'} width={21} height={21} alt={''} className='w-full h-full'/>
                 </div>
                 <div className="space-y-[2%]">
-                    <p className='font-semibold text-sm text-white xl:text-[15px]'>{lang.dynamicPage.title2}</p>
+                    <p className='font-semibold text-sm text-white xl:text-[15px]'>{t('dynamicPage.title2')}</p>
                     <p className='text-xs text-[#c4c4c4] xl:text-[13px]'>{item?.peoples}</p>
                 </div>
             </div><div className="flex items-center gap-x-3">
@@ -47,7 +32,7 @@ const TourAbout: React.FC<TourAboutProps> = ({item}) => {
                 <Image src={'/images/lang.webp'} width={21} height={21} alt={''} className='w-full h-full'/>
             </div>
             <div className="space-y-[2%]">
-                <p className='font-semibold text-sm text-white xl:text-[15px]'>{lang.dynamicPage.title3}</p>
+                <p className='font-semibold text-sm text-white xl:text-[15px]'>{t('dynamicPage.title3')}</p>
                 <p className='text-xs text-[#c4c4c4] xl:text-[13px]'>{item?.lang}</p>
             </div>
         </div><div className="flex items-center gap-x-3">
@@ -55,7 +40,7 @@ const TourAbout: React.FC<TourAboutProps> = ({item}) => {
                 <Image src={'/images/money.webp'} width={21} height={21} alt={''} className='w-full h-full'/>
             </div>
             <div className="space-y-[2%]">
-                <p className='font-semibold text-sm text-white xl:text-[15px]'>{lang.dynamicPage.title4}</p>
+                <p className='font-semibold text-sm text-white xl:text-[15px]'>{t('dynamicPage.title4')}</p>
                 <p className='text-xs text-[#c4c4c4] xl:text-[13px]'>{item?.price}</p>
             </div>
         </div>

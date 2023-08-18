@@ -4,6 +4,7 @@ import AboutUs from "@/pages/components/AboutUs";
 import Team from "@/pages/components/Team";
 import {Maps} from "@/pages/components/Maps";
 import Head from "next/head";
+import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
 const About = () => {
     return (
@@ -18,5 +19,11 @@ const About = () => {
         </>
     )
 }
-
+export async function getStaticProps(props:{locale:string}) {
+    return {
+        props: {
+            ...(await serverSideTranslations(props.locale, ['common']))
+        },
+    };
+}
 export default About
