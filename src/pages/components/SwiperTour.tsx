@@ -27,10 +27,6 @@ export default function SwiperTour(props:any) {
             variants={animation}
         >
             <Swiper
-                style={{
-                    '--swiper-navigation-color': '#fff',
-                    '--swiper-pagination-color': '#fff',
-                }}
                 slidesPerView={'auto'}
                 centeredSlides={true}
                 navigation={true}

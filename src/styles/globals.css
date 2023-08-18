@@ -33,6 +33,7 @@ body{
 }
 .swiper-button-prev:after, .swiper-button-next:after {
   font-size: 17px !important;
+  color: white !important;
 }
 
 @media (min-width: 1200px) {

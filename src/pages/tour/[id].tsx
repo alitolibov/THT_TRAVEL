@@ -30,7 +30,7 @@ const modal = {
 
 const TourPage = () => {
     const { asPath, query} = useRouter()
-    const {id} = query
+    const id = query?.id || ''
     const {t} = useTranslation()
     const accordionArr:[{title:string, desc:string}] = t('dynamicPage.accordionQuestion', {returnObjects: true})
     const toursArr:ToursInterface[] | any = t('services.tours', {returnObjects: true}) || []
@@ -135,8 +135,13 @@ export async function getStaticProps(props:{locale:string}) {
 }
 
 export async function getStaticPaths() {
+    const numberOfPaths: number = 6;
+
+    const paths = Array.from({ length: numberOfPaths }, (_, index) => ({
+        params: { id: (index + 1).toString() }
+    }));
     return {
-        paths: [{ params: { id: '1' } }],
+        paths,
         fallback: true
     }
 }
