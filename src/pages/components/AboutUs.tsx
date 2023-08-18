@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {motion} from 'framer-motion'
 import {useTranslation} from "next-i18next";
+import Image from "next/image";
 
 interface AboutUsProps {
     
@@ -54,7 +55,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                     <p className={`${show ? 'block' : 'hidden'} xl:text-lg`} id='dsc2'></p>
                     <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
                         <p className='text-[var(--main-color-two)]'>{show ? t('about.hidden') : t('about.show')}</p>
-                        <img src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
+                        <Image width={15} height={15} alt={''} src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
                     </div>
                 </motion.div>
             </div>

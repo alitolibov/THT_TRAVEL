@@ -1,9 +1,5 @@
 import React, {useEffect} from 'react';
 import {motion, useMotionValue, useTransform, animate} from 'framer-motion';
-import {useRouter} from 'next/router';
-import uz from '../../../public/lang/uz.json';
-import ru from '../../../public/lang/ru.json';
-import en from '../../../public/lang/en.json';
 import {useTranslation} from "next-i18next";
 
 interface CounterProps {

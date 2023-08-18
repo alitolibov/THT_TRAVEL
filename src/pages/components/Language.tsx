@@ -3,6 +3,7 @@ import { useAnimate, stagger, motion } from "framer-motion";
 import { useRouter } from "next/router";
 import { usePathname } from 'next/navigation';
 import Link from "next/link";
+import Image from "next/image";
 
 const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
 
@@ -70,11 +71,11 @@ export default function Language() {
           zIndex: 100,
           clipPath: "inset(10% 50% 90% 50% round 10px)"
         }}
-        className="right-0 w-[45px] xl:w-[px]"
+        className="right-0 w-[45px] xl:w-[49px]"
       >
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'ru'}><img className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] h-7" src="/images/rus.webp" alt="" /></Link></li>
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'uz'}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn0.iconfinder.com/data/icons/world-flags-1/100/uzbekistan-2-1024.png" alt="" /></Link></li>
-        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'en'}><img className="w-[24px] h-[24px] shadow-2xl xl:w-7 h-7" src="https://cdn1.iconfinder.com/data/icons/world-flags-circular/1000/Flag_of_United_Kingdom_-_Circle-1024.png" alt="" /></Link></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'ru'}><Image width={26} height={24} className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] xl:h-7" src="/images/rus.webp" alt="" /></Link></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'uz'}><Image width={24} height={24} className="w-[24px] h-[24px] shadow-2xl xl:w-7 xl:h-7" src="/images/uz.webp" alt="" /></Link></li>
+        <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link href={pathname} locale={'en'}><Image width={26} height={26} className="w-[26px] h-[26px] shadow-2xl xl:w-[30px] xl:h-[30px] object-cover" src="/images/en.webp" alt="" /></Link></li>
       </ul>
     </div>
   );

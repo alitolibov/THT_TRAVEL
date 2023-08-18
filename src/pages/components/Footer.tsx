@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import React from 'react';
 import Link from "next/link";
 import {useTranslation} from "next-i18next";
+import Image from "next/image";
 
 interface FooterProps {
     
@@ -47,13 +48,13 @@ const Footer: React.FC<FooterProps> = () => {
             <motion.div custom={1.3} variants={animation} className="lg:space-y-[8px]">
             <div className="flex space-x-[12px] md:space-x-[15px]">
                 <a href="https://t.me/thtagency02">
-                    <img src="/images/tg.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
+                    <Image width={25} height={25} src="/images/tg.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
                 <a href="https://www.instagram.com/tht_viza/">
-                    <img src="/images/insta.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
+                    <Image width={25} height={25} src="/images/insta.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
                 <a href="mailto:thtagency02@gmail.com">
-                    <img src="/images/gmail.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
+                    <Image width={25} height={25} src="/images/gmail.png" className='h-[25px] md:h-[27px] lg:cursor-pointer' alt="" />
                 </a>
             </div>
             <div className="space-y-[5px] hidden lg:block">
