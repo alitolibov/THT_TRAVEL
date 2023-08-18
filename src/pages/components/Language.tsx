@@ -43,7 +43,7 @@ export default function Language() {
                     delay: isOpen ? staggerMenuItems : 0
                 }
             );
-        }, [isOpen]);
+        }, [animate, isOpen]);
 
         return scope;
     }
