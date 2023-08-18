@@ -41,7 +41,7 @@ const Services: React.FC<ServicesProps> = () => {
         <div
         className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
             {
-                toursArr?.map((item:ToursInterface, index:number) => <Item key={item.id} item={item}/>)
+                toursArr.map((item:ToursInterface) => <Item key={item.id} item={item}/>)
             }
         </div>
         </section>

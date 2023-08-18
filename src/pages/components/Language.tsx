@@ -9,8 +9,7 @@ export default function Language() {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const staggerMenuItems = stagger(0.1, {startDelay: 0.15});
     const scope = useMenuAnimation(isOpen);
-    const [lang, setLang] = useState<string>('ru')
-    const {push, pathname} = useRouter()
+    const {asPath} = useRouter()
 
 
     function useMenuAnimation(isOpen: boolean) {
@@ -78,15 +77,15 @@ export default function Language() {
                 className="right-0 w-[45px] xl:w-[49px]"
             >
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={pathname} locale={'ru'}><Image width={26} height={24}
+                    href={asPath} locale={'ru'}><Image width={26} height={24}
                                                          className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] xl:h-7"
                                                          src="/images/rus.webp" alt=""/></Link></li>
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={pathname} locale={'uz'}><Image width={24} height={24}
+                    href={asPath} locale={'uz'}><Image width={24} height={24}
                                                          className="w-[24px] h-[24px] shadow-2xl xl:w-7 xl:h-7"
                                                          src="/images/uz.webp" alt=""/></Link></li>
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={pathname} locale={'en'}><Image width={26} height={26}
+                    href={asPath} locale={'en'}><Image width={26} height={26}
                                                          className="w-[26px] h-[26px] shadow-2xl xl:w-[30px] xl:h-[30px] object-cover"
                                                          src="/images/en.webp" alt=""/></Link></li>
             </ul>

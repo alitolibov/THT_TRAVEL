@@ -11,7 +11,7 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = () => {
-    const {asPath} = useRouter()
+    const {asPath, locale} = useRouter()
     const {t} = useTranslation()
 
     return (
@@ -23,9 +23,9 @@ const Header: React.FC<HeaderProps> = () => {
         className='h-[20vh] flex items-center justify-between px-[15px] lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[745px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
                 <Link href={'/'}><Image src="/images/logo.webp" width={60} height={60} className='w-14 md:w-20 xl:w-24' alt=""/></Link>
                 <nav className="flex gap-x-[10px] md:gap-x-4 lg:gap-x-5 xxl:gap-x-6">
-                <Link href={'/services'} className={`text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl ${asPath == '/services' ? 'text-[var(--main-color-two)]' : 'text-[#fff]'}`}>{t('header.services')}</Link>
-                <Link href={'/'} className="text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl">{t('header.index')}</Link>
-                <Link href={'/about'} className={`text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl ${asPath == '/about' ? 'text-[var(--main-color-two)]' : 'text-[#fff]'}`}>{t('header.about')}</Link>
+                <Link href={'/services'} locale={locale} className={`text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl ${asPath == '/services' ? 'text-[var(--main-color-two)]' : 'text-[#fff]'}`}>{t('header.services')}</Link>
+                <Link href={'/'} locale={locale} className="text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl">{t('header.index')}</Link>
+                <Link href={'/about'} locale={locale} className={`text-[#fff] text-[13px] font-semibold duration-300 md:text-[15px] lg:cursor-pointer lg:hover:text-[var(--main-color-two)] lg:text-[17px] xl:text-lg xxl:text-xl ${asPath == '/about' ? 'text-[var(--main-color-two)]' : 'text-[#fff]'}`}>{t('header.about')}</Link>
                 </nav>
                 <Language/>
         </motion.header>

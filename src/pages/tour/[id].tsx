@@ -29,7 +29,7 @@ const modal = {
 
 
 const TourPage = () => {
-    const { asPath, query} = useRouter()
+    const { query} = useRouter()
     const id = query?.id || ''
     const {t} = useTranslation()
     const accordionArr:[{title:string, desc:string}] = t('dynamicPage.accordionQuestion', {returnObjects: true})
@@ -46,16 +46,12 @@ const TourPage = () => {
             transition: {duration: 0.7}
         }
     }
-
-    const visible: object = {opacity: 1, y: 0, transition: {duration: 0.8}};
     const [isOpen, toggleOpen] = useCycle<boolean>(false, true);
 
     useEffect(() => {
         const body = document.body as HTMLElement
         isOpen ? body.style.overflowY = 'hidden' : body.style.overflowY = 'scroll'
     }, [isOpen])
-
-    const [open, setOpen] = useState(false);
     return (
         <div className=''>
             <Head>
@@ -135,11 +131,14 @@ export async function getStaticProps(props:{locale:string}) {
 }
 
 export async function getStaticPaths() {
-    const numberOfPaths: number = 6;
-
-    const paths = Array.from({ length: numberOfPaths }, (_, index) => ({
-        params: { id: (index + 1).toString() }
-    }));
+    const paths = []
+    for(let i = 0; i <= 6; i++) {
+        paths.push(
+            { params: { id: i.toString() }, locale: "ru" },
+            { params: { id: i.toString() }, locale: "en" },
+            { params: { id: i.toString() }, locale: "uz" },
+            )
+    }
     return {
         paths,
         fallback: true

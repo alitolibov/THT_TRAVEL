@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion'
-import {useRouter} from "next/router";
 import {useTranslation} from "next-i18next";
 
 interface ServicesProps {
@@ -8,7 +7,6 @@ interface ServicesProps {
 }
 
 const Maps = () => {
-    const {locale, asPath} = useRouter()
     const {t} = useTranslation()
     const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     return (
