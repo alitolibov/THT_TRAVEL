@@ -17,7 +17,7 @@ body{
 }
 .bg{
   height: 100vh;
-  background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1665505632560-0a5ed5de6eaa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');
+  background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bgForPhone.jpeg');
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat; 

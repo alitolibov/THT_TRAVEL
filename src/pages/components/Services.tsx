@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { motion } from 'framer-motion'
 import Item from './Item';
 import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 
 interface ServicesProps {
 
@@ -21,9 +22,13 @@ export interface ToursInterface {
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
 const Services: React.FC<ServicesProps> = () => {
-
+    const {locale} = useRouter()
     const {t} = useTranslation()
-    const toursArr: ToursInterface[] = t('services.tours', {returnObjects: true})
+    const [toursArr, setToursArr] = useState<ToursInterface[] | any[]>([])
+
+    useEffect(() => {
+        setToursArr(t('services.tours', {returnObjects: true}))
+    }, [locale]);
 
     return (
         <section
@@ -38,12 +43,15 @@ const Services: React.FC<ServicesProps> = () => {
                     <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{t('services.title')}</p>
                 </motion.div>
             </motion.div>
-        <div
-        className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
+        <motion.div
+            initial='hidden'
+            whileInView='visible'
+            viewport={{ amount: 0.2, once: true}}
+            className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
             {
-                toursArr.map((item:ToursInterface) => <Item key={item.id} item={item}/>)
+               toursArr.map((item:ToursInterface) => <Item key={item.id} item={item}/>)
             }
-        </div>
+        </motion.div>
         </section>
     );
 };
