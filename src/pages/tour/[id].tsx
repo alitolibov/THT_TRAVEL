@@ -29,12 +29,18 @@ const modal = {
 
 
 const TourPage = () => {
-    const { query} = useRouter()
+    const {query, locale} = useRouter()
     const id = query?.id || ''
     const {t} = useTranslation()
-    const accordionArr:[{title:string, desc:string}] = t('dynamicPage.accordionQuestion', {returnObjects: true})
-    const toursArr:ToursInterface[] | any = t('services.tours', {returnObjects: true}) || []
-    const itemObj:ToursInterface | undefined = toursArr.filter((item:ToursInterface) => item.id == +id)[0]
+    const [accordionArr, setAccordionArr] = useState<[{ title: string, desc: string }] | any>([])
+    const [toursArr, setToursArr] = useState<ToursInterface[] | any>([])
+    const itemObj: ToursInterface | undefined = toursArr.filter((item: ToursInterface) => item.id == +id)[0]
+
+    useEffect(() => {
+        setAccordionArr(t('dynamicPage.accordionQuestion', {returnObjects: true}))
+        setToursArr(t('services.tours', {returnObjects: true}))
+    }, [locale]);
+
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: 30,
@@ -122,7 +128,7 @@ const TourPage = () => {
     );
 };
 
-export async function getStaticProps(props:{locale:string}) {
+export async function getStaticProps(props: { locale: string }) {
     return {
         props: {
             ...(await serverSideTranslations(props.locale, ['common']))
@@ -132,16 +138,16 @@ export async function getStaticProps(props:{locale:string}) {
 
 export async function getStaticPaths() {
     const paths = []
-    for(let i = 0; i <= 6; i++) {
+    for (let i = 0; i <= 6; i++) {
         paths.push(
-            { params: { id: i.toString() }, locale: "ru" },
-            { params: { id: i.toString() }, locale: "en" },
-            { params: { id: i.toString() }, locale: "uz" },
-            )
+            {params: {id: i.toString()}, locale: "ru"},
+            {params: {id: i.toString()}, locale: "en"},
+            {params: {id: i.toString()}, locale: "uz"},
+        )
     }
     return {
         paths,
-        fallback: true
+        fallback: false
     }
 }
 

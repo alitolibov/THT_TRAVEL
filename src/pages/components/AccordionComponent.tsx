@@ -10,7 +10,7 @@ interface AccordionComponentProps {
     title: string;
     desc: string
 }
-const montserrat = Montserrat({ subsets: ['latin'] });
+const montserrat = Montserrat({ subsets: ['vietnamese'] });
 
 const AccordionComponent: React.FC<AccordionComponentProps> = ({title, desc}) => {
 

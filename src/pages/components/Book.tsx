@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useForm, Controller, SubmitHandler} from 'react-hook-form';
 import {PhoneInput, usePhoneValidation} from 'react-international-phone';
 import 'react-international-phone/style.css';
 import {motion} from 'framer-motion';
 import {useTranslation} from "next-i18next";
+import ButtonBook from "@/pages/components/ButtonBook";
 
 type FormData = {
     name: string;
@@ -13,6 +14,8 @@ type FormData = {
 
 const Book: React.FC = () => {
     const {t} = useTranslation()
+    const [loading, setLoading] = useState<boolean>(false)
+    const [success, setSuccess] = useState<boolean>(false)
 
     const {
         handleSubmit,
@@ -22,7 +25,15 @@ const Book: React.FC = () => {
     } = useForm<FormData>({criteriaMode: 'all'});
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        console.log({data});
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            console.log({data});
+            setSuccess(true)
+            setTimeout(() => {
+                setSuccess(false)
+            }, 2000)
+        }, 1000)
     };
 
     const HandleValidate = (value: string) => {
@@ -77,8 +88,7 @@ const Book: React.FC = () => {
                         <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.email.message}</p>
                     )}
                 </div>
-                <button className='rounded-3xl duration-300 w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{t('dynamicPage.bookForm.btnBook')}
-                </button>
+                <ButtonBook loading={loading} success={success}/>
             </motion.form>
     );
 };

@@ -1,20 +1,19 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from './layout/Layout'
-import { Montserrat } from 'next/font/google';
+import {Montserrat, Open_Sans} from 'next/font/google';
 import Head from 'next/head';
 import React from "react";
 import {appWithTranslation} from "next-i18next";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
- 
-const montserrat = Montserrat({ subsets: ['latin'] });
+
+const montserrat = Montserrat({ subsets: ['vietnamese'] });
 
 function App({ Component, pageProps }: AppProps) {
   return (
     <div className={`${montserrat.className}`}>
       <Layout>
         <Head>
-            <meta http-equiv="content-language" content="ru"/>
             <meta name="description" content="Туристическое агентство THT VISA. Туры из Cамарканда в Таиланд, Малайзию, Турцию, ОАЭ, Чехию, Израиль, Италию, Испанию, Францию, Португалию, США. Туры по всему миру. Мы бережно относимся к Вашему отдыху!"/> 
             <meta name="keywords" content="турагентство самарканд, турагентства в самарканде, туры из самарканда, горящий тур, турфирмы самарканда, туристическая фирма, туристическое агентство, туристическая компания, туроператоры в самарканде, тур туроператор, тур фирма, туропраторы по самаркунду, туризм, путешествия, туры, отдых, экскурсии, отели, авиабилеты, визы, шенген"/> 
             <meta name="author" content="THT VISA"/> 

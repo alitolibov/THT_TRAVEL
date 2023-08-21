@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from "framer-motion";
 import Counter from './Counter';
 import {useTranslation} from "next-i18next";
+import {useRouter} from "next/router";
 
 interface Item {
     num: number;
@@ -26,7 +27,8 @@ const animation = {
 
 const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation()
-    const advantagesTexts: String = t('about.advantagesTexts', {returnObjects: true})
+    const {locale} = useRouter()
+    const [advantagesTexts, setAdvantagesTexts] = useState<String[] | any>([])
     const arr: Item[] = [
         { num: 3, t: 3, value: ''},
         { num: 100, t: 5.5, value: ''},
@@ -57,6 +59,10 @@ const Count: React.FC<CountProps> = () => {
             document.removeEventListener('scroll', onScroll);
         };
     }, []);
+
+    useEffect(() => {
+        setAdvantagesTexts(t('about.advantagesTexts', {returnObjects: true}))
+    }, [locale]);
     return (
         <motion.section
             initial='hidden'
