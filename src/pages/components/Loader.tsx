@@ -1,7 +1,6 @@
-import React from 'react';
 const Loader = () => {
     return (
-        <div className={'absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2'}>
+        <div className={'w-full h-screen bg-[var(--main-color)] flex flex-col items-center justify-center'}>
             <svg className="pl" viewBox="0 0 160 160" width="160px" height="160px" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     <linearGradient id="grad" x1="0" y1="0" x2="0" y2="1">
