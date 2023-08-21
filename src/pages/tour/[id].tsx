@@ -14,9 +14,12 @@ export async function getStaticPaths() {
     const paths = []
     for (let i = 1; i <= 6; i++) {
         paths.push(
-            {params: {id: i.toString()}},
+            {params: {id: i.toString()}, locale: 'uz'},
+            {params: {id: i.toString()}, locale: 'ru'},
+            {params: {id: i.toString()}, locale: 'en'},
         )
     }
+    console.log(paths)
     return {
         paths,
         fallback: false
