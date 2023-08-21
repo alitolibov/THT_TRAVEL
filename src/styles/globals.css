@@ -2,110 +2,234 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
-  --main-color: #041923;
-  --main-color-two: #F6B011;
+    --main-color: #041923;
+    --main-color-two: #F6B011;
 }
-body{
-  background-color: var(--main-color);
+
+body {
+    background-color: var(--main-color);
 }
-.bg{
-  height: 100vh;
-  background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bgForPhone.jpeg');
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat; 
+
+.bg {
+    height: 100vh;
+    background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bgForPhone.jpeg');
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
 }
+
 .bottom_img {
-  background-image: url('../../public/images/bottom.png');
+    background-image: url('../../public/images/bottom.png');
 }
-.spacing{
-  letter-spacing: .2em;
+
+.spacing {
+    letter-spacing: .2em;
 }
+
 .spacing_two {
-  letter-spacing: .1rem
+    letter-spacing: .1rem
 }
+
 .swiper-button-prev:after, .swiper-button-next:after {
-  font-size: 17px !important;
-  color: white !important;
+    font-size: 17px !important;
+    color: white !important;
 }
 
 @media (min-width: 1200px) {
-  .swiper-button-prev:after, .swiper-button-next:after {
-    font-size: 25px !important;
-  }
-  .swiper-button-prev {
-    left: 25px !important;
-  }
-  .swiper-button-next {
-    right: 25px !important;
-  }
+    .swiper-button-prev:after, .swiper-button-next:after {
+        font-size: 25px !important;
+    }
+
+    .swiper-button-prev {
+        left: 25px !important;
+    }
+
+    .swiper-button-next {
+        right: 25px !important;
+    }
 }
 
 .swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
 }
 
 .swiper-slide img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .swiper-slide:nth-child(1n) {
-  width: 100%;
+    width: 100%;
 }
 
 @media (min-width: 650px) {
-  .bg{
-  background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bg.jpeg');
-    background-size: cover;
-    background-position: center;
-  }
+    .bg {
+        background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bg.jpeg');
+        background-size: cover;
+        background-position: center;
+    }
 
-  .swiper-button-prev:after, .swiper-button-next:after {
-    font-size: 20px !important;
-  }
+    .swiper-button-prev:after, .swiper-button-next:after {
+        font-size: 20px !important;
+    }
 
-  .swiper-slide:nth-child(1n) {
-    width: 70%;
-  }
+    .swiper-slide:nth-child(1n) {
+        width: 70%;
+    }
 }
+
 input {
-  outline: none !important;
+    outline: none !important;
 }
+
 .react-international-phone-input {
-  background-color: transparent !important;
-  width: 100%;
-  color: white !important;
-  border-bottom-right-radius: 8px !important;
-  border-top-right-radius: 8px !important;
-  font-size: 14px !important;
-  padding: 6px 8px !important;
+    background-color: transparent !important;
+    width: 100%;
+    color: white !important;
+    border-bottom-right-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+    font-size: 14px !important;
+    padding: 6px 8px !important;
 }
 
 .react-international-phone-country-selector-button {
-  background-color: transparent !important;
-  padding: 6px 8px !important;
-  border-bottom-left-radius: 8px !important;
-  border-top-left-radius: 8px !important;
+    background-color: transparent !important;
+    padding: 6px 8px !important;
+    border-bottom-left-radius: 8px !important;
+    border-top-left-radius: 8px !important;
 }
 
 @media (min-width: 768px) {
-  .react-international-phone-input {
-    font-size: 16px !important;
-  }
+    .react-international-phone-input {
+        font-size: 16px !important;
+    }
 }
 
+.pl {
+    display: block;
+    width: 9.375em;
+    height: 9.375em;
+}
+
+.pl__arrows,
+.pl__ring-rotate,
+.pl__ring-stroke,
+.pl__tick {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.pl__arrows {
+    animation-name: arrows42;
+    transform: rotate(45deg);
+    transform-origin: 16px 52px;
+}
+
+.pl__ring-rotate,
+.pl__ring-stroke {
+    transform-origin: 80px 80px;
+}
+
+.pl__ring-rotate {
+    animation-name: ringRotate42;
+}
+
+.pl__ring-stroke {
+    animation-name: ringStroke42;
+    transform: rotate(-45deg);
+}
+
+.pl__tick {
+    animation-name: tick42;
+}
+
+.pl__tick:nth-child(2) {
+    animation-delay: -1.75s;
+}
+
+.pl__tick:nth-child(3) {
+    animation-delay: -1.5s;
+}
+
+.pl__tick:nth-child(4) {
+    animation-delay: -1.25s;
+}
+
+.pl__tick:nth-child(5) {
+    animation-delay: -1s;
+}
+
+.pl__tick:nth-child(6) {
+    animation-delay: -0.75s;
+}
+
+.pl__tick:nth-child(7) {
+    animation-delay: -0.5s;
+}
+
+.pl__tick:nth-child(8) {
+    animation-delay: -0.25s;
+}
+
+/* Animations */
+@keyframes arrows42 {
+    from {
+        transform: rotate(45deg);
+    }
+
+    to {
+        transform: rotate(405deg);
+    }
+}
+
+@keyframes ringRotate42 {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(720deg);
+    }
+}
+
+@keyframes ringStroke42 {
+    from,
+    to {
+        stroke-dashoffset: 452;
+        transform: rotate(-45deg);
+    }
+
+    50% {
+        stroke-dashoffset: 169.5;
+        transform: rotate(-180deg);
+    }
+}
+
+@keyframes tick42 {
+    from,
+    3%,
+    47%,
+    to {
+        stroke-dashoffset: -12;
+    }
+
+    14%,
+    36% {
+        stroke-dashoffset: 0;
+    }
+}

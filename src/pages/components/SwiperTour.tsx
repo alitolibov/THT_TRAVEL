@@ -34,7 +34,7 @@ function SwiperTour(props:any) {
                 loop={true}
                 initialSlide={1}
                 modules={[Navigation]}
-                className="mySwiper aspect-[16/7.5] md:aspect-[16/5.5] rounded-2xl"
+                className="mySwiper aspect-[16/8.5] md:aspect-[16/5.5] rounded-2xl"
             >
                 {
                     [1,2,3,4].map((item:number) =>

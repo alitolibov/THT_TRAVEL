@@ -1,17 +1,40 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from './layout/Layout'
-import {Montserrat, Open_Sans} from 'next/font/google';
+import {Montserrat} from 'next/font/google';
 import Head from 'next/head';
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {appWithTranslation} from "next-i18next";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import {useRouter} from "next/router";
+import Loader from "@/pages/components/Loader";
 
 const montserrat = Montserrat({ subsets: ['vietnamese'] });
 
 function App({ Component, pageProps }: AppProps) {
-  return (
+    const router = useRouter();
+    const [isTransitioning, setIsTransitioning] = useState(false);
+
+    useEffect(() => {
+        const handleStart = () => {
+            setIsTransitioning(true);
+        };
+        const handleComplete = () => {
+            setIsTransitioning(false);
+        };
+
+        router.events.on('routeChangeStart', handleStart);
+        router.events.on('routeChangeComplete', handleComplete);
+        router.events.on('routeChangeError', handleComplete);
+
+        return () => {
+            router.events.off('routeChangeStart', handleStart);
+            router.events.off('routeChangeComplete', handleComplete);
+            router.events.off('routeChangeError', handleComplete);
+        };
+    }, []);
+return (
     <div className={`${montserrat.className}`}>
+        {isTransitioning && <Loader />}
       <Layout>
         <Head>
             <meta name="description" content="Туристическое агентство THT VISA. Туры из Cамарканда в Таиланд, Малайзию, Турцию, ОАЭ, Чехию, Израиль, Италию, Испанию, Францию, Португалию, США. Туры по всему миру. Мы бережно относимся к Вашему отдыху!"/> 
