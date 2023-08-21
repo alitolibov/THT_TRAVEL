@@ -10,6 +10,27 @@ import {useTranslation} from "next-i18next";
 import {ToursInterface} from "@/pages/components/Services";
 import {serverSideTranslations} from "next-i18next/serverSideTranslations";
 
+export async function getStaticPaths() {
+    const paths = []
+    for (let i = 1; i <= 6; i++) {
+        paths.push(
+            {params: {id: i.toString()}},
+        )
+    }
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+export async function getStaticProps(props: { locale: string }) {
+    return {
+        props: {
+            ...(await serverSideTranslations(props.locale, ['common']))
+        },
+    };
+}
+
 const modal = {
     open: {
         y: 0,
@@ -127,28 +148,5 @@ const TourPage = () => {
         </div>
     );
 };
-
-export async function getStaticProps(props: { locale: string }) {
-    return {
-        props: {
-            ...(await serverSideTranslations(props.locale, ['common']))
-        },
-    };
-}
-
-export async function getStaticPaths() {
-    const paths = []
-    for (let i = 0; i <= 6; i++) {
-        paths.push(
-            {params: {id: i.toString()}, locale: "ru"},
-            {params: {id: i.toString()}, locale: "en"},
-            {params: {id: i.toString()}, locale: "uz"},
-        )
-    }
-    return {
-        paths,
-        fallback: false
-    }
-}
 
 export default TourPage;
