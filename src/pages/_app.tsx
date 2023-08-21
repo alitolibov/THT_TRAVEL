@@ -15,7 +15,7 @@ function App({ Component, pageProps }: AppProps) {
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
-        const body = document.body
+        const body = document.body as HTMLElement
         const handleStart = () => {
             body.style.overflowY = 'hidden'
             setIsTransitioning(true);

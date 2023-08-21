@@ -27,7 +27,7 @@ const animation = {
 
 const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation()
-    const {locale} = useRouter()
+    const {locale, asPath} = useRouter()
     const [advantagesTexts, setAdvantagesTexts] = useState<String[] | any>([])
     const arr: Item[] = [
         { num: 3, t: 3, value: ''},
@@ -53,7 +53,6 @@ const Count: React.FC<CountProps> = () => {
         }
 
         document.addEventListener('scroll', onScroll);
-        onScroll();
 
         return () => {
             document.removeEventListener('scroll', onScroll);
@@ -81,7 +80,7 @@ const Count: React.FC<CountProps> = () => {
                 viewport={{ amount: 0.4, once: true }}
                 variants={animation}
                 className="scrollBlock grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
-                {isVisible ? arr.map((item, index) => (
+                {isVisible || asPath !== '/' ? arr.map((item, index) => (
                     <Counter
                         num={item.num}
                         time={item.t}
