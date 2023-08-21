@@ -1,8 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import { motion } from 'framer-motion'
 import Item from './Item';
 import {useTranslation} from "next-i18next";
-import {useRouter} from "next/router";
 
 interface ServicesProps {
 
@@ -22,13 +21,10 @@ export interface ToursInterface {
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
 const Services: React.FC<ServicesProps> = () => {
-    const {locale} = useRouter()
-    const {t} = useTranslation()
-    const [toursArr, setToursArr] = useState<ToursInterface[] | any>([])
 
-    useEffect(() => {
-        setToursArr(t('services.tours', {returnObjects: true}))
-    }, [locale]);
+    const {t} = useTranslation()
+    const toursArr: ToursInterface[] = t('services.tours', {returnObjects: true})
+
     return (
         <section
             className='space-y-[40px] mb-[50px] md:space-y-[50px]'>

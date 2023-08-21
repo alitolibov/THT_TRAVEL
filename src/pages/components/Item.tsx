@@ -35,21 +35,19 @@ const Item: React.FC<ItemProps> = ({item}) => {
 
     const {push, locale} = useRouter()
     return (
-       <Link locale={locale} href={`tour/${item?.id}`}>
            <motion.div
                initial='hidden'
                whileInView='visible'
                viewport={{ amount: 0.4, once: true}}
                variants={animation}
                className={`aspect-[1/1.33]`}>
-                <div className={'bg-full h-full bg-center flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer'} style={{backgroundImage: `url("/images/toursImage/${item?.img}.webp")`}}>
+                <Link locale={locale} href={`tour/${item?.id}`} className={'bg-full h-full bg-center flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer'} style={{backgroundImage: `url("/images/toursImage/${item?.img}.webp")`}}>
                     <div className={"w-full py-2 bg-[var(--main-color-two)] text-[#fff]"}>
                         <p className="text-lg text-center font-[500]">{item?.country}</p>
                         <p className="text-base text-center font-[500]">{item?.price}</p>
                     </div>
-                </div>
+                </Link>
            </motion.div>
-       </Link>
     );
 };
 
