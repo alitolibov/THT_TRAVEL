@@ -4,7 +4,8 @@ import {PhoneInput, usePhoneValidation} from 'react-international-phone';
 import 'react-international-phone/style.css';
 import {motion} from 'framer-motion';
 import {useTranslation} from "next-i18next";
-import ButtonBook from "@/pages/components/ButtonBook";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 type FormData = {
     name: string;
@@ -16,24 +17,27 @@ const Book: React.FC = () => {
     const {t} = useTranslation()
     const [loading, setLoading] = useState<boolean>(false)
     const [success, setSuccess] = useState<boolean>(false)
+    const notify = () => toast("Wow so easy!");
 
     const {
         handleSubmit,
         register,
         formState: {errors},
         control,
+        reset
     } = useForm<FormData>({criteriaMode: 'all'});
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-            console.log({data});
-            setSuccess(true)
-            setTimeout(() => {
-                setSuccess(false)
-            }, 2000)
-        }, 1000)
+        const token_bot:string = "6121709087:AAEF0tr53oqupDwzafFnIAe58YufdgsjmpM"
+        const chat_id:number = -1001968954329
+        const text:string = `<i>New Application</i>   <b>Name:</b> ${data.name}  <b>Phone number:</b> ${data.tel} <b>E-mail:</b> ${data.email}`
+        const url:string = `https://api.telegram.org/bot${token_bot}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=html`
+
+        const api = new XMLHttpRequest()
+        api.open("GET", url, true)
+        api.send()
+        reset()
+        notify()
     };
 
     const HandleValidate = (value: string) => {
@@ -88,7 +92,8 @@ const Book: React.FC = () => {
                         <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.email.message}</p>
                     )}
                 </div>
-                <ButtonBook loading={loading} success={success}/>
+                <button onClick={notify} className='rounded-3xl duration-300 w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{t('dynamicPage.bookForm.btnBook')}
+                </button>
             </motion.form>
     );
 };

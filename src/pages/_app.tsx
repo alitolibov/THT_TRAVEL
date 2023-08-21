@@ -40,14 +40,23 @@ return (
         {isTransitioning && <Loader />}
       <Layout>
         <Head>
-            <meta name="description" content="Туристическое агентство THT VISA. Туры из Cамарканда в Таиланд, Малайзию, Турцию, ОАЭ, Чехию, Израиль, Италию, Испанию, Францию, Португалию, США. Туры по всему миру. Мы бережно относимся к Вашему отдыху!"/> 
-            <meta name="keywords" content="турагентство самарканд, турагентства в самарканде, туры из самарканда, горящий тур, турфирмы самарканда, туристическая фирма, туристическое агентство, туристическая компания, туроператоры в самарканде, тур туроператор, тур фирма, туропраторы по самаркунду, туризм, путешествия, туры, отдых, экскурсии, отели, авиабилеты, визы, шенген"/> 
-            <meta name="author" content="THT VISA"/> 
-            <meta name="robots" content="index, follow"/> 
-            <meta property="og:title" content="THT VISA"/> 
-            <meta property="og:description" content="Организация туров и путешествий по всему миру."/> 
-            <meta property="og:type" content="website"/> 
+            <meta name="description" content="Откройте дверь в мир удивительных приключений с нами – лучшим турагентством, где мечты становятся реальностью. Планируйте свой незабываемый отдых вместе с нами, пока мы берем на себя всю заботу об оформлении виз. Путешествуйте без границ, обогащая свою жизнь встречами с культурами и пейзажами, которые оставят даже самых искушенных путешественников в восторге."/>
+            <meta name="keywords" content="турагентство самарканд, турагентства в самарканде, туры из самарканда, горящий тур, турфирмы самарканда, туристическая фирма, туристическое агентство, туристическая компания, туроператоры в самарканде, тур туроператор, тур фирма, туропраторы по самаркунду, туризм, путешествия, туры, отдых, экскурсии, отели, авиабилеты, визы, шенген"/>
+            <meta name="author" content="THT VISA"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <meta name="robots" content="index, follow"/>
+            <meta name="geo.region" content="UZ"/>
+            <meta name="geo.placename" content="Samarkand, Uzbekistan"/>
+            <meta name="geo.position" content="39.6692451;66.9262534"/>
+            <meta name="ICBM" content="39.6692451, 66.9262534"/>
+            <meta name="format-detection" content="telephone=no"/>
+            <meta property="og:title" content="THT VISA"/>
+            <meta property="og:description" content="Откройте дверь в мир невероятных путешествий с нами. Мы создаем моменты, которые оставят след в ваших сердцах – от встреч с удивительными культурами до незабываемых видов за горизонтом."/>
+            <meta property="og:image" content="https://i.imgur.com/5e0nPBQ.png"/>
+            <meta property="og:url" content="https://tht-visa.com/"/>
+            <meta property="og:type" content="website"/>
             <meta property="og:site_name" content="THT VISA"/>
+            <meta property="og:locale" content="ru_RU"/>
             <link rel="icon" sizes="32x32" href="/images/logo_head.png" />
         </Head>
         <Component {...pageProps} />
@@ -55,6 +64,7 @@ return (
     </div>
   )
 }
+
 
 
 export default appWithTranslation(App)
