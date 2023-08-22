@@ -33,7 +33,7 @@ const Book: React.FC = () => {
         const api = new XMLHttpRequest()
         api.open("GET", url, true)
         api.send()
-        // reset()
+        reset()
     };
 
     const HandleValidate = (value: string) => {
