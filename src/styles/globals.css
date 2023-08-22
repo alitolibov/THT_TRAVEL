@@ -96,10 +96,6 @@ input {
     outline: none !important;
 }
 
-img {
-    width: auto;
-    height: auto;
-}
 
 .react-international-phone-input {
     background-color: transparent !important;
