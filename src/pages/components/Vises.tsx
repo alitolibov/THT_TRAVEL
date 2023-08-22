@@ -1,9 +1,6 @@
 import React, { useEffect } from 'react';
 import {motion} from 'framer-motion'
-import { useRouter } from 'next/router';
-import uz from '../../../public/lang/uz';
-import ru from '../../../public/lang/ru';
-import en from '../../../public/lang/en';
+import {useTranslation} from "next-i18next";
 
 interface VisesProps {}
 
@@ -26,25 +23,13 @@ const animation = {
 }
 
 const Vises: React.FC<VisesProps> = () => {
+    const {t} = useTranslation()
+    const text:string = t('vises.dsc')
 
-    const {locale} = useRouter()
-    let lang:any
-    switch(locale) {
-        case 'uz':
-            lang = uz
-          break
-        case 'ru': 
-        lang = ru
-          break
-        default:
-            lang = en
-          break
-      }
-
-      useEffect(() => {
-            let one:any = document.querySelector('#one')
-            one.innerHTML = lang.vises.dsc
-      }, [lang])
+    useEffect(() => {
+            let one = document.querySelector('#one') as HTMLElement
+            one.innerHTML = text
+      }, [text])
 
     return (
         <section 
@@ -56,9 +41,9 @@ const Vises: React.FC<VisesProps> = () => {
             className="space-y-[40px] md:w-[50%]">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative">
                     <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">VISES</p>
-                    <p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{lang.vises.title}</p>
+                    <p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{t('vises.title')}</p>
                 </motion.div>
-                    <motion.p variants={itemVariants} className="text-[#fff]" id='one'></motion.p>
+                    <motion.p variants={itemVariants} className="text-[#fff] xl:text-lg" id='one'></motion.p>
             </motion.div>
             <motion.div 
             initial='hidden'

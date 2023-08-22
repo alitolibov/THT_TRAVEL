@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {motion} from 'framer-motion'
-import { useRouter } from 'next/router';
-import uz from '../../../public/lang/uz';
-import ru from '../../../public/lang/ru';
-import en from '../../../public/lang/en';
+import {useTranslation} from "next-i18next";
+import Image from "next/image";
 
 interface AboutUsProps {
     
@@ -28,27 +26,17 @@ const animation = {
 
 const AboutUs: React.FC<AboutUsProps> = () => {
 
-    const {locale} = useRouter()
+    const {t} = useTranslation()
+    const descText:string = t('about.dsc')
+    const descText2:string = t('about.dsc2')
     const [show, setShow] = useState<boolean>(false)
-    let lang:any
-    switch(locale) {
-        case 'uz':
-            lang = uz
-          break
-        case 'ru': 
-        lang = ru
-          break
-        default:
-            lang = en
-          break
-      }
 
       useEffect(() => {
         let dsc = document.querySelector('#dsc') as HTMLElement
         let dsc2 = document.querySelector('#dsc2') as HTMLElement
-        dsc.innerHTML = lang.about.dsc
-        dsc2.innerHTML = lang.about.dsc2
-      }, [lang])
+        dsc.innerHTML = descText
+        dsc2.innerHTML = descText2
+      }, [descText, descText2])
 
 
     return (
@@ -56,18 +44,18 @@ const AboutUs: React.FC<AboutUsProps> = () => {
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
-        className='space-y-[20px] md:flex md:justify-between md:items-center md:space-y-[50px] lg:space-y-0'>
+        className='space-y-[20px] mb-[150px] md:flex md:justify-between md:items-center md:space-y-[50px] lg:space-y-0'>
             <div className="space-y-[40px] md:w-[50%]">
                 <motion.div variants={{hidden: { opacity: 0, y: -20 }, visible}} className="relative">
                     <p  className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">STORY</p>
-                    <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{lang.story.title}</p>
+                    <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{t('story.title')}</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-[#fff]">
-                    <p id='dsc'></p>
-                    <p className={`${show ? 'block' : 'hidden'}`} id='dsc2'></p>
+                    <p id='dsc' className='xl:text-lg'></p>
+                    <p className={`${show ? 'block' : 'hidden'} xl:text-lg`} id='dsc2'></p>
                     <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
-                        <p className='text-[var(--main-color-two)]'>{show ? lang.about.hidden : lang.about.show}</p>
-                        <img src="/images/arrow_bottom.png" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
+                        <p className='text-[var(--main-color-two)]'>{show ? t('about.hidden') : t('about.show')}</p>
+                        <Image width={15} height={15} alt={''} src="/images/arrow_bottom.webp" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
                     </div>
                 </motion.div>
             </div>

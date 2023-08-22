@@ -1,34 +1,53 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { useRouter } from 'next/router';
+import Image from "next/image";
+import Link from "next/link";
 
 interface ItemProps {
-    img: string
-    id: number
-    title: string
+    item: {
+        id: number;
+        country: string;
+        typeTour: string;
+        duration: string;
+        price: string;
+        peoples: string;
+        lang: string;
+        img: string;
+        desc: string;
+    }
 }
+
 
 const animation:{hidden: object, visible: object} = {
     hidden: {
-        y: 30,
+        y: 40,
         opacity: 0
     },
     visible: {
         y: 0,
         opacity: 1,
-        transition: {duration: 0.7}
+        transition: {duration: 0.8}
     }
 }
 
-const Item: React.FC<ItemProps> = ({img, id, title}) => {
+const Item: React.FC<ItemProps> = ({item}) => {
+
+    const {push, locale} = useRouter()
     return (
-        <motion.div
-        initial='hidden'
-        whileInView='visible'
-        viewport={{ amount: 0.4, once: true}}
-        variants={animation}
-        className={`gradient relative bg-center aspect-[1/1.33] bg-org lg:hover:bg-full duration-300 flex flex-col justify-end items-center pb-[20px]`} style={{backgroundImage: `url('${img}')`}}>
-            <p className="text-[20px] text-center font-[500] text-[#fff]">{title}</p>
-        </motion.div>
+           <motion.div
+               initial='hidden'
+               whileInView='visible'
+               viewport={{ amount: 0.4, once: true}}
+               variants={animation}
+               className={`aspect-[1/1.33]`}>
+                <Link locale={locale} href={`tour/${item?.id}`} className={'bg-full h-full bg-center flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer'} style={{backgroundImage: `url("/images/toursImage/${item?.img}.webp")`}}>
+                    <div className={"w-full py-2 bg-[var(--main-color-two)] text-[#fff]"}>
+                        <p className="text-lg text-center font-[500]">{item?.country}</p>
+                        <p className="text-base text-center font-[500]">{item?.price}</p>
+                    </div>
+                </Link>
+           </motion.div>
     );
 };
 
