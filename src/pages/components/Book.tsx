@@ -25,7 +25,7 @@ const Book: React.FC = () => {
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
         const token_bot:string = "6121709087:AAEF0tr53oqupDwzafFnIAe58YufdgsjmpM"
-        const chat_id:number = -1001968954329
+        const chat_id:number = -1001807304617
         const text:string = `<i>New Application</i>   <b>Name:</b> ${data.name}  <b>Phone number:</b> ${data.tel} <b>E-mail:</b> ${data.email}`
         const url:string = `https://api.telegram.org/bot${token_bot}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=html`
         toast.success(t('toast'))
