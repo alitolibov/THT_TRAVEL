@@ -26,7 +26,7 @@ body {
 }
 
 .bottom_img {
-    background-image: url('../../public/images/bottom.png');
+    background-image: url('../../public/images/bottom.webp');
 }
 
 .spacing {
@@ -94,6 +94,11 @@ body {
 
 input {
     outline: none !important;
+}
+
+img {
+    width: auto;
+    height: auto;
 }
 
 .react-international-phone-input {

@@ -57,7 +57,7 @@ return (
             <meta property="og:type" content="website"/>
             <meta property="og:site_name" content="THT VISA"/>
             <meta property="og:locale" content="ru_RU"/>
-            <link rel="icon" sizes="32x32" href="/images/logo_head.png" />
+            <link rel="icon" sizes="32x32" href="/images/logo_head.webp" />
         </Head>
         <Component {...pageProps} />
       </Layout>
