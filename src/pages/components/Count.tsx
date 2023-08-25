@@ -39,6 +39,10 @@ const Count: React.FC<CountProps> = () => {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
+        setAdvantagesTexts(t('about.advantagesTexts', {returnObjects: true}))
+    }, [locale, asPath]);
+
+    useEffect(() => {
         const elem = document.querySelector('.scrollBlock') as HTMLElement;
 
         function onScroll() {
@@ -59,9 +63,7 @@ const Count: React.FC<CountProps> = () => {
         };
     }, []);
 
-    useEffect(() => {
-        setAdvantagesTexts(t('about.advantagesTexts', {returnObjects: true}))
-    }, [locale]);
+
     return (
         <motion.section
             initial='hidden'
