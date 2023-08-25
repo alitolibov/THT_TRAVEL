@@ -29,17 +29,18 @@ const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation()
     const {locale, asPath} = useRouter()
     const [advantagesTexts, setAdvantagesTexts] = useState<String[] | any>([])
-    const arr: Item[] = [
+    const [arr, setArr] = useState<Item[]>([
         { num: 3, t: 3, value: ''},
         { num: 100, t: 5.5, value: ''},
         { num: 100, t: 5, value: '+'},
         { num: 10, t: 5, value: '%'}
-    ];
+    ])
 
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
         setAdvantagesTexts(t('about.advantagesTexts', {returnObjects: true}))
+        setArr(arr)
     }, [locale, asPath]);
 
     useEffect(() => {
