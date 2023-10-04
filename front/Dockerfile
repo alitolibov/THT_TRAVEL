@@ -1,7 +1,7 @@
 FROM node:16-alpine as build-stage
 
 WORKDIR /app
-COPY package.json .npmrc ./
+COPY package.json ./
 RUN npm i
 COPY . .
 
