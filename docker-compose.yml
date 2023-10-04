@@ -8,7 +8,7 @@ services:
       target: prod
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.front.rule=Host(`tht-visa.anydev.online`)"
+      - "traefik.http.routers.front.rule=Host(`tht-visa.com`, `www.tht-visa.com`)"
       - "traefik.http.routers.front.tls=true"
       - "traefik.http.routers.front.tls.certresolver=letsencrypt"
       - "traefik.http.services.front.loadbalancer.server.port=80"
