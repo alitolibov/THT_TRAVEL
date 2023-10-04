@@ -6,5 +6,5 @@ RUN npm i
 COPY . .
 
 FROM build-stage as prod
-RUN npm build
-CMD npm start
+RUN npm run build
+CMD npm run start
