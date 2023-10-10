@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useRouter } from 'next/router';
@@ -14,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({children}) => {
     return (
         <div className={pathname === '/' ? "bg" : ''}>
             <Header/>
-            <main className='px-[15px] lt:max-w-lg lt:mx-auto lt:px-0 md:max-w-[745px] lg:max-w-[980px] xl:max-w-[1180px] xxl:max-w-7xl'>
+            <main className='px-4 lt:px-0 container mx-auto'>
             {children}
             </main>
             <Footer/>

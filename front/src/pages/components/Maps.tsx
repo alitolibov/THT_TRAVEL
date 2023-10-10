@@ -2,14 +2,12 @@ import React from 'react';
 import { motion } from 'framer-motion'
 import {useTranslation} from "next-i18next";
 
-interface ServicesProps {}
-
 const Maps = () => {
     const {t} = useTranslation()
     const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     return (
         <motion.section
-            className={'space-y-[30px] mt-[150px]'}
+            className={'space-y-10 mt-[150px]'}
             initial='hidden'
             whileInView='visible'
             viewport={{ amount: 0.4, once: true}}>

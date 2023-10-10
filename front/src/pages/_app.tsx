@@ -1,14 +1,11 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Layout from './layout/Layout'
-import {Montserrat} from 'next/font/google';
 import Head from 'next/head';
 import React, {useEffect, useState} from "react";
 import {appWithTranslation} from "next-i18next";
 import {useRouter} from "next/router";
 import Loader from "@/pages/components/Loader";
-
-const montserrat = Montserrat({ subsets: ['vietnamese'] });
 
 function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
@@ -36,7 +33,7 @@ function App({ Component, pageProps }: AppProps) {
         };
     }, []);
 return (
-    <div className={`${montserrat.className}`}>
+    <div>
         {isTransitioning && <Loader />}
       <Layout>
         <Head>
@@ -57,7 +54,7 @@ return (
             <meta property="og:type" content="website"/>
             <meta property="og:site_name" content="THT VISA"/>
             <meta property="og:locale" content="ru_RU"/>
-            <link rel="icon" sizes="32x32" href="/images/logo_head.webp" />
+            <link rel="icon" sizes="32x32" href="https://i.imgur.com/5e0nPBQ.png" />
         </Head>
         <Component {...pageProps} />
       </Layout>

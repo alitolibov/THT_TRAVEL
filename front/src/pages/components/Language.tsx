@@ -1,7 +1,6 @@
 import {useState, useEffect} from "react";
 import {useAnimate, stagger, motion} from "framer-motion";
 import {useRouter} from "next/router";
-import {usePathname} from 'next/navigation';
 import Link from "next/link";
 import Image from "next/image";
 
@@ -77,15 +76,15 @@ export default function Language() {
                 className="right-0 w-[45px] xl:w-[49px]"
             >
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={asPath} locale={'ru'}><Image width={26} height={24}
+                    href={asPath} locale={'ru'}><Image width={16} height={16}
                                                          className="w-[26px] h-[24px] shadow-2xl xl:w-[30px] xl:h-7"
                                                          src="/images/rus.webp" alt=""/></Link></li>
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={asPath} locale={'uz'}><Image width={24} height={24}
+                    href={asPath} locale={'uz'}><Image width={16} height={16}
                                                          className="w-[24px] h-[24px] shadow-2xl xl:w-7 xl:h-7"
                                                          src="/images/uz.webp" alt=""/></Link></li>
                 <li className="px-2.5 py-[5px] xl:py-[7px] duration-300 lg:cursor-pointer lg:hover:bg-[#d4d4d4]"><Link
-                    href={asPath} locale={'en'}><Image width={26} height={26}
+                    href={asPath} locale={'en'}><Image width={16} height={16}
                                                          className="w-[26px] h-[26px] shadow-2xl xl:w-[30px] xl:h-[30px] object-cover"
                                                          src="/images/en.webp" alt=""/></Link></li>
             </ul>

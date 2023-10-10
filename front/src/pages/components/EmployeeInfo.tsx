@@ -31,7 +31,9 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
         viewport={{ amount: 0.4, once: true}}
         variants={animation}
         className='space-y-[24px]'>
-            <div className={`mx-auto w-[260px] h-[260px] bg-cover bg-top bgImg`} style={{backgroundImage: `url('/images/${photo}')`}}></div>
+            <div className={'mx-auto w-[260px] h-[260px] overflow-hidden'}>
+                <Image src={`/images/${photo}`} alt={'Photo'} width={260} height={260}/>
+            </div>
             <div className="space-y-[2px] w-fit mx-auto">
                 <h1 className='text-[18px] font-semibold text-[var(--main-color-two)] text-center'>{name}</h1>
                 <h2 className='text-[14px] text-[#fff] spacing_two uppercase text-center'>{level}</h2>

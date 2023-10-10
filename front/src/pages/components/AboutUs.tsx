@@ -63,7 +63,9 @@ const AboutUs: React.FC<AboutUsProps> = () => {
             initial='hidden'
             whileInView='visible'
             viewport={{ amount: 0.4, once: true}}
-            variants={animation} className='aspect-square md:w-[40%] bg-[url("/images/traveler.webp")] bg-center bg-no-repeat bg-contain' />
+            variants={animation} className='aspect-square md:w-[40%]'>
+                <Image src={'/images/traveler.webp'} alt={'Photo'} width={200} height={200} className={'w-full h-full'}/>
+            </motion.div>
         </motion.section>
     );
 };
