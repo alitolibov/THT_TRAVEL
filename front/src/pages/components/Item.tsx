@@ -39,12 +39,10 @@ const Item: React.FC<ItemProps> = ({item}) => {
                initial='hidden'
                whileInView='visible'
                viewport={{ amount: 0.4, once: true}}
-               whileHover={{ scale: 0.97 }}
-               whileTap={{ scale: 0.93 }}
+               whileTap={{ scale: 0.95 }}
                variants={animation}
                className={`aspect-[1/1.33]`}>
-                <Link locale={locale} href={`tour/${item?.id}`} className={'h-full bg-center flex flex-col relative justify-end items-center overflow-hidden  lg:cursor-pointer'}>
-                    <Image src={`/images/toursImage/${item?.img}.webp`} alt={'Tour Image'} width={120} height={120} className={'absolute -z-10 w-full h-full'}/>
+                <Link locale={locale} href={`tour/${item?.id}`} className={'bg-full h-full bg-center flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer'} style={{backgroundImage: `url("/images/toursImage/${item?.img}.webp")`}}>
                     <div className={"w-full py-2 bg-[var(--main-color-two)] text-[#fff]"}>
                         <p className="text-lg text-center font-[500]">{item?.country}</p>
                         <p className="text-base text-center font-[500]">{item?.price}</p>

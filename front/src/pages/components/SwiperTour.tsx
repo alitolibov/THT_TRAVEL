@@ -4,7 +4,6 @@ import {motion} from "framer-motion";
 import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
-import Image from "next/image";
 
 
 function SwiperTour(props:any) {
@@ -40,7 +39,7 @@ function SwiperTour(props:any) {
                 {
                     [1,2,3,4].map((item:number) =>
                         <SwiperSlide key={item}>
-                            <Image src={`/images/toursImage/${img + item}.webp`} alt={'Tour Image'} width={200} height={120} className={'w-full h-full'}/>
+                            <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
                         </SwiperSlide>
                     )
                 }
