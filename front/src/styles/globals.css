@@ -22,7 +22,7 @@ body {
 
 .bg {
     height: 100vh;
-    background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bgForPhone.jpeg');
+    background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1696758011667-346ef53c70d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -81,7 +81,7 @@ body {
 
 @media (min-width: 650px) {
     .bg {
-        background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('../../public/images/bg.jpeg');
+        background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1696280292021-76c29fb11f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
         background-size: cover;
         background-position: center;
     }
