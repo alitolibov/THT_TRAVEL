@@ -28,6 +28,7 @@ specifiers:
   eslint-plugin-prettier: ^5.0.0
   eslint-plugin-simple-import-sort: ^10.0.0
   jest: ^29.5.0
+  passport: ^0.7.0
   passport-jwt: ^4.0.1
   pg: ^8.12.0
   prettier: ^3.0.0
@@ -48,12 +49,13 @@ dependencies:
   '@nestjs/config': 3.2.3_c7vyz53lth7v3futrlg7saeyoa
   '@nestjs/core': 10.4.3_b4re7yp72otyetxt3cmqe5otfi
   '@nestjs/jwt': 10.2.0_@nestjs+common@10.4.3
-  '@nestjs/passport': 10.0.3_@nestjs+common@10.4.3
+  '@nestjs/passport': 10.0.3_oufi7k6jpaf2ztpdphaoreoosi
   '@nestjs/platform-express': 10.4.3_tzoqwtzfyuibyrl77wawnphodm
   '@nestjs/sequelize': 10.0.1_dfhp76xh3op6heodfromowfj34
   bcrypt: 5.1.1
   class-transformer: 0.5.1
   class-validator: 0.14.1
+  passport: 0.7.0
   passport-jwt: 4.0.1
   pg: 8.12.0
   reflect-metadata: 0.2.2
@@ -1009,13 +1011,14 @@ packages:
       jsonwebtoken: 9.0.2
     dev: false
 
-  /@nestjs/passport/10.0.3_@nestjs+common@10.4.3:
+  /@nestjs/passport/10.0.3_oufi7k6jpaf2ztpdphaoreoosi:
     resolution: {integrity: sha512-znJ9Y4S8ZDVY+j4doWAJ8EuuVO7SkQN3yOBmzxbGaXbvcSwFDAdGJ+OMCg52NdzIO4tQoN4pYKx8W6M0ArfFRQ==}
     peerDependencies:
       '@nestjs/common': ^8.0.0 || ^9.0.0 || ^10.0.0
       passport: ^0.4.0 || ^0.5.0 || ^0.6.0 || ^0.7.0
     dependencies:
       '@nestjs/common': 10.4.3_bnnxhceqlvpgrjxe5cy4yeabo4
+      passport: 0.7.0
     dev: false
 
   /@nestjs/platform-express/10.4.3_tzoqwtzfyuibyrl77wawnphodm:
@@ -4468,6 +4471,15 @@ packages:
     engines: {node: '>= 0.4.0'}
     dev: false
 
+  /passport/0.7.0:
+    resolution: {integrity: sha512-cPLl+qZpSc+ireUvt+IzqbED1cHHkDoVYMo30jbJIdOOjQ1MQYZBPiNvmi8UM6lJuOpTPXJGZQk0DtC4y61MYQ==}
+    engines: {node: '>= 0.4.0'}
+    dependencies:
+      passport-strategy: 1.0.0
+      pause: 0.0.1
+      utils-merge: 1.0.1
+    dev: false
+
   /path-exists/4.0.0:
     resolution: {integrity: sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w==}
     engines: {node: '>=8'}
@@ -4504,6 +4516,10 @@ packages:
     resolution: {integrity: sha512-gDKb8aZMDeD/tZWs9P6+q0J9Mwkdl6xMV8TjnGP3qJVJ06bdMgkbBlLU8IdfOsIsFz2BW1rNVT3XuNEl8zPAvw==}
     engines: {node: '>=8'}
     dev: true
+
+  /pause/0.0.1:
+    resolution: {integrity: sha512-KG8UEiEVkR3wGEb4m5yZkVCzigAD+cVEJck2CzYZO37ZGJfctvVptVO192MwrtPhzONn6go8ylnOdMhKqi4nfg==}
+    dev: false
 
   /pg-cloudflare/1.1.1:
     resolution: {integrity: sha512-xWPagP/4B6BgFO+EKz3JONXv3YDgvkbVrGw2mTo3D6tVDQRh1e7cqVGvyR3BE+eQgAvx1XhW/iEASj4/jCWl3Q==}
