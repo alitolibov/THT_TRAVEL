@@ -6,6 +6,7 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { jwtConfig, postgresConfig } from "../../config";
 import { User } from "../users/model/user.model";
 import { UsersModule } from "../users/users.module";
+import {AuthModule} from "../auth/auth.module";
 
 @Module({
   imports: [
@@ -27,7 +28,10 @@ import { UsersModule } from "../users/users.module";
         autoLoadModels: true,
         models: [User]
       })
-    }), UsersModule],
+    }),
+    AuthModule,
+    UsersModule
+  ],
   controllers: [AppController],
   providers: [AppService],
 })

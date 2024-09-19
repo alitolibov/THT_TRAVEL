@@ -12,7 +12,11 @@ export class UsersService {
       firstName: dto.firstName,
       lastName: dto.lastName,
       password: dto.password,
-      email: dto.password
-    })
+      email: dto.email
+    });
+  }
+
+   findByEmail(email: string): Promise<User | null> {
+    return this.userRepository.findOne({ where: { email } });
   }
 }

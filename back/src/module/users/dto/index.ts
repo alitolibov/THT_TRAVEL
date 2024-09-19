@@ -14,6 +14,5 @@ export class UserCreateDTO {
   email: string
 
   @MinLength(8)
-  @IsStrongPassword()
   password: string
 }
