@@ -13,8 +13,7 @@ export class AuthService {
   ) {}
 
   private async generateHashPassword(password: string): Promise<string> {
-    const salt = 10;
-    return await bcrypt.hash(password, salt);
+    return await bcrypt.hash(password, 10);
   }
 
   private async isValidPassword(password: string, hashPassword: string): Promise<boolean> {
