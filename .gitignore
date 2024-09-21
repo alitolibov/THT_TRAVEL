@@ -34,3 +34,30 @@ front/.env*.local
 front/.vercel
 front/*.tsbuildinfo
 front/next-env.d.ts
+
+*.log
+nuxt.d.ts
+# private config
+.env
+
+# deps
+node_modules
+dist
+
+# build or generate
+.nuxt
+.output
+
+# aditional configuration
+back/uploads
+backups/uploads
+backups/dump
+backups/backup.zip
+back/lib
+
+# IDE
+.idea
+.vercel
+.DS_Store
+postgres-data
+

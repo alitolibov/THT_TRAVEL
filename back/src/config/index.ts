@@ -12,6 +12,6 @@ export const postgresConfig = registerAs('postgres', () => ({
 export const jwtConfig = registerAs('jwt', () => ({
   secret: 'j9b3VS!XROdDOLiWm&stIM7HB3%HlWCl8sY%3gRdTCb6gI1do415HVhG!gPdJ#pi',
   signOptions: {
-    expiresIn: '60s',
+    expiresIn: '60d',
   },
 }));

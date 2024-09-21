@@ -7,6 +7,10 @@ import { jwtConfig, postgresConfig } from "../../config";
 import { User } from "../users/model/user.model";
 import { UsersModule } from "../users/users.module";
 import {AuthModule} from "../auth/auth.module";
+import {EmployeesModule} from "../employees/employees.module";
+import {Employee} from "../employees/model/employee.model";
+import {UploadsModule} from "../uploads/uploads.module";
+import {Upload} from "../uploads/model/upload.model";
 
 @Module({
   imports: [
@@ -26,11 +30,13 @@ import {AuthModule} from "../auth/auth.module";
         database: configService.get('postgres.database'),
         synchronize: true,
         autoLoadModels: true,
-        models: [User]
+        models: [User, Employee, Upload]
       })
     }),
     AuthModule,
-    UsersModule
+    UsersModule,
+    EmployeesModule,
+    UploadsModule
   ],
   controllers: [AppController],
   providers: [AppService],
