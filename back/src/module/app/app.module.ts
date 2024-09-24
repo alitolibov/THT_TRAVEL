@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { SequelizeModule } from "@nestjs/sequelize";
-import { jwtConfig, postgresConfig } from "../../config";
+import { defaultConfiguration, jwtConfig, postgresConfig } from "../../config";
 import { User } from "../users/model/user.model";
 import { UsersModule } from "../users/users.module";
 import {AuthModule} from "../auth/auth.module";
@@ -16,7 +16,7 @@ import {Upload} from "../uploads/model/upload.model";
   imports: [
     ConfigModule.forRoot({
     isGlobal: true,
-    load: [postgresConfig, jwtConfig]
+    load: [postgresConfig, jwtConfig, defaultConfiguration]
   }),
     SequelizeModule.forRootAsync({
       imports: [ConfigModule],

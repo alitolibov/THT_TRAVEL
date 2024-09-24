@@ -2,6 +2,7 @@ import * as process from 'process';
 import { registerAs } from "@nestjs/config";
 
 export const postgresConfig = registerAs('postgres', () => ({
+  dialect: 'postgres',
   host: process.env.POSTGRES_HOST,
   port: process.env.POSTGRES_PORT,
   username: process.env.POSTGRES_USER,
@@ -15,3 +16,7 @@ export const jwtConfig = registerAs('jwt', () => ({
     expiresIn: '60d',
   },
 }));
+
+export const defaultConfiguration = () => ({
+  imagesUrl: process.env.PUBLIC_URL || 'http://localhost:3030/'
+})

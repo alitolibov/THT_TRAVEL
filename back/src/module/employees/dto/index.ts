@@ -1,4 +1,4 @@
-import {IsNotEmpty, IsPhoneNumber, IsString, IsUrl} from "class-validator";
+import {IsInt, IsNotEmpty, IsPhoneNumber, IsString, IsUrl} from "class-validator";
 
 export class CreateEmployeeDTO {
     @IsString()
@@ -24,4 +24,8 @@ export class CreateEmployeeDTO {
     @IsUrl()
     @IsNotEmpty()
     telegram: string;
+
+    @IsNotEmpty()
+    @IsInt()
+    imageId: number;
 }

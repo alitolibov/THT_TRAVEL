@@ -1,15 +1,20 @@
-import {Body, Controller, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from "@nestjs/common";
 import {EmployeesService} from "./employees.service";
-import {FileInterceptor} from "@nestjs/platform-express";
 import {CreateEmployeeDTO} from "./dto";
+import { JwtGuards } from "../auth/guards/jwt.guards";
 
 @Controller('employees')
 export class EmployeesController {
     constructor(private readonly employeesService: EmployeesService) {}
 
     @Post()
-    @UseInterceptors(FileInterceptor('file'))
-    createEmployee(@Body() body: any, @UploadedFile() file: any) {
+    @UseGuards(JwtGuards)
+    createEmployee(@Body() dto: CreateEmployeeDTO) {
+        return this.employeesService.createEmployee(dto);
+    }
 
+    @Get()
+    getEmployees() {
+        return this.employeesService.fetchEmployees();
     }
 }

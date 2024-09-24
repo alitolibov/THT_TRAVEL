@@ -1,4 +1,5 @@
-import {Column, Model, Table} from "sequelize-typescript";
+import {BelongsTo, Column, ForeignKey, Model, Table} from "sequelize-typescript";
+import {Upload} from "../../uploads/model/upload.model";
 
 @Table
 export class Employee extends Model{
@@ -18,5 +19,12 @@ export class Employee extends Model{
     instagram: string;
 
     @Column
-    telegram: string
+    telegram: string;
+
+    @ForeignKey(() => Upload)
+    @Column
+    imageId: number;
+
+    @BelongsTo(() => Upload)
+    image: Upload;
 }

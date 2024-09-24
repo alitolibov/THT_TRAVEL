@@ -1,14 +1,14 @@
 import {
-    Controller,
+    Controller, Delete, FileTypeValidator,
     Get, MaxFileSizeValidator,
     Param,
     ParseFilePipe,
-    Post,
+    Post, Req,
     Res,
     UploadedFile,
     UseGuards,
     UseInterceptors
-} from '@nestjs/common';
+} from "@nestjs/common";
 import {UploadsService} from "./uploads.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {diskStorage} from "multer";
@@ -40,6 +40,7 @@ export class UploadsController {
         new ParseFilePipe({
             validators: [
                 new MaxFileSizeValidator({maxSize: 10000000}),
+                new FileTypeValidator({ fileType: /image\/(jpeg|png|webp|gif|svg\+xml)$/ })
             ]
         })
     ) file: Express.Multer.File) {
@@ -49,5 +50,12 @@ export class UploadsController {
     @Get('/media/:id')
     getImage(@Param('id') id: string, @Res() res) {
         return res.sendFile(`${process.cwd()}/uploads/media/${id}`)
+    }
+
+    @Delete(':id')
+    @UseGuards(JwtGuards)
+    deleteImage(@Param('id') id) {
+        console.log(id);
+        return this.uploadsService.removeImageById(id)
     }
 }

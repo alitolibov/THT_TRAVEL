@@ -1,4 +1,5 @@
-import {Column, Model, Table} from "sequelize-typescript";
+import {Column, HasOne, Model, Table} from "sequelize-typescript";
+import {Employee} from "../../employees/model/employee.model";
 
 @Table
 export class Upload extends Model {
@@ -13,4 +14,7 @@ export class Upload extends Model {
 
     @Column
     size: number;
+
+    @HasOne(() => Employee)
+    employee: Employee;
 }
