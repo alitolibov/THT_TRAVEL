@@ -84,7 +84,9 @@ export class EmployeesService {
 
         return {
             total: count,
-            data: rows
+            data: rows,
+            skip: offset,
+            limit
         }
     }
 

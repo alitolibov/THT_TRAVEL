@@ -71,6 +71,7 @@ import TairoTableCell from "~/components/tairo/TairoTableCell.vue";
 import type { Column } from "~/components/common/types";
 import { useService } from "~/composables/useService";
 import { useQuery } from "@tanstack/vue-query";
+import { IEmployee } from "~/types";
 
 definePageMeta({
     layout: "account",
@@ -114,7 +115,7 @@ const params = computed(() => {
 const { data, isPending, refetch } = useQuery({
     queryKey: ['employees', JSON.stringify(params.value)],
     queryFn: async () => {
-        return await service.get(params.value);
+        return await service.get<IEmployee>(params.value);
     },
 });
 

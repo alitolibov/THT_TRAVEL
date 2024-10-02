@@ -2,6 +2,7 @@ import ky, { HTTPError } from "ky";
 import { useMutation, useQuery } from "@tanstack/vue-query";
 import { queryClient } from "~/utils";
 import qs from "qs";
+import { PaginatedResponse } from "~/types";
 
 
 export const $api = ky.create({
@@ -35,30 +36,30 @@ export const $api = ky.create({
 
 export function useService (service: string, queryKey: string) {
     return {
-        get: async (params: Record<string, any>) => {
+        get: async <T extends object>(params: Record<string, any>): Promise<PaginatedResponse<T>> => {
             const queryRes = qs.stringify(params)
             const url = queryRes ? `${service}?${queryRes}` : service;
-            return await $api.get(url).json();
+            return await $api.get(url).json<PaginatedResponse<T>>();
         },
-        create: () => {
+        create: <T extends object>() => {
             return useMutation({
-                mutationFn: async (data: Record<string, any>) => await $api.post(service, { json: data }).json(),
+                mutationFn: async (data: Record<string, any>): Promise<T>  => await $api.post(service, { json: data }).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
             });
         },
-        update: () => {
+        update: <T extends object>() => {
             return useMutation({
-                mutationFn: async (data: Record<string, any>) => await $api.patch(service, { json: data }).json(),
+                mutationFn: async (data: Record<string, any>):Promise<T> => await $api.patch(service, { json: data }).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
             });
         },
-        remove: () => {
+        remove: <T extends object> () => {
             return useMutation({
-                mutationFn: async () => await $api.delete(service).json(),
+                mutationFn: async ():Promise<T> => await $api.delete(service).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
