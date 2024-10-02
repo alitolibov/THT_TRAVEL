@@ -43,7 +43,7 @@ export class AuthService {
     const user = await this.userService.findByEmail(signInDTO.email);
 
     if(!user || !(await this.isValidPassword(signInDTO.password, user.password))) {
-      throw new UnauthorizedException('Invalid email or password')
+      throw new UnauthorizedException('Invalid email or password');
     }
 
     return {

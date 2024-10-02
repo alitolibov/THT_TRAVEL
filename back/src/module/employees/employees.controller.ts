@@ -1,11 +1,21 @@
-import { Body, Controller, Get, Post, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Param, Patch, Post, Query, Req, UseGuards } from "@nestjs/common";
 import {EmployeesService} from "./employees.service";
-import {CreateEmployeeDTO} from "./dto";
+import { CreateEmployeeDTO, FilterEmployeesDTO, UpdateEmployeeDTO } from "./dto";
 import { JwtGuards } from "../auth/guards/jwt.guards";
 
 @Controller('employees')
 export class EmployeesController {
     constructor(private readonly employeesService: EmployeesService) {}
+
+    @Get()
+    findByQueryParams(@Query() params: FilterEmployeesDTO) {
+        return this.employeesService.findAllEmployees(params)
+    }
+
+    @Get(':id')
+    getEmployeeById(@Param('id') id: number) {
+        return this.employeesService.findById(id);
+    }
 
     @Post()
     @UseGuards(JwtGuards)
@@ -13,8 +23,9 @@ export class EmployeesController {
         return this.employeesService.createEmployee(dto);
     }
 
-    @Get()
-    getEmployees() {
-        return this.employeesService.fetchEmployees();
+    @Patch(':id')
+    @UseGuards(JwtGuards)
+    updateEmployee(@Param('id') id: number, @Body() dto: UpdateEmployeeDTO) {
+        return this.employeesService.updateEmployee(id, dto);
     }
 }

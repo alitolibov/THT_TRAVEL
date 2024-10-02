@@ -19,20 +19,3 @@ export function parseJwt(token: string): { iat: number, exp: number, sub: string
 export function setToken(token: string) {
     localStorage.setItem('token', token);
 }
-
-export function login(phone: string, code?: string) {
-    return useService('authentication')
-        .create({
-            code,
-            phone
-        })
-        .exec()
-        .then((response: any) => {
-            if (response.sentCode) {
-                return response;
-            }
-            localStorage.setItem('token', response.accessToken);
-            setToken(response.accessToken);
-            return response;
-        });
-}

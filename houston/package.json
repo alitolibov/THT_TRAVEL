@@ -38,5 +38,10 @@
     "vue-router": "^4.2.0",
     "vue-tsc": "^1.8.16",
     "webpack": ">=5.0.0 <6.0.0"
+  },
+  "dependencies": {
+    "@tanstack/vue-query": "^5.56.2",
+    "ky": "^1.7.2",
+    "qs": "^6.13.0"
   }
 }

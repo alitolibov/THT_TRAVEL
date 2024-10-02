@@ -1,9 +1,10 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import {InjectModel} from "@nestjs/sequelize";
 import {Employee} from "./model/employee.model";
-import {CreateEmployeeDTO} from "./dto";
+import { CreateEmployeeDTO, FilterEmployeesDTO, UpdateEmployeeDTO } from "./dto";
 import { Upload } from "../uploads/model/upload.model";
 import { UploadsService } from "../uploads/uploads.service";
+import { Op } from "sequelize";
 
 @Injectable()
 export class EmployeesService {
@@ -15,7 +16,7 @@ export class EmployeesService {
     async createEmployee(dto: CreateEmployeeDTO) {
         const image = await this.uploadService.findById(dto.imageId);
         if(!image) {
-            throw new BadRequestException('Wrong imageId')
+            throw new BadRequestException(`Wrong imageId ${dto.imageId}`)
         }
         return this.employeesRepository.create({
             firstName: dto.firstName,
@@ -28,12 +29,79 @@ export class EmployeesService {
         })
     }
 
-    fetchEmployees() {
-        return this.employeesRepository.findAll({
+    findById(id: number) {
+        return this.employeesRepository.findOne({where: {id}, include: {
+                model: Upload,
+                required: false
+            }})
+    }
+
+    async findAllEmployees(params: FilterEmployeesDTO) {
+        const limit = Number(params.limit) || 10;
+        const offset = Number(params.offset) || 0;
+        const search = params.search || '';
+        const order: [string, 'ASC' | 'DESC'][] = [];
+        const date: Record<string, any> = { createdAt: {} };
+
+        const whereCondition = search ? {
+            [Op.or]: [
+                { firstName: { [Op.iLike]: `%${search}%` } },
+                { lastName: { [Op.iLike]: `%${search}%` } },
+                { position: { [Op.iLike]: `%${search}%` } },
+                { phone: { [Op.iLike]: `%${search}%` } }
+            ],
+        } : {};
+
+        if (params.endDate) {
+            date.createdAt[Op.lt] = params.endDate;
+        }
+
+        if (params.startDate) {
+            date.createdAt[Op.gt] = params.startDate;
+        }
+
+        if (!params.startDate && !params.endDate) {
+            delete date.createdAt;
+        }
+
+        if (params.sortBy) {
+            for (const key in params.sortBy) {
+                const direction = params.sortBy[key] == -1 ? 'DESC' : 'ASC';
+                order.push([key, direction]);
+            }
+        }
+
+        const {count, rows} = await this.employeesRepository.findAndCountAll({
+            limit,
+            offset,
+            order: order.length ? order : [['createdAt', 'DESC']],
+            where: {...whereCondition, ...date},
             include: {
                 model: Upload,
                 required: false
             }
         })
+
+        return {
+            total: count,
+            data: rows
+        }
+    }
+
+    async updateEmployee(id: number, dto: UpdateEmployeeDTO) {
+        const employee = await this.findById(id);
+
+        if (!employee) {
+            throw new NotFoundException(`Employee with ID ${id} not found`);
+        }
+
+        if(dto.imageId) {
+            const image = await this.uploadService.findById(dto.imageId);
+            if(!image) {
+                throw new BadRequestException(`Wrong imageId ${dto.imageId}`);
+            }
+        }
+
+        return employee.update(dto);
     }
 }

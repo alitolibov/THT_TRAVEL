@@ -55,7 +55,6 @@ export class UploadsController {
     @Delete(':id')
     @UseGuards(JwtGuards)
     deleteImage(@Param('id') id) {
-        console.log(id);
         return this.uploadsService.removeImageById(id)
     }
 }

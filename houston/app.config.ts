@@ -18,6 +18,11 @@ export default defineAppConfig({
                 enabled: true,
                 items: [
                     {
+                        name: 'Сотрудники',
+                        icon: {name: 'ph:users', class: 'w-5 h-5'},
+                        to: '/employees'
+                    },
+                    {
                         name: 'Divider',
                         divider: true,
                     },
