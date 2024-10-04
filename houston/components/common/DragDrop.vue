@@ -10,7 +10,6 @@
         <div
             class="block border border-dashed border-primary-500 bg-blue-50 dark:bg-muted-900 p-4 rounded-md text-center text-sm text-gray-500 cursor-pointer"
         >
-            {{filesData}}
             <div
                 v-if="filesData.length && !hideImages"
                 class="flex flex-wrap gap-5"
@@ -50,7 +49,7 @@
 
 <script lang="ts" setup>
 
-const emit = defineEmits(["update:modelValue", "fileChange", "update:files"]);
+const emit = defineEmits(['update:modelValue', 'fileChange', 'update:files']);
 const props = withDefaults(
     defineProps<{
         modelValue: number | number[],
@@ -62,15 +61,14 @@ const props = withDefaults(
         hideImages?: boolean
     }>(),
     {
-        accept: ".jpeg, .png, .webp, .gif, .svg+xml"
+        accept: '.jpeg, .png, .webp, .gif, .svg+xml'
     }
 );
 
-const uploadsServiceCreate = useService("uploads", 'uploads').create();
-const uploadsServiceRemove = useService("uploads", 'uploads').remove();
+const uploadsServiceRemove = useService('uploads', 'uploads').remove();
 const filesData = ref<any[]>([]);
-const fileFormat = ref<string>("");
-const toast = useToast("GlobalToast");
+const fileFormat = ref<string>('');
+const toast = useToast('GlobalToast');
 
 function updateValue(files: any[] | null) {
     let imgIds = null;
@@ -79,8 +77,8 @@ function updateValue(files: any[] | null) {
         imgIds = files.map(el => el.id);
     }
 
-    emit("update:files", files);
-    emit("update:modelValue", imgIds);
+    emit('update:files', files);
+    emit('update:modelValue', imgIds);
 }
 
 async function uploadFile(event: Event) {
@@ -95,7 +93,6 @@ async function uploadFile(event: Event) {
         filesData.value.push(...uploads);
     } else {
         const file = target.files[0];
-        console.log(target.files);
         filesData.value = [await processFile(file)];
     }
     fileFormat.value = target.files[0].type;
@@ -115,7 +112,7 @@ async function removeFile(id: number) {
         filesData.value = filesData.value.filter(file => file.id != id);
         updateValue(filesData.value);
     } catch (e: any) {
-        toast.show({ message: e.message, timeout: 3000, type: "error" });
+        toast.show({ message: e.message, timeout: 3000, type: 'error' });
     }
 }
 

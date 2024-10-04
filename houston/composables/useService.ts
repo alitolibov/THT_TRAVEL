@@ -1,8 +1,9 @@
-import ky, { HTTPError } from "ky";
-import { useMutation, useQuery } from "@tanstack/vue-query";
-import { queryClient } from "~/utils";
-import qs from "qs";
-import { PaginatedResponse } from "~/types";
+import { useMutation, useQuery } from '@tanstack/vue-query';
+import ky, { HTTPError } from 'ky';
+import qs from 'qs';
+
+import { PaginatedResponse } from '~/types';
+import { queryClient } from '~/utils';
 
 
 export const $api = ky.create({
@@ -10,18 +11,18 @@ export const $api = ky.create({
     hooks: {
         beforeRequest: [
             (request) => {
-                const token = JSON.parse(localStorage.getItem("token")!);
+                const token = JSON.parse(localStorage.getItem('token')!);
 
                 if (token) {
-                    request.headers.set("Authorization", `Bearer ${token}`);
+                    request.headers.set('Authorization', `Bearer ${token}`);
                 }
             }
         ],
         afterResponse: [
             (_, __, response) => {
                 if (response.status === 401) {
-                    localStorage.removeItem("token");
-                    useRouter().push("/");
+                    localStorage.removeItem('token');
+                    useRouter().push('/');
                 }
             }
         ],
@@ -36,7 +37,7 @@ export const $api = ky.create({
 export function useService (service: string, queryKey: string) {
     return {
         find: async <T extends object>(params?: Record<string, any>): Promise<PaginatedResponse<T>> => {
-            const queryRes = qs.stringify(params)
+            const queryRes = qs.stringify(params);
             const url = queryRes ? `${service}?${queryRes}` : service;
             return await $api.get(url).json<PaginatedResponse<T>>();
         },
@@ -45,7 +46,7 @@ export function useService (service: string, queryKey: string) {
                 queryKey: [queryKey],
                 queryFn: async (): Promise<T> => await $api.get(`${service}/${id}`).json<T>(),
                 enabled: id !== 'new'
-            })
+            });
         },
         create: <T extends object>() => {
             return useMutation({

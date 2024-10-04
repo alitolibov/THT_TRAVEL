@@ -76,7 +76,7 @@
 
 <script lang="ts" setup>
 import TairoCollapseNavigationCollapseLinks from '~/components/tairo/TairoCollapseNavigationCollapseLinks.vue';
-import TairoDivider from "~/components/tairo/TairoDivider.vue";
+import TairoDivider from '~/components/tairo/TairoDivider.vue';
 
 const {isOpen, isMobileOpen, menuItems} = useCollapse();
 </script>
