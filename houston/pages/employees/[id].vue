@@ -114,6 +114,9 @@ useHead({
 const route = useRoute();
 const toast = useToast("GlobalToast");
 
+const errors = ref<Record<string, string>>({});
+const isDeletePending = ref(false);
+const isSavePending = ref(false);
 const employee = ref<any>({
     firstName: "",
     lastName: "",
@@ -123,13 +126,16 @@ const employee = ref<any>({
     telegram: "",
     phone: ""
 });
-const errors = ref<Record<string, string>>({});
-const isDeletePending = ref(false);
-const isSavePending = ref(false);
-const manufacturersPriority = ref<any[]>([]);
-const loaded = ref(false);
 
 const { data, isLoading } = useService("employees", "employee").get<IEmployee>(route.params.id as string);
+
+watch(() => data.value, () => {
+    if(data?.value) {
+        employee.value = data.value
+    }
+})
+
+
 
 // onMounted(async () => {
 //     let data: Record<string, any>;

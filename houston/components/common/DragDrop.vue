@@ -10,6 +10,7 @@
         <div
             class="block border border-dashed border-primary-500 bg-blue-50 dark:bg-muted-900 p-4 rounded-md text-center text-sm text-gray-500 cursor-pointer"
         >
+            {{filesData}}
             <div
                 v-if="filesData.length && !hideImages"
                 class="flex flex-wrap gap-5"
@@ -19,7 +20,7 @@
                     class="relative p-3 border border-dashed border-primary-500 rounded-lg"
                 >
                     <img
-                        :src="file.url"
+                        :src="file.path"
                         alt="photo"
                         class="w-20 aspect-square object-contain"
                     >
