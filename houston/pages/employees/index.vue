@@ -63,32 +63,33 @@
 </template>
 
 <script setup lang="ts">
-import PerPageSelect from "~/components/common/PerPageSelect.vue";
-import DateSelect from "~/components/common/DateSelect.vue";
-import Search from "~/components/common/Search.vue"
-import BaseTable from "~/components/common/BaseTable.vue";
-import TairoTableCell from "~/components/tairo/TairoTableCell.vue";
-import type { Column } from "~/components/common/types";
-import { useService } from "~/composables/useService";
-import { useQuery } from "@tanstack/vue-query";
-import { IEmployee } from "~/types";
+import { useQuery } from '@tanstack/vue-query';
+
+import BaseTable from '~/components/common/BaseTable.vue';
+import DateSelect from '~/components/common/DateSelect.vue';
+import PerPageSelect from '~/components/common/PerPageSelect.vue';
+import Search from '~/components/common/Search.vue';
+import type { Column } from '~/components/common/types';
+import TairoTableCell from '~/components/tairo/TairoTableCell.vue';
+import { useService } from '~/composables/useService';
+import { IEmployee } from '~/types';
 
 definePageMeta({
-    layout: "account",
-    verbose: "Сотрудники",
+    layout: 'account',
+    verbose: 'Сотрудники',
     authRoute: true
 });
 
 useHead({
-    title: "Сотрудники"
+    title: 'Сотрудники'
 });
 
 const route = useRoute();
 const app = useAppConfig();
 
-const dateFilter = reactive({ start: "", end: "" });
+const dateFilter = reactive({ start: '', end: '' });
 const currentPage = ref(route.query.page ? parseInt(route.query.page as string) : 1);
-const searchQ = ref("");
+const searchQ = ref('');
 const sortBy = ref<Record<string, any>>({createdAt: -1});
 const perPage = ref(app.pagination.defaultPageSize);
 

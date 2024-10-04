@@ -13,14 +13,14 @@
                     type="email"
                     icon="ph:at"
                 />
-              <BaseInput
-                v-model="loginData.password"
-                :error="errors.password"
-                name="password"
-                placeholder="Введите пароль"
-                type="password"
-                icon="ph:password"
-              />
+                <BaseInput
+                    v-model="loginData.password"
+                    :error="errors.password"
+                    name="password"
+                    placeholder="Введите пароль"
+                    type="password"
+                    icon="ph:password"
+                />
                 <BaseButton
                     :loading="loginService.isPending.value"
                     :color="loginService.isError.value ? 'danger' : 'primary'"
@@ -35,8 +35,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useService } from "~/composables/useService";
-import { setToken } from "~/utils/login";
+import { useService } from '~/composables/useService';
+import { setToken } from '~/utils/login';
 
 useHead({
     title: 'Войти'
@@ -52,27 +52,27 @@ async function submit() {
     errors.value = {email: '', password: ''};
     if (!loginData.email) {
         errors.value.email = 'Данное поле обязательное';
-        return
+        return;
     }
 
     if (!loginData.password) {
-      errors.value.password = 'Данное поле обязательное';
-      return
+        errors.value.password = 'Данное поле обязательное';
+        return;
     }
 
     if (loginData.password.length < 8) {
-      errors.value.password = 'Должно быть минимум 8 символов';
-      return
+        errors.value.password = 'Должно быть минимум 8 символов';
+        return;
     }
 
     try {
-      const res:{access_token: string} | any = await loginService.mutateAsync(loginData);
-      setToken(JSON.stringify(res?.access_token!));
-      navigateTo('/');
+        const res:{access_token: string} | any = await loginService.mutateAsync(loginData);
+        setToken(JSON.stringify(res?.access_token));
+        navigateTo('/');
     } catch (e) {
-      if(e.statusCode == 401) {
-        toast.show({message: 'Неправильный email или пароль', timeout: 3000, type: 'error'});
-      }
+        if(e.statusCode == 401) {
+            toast.show({message: 'Неправильный email или пароль', timeout: 3000, type: 'error'});
+        }
     }
 }
 </script>

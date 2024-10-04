@@ -36,7 +36,7 @@
 
 <script lang="ts" setup>
 import {bus} from '~/composables';
-import type { ToastOptions } from "~/composables/useToast";
+import type { ToastOptions } from '~/composables/useToast';
 
 const props = defineProps<{ id: string }>();
 

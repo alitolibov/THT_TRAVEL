@@ -9,8 +9,9 @@
 </template>
 
 <script lang="ts" setup>
-import { debounce as deb } from '~/utils/search';
 import { ref, watch } from 'vue';
+
+import { debounce as deb } from '~/utils/search';
 
 interface Props {
     debounce: number;

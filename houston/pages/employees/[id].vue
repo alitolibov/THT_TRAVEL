@@ -96,44 +96,43 @@
 </template>
 
 <script lang="ts" setup>
-import DragDrop from "~/components/common/DragDrop.vue";
-import { useService } from "~/composables/useService";
-import { IEmployee } from "~/types";
-import TairoDivider from "~/components/tairo/TairoDivider.vue";
+import DragDrop from '~/components/common/DragDrop.vue';
+import TairoDivider from '~/components/tairo/TairoDivider.vue';
+import { useService } from '~/composables/useService';
+import { IEmployee } from '~/types';
 
 definePageMeta({
     authRoute: true,
-    layout: "account",
-    verbose: "Сотрудник"
+    layout: 'account',
+    verbose: 'Сотрудник'
 });
 
 useHead({
-    title: "Сотрудник"
+    title: 'Сотрудник'
 });
 
 const route = useRoute();
-const toast = useToast("GlobalToast");
 
 const errors = ref<Record<string, string>>({});
 const isDeletePending = ref(false);
 const isSavePending = ref(false);
 const employee = ref<any>({
-    firstName: "",
-    lastName: "",
-    imageId: "",
-    position: "",
-    instagram: "",
-    telegram: "",
-    phone: ""
+    firstName: '',
+    lastName: '',
+    imageId: '',
+    position: '',
+    instagram: '',
+    telegram: '',
+    phone: ''
 });
 
-const { data, isLoading } = useService("employees", "employee").get<IEmployee>(route.params.id as string);
+const { data, isLoading } = useService('employees', 'employee').get<IEmployee>(route.params.id as string);
 
 watch(() => data.value, () => {
     if(data?.value) {
-        employee.value = data.value
+        employee.value = data.value;
     }
-})
+});
 
 
 
