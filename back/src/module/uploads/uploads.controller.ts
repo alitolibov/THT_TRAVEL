@@ -1,9 +1,9 @@
 import {
-    Controller, Delete, FileTypeValidator,
+    Controller, Delete, FileTypeValidator, ForbiddenException,
     Get, MaxFileSizeValidator,
     Param,
     ParseFilePipe,
-    Post, Req,
+    Post,
     Res,
     UploadedFile,
     UseGuards,
@@ -18,6 +18,7 @@ import * as path from "path";
 import { v4 as uuidv4 } from 'uuid';
 import * as process from "process";
 import {JwtGuards} from "../auth/guards/jwt.guards";
+import * as fs from "fs";
 
 @Controller('uploads')
 export class UploadsController {
@@ -47,9 +48,26 @@ export class UploadsController {
         return this.uploadsService.createFile(file)
     }
 
+    @Get('media/:id')
+    async getImage(@Param('id') id: string, @Res() res) {
+        const filePath = `${process.cwd()}/uploads/media/${id}`;
+
+        if (fs.existsSync(filePath)) {
+            return res.sendFile(filePath);
+        }
+
+        return res.status(404).send('File not found');
+    }
+
     @Get(':id')
-    getImage(@Param('id') id: string, @Res() res) {
-        return res.sendFile(`${process.cwd()}/uploads/media/${id}`)
+    async getImageById(@Param('id') id: number) {
+        const image = await this.uploadsService.findById(Number(id));
+
+        if (image) {
+            return image;
+        }
+
+        throw new ForbiddenException('Image not found')
     }
 
     @Delete(':id')
