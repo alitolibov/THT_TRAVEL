@@ -13,6 +13,7 @@ export class UploadsService {
       ) {}
 
     async createFile(file: Express.Multer.File) {
+        console.log(file);
         const {filename, size, path, originalname} = file;
         const pathWithUrl = this.configService.get('imagesUrl') + path
         return this.uploadRepository.create({

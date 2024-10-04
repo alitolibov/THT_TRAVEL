@@ -14,32 +14,20 @@
                 v-if="filesData.length && !hideImages"
                 class="flex flex-wrap gap-5"
             >
-                <template v-if="!excelFormat.includes(fileFormat) || !fileFormat">
-                    <div
-                        v-for="file in filesData"
-                        class="relative p-3 border border-dashed border-primary-500 rounded-lg"
-                    >
-                        <img
-                            :src="file.url"
-                            alt="photo"
-                            class="w-20 aspect-square object-contain"
-                        >
-                        <Icon
-                            class="top-1 right-1 absolute"
-                            name="ph:x"
-                            size="18"
-                            @click="removeFile(file.id)"
-                        />
-                    </div>
-                </template>
                 <div
-                    v-else
-                    class="p-3 border border-dashed border-primary-500 rounded-lg"
+                    v-for="file in filesData"
+                    class="relative p-3 border border-dashed border-primary-500 rounded-lg"
                 >
+                    <img
+                        :src="file.url"
+                        alt="photo"
+                        class="w-20 aspect-square object-contain"
+                    >
                     <Icon
-                        name="ph:file-xls"
-                        size="45"
-                        color="#fff"
+                        class="top-1 right-1 absolute"
+                        name="ph:x"
+                        size="18"
+                        @click="removeFile(file.id)"
                     />
                 </div>
             </div>
@@ -61,7 +49,7 @@
 
 <script lang="ts" setup>
 
-const emit = defineEmits(['update:modelValue', 'fileChange', 'update:files']);
+const emit = defineEmits(["update:modelValue", "fileChange", "update:files"]);
 const props = withDefaults(
     defineProps<{
         modelValue: number | number[],
@@ -73,25 +61,25 @@ const props = withDefaults(
         hideImages?: boolean
     }>(),
     {
-        accept: '.jpeg, .png, .webp, .gif, .svg+xml'
+        accept: ".jpeg, .png, .webp, .gif, .svg+xml"
     }
 );
 
-const uploadsService = useService('uploads', {auth: true});
+const uploadsServiceCreate = useService("uploads", 'uploads').create();
+const uploadsServiceRemove = useService("uploads", 'uploads').remove();
 const filesData = ref<any[]>([]);
-const fileFormat = ref<string>('');
-const excelFormat = ref<string>('.xls, .xlsx, application/vnd.ms-excel, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-const toast = useToast('GlobalToast');
+const fileFormat = ref<string>("");
+const toast = useToast("GlobalToast");
 
 function updateValue(files: any[] | null) {
     let imgIds = null;
 
-    if(files && files.length > 0) {
+    if (files && files.length > 0) {
         imgIds = files.map(el => el.id);
     }
 
-    emit('update:files', files);
-    emit('update:modelValue', imgIds);
+    emit("update:files", files);
+    emit("update:modelValue", imgIds);
 }
 
 async function uploadFile(event: Event) {
@@ -106,6 +94,7 @@ async function uploadFile(event: Event) {
         filesData.value.push(...uploads);
     } else {
         const file = target.files[0];
+        console.log(target.files);
         filesData.value = [await processFile(file)];
     }
     fileFormat.value = target.files[0].type;
@@ -113,21 +102,19 @@ async function uploadFile(event: Event) {
 }
 
 async function processFile(file: File) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    const uri = await new Promise((resolve) => {
-        reader.addEventListener('load', () => resolve(reader.result), false);
-    });
-    return uploadsService.create({file: uri}).exec();
+    const formData = new FormData();
+    formData.append('image', file, file.name);
+
+    return await $api.post('uploads', {body: formData}).json();
 }
 
-async function removeFile(id: string) {
+async function removeFile(id: number) {
     try {
-        await uploadsService.remove(id).exec();
+        uploadsServiceRemove.mutate(id);
         filesData.value = filesData.value.filter(file => file.id != id);
         updateValue(filesData.value);
     } catch (e: any) {
-        toast.show({message: e.message, timeout: 3000, type: 'error'});
+        toast.show({ message: e.message, timeout: 3000, type: "error" });
     }
 }
 
@@ -136,7 +123,7 @@ async function create() {
         return;
     }
     const ids = Array.isArray(props.modelValue) ? props.modelValue : [props.modelValue];
-    filesData.value = await Promise.all(ids.map(id => uploadsService.get(id.toString()).exec()));
+    filesData.value = await Promise.all(ids.map(id => $api.get(`uploads/${String(id)}`).json()));
 }
 
 onMounted(() => create());

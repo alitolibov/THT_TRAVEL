@@ -47,7 +47,7 @@ export class UploadsController {
         return this.uploadsService.createFile(file)
     }
 
-    @Get('/media/:id')
+    @Get(':id')
     getImage(@Param('id') id: string, @Res() res) {
         return res.sendFile(`${process.cwd()}/uploads/media/${id}`)
     }

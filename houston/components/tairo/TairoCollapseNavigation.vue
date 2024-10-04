@@ -48,10 +48,7 @@
                             {{ item.name }}
                         </span>
                     </NuxtLink>
-                    <div
-                        v-else-if="item.divider"
-                        class="border-muted-200 dark:border-muted-700 my-3 h-px w-full border-t"
-                    />
+                    <TairoDivider v-else-if="item.divider"/>
                     <button
                         v-else
                         :class="!isOpen ? 'px-1 justify-center' : 'px-4'"
@@ -79,6 +76,7 @@
 
 <script lang="ts" setup>
 import TairoCollapseNavigationCollapseLinks from '~/components/tairo/TairoCollapseNavigationCollapseLinks.vue';
+import TairoDivider from "~/components/tairo/TairoDivider.vue";
 
 const {isOpen, isMobileOpen, menuItems} = useCollapse();
 </script>

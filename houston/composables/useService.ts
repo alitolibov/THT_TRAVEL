@@ -7,7 +7,6 @@ import { PaginatedResponse } from "~/types";
 
 export const $api = ky.create({
     prefixUrl: import.meta.env.VITE_API_URL,
-    headers: { "Content-Type": "application/json" },
     hooks: {
         beforeRequest: [
             (request) => {
@@ -36,10 +35,17 @@ export const $api = ky.create({
 
 export function useService (service: string, queryKey: string) {
     return {
-        get: async <T extends object>(params: Record<string, any>): Promise<PaginatedResponse<T>> => {
+        find: async <T extends object>(params?: Record<string, any>): Promise<PaginatedResponse<T>> => {
             const queryRes = qs.stringify(params)
             const url = queryRes ? `${service}?${queryRes}` : service;
             return await $api.get(url).json<PaginatedResponse<T>>();
+        },
+        get: <T extends object>(id: number | string) => {
+            return useQuery({
+                queryKey: [queryKey],
+                queryFn: async (): Promise<T> => await $api.get(`${service}/${id}`).json<T>(),
+                enabled: id !== 'new'
+            })
         },
         create: <T extends object>() => {
             return useMutation({
@@ -59,11 +65,11 @@ export function useService (service: string, queryKey: string) {
         },
         remove: <T extends object> () => {
             return useMutation({
-                mutationFn: async ():Promise<T> => await $api.delete(service).json<T>(),
+                mutationFn: async (id: number):Promise<T> => await $api.delete(`${service}/${id}`).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
             });
         }
     };
-};
+}

@@ -115,7 +115,7 @@ const params = computed(() => {
 const { data, isPending, refetch } = useQuery({
     queryKey: ['employees', JSON.stringify(params.value)],
     queryFn: async () => {
-        return await service.get<IEmployee>(params.value);
+        return await service.find<IEmployee>(params.value);
     },
 });
 

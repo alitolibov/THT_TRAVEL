@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
 import {InjectModel} from "@nestjs/sequelize";
 import {Employee} from "./model/employee.model";
 import { CreateEmployeeDTO, FilterEmployeesDTO, UpdateEmployeeDTO } from "./dto";
@@ -29,11 +29,25 @@ export class EmployeesService {
         })
     }
 
-    findById(id: number) {
-        return this.employeesRepository.findOne({where: {id}, include: {
-                model: Upload,
-                required: false
-            }})
+    async findById(id: number): Promise<Employee> {
+        if (!Number.isInteger(id) || id <= 0) {
+            throw new BadRequestException(`Invalid ID: ${id}`);
+        }
+
+        try {
+            const employee = await this.employeesRepository.findOne({
+                where: { id },
+                include: { model: Upload, required: false },
+            });
+
+            if (!employee) {
+                throw new NotFoundException(`Employee with ID ${id} not found`);
+            }
+
+            return employee;
+        } catch (error) {
+            throw new InternalServerErrorException('An error occurred while retrieving the employee');
+        }
     }
 
     async findAllEmployees(params: FilterEmployeesDTO) {
@@ -92,10 +106,6 @@ export class EmployeesService {
 
     async updateEmployee(id: number, dto: UpdateEmployeeDTO) {
         const employee = await this.findById(id);
-
-        if (!employee) {
-            throw new NotFoundException(`Employee with ID ${id} not found`);
-        }
 
         if(dto.imageId) {
             const image = await this.uploadService.findById(dto.imageId);
