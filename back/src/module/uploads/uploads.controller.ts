@@ -72,7 +72,7 @@ export class UploadsController {
 
     @Delete(':id')
     @UseGuards(JwtGuards)
-    deleteImage(@Param('id') id) {
+    deleteImage(@Param('id') id: number) {
         return this.uploadsService.removeImageById(id)
     }
 }

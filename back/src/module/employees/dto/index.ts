@@ -5,8 +5,9 @@ import {
     IsOptional,
     IsPhoneNumber,
     IsString,
-    IsUrl, MaxDate,
-} from "class-validator";
+    IsUrl,
+    MaxDate,
+} from 'class-validator';
 
 export class CreateEmployeeDTO {
     @IsString()
@@ -86,9 +87,9 @@ export class FilterEmployeesDTO {
 
     @IsOptional()
     @IsDateString()
-    startDate?: string
+    startDate?: string;
 
     @IsOptional()
     @IsDateString()
-    endDate?: string
+    endDate?: string;
 }
