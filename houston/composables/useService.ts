@@ -56,9 +56,9 @@ export function useService (service: string, queryKey: string) {
                 })
             });
         },
-        update: <T extends object>() => {
+        update: <T extends object>(id: number | string) => {
             return useMutation({
-                mutationFn: async (data: Record<string, any>):Promise<T> => await $api.patch(service, { json: data }).json<T>(),
+                mutationFn: async (data: Record<string, any>):Promise<T> => await $api.patch(`${service}/${id}`, { json: data }).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
