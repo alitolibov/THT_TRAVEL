@@ -87,6 +87,7 @@
                     class="ml-2"
                     color="primary"
                     :loading="isSavePending"
+                    @click="submit"
                 >
                     Сохранить
                 </BaseButton>
@@ -99,7 +100,10 @@
 import DragDrop from '~/components/common/DragDrop.vue';
 import TairoDivider from '~/components/tairo/TairoDivider.vue';
 import { useService } from '~/composables/useService';
+import { useToast } from '~/composables/useToast';
+import errorMessages from '~/constants';
 import { IEmployee } from '~/types';
+import {getFirstWord} from '~/utils';
 
 definePageMeta({
     authRoute: true,
@@ -112,7 +116,7 @@ useHead({
 });
 
 const route = useRoute();
-
+const toast = useToast('GlobalToast');
 const errors = ref<Record<string, string>>({});
 const isDeletePending = ref(false);
 const isSavePending = ref(false);
@@ -127,6 +131,8 @@ const employee = ref<any>({
 });
 
 const { data, isLoading } = useService('employees', 'employee').get<IEmployee>(route.params.id as string);
+const createEmployee = useService('employees', 'employee').create<IEmployee>();
+const updateEmployee = useService('employees', 'employee').update<IEmployee>(route.params.id as string);
 
 watch(() => data.value, () => {
     if(data?.value) {
@@ -134,7 +140,28 @@ watch(() => data.value, () => {
     }
 });
 
-
+async function submit() {
+    const {id, ...data} = employee.value;
+    errors.value = {};
+    try {
+        if (id) {
+            await updateEmployee.mutateAsync(data);
+        } else {
+            await createEmployee.mutateAsync(data);
+        }
+        navigateTo('/employees');
+    } catch (e: any) {
+        if (e.statusCode === 400) {
+            for (let msg of e.message) {
+                errors.value[getFirstWord(msg)] = errorMessages[msg];
+            }
+        } else {
+            toast.show({message: e.message, type: 'error', timeout: 3000});
+        }
+    } finally {
+        isSavePending.value = false;
+    }
+}
 
 // onMounted(async () => {
 //     let data: Record<string, any>;
@@ -163,29 +190,6 @@ watch(() => data.value, () => {
 //     }
 // }
 //
-// async function submit() {
-//     const {id, ...data} = manufacturer.value;
-//     errors.value = {};
-//     isSavePending.value = true;
-//     try {
-//         if (id) {
-//             await manufacturersService.patch(id, data).exec();
-//         } else {
-//             await manufacturersService.create(data).exec();
-//         }
-//         navigateTo('/manufacturers');
-//     } catch (e: any) {
-//         if (e.code === 400 || e.code === 422) {
-//             for (let err of e.errors) {
-//                 errors.value[err.path] = useText(`errors.${err.type}`);
-//             }
-//         } else {
-//             toast.show({message: e.message, timeout: 3000, type: 'error'});
-//         }
-//     } finally {
-//         isSavePending.value = false;
-//     }
-// }
 </script>
 
 <style scoped>

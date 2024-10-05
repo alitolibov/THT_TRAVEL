@@ -70,10 +70,10 @@ const filesData = ref<any[]>([]);
 const fileFormat = ref<string>('');
 const toast = useToast('GlobalToast');
 
-function updateValue(files: any[] | null) {
-    let imgIds = null;
+function updateValue(files: Record<string, any>[] | null) {
+    let imgIds = files[0].id;
 
-    if (files && files.length > 0) {
+    if (files && files.length > 0 && props.multiple) {
         imgIds = files.map(el => el.id);
     }
 
@@ -93,13 +93,13 @@ async function uploadFile(event: Event) {
         filesData.value.push(...uploads);
     } else {
         const file = target.files[0];
-        filesData.value = [await processFile(file)];
+        filesData.value = await processFile(file);
     }
     fileFormat.value = target.files[0].type;
     updateValue(filesData.value);
 }
 
-async function processFile(file: File) {
+async function processFile(file: File): Promise<Record<string, any>[]> {
     const formData = new FormData();
     formData.append('image', file, file.name);
 
@@ -121,12 +121,12 @@ async function create() {
         return;
     }
     const ids = Array.isArray(props.modelValue) ? props.modelValue : [props.modelValue];
-    filesData.value = await Promise.all(ids.map(id => $api.get(`uploads/${String(id)}`).json()));
+    filesData.value = await Promise.all(ids.map(id => $api.get(`uploads/${String(id)}`).json<Record<string, any>[]>()));
 }
 
 onMounted(() => create());
 
-watch(() => props.modelValue, async () => {
+watch(() => props.modelValue, () => {
     create();
 });
 </script>
