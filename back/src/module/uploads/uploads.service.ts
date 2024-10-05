@@ -17,15 +17,26 @@ export class UploadsService {
         private readonly configService: ConfigService,
     ) {}
 
-    async createFile(file: Express.Multer.File) {
-        const { filename, size, path, originalname } = file;
-        const pathWithUrl = this.configService.get('imagesUrl') + path;
-        return this.uploadRepository.create({
-            filename,
-            size,
-            path: pathWithUrl,
-            originalname,
-        });
+    async createFile(files: Express.Multer.File[]) {
+        const filesWithUrl = files.map((file) => ({
+            ...file,
+            path: this.configService.get('imagesUrl') + file.path,
+        }));
+
+        try {
+            return await Promise.all(
+                filesWithUrl.map((file) =>
+                    this.uploadRepository.create({
+                        filename: file.filename,
+                        size: file.size,
+                        path: file.path,
+                        originalname: file.originalname,
+                    }),
+                ),
+            );
+        } catch (error) {
+            throw new Error('Failed to save files: ' + error.message);
+        }
     }
 
     async removeImageById(id: number) {
