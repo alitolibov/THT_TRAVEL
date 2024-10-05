@@ -1,22 +1,32 @@
-import { BadRequestException, Injectable, InternalServerErrorException, NotFoundException } from "@nestjs/common";
-import {InjectModel} from "@nestjs/sequelize";
-import {Employee} from "./model/employee.model";
-import { CreateEmployeeDTO, FilterEmployeesDTO, UpdateEmployeeDTO } from "./dto";
-import { Upload } from "../uploads/model/upload.model";
-import { UploadsService } from "../uploads/uploads.service";
-import { Op } from "sequelize";
+import {
+    BadRequestException,
+    Injectable,
+    InternalServerErrorException,
+    NotFoundException,
+} from '@nestjs/common';
+import { InjectModel } from '@nestjs/sequelize';
+import { Employee } from './model/employee.model';
+import {
+    CreateEmployeeDTO,
+    FilterEmployeesDTO,
+    UpdateEmployeeDTO,
+} from './dto';
+import { Upload } from '../uploads/model/upload.model';
+import { UploadsService } from '../uploads/uploads.service';
+import { Op } from 'sequelize';
 
 @Injectable()
 export class EmployeesService {
     constructor(
-      @InjectModel(Employee) private readonly employeesRepository: typeof Employee,
-      private readonly uploadService: UploadsService
+        @InjectModel(Employee)
+        private readonly employeesRepository: typeof Employee,
+        private readonly uploadService: UploadsService,
     ) {}
 
     async createEmployee(dto: CreateEmployeeDTO) {
         const image = await this.uploadService.findById(dto.imageId);
-        if(!image) {
-            throw new BadRequestException(`Wrong imageId ${dto.imageId}`)
+        if (!image) {
+            throw new BadRequestException(`Wrong imageId ${dto.imageId}`);
         }
         return this.employeesRepository.create({
             firstName: dto.firstName,
@@ -25,8 +35,8 @@ export class EmployeesService {
             phone: dto.phone,
             instagram: dto.instagram,
             telegram: dto.telegram,
-            imageId: dto.imageId
-        })
+            imageId: dto.imageId,
+        });
     }
 
     async findById(id: number): Promise<Employee> {
@@ -35,18 +45,17 @@ export class EmployeesService {
         }
 
         try {
-            const employee = await this.employeesRepository.findOne({
+            return await this.employeesRepository.findOne({
                 where: { id },
                 include: { model: Upload, required: false },
             });
-
-            if (!employee) {
-                throw new NotFoundException(`Employee with ID ${id} not found`);
-            }
-
-            return employee;
         } catch (error) {
-            throw new InternalServerErrorException('An error occurred while retrieving the employee');
+            if (error.status === 404) {
+                throw new NotFoundException(error.response.message);
+            }
+            throw new InternalServerErrorException(
+                'An error occurred while retrieving the employee',
+            );
         }
     }
 
@@ -57,14 +66,16 @@ export class EmployeesService {
         const order: [string, 'ASC' | 'DESC'][] = [];
         const date: Record<string, any> = { createdAt: {} };
 
-        const whereCondition = search ? {
-            [Op.or]: [
-                { firstName: { [Op.iLike]: `%${search}%` } },
-                { lastName: { [Op.iLike]: `%${search}%` } },
-                { position: { [Op.iLike]: `%${search}%` } },
-                { phone: { [Op.iLike]: `%${search}%` } }
-            ],
-        } : {};
+        const whereCondition = search
+            ? {
+                  [Op.or]: [
+                      { firstName: { [Op.iLike]: `%${search}%` } },
+                      { lastName: { [Op.iLike]: `%${search}%` } },
+                      { position: { [Op.iLike]: `%${search}%` } },
+                      { phone: { [Op.iLike]: `%${search}%` } },
+                  ],
+              }
+            : {};
 
         if (params.endDate) {
             date.createdAt[Op.lt] = params.endDate;
@@ -85,31 +96,31 @@ export class EmployeesService {
             }
         }
 
-        const {count, rows} = await this.employeesRepository.findAndCountAll({
+        const { count, rows } = await this.employeesRepository.findAndCountAll({
             limit,
             offset,
             order: order.length ? order : [['createdAt', 'DESC']],
-            where: {...whereCondition, ...date},
+            where: { ...whereCondition, ...date },
             include: {
                 model: Upload,
-                required: false
-            }
-        })
+                required: false,
+            },
+        });
 
         return {
             total: count,
             data: rows,
             skip: offset,
-            limit
-        }
+            limit,
+        };
     }
 
     async updateEmployee(id: number, dto: UpdateEmployeeDTO) {
         const employee = await this.findById(id);
 
-        if(dto.imageId) {
+        if (dto.imageId) {
             const image = await this.uploadService.findById(dto.imageId);
-            if(!image) {
+            if (!image) {
                 throw new BadRequestException(`Wrong imageId ${dto.imageId}`);
             }
         }
