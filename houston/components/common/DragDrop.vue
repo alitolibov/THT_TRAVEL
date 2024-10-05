@@ -71,9 +71,9 @@ const fileFormat = ref<string>('');
 const toast = useToast('GlobalToast');
 
 function updateValue(files: Record<string, any>[] | null) {
-    let imgIds = files[0].id;
+    let imgIds = files[0]?.id || '';
 
-    if (files && files.length > 0 && props.multiple) {
+    if (files && files.length && props.multiple) {
         imgIds = files.map(el => el.id);
     }
 
@@ -112,6 +112,7 @@ async function removeFile(id: number) {
         filesData.value = filesData.value.filter(file => file.id != id);
         updateValue(filesData.value);
     } catch (e: any) {
+	    console.log(e);
         toast.show({ message: e.message, timeout: 3000, type: 'error' });
     }
 }

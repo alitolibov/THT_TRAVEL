@@ -14,6 +14,7 @@ import {
 import { Upload } from '../uploads/model/upload.model';
 import { UploadsService } from '../uploads/uploads.service';
 import { Op } from 'sequelize';
+import { response } from 'express';
 
 @Injectable()
 export class EmployeesService {
@@ -126,5 +127,14 @@ export class EmployeesService {
         }
 
         return employee.update(dto);
+    }
+
+    async deleteEmployee(id: number) {
+        try {
+            await this.employeesRepository.destroy({ where: { id } });
+            return response.status(200);
+        } catch (e) {
+            throw new BadRequestException(e.message);
+        }
     }
 }

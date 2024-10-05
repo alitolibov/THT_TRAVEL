@@ -79,14 +79,15 @@
                 <BaseButton
                     v-if="employee.id"
                     color="danger"
-                    :loading="isDeletePending"
+                    @click="remove"
+                    :loading="isLoading"
                 >
                     Удалить
                 </BaseButton>
                 <BaseButton
                     class="ml-2"
                     color="primary"
-                    :loading="isSavePending"
+                    :loading="isLoading"
                     @click="submit"
                 >
                     Сохранить
@@ -118,27 +119,31 @@ useHead({
 const route = useRoute();
 const toast = useToast('GlobalToast');
 const errors = ref<Record<string, string>>({});
-const isDeletePending = ref(false);
-const isSavePending = ref(false);
+
 const employee = ref<any>({
-    firstName: '',
-    lastName: '',
-    imageId: '',
-    position: '',
-    instagram: '',
-    telegram: '',
-    phone: ''
+	firstName: '',
+	lastName: '',
+	imageId: '',
+	position: '',
+	instagram: '',
+	telegram: '',
+	phone: ''
 });
 
-const { data, isLoading } = useService('employees', 'employee').get<IEmployee>(route.params.id as string);
+const routeId = route.params.id as string
+
 const createEmployee = useService('employees', 'employee').create<IEmployee>();
-const updateEmployee = useService('employees', 'employee').update<IEmployee>(route.params.id as string);
+const updateEmployee = useService('employees', 'employee').update<IEmployee>(routeId);
+const removeEmployee = useService('employees', 'employee').remove<IEmployee>();
 
-watch(() => data.value, () => {
-    if(data?.value) {
-        employee.value = data.value;
+const { data:employeeData, isLoading, refetch } = useService('employees', 'employee').get<IEmployee>(routeId);
+
+onMounted(async () => {
+	if(routeId !== 'new') {
+        await refetch()
+        employee.value = {...employeeData.value};
     }
-});
+})
 
 async function submit() {
     const {id, ...data} = employee.value;
@@ -158,38 +163,19 @@ async function submit() {
         } else {
             toast.show({message: e.message, type: 'error', timeout: 3000});
         }
-    } finally {
-        isSavePending.value = false;
     }
 }
 
-// onMounted(async () => {
-//     let data: Record<string, any>;
-//     if (route.params.id === 'new') {
-//         data = {};
-//     } else {
-//         data = await manufacturersService.get(route.params.id as string).exec();
-//     }
-//     manufacturer.value = {...data};
-//     loaded.value = true;
-//     const res = await manufacturersService.find({$limit: 0}).exec();
-//     manufacturersPriority.value = Array.from(Array(res.total).keys()).map((_, i) => i + 1);
-// });
-//
-//
-// async function remove() {
-//     isDeletePending.value = true;
-//     try {
-//         await manufacturersService.remove(manufacturer.value.id).exec();
-//         toast.show({message: 'Успешно удалено', timeout: 3000, type: 'success'});
-//         navigateTo('/manufacturers');
-//     } catch (e: any) {
-//         toast.show({message: e.message, timeout: 3000, type: 'error'});
-//     } finally {
-//         isDeletePending.value = false;
-//     }
-// }
-//
+async function remove() {
+    try {
+        await removeEmployee.mutateAsync(routeId);
+        toast.show({message: 'Успешно удалено', timeout: 3000, type: 'success'});
+        navigateTo('/employees');
+    } catch (e: any) {
+        toast.show({message: e.message, timeout: 3000, type: 'error'});
+    }
+}
+
 </script>
 
 <style scoped>

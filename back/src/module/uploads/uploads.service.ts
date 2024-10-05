@@ -9,6 +9,7 @@ import { Upload } from './model/upload.model';
 import { ConfigService } from '@nestjs/config';
 import * as path from 'path';
 import * as fs from 'fs';
+import { response } from 'express';
 
 @Injectable()
 export class UploadsService {
@@ -61,7 +62,7 @@ export class UploadsService {
                 deleteFile,
                 this.uploadRepository.destroy({ where: { id } }),
             ]);
-            return 'successful';
+            return response.status(200);
         } catch (error) {
             throw new InternalServerErrorException('Error while deleting');
         }

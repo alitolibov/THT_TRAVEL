@@ -1,7 +1,22 @@
-import { Body, Controller, Get, Param, Patch, Post, Query, Req, UseGuards } from "@nestjs/common";
-import {EmployeesService} from "./employees.service";
-import { CreateEmployeeDTO, FilterEmployeesDTO, UpdateEmployeeDTO } from "./dto";
-import { JwtGuards } from "../auth/guards/jwt.guards";
+import {
+    Body,
+    Controller,
+    Delete,
+    Get,
+    Param,
+    Patch,
+    Post,
+    Query,
+    Req,
+    UseGuards,
+} from '@nestjs/common';
+import { EmployeesService } from './employees.service';
+import {
+    CreateEmployeeDTO,
+    FilterEmployeesDTO,
+    UpdateEmployeeDTO,
+} from './dto';
+import { JwtGuards } from '../auth/guards/jwt.guards';
 
 @Controller('employees')
 export class EmployeesController {
@@ -9,7 +24,7 @@ export class EmployeesController {
 
     @Get()
     findByQueryParams(@Query() params: FilterEmployeesDTO) {
-        return this.employeesService.findAllEmployees(params)
+        return this.employeesService.findAllEmployees(params);
     }
 
     @Get(':id')
@@ -27,5 +42,11 @@ export class EmployeesController {
     @UseGuards(JwtGuards)
     updateEmployee(@Param('id') id: number, @Body() dto: UpdateEmployeeDTO) {
         return this.employeesService.updateEmployee(id, dto);
+    }
+
+    @Delete(':id')
+    @UseGuards(JwtGuards)
+    deleteEmployee(@Param('id') id: number) {
+        return this.employeesService.deleteEmployee(id);
     }
 }

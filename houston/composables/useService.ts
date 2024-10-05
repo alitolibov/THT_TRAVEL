@@ -1,4 +1,4 @@
-import { useMutation, useQuery } from '@tanstack/vue-query';
+import { useMutation, useQuery, UseQueryOptions } from "@tanstack/vue-query";
 import ky, { HTTPError } from 'ky';
 import qs from 'qs';
 
@@ -43,9 +43,9 @@ export function useService (service: string, queryKey: string) {
         },
         get: <T extends object>(id: number | string) => {
             return useQuery({
-                queryKey: [queryKey],
+                queryKey: [queryKey, id?.toString()],
                 queryFn: async (): Promise<T> => await $api.get(`${service}/${id}`).json<T>(),
-                enabled: id !== 'new'
+                enabled: false
             });
         },
         create: <T extends object>() => {
@@ -66,7 +66,7 @@ export function useService (service: string, queryKey: string) {
         },
         remove: <T extends object> () => {
             return useMutation({
-                mutationFn: async (id: number):Promise<T> => await $api.delete(`${service}/${id}`).json<T>(),
+                mutationFn: async (id: number | string):Promise<T> => await $api.delete(`${service}/${id}`).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })
