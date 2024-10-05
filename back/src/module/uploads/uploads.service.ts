@@ -18,6 +18,7 @@ export class UploadsService {
     ) {}
 
     async createFile(files: Express.Multer.File[]) {
+        console.log(files);
         const filesWithUrl = files.map((file) => ({
             ...file,
             path: this.configService.get('imagesUrl') + file.path,

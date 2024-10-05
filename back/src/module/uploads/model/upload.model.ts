@@ -1,5 +1,13 @@
-import {Column, HasOne, Model, Table} from "sequelize-typescript";
-import {Employee} from "../../employees/model/employee.model";
+import {
+    BelongsTo,
+    Column,
+    ForeignKey,
+    HasOne,
+    Model,
+    Table,
+} from 'sequelize-typescript';
+import { Employee } from '../../employees/model/employee.model';
+import { Tour } from '../../tours/model/tours.model';
 
 @Table
 export class Upload extends Model {
@@ -17,4 +25,11 @@ export class Upload extends Model {
 
     @HasOne(() => Employee)
     employee: Employee;
+
+    @ForeignKey(() => Tour)
+    @Column
+    tourId: number;
+
+    @BelongsTo(() => Tour)
+    tour: Tour;
 }
