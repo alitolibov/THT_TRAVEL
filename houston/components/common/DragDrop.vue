@@ -65,7 +65,6 @@ const props = withDefaults(
     }
 );
 
-const uploadsServiceRemove = useService('uploads', 'uploads').remove();
 const filesData = ref<any[]>([]);
 const fileFormat = ref<string>('');
 const toast = useToast('GlobalToast');
@@ -96,6 +95,7 @@ async function uploadFile(event: Event) {
         filesData.value = await processFile(file);
     }
     fileFormat.value = target.files[0].type;
+	target.value = '';
     updateValue(filesData.value);
 }
 
@@ -103,16 +103,15 @@ async function processFile(file: File): Promise<Record<string, any>[]> {
     const formData = new FormData();
     formData.append('image', file, file.name);
 
-    return await $api.post('uploads', {body: formData}).json();
+    return $api.post('uploads', {body: formData}).json();
 }
 
 async function removeFile(id: number) {
     try {
-        uploadsServiceRemove.mutate(id);
+        await $api.delete(`employees/${id}`).json()
         filesData.value = filesData.value.filter(file => file.id != id);
         updateValue(filesData.value);
     } catch (e: any) {
-	    console.log(e);
         toast.show({ message: e.message, timeout: 3000, type: 'error' });
     }
 }

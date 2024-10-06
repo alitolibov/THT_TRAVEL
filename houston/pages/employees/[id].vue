@@ -37,8 +37,9 @@
                     v-maska
                     data-maska="+### (##) ###-##-##"
                     :error="errors.phone"
-                    type="text"
+                    type="tel"
                     placeholder="Введите номер телефона"
+                    inputmode="numeric"
                     label="Номер телефона"
                 />
                 <BaseInput
