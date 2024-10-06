@@ -1,5 +1,12 @@
-import { Column, HasMany, Model, Table } from 'sequelize-typescript';
+import {
+    BelongsToMany,
+    Column,
+    DataType,
+    Model,
+    Table,
+} from 'sequelize-typescript';
 import { Upload } from '../../uploads/model/upload.model';
+import { TourUploads } from '../../uploads/model/tourUploads.model';
 
 @Table
 export class Tour extends Model {
@@ -18,6 +25,6 @@ export class Tour extends Model {
     @Column
     description: string;
 
-    @HasMany(() => Upload)
+    @BelongsToMany(() => Upload, () => TourUploads)
     images: Upload[];
 }

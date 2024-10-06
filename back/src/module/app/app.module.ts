@@ -12,6 +12,8 @@ import { Employee } from '../employees/model/employee.model';
 import { UploadsModule } from '../uploads/uploads.module';
 import { Upload } from '../uploads/model/upload.model';
 import { Tour } from '../tours/model/tours.model';
+import { TourUploads } from '../uploads/model/tourUploads.model';
+import { ToursModule } from '../tours/tours.module';
 
 @Module({
     imports: [
@@ -31,13 +33,14 @@ import { Tour } from '../tours/model/tours.model';
                 database: configService.get('postgres.database'),
                 synchronize: true,
                 autoLoadModels: true,
-                models: [User, Employee, Upload, Tour],
+                models: [User, Employee, Upload, Tour, TourUploads],
             }),
         }),
         AuthModule,
         UsersModule,
         EmployeesModule,
         UploadsModule,
+        ToursModule,
     ],
     controllers: [AppController],
     providers: [AppService],

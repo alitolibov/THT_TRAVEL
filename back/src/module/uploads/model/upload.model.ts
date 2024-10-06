@@ -1,5 +1,6 @@
 import {
     BelongsTo,
+    BelongsToMany,
     Column,
     ForeignKey,
     HasOne,
@@ -8,6 +9,7 @@ import {
 } from 'sequelize-typescript';
 import { Employee } from '../../employees/model/employee.model';
 import { Tour } from '../../tours/model/tours.model';
+import { TourUploads } from './tourUploads.model';
 
 @Table
 export class Upload extends Model {
@@ -26,10 +28,6 @@ export class Upload extends Model {
     @HasOne(() => Employee)
     employee: Employee;
 
-    @ForeignKey(() => Tour)
-    @Column
-    tourId: number;
-
-    @BelongsTo(() => Tour)
-    tour: Tour;
+    @BelongsToMany(() => Tour, () => TourUploads)
+    tours: Tour[];
 }

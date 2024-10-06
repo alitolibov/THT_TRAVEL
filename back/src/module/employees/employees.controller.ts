@@ -11,19 +11,16 @@ import {
     UseGuards,
 } from '@nestjs/common';
 import { EmployeesService } from './employees.service';
-import {
-    CreateEmployeeDTO,
-    FilterEmployeesDTO,
-    UpdateEmployeeDTO,
-} from './dto';
+import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
 import { JwtGuards } from '../auth/guards/jwt.guards';
+import { QuerySearchDTO } from '../../types/dtos.global';
 
 @Controller('employees')
 export class EmployeesController {
     constructor(private readonly employeesService: EmployeesService) {}
 
     @Get()
-    findByQueryParams(@Query() params: FilterEmployeesDTO) {
+    findByQueryParams(@Query() params: QuerySearchDTO) {
         return this.employeesService.findAllEmployees(params);
     }
 

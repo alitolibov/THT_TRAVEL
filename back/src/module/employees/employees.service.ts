@@ -6,15 +6,13 @@ import {
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 import { Employee } from './model/employee.model';
-import {
-    CreateEmployeeDTO,
-    FilterEmployeesDTO,
-    UpdateEmployeeDTO,
-} from './dto';
+import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
 import { Upload } from '../uploads/model/upload.model';
 import { UploadsService } from '../uploads/uploads.service';
-import { Op } from 'sequelize';
 import { response } from 'express';
+import { QuerySearchDTO } from '../../types/dtos.global';
+import { createQueryParams } from '../../utils/querySearch';
+import { IPaginatedResponse } from '../../types';
 
 @Injectable()
 export class EmployeesService {
@@ -60,48 +58,14 @@ export class EmployeesService {
         }
     }
 
-    async findAllEmployees(params: FilterEmployeesDTO) {
-        const limit = Number(params.limit) || 10;
-        const offset = Number(params.offset) || 0;
-        const search = params.search || '';
-        const order: [string, 'ASC' | 'DESC'][] = [];
-        const date: Record<string, any> = { createdAt: {} };
-
-        const whereCondition = search
-            ? {
-                  [Op.or]: [
-                      { firstName: { [Op.iLike]: `%${search}%` } },
-                      { lastName: { [Op.iLike]: `%${search}%` } },
-                      { position: { [Op.iLike]: `%${search}%` } },
-                      { phone: { [Op.iLike]: `%${search}%` } },
-                  ],
-              }
-            : {};
-
-        if (params.endDate) {
-            date.createdAt[Op.lt] = params.endDate;
-        }
-
-        if (params.startDate) {
-            date.createdAt[Op.gt] = params.startDate;
-        }
-
-        if (!params.startDate && !params.endDate) {
-            delete date.createdAt;
-        }
-
-        if (params.sortBy) {
-            for (const key in params.sortBy) {
-                const direction = params.sortBy[key] == -1 ? 'DESC' : 'ASC';
-                order.push([key, direction]);
-            }
-        }
+    async findAllEmployees(
+        params: QuerySearchDTO,
+    ): Promise<IPaginatedResponse<Employee>> {
+        const searchFields = ['firstName', 'lastName', 'position', 'phone'];
+        const queryParams = createQueryParams(params, searchFields);
 
         const { count, rows } = await this.employeesRepository.findAndCountAll({
-            limit,
-            offset,
-            order: order.length ? order : [['createdAt', 'DESC']],
-            where: { ...whereCondition, ...date },
+            ...queryParams,
             include: {
                 model: Upload,
                 required: false,
@@ -111,13 +75,21 @@ export class EmployeesService {
         return {
             total: count,
             data: rows,
-            skip: offset,
-            limit,
+            skip: queryParams.offset,
+            limit: queryParams.limit,
         };
     }
 
     async updateEmployee(id: number, dto: UpdateEmployeeDTO) {
+        if (!Object.keys(dto).length) {
+            throw new BadRequestException('Nothing was sent to the body');
+        }
+
         const employee = await this.findById(id);
+
+        if (!employee) {
+            throw new NotFoundException(`Employee with id ${id} not found`);
+        }
 
         if (dto.imageId) {
             const image = await this.uploadService.findById(dto.imageId);
