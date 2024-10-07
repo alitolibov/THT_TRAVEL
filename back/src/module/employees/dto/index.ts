@@ -67,4 +67,13 @@ export class UpdateEmployeeDTO {
     @IsOptional()
     @IsInt()
     imageId?: number;
+
+    @IsOptional()
+    createdAt?: string;
+
+    @IsOptional()
+    image?: any;
+
+    @IsOptional()
+    updatedAt?: string;
 }

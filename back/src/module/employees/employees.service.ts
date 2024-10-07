@@ -81,7 +81,12 @@ export class EmployeesService {
     }
 
     async updateEmployee(id: number, dto: UpdateEmployeeDTO) {
-        if (!Object.keys(dto).length) {
+        const body = { ...dto };
+
+        delete body.updatedAt;
+        delete body.createdAt;
+
+        if (!Object.keys(body).length) {
             throw new BadRequestException('Nothing was sent to the body');
         }
 
@@ -91,14 +96,14 @@ export class EmployeesService {
             throw new NotFoundException(`Employee with id ${id} not found`);
         }
 
-        if (dto.imageId) {
-            const image = await this.uploadService.findById(dto.imageId);
+        if (body.imageId) {
+            const image = await this.uploadService.findById(body.imageId);
             if (!image) {
-                throw new BadRequestException(`Wrong imageId ${dto.imageId}`);
+                throw new BadRequestException(`Wrong imageId ${body.imageId}`);
             }
         }
 
-        return employee.update(dto);
+        return employee.update(body);
     }
 
     async deleteEmployee(id: number) {

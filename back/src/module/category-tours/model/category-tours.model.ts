@@ -1,4 +1,5 @@
-import { Column, Model, Table } from 'sequelize-typescript';
+import { Column, HasMany, Model, Table } from 'sequelize-typescript';
+import { Tour } from '../../tours/model/tours.model';
 
 @Table
 export class CategoryTours extends Model {
@@ -7,4 +8,7 @@ export class CategoryTours extends Model {
 
     @Column
     priority: number;
+
+    @HasMany(() => Tour)
+    tours: Tour[];
 }

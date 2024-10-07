@@ -32,6 +32,10 @@ export class CreateTourDTO {
     @IsNotEmpty()
     @ArrayMaxSize(10)
     imageIds: number[];
+
+    @IsInt()
+    @IsOptional()
+    categoryId?: number;
 }
 
 export class UpdateTourDTO {
@@ -59,4 +63,17 @@ export class UpdateTourDTO {
     @IsOptional()
     @ArrayMaxSize(10)
     imageIds: number[];
+
+    @IsInt()
+    @IsOptional()
+    categoryId?: number;
+
+    @IsOptional()
+    createdAt?: string;
+
+    @IsOptional()
+    images?: any;
+
+    @IsOptional()
+    updatedAt?: string;
 }

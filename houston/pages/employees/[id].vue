@@ -148,6 +148,7 @@ onMounted(async () => {
 
 async function submit() {
     const {id, ...data} = employee.value;
+
     errors.value = {};
     try {
         if (id) {

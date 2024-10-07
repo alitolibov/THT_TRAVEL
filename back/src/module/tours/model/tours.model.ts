@@ -1,12 +1,14 @@
 import {
+    BelongsTo,
     BelongsToMany,
     Column,
-    DataType,
+    ForeignKey,
     Model,
     Table,
 } from 'sequelize-typescript';
 import { Upload } from '../../uploads/model/upload.model';
 import { TourUploads } from '../../uploads/model/tourUploads.model';
+import { CategoryTours } from '../../category-tours/model/category-tours.model';
 
 @Table
 export class Tour extends Model {
@@ -27,4 +29,11 @@ export class Tour extends Model {
 
     @BelongsToMany(() => Upload, () => TourUploads)
     images: Upload[];
+
+    @BelongsTo(() => CategoryTours)
+    categoryTour: CategoryTours;
+
+    @ForeignKey(() => CategoryTours)
+    @Column
+    categoryId: number;
 }

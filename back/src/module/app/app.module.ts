@@ -14,6 +14,8 @@ import { Upload } from '../uploads/model/upload.model';
 import { Tour } from '../tours/model/tours.model';
 import { TourUploads } from '../uploads/model/tourUploads.model';
 import { ToursModule } from '../tours/tours.module';
+import { CategoryTours } from '../category-tours/model/category-tours.model';
+import { CategoryToursModule } from '../category-tours/category-tours.module';
 
 @Module({
     imports: [
@@ -33,7 +35,14 @@ import { ToursModule } from '../tours/tours.module';
                 database: configService.get('postgres.database'),
                 synchronize: true,
                 autoLoadModels: true,
-                models: [User, Employee, Upload, Tour, TourUploads],
+                models: [
+                    User,
+                    Employee,
+                    Upload,
+                    Tour,
+                    TourUploads,
+                    CategoryTours,
+                ],
             }),
         }),
         AuthModule,
@@ -41,6 +50,7 @@ import { ToursModule } from '../tours/tours.module';
         EmployeesModule,
         UploadsModule,
         ToursModule,
+        CategoryToursModule,
     ],
     controllers: [AppController],
     providers: [AppService],

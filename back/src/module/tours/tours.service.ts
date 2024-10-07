@@ -26,6 +26,7 @@ export class ToursService {
             durationNights: tourDTO.durationNights || null,
             price: tourDTO.price,
             description: tourDTO.description,
+            categoryId: tourDTO.categoryId || null,
         });
 
         await tour.$set('images', tourDTO.imageIds);
@@ -91,16 +92,22 @@ export class ToursService {
     }
 
     async updateTour(id: number, dto: UpdateTourDTO) {
-        if (!Object.keys(dto).length) {
+        const body = { ...dto };
+
+        delete body.updatedAt;
+        delete body.createdAt;
+        delete body.images;
+
+        if (!Object.keys(body).length) {
             throw new BadRequestException('Nothing was sent to the body');
         }
 
         const tour = await this.findById(id);
 
         if (!tour) {
-            throw new NotFoundException(`Employee with id ${id} not found`);
+            throw new NotFoundException(`Tour with id ${id} not found`);
         }
 
-        return tour.update(dto);
+        return tour.update(body);
     }
 }
