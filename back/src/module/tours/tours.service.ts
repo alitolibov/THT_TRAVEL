@@ -12,6 +12,7 @@ import { QuerySearchDTO } from '../../types/dtos.global';
 import { createQueryParams } from '../../utils/querySearch';
 import { IPaginatedResponse } from '../../types';
 import { response } from 'express';
+import { CategoryTours } from '../category-tours/model/category-tours.model';
 
 @Injectable()
 export class ToursService {
@@ -23,7 +24,7 @@ export class ToursService {
         const tour = await this.tourRepository.create({
             nameDirection: tourDTO.nameDirection,
             durationDays: tourDTO.durationDays,
-            durationNights: tourDTO.durationNights || null,
+            durationNights: tourDTO.durationNights || 0,
             price: tourDTO.price,
             description: tourDTO.description,
             categoryId: tourDTO.categoryId || null,
@@ -36,18 +37,22 @@ export class ToursService {
     async findAllTours(
         params: QuerySearchDTO,
     ): Promise<IPaginatedResponse<Tour>> {
-        const searchFields = ['nameDirection', 'price', 'description'];
+        const searchFields = ['nameDirection'];
         const queryParams = createQueryParams(params, searchFields);
 
         const { count, rows } = await this.tourRepository.findAndCountAll({
             ...queryParams,
-            include: {
-                model: Upload,
-                required: false,
-                through: {
-                    attributes: [],
+            include: [
+                {
+                    model: Upload,
+                    required: false,
+                    through: { attributes: [] },
                 },
-            },
+                {
+                    model: CategoryTours,
+                    required: false,
+                },
+            ],
         });
 
         return {
@@ -66,11 +71,17 @@ export class ToursService {
         try {
             return await this.tourRepository.findOne({
                 where: { id },
-                include: {
-                    model: Upload,
-                    required: false,
-                    through: { attributes: [] },
-                },
+                include: [
+                    {
+                        model: Upload,
+                        required: false,
+                        through: { attributes: [] },
+                    },
+                    {
+                        model: CategoryTours,
+                        required: false,
+                    },
+                ],
             });
         } catch (error) {
             if (error.status === 404) {

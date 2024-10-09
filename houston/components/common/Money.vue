@@ -1,5 +1,5 @@
 <template>
-    <span>{{ format(props.value, 'ye', 0, {spaceBetweenAmountAndSymbol: ' ', symbolOnLeft: false}) }}</span>
+    <span>{{ format(props.value, '$', 0, {spaceBetweenAmountAndSymbol: ' ', symbolOnLeft: false}) }}</span>
 </template>
 
 <script lang="ts" setup>

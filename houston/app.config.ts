@@ -18,6 +18,16 @@ export default defineAppConfig({
                 enabled: true,
                 items: [
                     {
+                        name: 'Туры',
+                        icon: {name: 'ph:airplane', class: 'w-5 h-5'},
+                        to: '/tours'
+                    },
+                    {
+                        name: 'Категория туров',
+                        icon: {name: 'ph:sort-ascending', class: 'w-5 h-5'},
+                        to: '/category-tours'
+                    },
+                    {
                         name: 'Сотрудники',
                         icon: {name: 'ph:users', class: 'w-5 h-5'},
                         to: '/employees'
