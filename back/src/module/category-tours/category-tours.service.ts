@@ -5,12 +5,13 @@ import {
     NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { CategoryTours } from './model/category-tours.model';
-import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
-import { QuerySearchDTO } from '../../types/dtos.global';
-import { IPaginatedResponse } from '../../types';
-import { createQueryParams } from '../../utils/querySearch';
 import { response } from 'express';
+
+import { IPaginatedResponse } from '../../types';
+import { QuerySearchDTO } from '../../types/dtos.global';
+import { createQueryParams } from '../../utils/querySearch';
+import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
+import { CategoryTours } from './model/category-tours.model';
 
 @Injectable()
 export class CategoryToursService {
@@ -26,7 +27,9 @@ export class CategoryToursService {
         }
 
         return this.categoryRepository.create({
-            name: dto.name,
+            nameRu: dto.nameRu,
+            nameUz: dto.nameUz,
+            nameEn: dto.nameEn,
             priority: dto.priority,
         });
     }

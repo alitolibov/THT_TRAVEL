@@ -3,7 +3,15 @@ import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 export class CreateCategoryDTO {
     @IsString()
     @IsNotEmpty()
-    name: string;
+    nameRu: string;
+
+    @IsString()
+    @IsNotEmpty()
+    nameUz: string;
+
+    @IsString()
+    @IsNotEmpty()
+    nameEn: string;
 
     @IsInt()
     @IsOptional()
@@ -13,7 +21,15 @@ export class CreateCategoryDTO {
 export class UpdateCategoryDTO {
     @IsString()
     @IsOptional()
-    name?: string;
+    nameRu?: string;
+
+    @IsString()
+    @IsOptional()
+    nameUz?: string;
+
+    @IsString()
+    @IsOptional()
+    nameEn?: string;
 
     @IsInt()
     @IsOptional()

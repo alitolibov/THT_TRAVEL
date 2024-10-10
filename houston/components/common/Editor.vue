@@ -10,6 +10,8 @@
 <script lang="ts" setup>
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
+import type { IUpload } from '~/types';
+
 const props = defineProps<{ modelValue: any }>();
 const emit = defineEmits(['update:modelValue']);
 
@@ -26,20 +28,14 @@ class UploaderAdapter {
     // Starts the upload process.
     async upload() {
         const file = await this.loader.file;
-        const fileSize = file.size / 1024 / 1024;
-        if (fileSize > 5) {
-            throw new Error('Файл больше 5 мб.');
-        }
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        const uri = await new Promise((resolve) => {
-            reader.addEventListener('load', () => resolve(reader.result), false);
-        });
-        const upload = await useService('uploads', {auth: true}).create({file: uri}).exec();
-        return {default: upload.url};
+        const formData = new FormData();
+        formData.append('image', file, file.name);
+
+        const upload:IUpload = await $api.post('uploads', {body: formData}).json();
+
+        return {default: upload.path};
     }
 
-    // Aborts the upload process.
     abort() {
         if (this.xhr) {
             this.xhr.abort();

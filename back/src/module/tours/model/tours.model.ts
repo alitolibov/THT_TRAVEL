@@ -6,14 +6,21 @@ import {
     Model,
     Table,
 } from 'sequelize-typescript';
-import { Upload } from '../../uploads/model/upload.model';
-import { TourUploads } from '../../uploads/model/tourUploads.model';
+
 import { CategoryTours } from '../../category-tours/model/category-tours.model';
+import { TourUploads } from '../../uploads/model/tourUploads.model';
+import { Upload } from '../../uploads/model/upload.model';
 
 @Table
 export class Tour extends Model {
     @Column
-    nameDirection: string;
+    nameDirectionRu: string;
+
+    @Column
+    nameDirectionUz: string;
+
+    @Column
+    nameDirectionEn: string;
 
     @Column
     durationDays: number;
@@ -25,7 +32,13 @@ export class Tour extends Model {
     price: number;
 
     @Column
-    description: string;
+    descriptionRu: string;
+
+    @Column
+    descriptionEn: string;
+
+    @Column
+    descriptionUz: string;
 
     @BelongsToMany(() => Upload, () => TourUploads)
     images: Upload[];

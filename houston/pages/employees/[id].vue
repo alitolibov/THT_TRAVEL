@@ -44,9 +44,9 @@
                 />
                 <BaseInput
                     v-model="employee.instagram"
+                    v-maska
                     label="Инстаграм"
                     name="instagram"
-                    v-maska
                     data-maska="https://instgramm.com/*******************"
                     data-maska-tokens="*:[a-zA-Z0-9_.-]"
                     placeholder="Введите инстаграм"
@@ -55,10 +55,10 @@
                 />
                 <BaseInput
                     v-model="employee.telegram"
+                    v-maska
                     label="Телеграм"
                     name="telegram"
                     placeholder="Введите телеграм"
-                    v-maska
                     data-maska="https://t.me/*******************"
                     data-maska-tokens="*:[a-zA-Z0-9_-]"
                     :error="errors.telegram"
@@ -80,8 +80,8 @@
                 <BaseButton
                     v-if="employee.id"
                     color="danger"
-                    @click="remove"
                     :loading="isLoading"
+                    @click="remove"
                 >
                     Удалить
                 </BaseButton>
@@ -122,16 +122,16 @@ const toast = useToast('GlobalToast');
 const errors = ref<Record<string, string>>({});
 
 const employee = ref<any>({
-	firstName: '',
-	lastName: '',
-	imageId: '',
-	position: '',
-	instagram: '',
-	telegram: '',
-	phone: ''
+    firstName: '',
+    lastName: '',
+    imageId: '',
+    position: '',
+    instagram: '',
+    telegram: '',
+    phone: ''
 });
 
-const routeId = route.params.id as string
+const routeId = route.params.id as string;
 
 const createEmployee = useService('employees', 'employee').create<IEmployee>();
 const updateEmployee = useService('employees', 'employee').update<IEmployee>(routeId);
@@ -140,11 +140,11 @@ const removeEmployee = useService('employees', 'employee').remove<IEmployee>();
 const { data:employeeData, isLoading, refetch } = useService('employees', 'employee').get<IEmployee>(routeId);
 
 onMounted(async () => {
-	if(routeId !== 'new') {
-        await refetch()
+    if(routeId !== 'new') {
+        await refetch();
         employee.value = {...employeeData.value};
     }
-})
+});
 
 async function submit() {
     const {id, ...data} = employee.value;
@@ -156,6 +156,7 @@ async function submit() {
         } else {
             await createEmployee.mutateAsync(data);
         }
+        toast.show({ message: 'Успешно изменено', type: 'success', timeout: 3000 });
         navigateTo('/employees');
     } catch (e: any) {
         if (e.statusCode === 400) {

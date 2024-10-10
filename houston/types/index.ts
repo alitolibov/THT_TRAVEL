@@ -9,7 +9,25 @@ export interface IEmployee {
     imageId: number;
     image: IUpload;
     createdAt: string;
-    updatedAt: string
+    updatedAt: string;
+}
+
+export interface ITour {
+    id: number
+    nameDirectionRu: string;
+    nameDirectionUz: string;
+    nameDirectionEn: string;
+    descriptionRu: string;
+    descriptionUz: string;
+    descriptionEn: string;
+    images: IUpload[];
+    price: number;
+    durationDays: number;
+    durationNights?: number | null;
+    categoryTour: ICategoryTour | null;
+    categoryId: number | null;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface IUpload {
@@ -19,7 +37,17 @@ export interface IUpload {
     path: string;
     size: number;
     createdAt: string;
-    updatedAt: string
+    updatedAt: string;
+}
+
+export interface ICategoryTour {
+    id: number
+    nameRu: string;
+    nameUz: string;
+    nameEN: string;
+    priority: number;
+    createdAt: string;
+    updatedAt: string;
 }
 
 export interface PaginatedResponse<T> {

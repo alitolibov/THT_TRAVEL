@@ -70,7 +70,11 @@ const fileFormat = ref<string>('');
 const toast = useToast('GlobalToast');
 
 function updateValue(files: Record<string, any>[] | null) {
-    let imgIds = files[0]?.id || '';
+    let imgIds;
+
+    if (files) {
+        imgIds = files[0]?.id || '';
+    }
 
     if (files && files.length && props.multiple) {
         imgIds = files.map(el => el.id);
@@ -89,13 +93,13 @@ async function uploadFile(event: Event) {
     if (props.multiple) {
         const files = Array.from(target.files);
         const uploads = await Promise.all(files.map(processFile));
-        filesData.value.push(...uploads);
+        filesData.value.push(...uploads.flat());
     } else {
         const file = target.files[0];
         filesData.value = await processFile(file);
     }
     fileFormat.value = target.files[0].type;
-	target.value = '';
+    target.value = '';
     updateValue(filesData.value);
 }
 
@@ -108,7 +112,7 @@ async function processFile(file: File): Promise<Record<string, any>[]> {
 
 async function removeFile(id: number) {
     try {
-        await $api.delete(`employees/${id}`).json()
+        await $api.delete(`employees/${id}`).json();
         filesData.value = filesData.value.filter(file => file.id != id);
         updateValue(filesData.value);
     } catch (e: any) {

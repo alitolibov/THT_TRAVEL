@@ -5,14 +5,15 @@ import {
     NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Tour } from './model/tours.model';
-import { CreateTourDTO, UpdateTourDTO } from './dto';
-import { Upload } from '../uploads/model/upload.model';
+import { response } from 'express';
+
+import { IPaginatedResponse } from '../../types';
 import { QuerySearchDTO } from '../../types/dtos.global';
 import { createQueryParams } from '../../utils/querySearch';
-import { IPaginatedResponse } from '../../types';
-import { response } from 'express';
 import { CategoryTours } from '../category-tours/model/category-tours.model';
+import { Upload } from '../uploads/model/upload.model';
+import { CreateTourDTO, UpdateTourDTO } from './dto';
+import { Tour } from './model/tours.model';
 
 @Injectable()
 export class ToursService {
@@ -22,11 +23,15 @@ export class ToursService {
 
     async createTour(tourDTO: CreateTourDTO) {
         const tour = await this.tourRepository.create({
-            nameDirection: tourDTO.nameDirection,
+            nameDirectionRu: tourDTO.nameDirectionRu,
+            nameDirectionUz: tourDTO.nameDirectionUz,
+            nameDirectionEn: tourDTO.nameDirectionEn,
             durationDays: tourDTO.durationDays,
             durationNights: tourDTO.durationNights || 0,
             price: tourDTO.price,
-            description: tourDTO.description,
+            descriptionRu: tourDTO.descriptionRu,
+            descriptionUz: tourDTO.descriptionUz,
+            descriptionEn: tourDTO.descriptionEn,
             categoryId: tourDTO.categoryId || null,
         });
 
@@ -53,6 +58,7 @@ export class ToursService {
                     required: false,
                 },
             ],
+            distinct: true,
         });
 
         return {
@@ -105,10 +111,6 @@ export class ToursService {
     async updateTour(id: number, dto: UpdateTourDTO) {
         const body = { ...dto };
 
-        delete body.updatedAt;
-        delete body.createdAt;
-        delete body.images;
-
         if (!Object.keys(body).length) {
             throw new BadRequestException('Nothing was sent to the body');
         }
@@ -117,6 +119,10 @@ export class ToursService {
 
         if (!tour) {
             throw new NotFoundException(`Tour with id ${id} not found`);
+        }
+
+        if (body.imageIds.length) {
+            await tour.$set('images', body.imageIds);
         }
 
         return tour.update(body);

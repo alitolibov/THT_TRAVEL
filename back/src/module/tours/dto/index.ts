@@ -10,7 +10,15 @@ import {
 export class CreateTourDTO {
     @IsString()
     @IsNotEmpty()
-    nameDirection: string;
+    nameDirectionRu: string;
+
+    @IsString()
+    @IsNotEmpty()
+    nameDirectionUz: string;
+
+    @IsString()
+    @IsNotEmpty()
+    nameDirectionEn: string;
 
     @IsInt()
     @IsNotEmpty()
@@ -26,7 +34,15 @@ export class CreateTourDTO {
 
     @IsString()
     @IsNotEmpty()
-    description: string;
+    descriptionRu: string;
+
+    @IsString()
+    @IsNotEmpty()
+    descriptionUz: string;
+
+    @IsString()
+    @IsNotEmpty()
+    descriptionEn: string;
 
     @IsArray()
     @IsNotEmpty()
@@ -41,7 +57,15 @@ export class CreateTourDTO {
 export class UpdateTourDTO {
     @IsString()
     @IsOptional()
-    nameDirection?: string;
+    nameDirectionRu?: string;
+
+    @IsString()
+    @IsOptional()
+    nameDirectionUz?: string;
+
+    @IsString()
+    @IsOptional()
+    nameDirectionEn?: string;
 
     @IsInt()
     @IsOptional()
@@ -57,7 +81,15 @@ export class UpdateTourDTO {
 
     @IsString()
     @IsOptional()
-    description?: string;
+    descriptionRu?: string;
+
+    @IsString()
+    @IsOptional()
+    descriptionUz?: string;
+
+    @IsString()
+    @IsOptional()
+    descriptionEn?: string;
 
     @IsArray()
     @IsOptional()
@@ -73,6 +105,9 @@ export class UpdateTourDTO {
 
     @IsOptional()
     images?: any;
+
+    @IsOptional()
+    categoryTour?: any;
 
     @IsOptional()
     updatedAt?: string;

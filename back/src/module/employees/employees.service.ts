@@ -5,14 +5,15 @@ import {
     NotFoundException,
 } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
-import { Employee } from './model/employee.model';
-import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
-import { Upload } from '../uploads/model/upload.model';
-import { UploadsService } from '../uploads/uploads.service';
 import { response } from 'express';
+
+import { IPaginatedResponse } from '../../types';
 import { QuerySearchDTO } from '../../types/dtos.global';
 import { createQueryParams } from '../../utils/querySearch';
-import { IPaginatedResponse } from '../../types';
+import { Upload } from '../uploads/model/upload.model';
+import { UploadsService } from '../uploads/uploads.service';
+import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
+import { Employee } from './model/employee.model';
 
 @Injectable()
 export class EmployeesService {
@@ -70,6 +71,7 @@ export class EmployeesService {
                 model: Upload,
                 required: false,
             },
+            distinct: true,
         });
 
         return {

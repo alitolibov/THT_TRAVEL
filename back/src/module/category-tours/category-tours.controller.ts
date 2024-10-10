@@ -9,10 +9,11 @@ import {
     Query,
     UseGuards,
 } from '@nestjs/common';
-import { CategoryToursService } from './category-tours.service';
-import { JwtGuards } from '../auth/guards/jwt.guards';
-import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
+
 import { QuerySearchDTO } from '../../types/dtos.global';
+import { JwtGuards } from '../auth/guards/jwt.guards';
+import { CategoryToursService } from './category-tours.service';
+import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
 
 @Controller('category-tours')
 export class CategoryToursController {

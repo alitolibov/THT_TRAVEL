@@ -1,6 +1,7 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from './module/app/app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+
+import { AppModule } from './module/app/app.module';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
@@ -16,6 +17,7 @@ async function bootstrap() {
             },
         }),
     );
+
     app.enableCors();
     await app.listen(3030, '192.168.110.91');
 }

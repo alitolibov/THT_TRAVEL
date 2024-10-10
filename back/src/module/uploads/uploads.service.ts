@@ -4,12 +4,13 @@ import {
     InternalServerErrorException,
     NotFoundException,
 } from '@nestjs/common';
-import { InjectModel } from '@nestjs/sequelize';
-import { Upload } from './model/upload.model';
 import { ConfigService } from '@nestjs/config';
-import * as path from 'path';
-import * as fs from 'fs';
+import { InjectModel } from '@nestjs/sequelize';
 import { response } from 'express';
+import * as fs from 'fs';
+import * as path from 'path';
+
+import { Upload } from './model/upload.model';
 
 @Injectable()
 export class UploadsService {
@@ -19,7 +20,6 @@ export class UploadsService {
     ) {}
 
     async createFile(files: Express.Multer.File[]) {
-        console.log(files);
         const filesWithUrl = files.map((file) => ({
             ...file,
             path: this.configService.get('imagesUrl') + file.path,
@@ -63,8 +63,8 @@ export class UploadsService {
                 this.uploadRepository.destroy({ where: { id } }),
             ]);
             return response.status(200);
-        } catch (error) {
-            throw new InternalServerErrorException('Error while deleting');
+        } catch (e) {
+            throw new InternalServerErrorException('Error while deleting', e);
         }
     }
 
