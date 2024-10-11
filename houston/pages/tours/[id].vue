@@ -4,7 +4,7 @@
         class="mt-4 px-10"
     >
         <div class="flex flex-col gap-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-end">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-stretch">
                 <BaseInput
                     v-model="tour.nameDirectionRu"
                     label="Направление (RU)"
@@ -31,8 +31,8 @@
                 />
             </div>
             <TairoDivider />
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-end">
-                <div class="flex items-center">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-stretch">
+                <div class="flex items-stretch">
                     <BaseInput
                         v-model="tour.durationDays"
                         label="Сколько дней"
@@ -41,7 +41,7 @@
                         :error="errors.durationDays"
                         type="number"
                         inputmode="numeric"
-                        :classes="{input: '!border-r-0 !rounded-r-none'}"
+                        :classes="{input: '!border-r-0 !rounded-r-none', wrapper: '!block !w-full'}"
                     />
                     <BaseInput
                         v-model="tour.durationNights"
@@ -51,7 +51,7 @@
                         :error="errors.durationNights"
                         type="number"
                         inputmode="numeric"
-                        :classes="{input: '!rounded-l-none'}"
+                        :classes="{input: '!rounded-l-none', wrapper: '!block !w-full'}"
                     />
                 </div>
                 <BaseInput
@@ -70,8 +70,8 @@
                 />
             </div>
             <TairoDivider />
-            <BaseTextarea 
-                v-model="tour.descriptionRu" 
+            <BaseTextarea
+                v-model="tour.descriptionRu"
                 label="Описание (RU)"
                 name="descriptionRu"
                 :error="errors.descriptionRu"
@@ -132,8 +132,8 @@ import { useService } from '~/composables/useService';
 import { useToast } from '~/composables/useToast';
 import errorMessages from '~/constants';
 import type { ICategoryTour, ITour } from '~/types';
-import { getFirstWord } from '~/utils';
-import {optionsList} from '~/utils';
+import { getErrorPathAndMsg, IOption } from '~/utils';
+import { optionsList } from '~/utils';
 
 definePageMeta({
     authRoute: true,
@@ -147,47 +147,41 @@ useHead({
 
 const route = useRoute();
 const toast = useToast('GlobalToast');
-const errors = ref<Record<string, string>>({});
-
-const tour = ref<any>({
-    nameDirectionRu: '',
-    nameDirectionUz: '',
-    nameDirectionEn: '',
-    durationDays: 0,
-    durationNights: 0,
-    price: '',
-    descriptionRu: '',
-    descriptionUz: '',
-    descriptionEn: '',
-    imageIds: [],
-    categoryId: null
-});
 
 const routeId = route.params.id as string;
 
-const createtour = useService('tours', 'tour').create();
-const updatetour = useService('tours', 'tour').update(routeId);
-const removetour = useService('tours', 'tour').remove();
+const tour = ref<ITour>({} as ITour);
+const errors = ref<Record<string, string>>({});
+const isLoading = ref(true);
+
+const createTour = useService('tours', 'tour').create();
+const updateTour = useService('tours', 'tour').update(routeId);
+const removeTour = useService('tours', 'tour').remove();
 const categoriesService = useService('category-tours', 'category-tours');
-
-const { data: tourData, isLoading, refetch } = useService('tours', 'tour').get<ITour>(routeId);
-
-onMounted(async () => {
-    if (routeId !== 'new') {
-        await refetch();
-        tour.value = { ...tourData.value };
-        tour.value.imageIds = tourData.value?.images.map((img) => img.id);
-    }
-});
+const { data: tourData, refetch } = useService('tours', 'tour').get<ITour>(routeId);
 
 const { data: categoryData } = useQuery({
     queryKey: ['category-tours'],
     queryFn: async () => {
         return await categoriesService.find<ICategoryTour>();
-    },
+    }
 });
 
-const optionsCategory = computed(() => optionsList(categoryData.value?.data, 'nameRu'));
+onMounted(async () => {
+    if (routeId !== 'new') {
+
+        await refetch();
+
+        if (tourData.value) {
+            tour.value = { ...tourData.value };
+            tour.value.imageIds = tourData.value?.images.map((img) => img.id);
+        }
+    }
+
+    isLoading.value = false;
+});
+
+const optionsCategory = computed((): IOption[] => optionsList(categoryData.value?.data, 'nameRu'));
 
 async function submit() {
     const { id, ...data } = tour.value;
@@ -195,16 +189,17 @@ async function submit() {
     errors.value = {};
     try {
         if (id) {
-            await updatetour.mutateAsync(data);
+            await updateTour.mutateAsync(data);
         } else {
-            await createtour.mutateAsync(data);
+            await createTour.mutateAsync(data);
         }
         toast.show({ message: 'Успешно изменено', type: 'success', timeout: 3000 });
         navigateTo('/tours');
     } catch (e: any) {
         if (e.statusCode === 400) {
-            for (let msg of e.message) {
-                errors.value[getFirstWord(msg)] = errorMessages[msg];
+            for (let message of e.message) {
+                const { firstWord, msg } = getErrorPathAndMsg(message);
+                errors.value[firstWord] = errorMessages[msg];
             }
         } else {
             toast.show({ message: e.message, type: 'error', timeout: 3000 });
@@ -214,7 +209,7 @@ async function submit() {
 
 async function remove() {
     try {
-        await removetour.mutateAsync(routeId);
+        await removeTour.mutateAsync(routeId);
         toast.show({ message: 'Успешно удалено', timeout: 3000, type: 'success' });
         navigateTo('/tours');
     } catch (e: any) {

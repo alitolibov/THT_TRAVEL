@@ -1,9 +1,10 @@
 import { Module } from '@nestjs/common';
+import {SequelizeModule} from '@nestjs/sequelize';
+
+import { UploadsModule } from '../uploads/uploads.module';
 import { EmployeesController } from './employees.controller';
 import { EmployeesService } from './employees.service';
-import {SequelizeModule} from "@nestjs/sequelize";
-import {Employee} from "./model/employee.model";
-import { UploadsModule } from "../uploads/uploads.module";
+import {Employee} from './model/employee.model';
 
 @Module({
   imports: [

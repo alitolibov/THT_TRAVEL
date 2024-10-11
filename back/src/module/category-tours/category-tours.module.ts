@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
+import { SequelizeModule } from '@nestjs/sequelize';
+
 import { CategoryToursController } from './category-tours.controller';
 import { CategoryToursService } from './category-tours.service';
-import { SequelizeModule } from '@nestjs/sequelize';
 import { CategoryTours } from './model/category-tours.model';
 
 @Module({

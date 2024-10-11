@@ -1,12 +1,11 @@
 import {
-    BelongsTo,
     BelongsToMany,
     Column,
-    ForeignKey,
     HasOne,
     Model,
     Table,
 } from 'sequelize-typescript';
+
 import { Employee } from '../../employees/model/employee.model';
 import { Tour } from '../../tours/model/tours.model';
 import { TourUploads } from './tourUploads.model';

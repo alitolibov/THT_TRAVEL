@@ -4,7 +4,7 @@
         class="mt-4 px-10"
     >
         <div class="flex flex-col gap-4">
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-end">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-stretch">
                 <BaseInput
                     v-model="employee.firstName"
                     label="Имя"
@@ -31,7 +31,7 @@
                 />
             </div>
             <TairoDivider />
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-end">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mb-6 items-stretch">
                 <BaseInput
                     v-model="employee.phone"
                     v-maska
@@ -105,7 +105,7 @@ import { useService } from '~/composables/useService';
 import { useToast } from '~/composables/useToast';
 import errorMessages from '~/constants';
 import { IEmployee } from '~/types';
-import {getFirstWord} from '~/utils';
+import { getErrorPathAndMsg } from '~/utils';
 
 definePageMeta({
     authRoute: true,
@@ -121,15 +121,7 @@ const route = useRoute();
 const toast = useToast('GlobalToast');
 const errors = ref<Record<string, string>>({});
 
-const employee = ref<any>({
-    firstName: '',
-    lastName: '',
-    imageId: '',
-    position: '',
-    instagram: '',
-    telegram: '',
-    phone: ''
-});
+const employee = ref<IEmployee>({} as IEmployee);
 
 const routeId = route.params.id as string;
 
@@ -137,17 +129,21 @@ const createEmployee = useService('employees', 'employee').create<IEmployee>();
 const updateEmployee = useService('employees', 'employee').update<IEmployee>(routeId);
 const removeEmployee = useService('employees', 'employee').remove<IEmployee>();
 
-const { data:employeeData, isLoading, refetch } = useService('employees', 'employee').get<IEmployee>(routeId);
+const { data: employeeData, isLoading, refetch } = useService('employees', 'employee').get<IEmployee>(routeId);
 
 onMounted(async () => {
-    if(routeId !== 'new') {
-        await refetch();
-        employee.value = {...employeeData.value};
+    if (routeId === 'new') {
+        return;
+    }
+    await refetch();
+
+    if (employeeData.value) {
+        employee.value = { ...employeeData.value };
     }
 });
 
 async function submit() {
-    const {id, ...data} = employee.value;
+    const { id, ...data } = employee.value;
 
     errors.value = {};
     try {
@@ -160,11 +156,12 @@ async function submit() {
         navigateTo('/employees');
     } catch (e: any) {
         if (e.statusCode === 400) {
-            for (let msg of e.message) {
-                errors.value[getFirstWord(msg)] = errorMessages[msg];
+            for (let message of e.message) {
+                const { firstWord, msg } = getErrorPathAndMsg(message);
+                errors.value[firstWord] = errorMessages[msg];
             }
         } else {
-            toast.show({message: e.message, type: 'error', timeout: 3000});
+            toast.show({ message: e.message, type: 'error', timeout: 3000 });
         }
     }
 }
@@ -172,10 +169,10 @@ async function submit() {
 async function remove() {
     try {
         await removeEmployee.mutateAsync(routeId);
-        toast.show({message: 'Успешно удалено', timeout: 3000, type: 'success'});
+        toast.show({ message: 'Успешно удалено', timeout: 3000, type: 'success' });
         navigateTo('/employees');
     } catch (e: any) {
-        toast.show({message: e.message, timeout: 3000, type: 'error'});
+        toast.show({ message: e.message, timeout: 3000, type: 'error' });
     }
 }
 

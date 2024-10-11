@@ -1,9 +1,10 @@
 import {ConflictException, Injectable, UnauthorizedException} from '@nestjs/common';
-import { UsersService } from "../users/users.service";
-import * as bcrypt from "bcrypt"
-import {SignInDTO, SignUpDTO} from "./dto";
-import {JwtService} from "@nestjs/jwt";
-import {IJwtPayload} from "../../types";
+import {JwtService} from '@nestjs/jwt';
+import * as bcrypt from 'bcrypt';
+
+import {IJwtPayload} from '../../types';
+import { UsersService } from '../users/users.service';
+import {SignInDTO, SignUpDTO} from './dto';
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,7 @@ export class AuthService {
   }
 
   private async generateToken(payload: IJwtPayload) {
-    return this.jwtService.signAsync(payload)
+    return this.jwtService.signAsync(payload);
   }
 
   async signUp(userDTO: SignUpDTO) {
@@ -34,9 +35,9 @@ export class AuthService {
     await this.userService.createUser({
       ...userDTO,
       password: await this.generateHashPassword(userDTO.password)
-    })
+    });
 
-    return 'Created'
+    return 'Created';
   }
 
   async signIn(signInDTO: SignInDTO){
@@ -48,7 +49,7 @@ export class AuthService {
 
     return {
       access_token: await this.generateToken({id:user.id, email: user.email})
-    }
+    };
   }
 
   async getUsers() {

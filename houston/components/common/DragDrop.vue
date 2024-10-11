@@ -1,5 +1,7 @@
 <template>
-    <div class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded">
+    <div
+        class="nui-input-wrapper nui-input-default nui-input-md nui-input-rounded"
+    >
         <label
             v-if="props.label"
             for="file"
@@ -44,6 +46,12 @@
                 <span v-if="description">{{ description }}</span>
             </label>
         </div>
+        <span
+            v-if="props.error && typeof props.error === 'string'"
+            class="nui-input-error-text"
+        >
+            {{ props.error }}
+        </span>
     </div>
 </template>
 
@@ -58,7 +66,8 @@ const props = withDefaults(
         accept?: string
         label?: string,
         description?: string,
-        hideImages?: boolean
+        hideImages?: boolean,
+        error?: string
     }>(),
     {
         accept: '.jpeg, .png, .webp, .gif, .svg+xml'
@@ -73,7 +82,7 @@ function updateValue(files: Record<string, any>[] | null) {
     let imgIds;
 
     if (files) {
-        imgIds = files[0]?.id || '';
+        imgIds = files[0]?.id || null;
     }
 
     if (files && files.length && props.multiple) {

@@ -7,13 +7,13 @@ import {
     Patch,
     Post,
     Query,
-    Req,
     UseGuards,
 } from '@nestjs/common';
-import { EmployeesService } from './employees.service';
-import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
-import { JwtGuards } from '../auth/guards/jwt.guards';
+
 import { QuerySearchDTO } from '../../types/dtos.global';
+import { JwtGuards } from '../auth/guards/jwt.guards';
+import { CreateEmployeeDTO, UpdateEmployeeDTO } from './dto';
+import { EmployeesService } from './employees.service';
 
 @Controller('employees')
 export class EmployeesController {

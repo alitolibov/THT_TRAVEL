@@ -1,21 +1,22 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
+
 import { defaultConfiguration, jwtConfig, postgresConfig } from '../../config';
-import { User } from '../users/model/user.model';
-import { UsersModule } from '../users/users.module';
 import { AuthModule } from '../auth/auth.module';
+import { CategoryToursModule } from '../category-tours/category-tours.module';
+import { CategoryTours } from '../category-tours/model/category-tours.model';
 import { EmployeesModule } from '../employees/employees.module';
 import { Employee } from '../employees/model/employee.model';
-import { UploadsModule } from '../uploads/uploads.module';
-import { Upload } from '../uploads/model/upload.model';
 import { Tour } from '../tours/model/tours.model';
-import { TourUploads } from '../uploads/model/tourUploads.model';
 import { ToursModule } from '../tours/tours.module';
-import { CategoryTours } from '../category-tours/model/category-tours.model';
-import { CategoryToursModule } from '../category-tours/category-tours.module';
+import { TourUploads } from '../uploads/model/tourUploads.model';
+import { Upload } from '../uploads/model/upload.model';
+import { UploadsModule } from '../uploads/uploads.module';
+import { User } from '../users/model/user.model';
+import { UsersModule } from '../users/users.module';
+import { AppController } from './app.controller';
+import { AppService } from './app.service';
 
 @Module({
     imports: [

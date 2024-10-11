@@ -9,10 +9,11 @@ import {
     Query,
     UseGuards,
 } from '@nestjs/common';
+
+import { QuerySearchDTO } from '../../types/dtos.global';
 import { JwtGuards } from '../auth/guards/jwt.guards';
 import { CreateTourDTO, UpdateTourDTO } from './dto';
 import { ToursService } from './tours.service';
-import { QuerySearchDTO } from '../../types/dtos.global';
 
 @Controller('tours')
 export class ToursController {

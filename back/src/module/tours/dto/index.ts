@@ -1,5 +1,4 @@
 import {
-    ArrayMaxSize,
     IsArray,
     IsInt,
     IsNotEmpty,
@@ -46,7 +45,6 @@ export class CreateTourDTO {
 
     @IsArray()
     @IsNotEmpty()
-    @ArrayMaxSize(10)
     imageIds: number[];
 
     @IsInt()
@@ -93,7 +91,6 @@ export class UpdateTourDTO {
 
     @IsArray()
     @IsOptional()
-    @ArrayMaxSize(10)
     imageIds: number[];
 
     @IsInt()

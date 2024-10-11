@@ -1,5 +1,6 @@
-import {BelongsTo, Column, ForeignKey, Model, Table} from "sequelize-typescript";
-import {Upload} from "../../uploads/model/upload.model";
+import {BelongsTo, Column, ForeignKey, Model, Table} from 'sequelize-typescript';
+
+import {Upload} from '../../uploads/model/upload.model';
 
 @Table
 export class Employee extends Model{

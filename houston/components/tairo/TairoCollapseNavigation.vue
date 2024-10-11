@@ -48,7 +48,7 @@
                             {{ item.name }}
                         </span>
                     </NuxtLink>
-                    <TairoDivider v-else-if="item.divider"/>
+                    <TairoDivider v-else-if="item.divider" />
                     <button
                         v-else
                         :class="!isOpen ? 'px-1 justify-center' : 'px-4'"

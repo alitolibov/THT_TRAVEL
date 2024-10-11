@@ -1,4 +1,4 @@
-import { useMutation, useQuery, UseQueryOptions } from "@tanstack/vue-query";
+import { useMutation, useQuery } from '@tanstack/vue-query';
 import ky, { HTTPError } from 'ky';
 import qs from 'qs';
 
@@ -45,7 +45,7 @@ export function useService (service: string, queryKey: string) {
             return useQuery({
                 queryKey: [queryKey, id?.toString()],
                 queryFn: async (): Promise<T> => await $api.get(`${service}/${id}`).json<T>(),
-                enabled: false
+                enabled: false,
             });
         },
         create: <T extends object>() => {

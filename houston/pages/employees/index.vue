@@ -4,7 +4,10 @@
             <h1 class="text-xl">
                 Сотрудники
             </h1>
-            <h2 @click="perPage = 1" class="text-sm text-gray-500">
+            <h2
+                class="text-sm text-gray-500"
+                @click="perPage = 1"
+            >
                 Тут вы можете управлять сотрудниками и изменение появиться в разделе <b>"OUR TEAM"</b>
             </h2>
         </hgroup>

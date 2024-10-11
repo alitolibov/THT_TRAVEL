@@ -1,7 +1,11 @@
 <template>
-    <div class="mt-4 space-y-4" >
-        <div v-if="isLoading">Загрузка...</div>
-        <div v-if="error">Ошибка: {{ error.message }}</div>
+    <div class="mt-4 space-y-4">
+        <div v-if="isLoading">
+            Загрузка...
+        </div>
+        <div v-if="error">
+            Ошибка: {{ error.message }}
+        </div>
         <div v-else>
             {{ data }}
         </div>

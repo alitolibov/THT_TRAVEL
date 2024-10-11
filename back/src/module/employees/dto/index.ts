@@ -1,12 +1,10 @@
 import {
-    IsDateString,
     IsInt,
     IsNotEmpty,
     IsOptional,
     IsPhoneNumber,
     IsString,
     IsUrl,
-    MaxDate,
 } from 'class-validator';
 
 export class CreateEmployeeDTO {

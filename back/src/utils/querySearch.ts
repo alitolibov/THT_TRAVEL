@@ -1,4 +1,5 @@
 import { Op } from 'sequelize';
+
 import { QuerySearchDTO } from '../types/dtos.global';
 
 interface IQuerySearchRes {

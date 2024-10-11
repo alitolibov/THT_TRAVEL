@@ -1,5 +1,5 @@
+import { registerAs } from '@nestjs/config';
 import * as process from 'process';
-import { registerAs } from "@nestjs/config";
 
 export const postgresConfig = registerAs('postgres', () => ({
   dialect: 'postgres',
@@ -19,4 +19,4 @@ export const jwtConfig = registerAs('jwt', () => ({
 
 export const defaultConfiguration = () => ({
   imagesUrl: process.env.PUBLIC_URL || 'http://localhost:3030/'
-})
+});

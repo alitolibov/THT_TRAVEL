@@ -21,10 +21,11 @@ export interface ITour {
     descriptionUz: string;
     descriptionEn: string;
     images: IUpload[];
+	imageIds?: number[];
     price: number;
     durationDays: number;
     durationNights?: number | null;
-    categoryTour: ICategoryTour | null;
+    categoryTour?: ICategoryTour | null;
     categoryId: number | null;
     createdAt: string;
     updatedAt: string;

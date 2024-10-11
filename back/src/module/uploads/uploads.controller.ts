@@ -9,21 +9,21 @@ import {
     ParseFilePipe,
     Post,
     Res,
-    UploadedFile,
     UploadedFiles,
     UseGuards,
     UseInterceptors,
 } from '@nestjs/common';
-import { UploadsService } from './uploads.service';
-import { FileInterceptor, FilesInterceptor } from '@nestjs/platform-express';
-import { diskStorage } from 'multer';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import e from 'express';
-import { Error } from 'sequelize';
+import * as fs from 'fs';
+import { diskStorage } from 'multer';
 import * as path from 'path';
 import * as process from 'process';
-import { JwtGuards } from '../auth/guards/jwt.guards';
+import { Error } from 'sequelize';
 import { v4 as uuidv4 } from 'uuid';
-import * as fs from 'fs';
+
+import { JwtGuards } from '../auth/guards/jwt.guards';
+import { UploadsService } from './uploads.service';
 
 @Controller('uploads')
 export class UploadsController {
