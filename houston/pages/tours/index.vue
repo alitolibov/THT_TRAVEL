@@ -6,7 +6,6 @@
             </h1>
             <h2
                 class="text-sm text-gray-500"
-                @click="perPage = 1"
             >
                 Тут вы можете управлять турами
             </h2>
@@ -147,7 +146,7 @@ const columns = ref<Column[]>([
     {
         label: 'Категория',
         name: 'category',
-        field: (item) => `${item?.categoryId ? item.categoryTour.name : 'Не принадлежит'}`
+        field: (item) => `${item?.categoryId ? item.categoryTour.nameRu : 'Не принадлежит'}`
     },
     {
         label: 'Дата создания',

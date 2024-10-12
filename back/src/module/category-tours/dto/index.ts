@@ -21,14 +21,17 @@ export class CreateCategoryDTO {
 export class UpdateCategoryDTO {
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameRu?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameUz?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameEn?: string;
 
     @IsInt()

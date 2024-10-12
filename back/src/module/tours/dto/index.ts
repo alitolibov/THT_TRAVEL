@@ -55,18 +55,22 @@ export class CreateTourDTO {
 export class UpdateTourDTO {
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameDirectionRu?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameDirectionUz?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     nameDirectionEn?: string;
 
     @IsInt()
     @IsOptional()
+    @IsNotEmpty()
     durationDays?: number;
 
     @IsInt()
@@ -75,22 +79,27 @@ export class UpdateTourDTO {
 
     @IsInt()
     @IsOptional()
+    @IsNotEmpty()
     price?: number;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     descriptionRu?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     descriptionUz?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     descriptionEn?: string;
 
     @IsArray()
     @IsOptional()
+    @IsNotEmpty()
     imageIds: number[];
 
     @IsInt()

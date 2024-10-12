@@ -2,12 +2,12 @@
     <main class="flex flex-col gap-8">
         <hgroup class="space-y-1">
             <h1 class="text-xl">
-                Сотрудники
+                Категория туров
             </h1>
             <h2
                 class="text-sm text-gray-500"
             >
-                Тут вы можете управлять сотрудниками и изменение появиться в разделе <b>"OUR TEAM"</b>
+                Тут вы можете разбивать туры на категории
             </h2>
         </hgroup>
         <div class="flex justify-between">
@@ -19,9 +19,9 @@
                 />
                 <PerPageSelect v-model="perPage" />
             </div>
-            <NuxtLink :to="{name: 'employees-id', params: {id: 'new'}}">
+            <NuxtLink :to="{name: 'category-id', params: {id: 'new'}}">
                 <BaseButton color="primary">
-                    Добавить сотрудника
+                    Добавить категорию
                 </BaseButton>
             </NuxtLink>
         </div>
@@ -40,7 +40,7 @@
                 <template #buttons="{item}">
                     <TairoTableCell class="px-6 py-4 flex justify-end">
                         <NuxtLink
-                            :to="{name: 'employees-id', params: {id: item.id}}"
+                            :to="{name: 'category-id', params: {id: item.id}}"
                             class="border border-gray-300 dark:border-muted-600 rounded-md p-2"
                         >
                             <Icon
@@ -78,12 +78,12 @@ import { IEmployee } from '~/types';
 
 definePageMeta({
     layout: 'account',
-    verbose: 'Сотрудники',
+    verbose: 'Категории',
     authRoute: true
 });
 
 useHead({
-    title: 'Сотрудники'
+    title: 'Категории'
 });
 
 const route = useRoute();
@@ -95,7 +95,7 @@ const searchQ = ref('');
 const sortBy = ref<Record<string, any>>({createdAt: -1});
 const perPage = ref(app.pagination.defaultPageSize);
 
-const service = useService('employees', 'employees');
+const service = useService('category-tours', 'category-tours');
 
 const params = computed(() => {
     const baseParams: Record<string, any> = {
@@ -116,7 +116,7 @@ const params = computed(() => {
 });
 
 const { data, isPending, refetch } = useQuery({
-    queryKey: ['employees', JSON.stringify(params.value)],
+    queryKey: ['category-tours', JSON.stringify(params.value)],
     queryFn: async () => {
         return await service.find<IEmployee>(params.value);
     },
@@ -128,23 +128,14 @@ watch(params, () => {
 
 const columns = ref<Column[]>([
     {
-        label: 'Имя',
-        name: 'firstName',
+        label: 'Название',
+        name: 'nameRu',
         sortable: true,
     },
     {
-        label: 'Фамилия',
-        name: 'lastName',
+        label: 'Приоритет',
+        name: 'priority',
         sortable: true,
-    },
-    {
-        label: 'Должность',
-        name: 'position',
-    },
-    {
-        label: 'Номер телефона',
-        name: 'phone',
-        phone: true
     },
     {
         label: 'Дата создания',

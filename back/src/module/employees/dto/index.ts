@@ -40,30 +40,37 @@ export class CreateEmployeeDTO {
 export class UpdateEmployeeDTO {
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     firstName?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     lastName?: string;
 
     @IsString()
     @IsOptional()
+    @IsNotEmpty()
     position?: string;
 
     @IsPhoneNumber('UZ')
     @IsOptional()
+    @IsNotEmpty()
     phone?: string;
 
     @IsUrl()
     @IsOptional()
+    @IsNotEmpty()
     instagram?: string;
 
     @IsUrl()
     @IsOptional()
+    @IsNotEmpty()
     telegram?: string;
 
     @IsOptional()
     @IsInt()
+    @IsNotEmpty()
     imageId?: number;
 
     @IsOptional()

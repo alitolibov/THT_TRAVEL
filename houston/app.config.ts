@@ -25,7 +25,7 @@ export default defineAppConfig({
                     {
                         name: 'Категория туров',
                         icon: {name: 'ph:sort-ascending', class: 'w-5 h-5'},
-                        to: '/category-tours'
+                        to: '/category'
                     },
                     {
                         name: 'Сотрудники',
