@@ -41,10 +41,10 @@ export function useService (service: string, queryKey: string) {
             const url = queryRes ? `${service}?${queryRes}` : service;
             return await $api.get(url).json<PaginatedResponse<T>>();
         },
-        get: <T extends object>(id: number | string) => {
+        get: <T extends object>(id?: number | string) => {
             return useQuery({
                 queryKey: [queryKey, id?.toString()],
-                queryFn: async (): Promise<T> => await $api.get(`${service}/${id}`).json<T>(),
+                queryFn: async (): Promise<T> => await $api.get(`${service}${id ? `/${id}` : ''}`).json<T>(),
                 enabled: false,
             });
         },
@@ -56,9 +56,9 @@ export function useService (service: string, queryKey: string) {
                 })
             });
         },
-        update: <T extends object>(id: number | string) => {
+        update: <T extends object>(id?: number | string) => {
             return useMutation({
-                mutationFn: async (data: Record<string, any>):Promise<T> => await $api.patch(`${service}/${id}`, { json: data }).json<T>(),
+                mutationFn: async (data: Record<string, any>):Promise<T> => await $api.patch(`${service}${id ? `/${id}` : ''}`, { json: data }).json<T>(),
                 onSuccess: () => queryClient.invalidateQueries({
                     queryKey: [queryKey]
                 })

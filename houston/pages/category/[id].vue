@@ -50,7 +50,7 @@
                     </BaseButton>
                     <BaseButton
                         class="ml-2"
-                        color="primary"
+                        :color="Object.keys(errors).length ? 'danger' : 'primary'"
                         :loading="isLoading"
                         @click="submit"
                     >
@@ -75,11 +75,11 @@ import { getErrorPathAndMsg } from '~/utils';
 definePageMeta({
     authRoute: true,
     layout: 'account',
-    verbose: 'Сотрудник'
+    verbose: 'Категория'
 });
 
 useHead({
-    title: 'Сотрудник'
+    title: 'Категория'
 });
 
 const route = useRoute();

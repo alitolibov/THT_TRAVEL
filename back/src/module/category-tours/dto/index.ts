@@ -43,4 +43,7 @@ export class UpdateCategoryDTO {
 
     @IsOptional()
     updatedAt?: string;
+
+    @IsOptional()
+    id?: string;
 }

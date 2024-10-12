@@ -5,5 +5,6 @@ const errorMessages: { [key: string]: string } = {
     'must be a URL address': 'Введите url адрес',
     'must be an integer number': 'Должен содержать цифры',
     'must be an array': 'Это поле обязательное',
+    'must be an email': 'Введите валидную почту'
 };
 export default errorMessages;

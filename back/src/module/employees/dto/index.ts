@@ -81,4 +81,7 @@ export class UpdateEmployeeDTO {
 
     @IsOptional()
     updatedAt?: string;
+
+    @IsOptional()
+    id?: string;
 }

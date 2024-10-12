@@ -8,6 +8,7 @@ import { CategoryToursModule } from '../category-tours/category-tours.module';
 import { CategoryTours } from '../category-tours/model/category-tours.model';
 import { EmployeesModule } from '../employees/employees.module';
 import { Employee } from '../employees/model/employee.model';
+import { Settings } from '../settings/model/settings.model';
 import { Tour } from '../tours/model/tours.model';
 import { ToursModule } from '../tours/tours.module';
 import { TourUploads } from '../uploads/model/tourUploads.model';
@@ -17,6 +18,7 @@ import { User } from '../users/model/user.model';
 import { UsersModule } from '../users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { SettingsModule } from '../settings/settings.module';
 
 @Module({
     imports: [
@@ -43,6 +45,7 @@ import { AppService } from './app.service';
                     Tour,
                     TourUploads,
                     CategoryTours,
+                    Settings,
                 ],
             }),
         }),
@@ -52,6 +55,7 @@ import { AppService } from './app.service';
         UploadsModule,
         ToursModule,
         CategoryToursModule,
+        SettingsModule,
     ],
     controllers: [AppController],
     providers: [AppService],

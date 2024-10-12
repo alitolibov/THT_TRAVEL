@@ -87,7 +87,7 @@
                 </BaseButton>
                 <BaseButton
                     class="ml-2"
-                    color="primary"
+                    :color="Object.keys(errors).length ? 'danger' : 'primary'"
                     :loading="isLoading"
                     @click="submit"
                 >

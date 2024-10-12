@@ -117,4 +117,7 @@ export class UpdateTourDTO {
 
     @IsOptional()
     updatedAt?: string;
+
+    @IsOptional()
+    id?: string;
 }

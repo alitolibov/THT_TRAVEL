@@ -41,6 +41,25 @@ export interface IUpload {
     updatedAt: string;
 }
 
+export interface ISettings{
+	id: number
+	aboutUsRu: string;
+	aboutUsUz: string;
+	aboutUsEn: string;
+	yearInTourism: number;
+	readyTours: number;
+	clients: number;
+	sales: number;
+	phoneFirst: string;
+	phoneSecond?: string;
+	instagram: string;
+	telegram: string;
+	mail: string;
+	createdAt: string;
+	updatedAt: string;
+}
+
+
 export interface ICategoryTour {
     id: number
     nameRu: string;
