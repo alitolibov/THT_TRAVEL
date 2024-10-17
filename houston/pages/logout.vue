@@ -1,6 +1,5 @@
 <template>
     <div class="container">
-        Bye bye
     </div>
 </template>
 

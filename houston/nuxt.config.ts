@@ -28,7 +28,7 @@ export default defineNuxtConfig({
     },
     runtimeConfig: {
         public: {
-            apiUrl: 'http://192.168.110.91:3030/'
+            apiUrl: 'http://localhost:3030/'
         }
     },
     plugins: [],

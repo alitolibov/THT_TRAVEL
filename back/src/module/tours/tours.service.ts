@@ -42,7 +42,7 @@ export class ToursService {
     async findAllTours(
         params: QuerySearchDTO,
     ): Promise<IPaginatedResponse<Tour>> {
-        const searchFields = ['nameDirection'];
+        const searchFields = ['nameDirectionRu'];
         const queryParams = createQueryParams(params, searchFields);
 
         const { count, rows } = await this.tourRepository.findAndCountAll({

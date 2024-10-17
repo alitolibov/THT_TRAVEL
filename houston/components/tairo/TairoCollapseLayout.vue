@@ -129,7 +129,7 @@ function breadCrumbs() {
             to: `/${p}`,
         });
     }
-    breadcrumb.value = [{to: '/', label: router.resolve('/').meta.verbose}, ...subRoutes];
+    breadcrumb.value = [...subRoutes];
 }
 </script>
 

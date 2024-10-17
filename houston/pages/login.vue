@@ -68,7 +68,7 @@ async function submit() {
     try {
         const res:{access_token: string} | any = await loginService.mutateAsync(loginData);
         setToken(JSON.stringify(res?.access_token));
-        navigateTo('/');
+        navigateTo('/tours');
     } catch (e) {
         if(e.statusCode == 401) {
             toast.show({message: 'Неправильный email или пароль', timeout: 3000, type: 'error'});

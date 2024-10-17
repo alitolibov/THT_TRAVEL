@@ -32,8 +32,8 @@
                 <BaseAutocomplete
                     v-if="priorityList.length"
                     v-model="category.priority"
-                    label="Категория"
-                    placeholder="Выберите категорию"
+                    label="Приоритет"
+                    placeholder="Выберите приоритет"
                     :items="priorityList"
                     dropdown
                 />

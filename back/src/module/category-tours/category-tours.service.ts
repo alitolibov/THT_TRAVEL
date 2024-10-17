@@ -37,7 +37,7 @@ export class CategoryToursService {
     async findAllCategories(
         params: QuerySearchDTO,
     ): Promise<IPaginatedResponse<CategoryTours>> {
-        const searchFields = ['name'];
+        const searchFields = ['nameRu'];
         const queryParams = createQueryParams(params, searchFields);
 
         const { count, rows } = await this.categoryRepository.findAndCountAll({
