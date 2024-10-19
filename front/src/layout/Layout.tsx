@@ -9,10 +9,10 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({children}) => {
 
-    const {pathname} = useRouter()
+    const {pathname} = useRouter();
     
     return (
-        <div className={pathname === '/' ? "bg" : ''}>
+        <div className={pathname === '/' ? 'bg' : ''}>
             <Header/>
             <main className='px-4 lt:px-0 container mx-auto'>
             {children}

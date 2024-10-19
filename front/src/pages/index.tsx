@@ -1,19 +1,19 @@
 import React from 'react';
-import { motion } from "framer-motion";
-import Services from './components/Services';
-import Count from './components/Count';
+import { motion } from 'framer-motion';
+import Services from '@/components/Services';
+import Count from '@/components/Count';
 import Head from 'next/head';
 import Image from 'next/image';
-import Maps from "@/pages/components/Maps";
-import {useTranslation} from "next-i18next";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import Maps from '@/components/Maps';
+import {useTranslation} from 'next-i18next';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 interface MainProps {
     
 }
 
 const Main: React.FC<MainProps> = () => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const visible:any = { opacity: 1, y: 0, transition: { duration: 0.7 } };
     const itemVariants:any = {
         hidden: { opacity: 0, y: 10 },

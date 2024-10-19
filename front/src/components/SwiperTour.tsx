@@ -1,13 +1,13 @@
 import React from 'react';
 import {Swiper, SwiperSlide} from 'swiper/react';
-import {motion} from "framer-motion";
+import {motion} from 'framer-motion';
 import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
 
 function SwiperTour(props:any) {
-    const img = props?.obj?.img
+    const img = props?.obj?.img;
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: -30,
@@ -18,7 +18,7 @@ function SwiperTour(props:any) {
             opacity: 1,
             transition: {duration: 0.7}
         }
-    }
+    };
     return (
         <motion.div
             initial='hidden'
@@ -39,7 +39,7 @@ function SwiperTour(props:any) {
                 {
                     [1,2,3,4].map((item:number) =>
                         <SwiperSlide key={item}>
-                            <div className={`bg-cover bg-center w-full h-full`} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
+                            <div className={'bg-cover bg-center w-full h-full'} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
                         </SwiperSlide>
                     )
                 }
@@ -48,4 +48,4 @@ function SwiperTour(props:any) {
     );
 }
 
-export default SwiperTour
+export default SwiperTour;

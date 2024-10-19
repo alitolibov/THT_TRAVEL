@@ -1,13 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
-import {useTranslation} from "next-i18next";
+import {useTranslation} from 'next-i18next';
 
 interface TourAboutProps {
     item: any
 }
 
 const TourAbout: React.FC<TourAboutProps> = ({item}) => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     return (
         <div className="grid h-fit grid-cols-2 gap-3.5 md:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 xl:gap-y-0">
             <div className="flex items-center gap-x-3">

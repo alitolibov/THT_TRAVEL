@@ -1,9 +1,9 @@
 import React from 'react';
-import { motion } from 'framer-motion'
-import {useTranslation} from "next-i18next";
+import { motion } from 'framer-motion';
+import {useTranslation} from 'next-i18next';
 
 const Maps = () => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     return (
         <motion.section
@@ -17,7 +17,7 @@ const Maps = () => {
             </motion.div>
             <motion.iframe variants={{hidden: { opacity: 0, y: 20 }, visible}} src="https://yandex.ru/map-widget/v1/?um=constructor%3Ae9d2f1456ce42f2f42a0d3665070c6601e32ff1899cc12c552131a574330f2ac&amp;source=constructor" className={'aspect-video lg:aspect-[16/6] w-full'}></motion.iframe>
         </motion.section>
-    )
-}
+    );
+};
 
-export default Maps
+export default Maps;

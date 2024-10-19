@@ -3,7 +3,7 @@ import {useForm, Controller, SubmitHandler} from 'react-hook-form';
 import {PhoneInput, usePhoneValidation} from 'react-international-phone';
 import 'react-international-phone/style.css';
 import {motion} from 'framer-motion';
-import {useTranslation} from "next-i18next";
+import {useTranslation} from 'next-i18next';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -14,7 +14,7 @@ type FormData = {
 };
 
 const Book: React.FC = () => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const {
         handleSubmit,
         register,
@@ -24,16 +24,16 @@ const Book: React.FC = () => {
     } = useForm<FormData>({criteriaMode: 'all'});
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        const token_bot:string = "6121709087:AAEF0tr53oqupDwzafFnIAe58YufdgsjmpM"
-        const chat_id:number = -1001807304617
-        const text:string = `<i>New Application</i>   <b>Name:</b> ${data.name}  <b>Phone number:</b> ${data.tel} <b>E-mail:</b> ${data.email}`
-        const url:string = `https://api.telegram.org/bot${token_bot}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=html`
-        toast.success(t('toast'))
+        const token_bot:string = '6121709087:AAEF0tr53oqupDwzafFnIAe58YufdgsjmpM';
+        const chat_id:number = -1001807304617;
+        const text:string = `<i>New Application</i>   <b>Name:</b> ${data.name}  <b>Phone number:</b> ${data.tel} <b>E-mail:</b> ${data.email}`;
+        const url:string = `https://api.telegram.org/bot${token_bot}/sendMessage?chat_id=${chat_id}&text=${text}&parse_mode=html`;
+        toast.success(t('toast'));
 
-        const api = new XMLHttpRequest()
-        api.open("GET", url, true)
-        api.send()
-        reset()
+        const api = new XMLHttpRequest();
+        api.open('GET', url, true);
+        api.send();
+        reset();
     };
 
     const HandleValidate = (value: string) => {
@@ -53,7 +53,7 @@ const Book: React.FC = () => {
                               required: t('dynamicPage.bookForm.required'),
                               minLength: {value: 3, message: t('dynamicPage.bookForm.errorName')},
                           })}
-                          className={`py-1.5 px-2 w-full bg-transparent border border-white text-sm text-white md:text-base rounded-lg`}
+                          className={'py-1.5 px-2 w-full bg-transparent border border-white text-sm text-white md:text-base rounded-lg'}
                       />
                       {errors?.name && <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.name.message}</p>}
                   </div>
@@ -89,7 +89,7 @@ const Book: React.FC = () => {
                           <p className={'text-xs text-red-700 md:text-sm mt-1'}>{errors?.email.message}</p>
                       )}
                   </div>
-                  <button type={"submit"} className='rounded-3xl duration-300 w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{t('dynamicPage.bookForm.btnBook')}
+                  <button type={'submit'} className='rounded-3xl duration-300 w-full py-1.5 text-white bg-[var(--main-color-two)] font-medium lg:hover:brightness-[.8]'>{t('dynamicPage.bookForm.btnBook')}
                   </button>
               </motion.form>
           </>

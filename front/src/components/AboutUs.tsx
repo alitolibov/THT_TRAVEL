@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {motion} from 'framer-motion'
-import {useTranslation} from "next-i18next";
-import Image from "next/image";
+import {motion} from 'framer-motion';
+import {useTranslation} from 'next-i18next';
+import Image from 'next/image';
 
 interface AboutUsProps {
     
@@ -22,21 +22,21 @@ const animation = {
         opacity: 1,
         transition: {duration: 0.7}
     }
-}
+};
 
 const AboutUs: React.FC<AboutUsProps> = () => {
 
-    const {t} = useTranslation()
-    const descText:string = t('about.dsc')
-    const descText2:string = t('about.dsc2')
-    const [show, setShow] = useState<boolean>(false)
+    const {t} = useTranslation();
+    const descText:string = t('about.dsc');
+    const descText2:string = t('about.dsc2');
+    const [show, setShow] = useState<boolean>(false);
 
       useEffect(() => {
-        let dsc = document.querySelector('#dsc') as HTMLElement
-        let dsc2 = document.querySelector('#dsc2') as HTMLElement
-        dsc.innerHTML = descText
-        dsc2.innerHTML = descText2
-      }, [descText, descText2])
+        let dsc = document.querySelector('#dsc') as HTMLElement;
+        let dsc2 = document.querySelector('#dsc2') as HTMLElement;
+        dsc.innerHTML = descText;
+        dsc2.innerHTML = descText2;
+      }, [descText, descText2]);
 
 
     return (

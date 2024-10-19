@@ -4,4 +4,4 @@ module.exports = {
         defaultLocale: 'ru',
         locales: ['ru', 'uz', 'en'],
     },
-}
+};

@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {motion, useMotionValue, useTransform, animate} from 'framer-motion';
-import {useTranslation} from "next-i18next";
+import {useTranslation} from 'next-i18next';
 
 interface CounterProps {
     num: number;
@@ -10,7 +10,7 @@ interface CounterProps {
 }
 
 const Counter: React.FC<CounterProps> = ({num, time, value, language}) => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
     const count = useMotionValue(1);
     const rounded = useTransform(count, Math.round);
     useEffect(() => {

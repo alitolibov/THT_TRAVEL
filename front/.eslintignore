@@ -1,0 +1,7 @@
+components.d.ts
+nuxt.d.ts
+next.d.ts
+dist
+.nuxt
+.next
+.output

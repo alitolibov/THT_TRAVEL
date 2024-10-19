@@ -1,30 +1,30 @@
 import React, {useEffect, useState} from 'react';
-import SwiperTour from '../components/SwiperTour';
-import {motion, useCycle} from "framer-motion";
-import TourAbout from '../components/TourAbout';
+import SwiperTour from '@/components/SwiperTour';
+import {motion, useCycle} from 'framer-motion';
+import TourAbout from '@/components/TourAbout';
 import {useRouter} from 'next/router';
-import Book from '../components/Book';
-import AccordionComponent from "@/pages/components/AccordionComponent";
-import Head from "next/head";
-import {useTranslation} from "next-i18next";
-import {ToursInterface} from "@/pages/components/Services";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
-import {ToastContainer} from "react-toastify";
+import Book from '@/components/Book';
+import AccordionComponent from '@/components/AccordionComponent';
+import Head from 'next/head';
+import {useTranslation} from 'next-i18next';
+import {ToursInterface} from '@/components/Services';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
+import {ToastContainer} from 'react-toastify';
 
 export async function getStaticPaths() {
-    const paths = []
+    const paths = [];
     for (let i = 1; i <= 6; i++) {
         paths.push(
             {params: {id: i.toString()}, locale: 'uz'},
             {params: {id: i.toString()}, locale: 'ru'},
             {params: {id: i.toString()}, locale: 'en'},
-        )
+        );
     }
-    console.log(paths)
+    console.log(paths);
     return {
         paths,
         fallback: false
-    }
+    };
 }
 
 export async function getStaticProps(props: { locale: string }) {
@@ -39,14 +39,14 @@ const modal = {
     open: {
         y: 0,
         transition: {
-            type: "spring",
+            type: 'spring',
             stiffness: 30,
         }
     },
     closed: {
         y: '100%',
         transition: {
-            type: "spring",
+            type: 'spring',
             stiffness: 30,
         }
     }
@@ -54,16 +54,16 @@ const modal = {
 
 
 const TourPage = () => {
-    const {query, locale, asPath} = useRouter()
-    const id = query?.id || ''
-    const {t} = useTranslation()
-    const [accordionArr, setAccordionArr] = useState<[{ title: string, desc: string }] | any>([])
-    const [toursArr, setToursArr] = useState<ToursInterface[] | any>([])
-    const itemObj: ToursInterface | undefined = toursArr.filter((item: ToursInterface) => item.id == +id)[0]
+    const {query, locale, asPath} = useRouter();
+    const id = query?.id || '';
+    const {t} = useTranslation();
+    const [accordionArr, setAccordionArr] = useState<[{ title: string, desc: string }] | any>([]);
+    const [toursArr, setToursArr] = useState<ToursInterface[] | any>([]);
+    const itemObj: ToursInterface | undefined = toursArr.filter((item: ToursInterface) => item.id == +id)[0];
 
     useEffect(() => {
-        setAccordionArr(t('dynamicPage.accordionQuestion', {returnObjects: true}))
-        setToursArr(t('services.tours', {returnObjects: true}))
+        setAccordionArr(t('dynamicPage.accordionQuestion', {returnObjects: true}));
+        setToursArr(t('services.tours', {returnObjects: true}));
     }, [locale]);
 
     const animation: { hidden: object, visible: object } = {
@@ -76,13 +76,13 @@ const TourPage = () => {
             opacity: 1,
             transition: {duration: 0.7}
         }
-    }
+    };
     const [isOpen, toggleOpen] = useCycle<boolean>(false, true);
 
     useEffect(() => {
-        const body = document.body as HTMLElement
-        isOpen ? body.style.overflowY = 'hidden' : body.style.overflowY = 'scroll'
-    }, [isOpen])
+        const body = document.body as HTMLElement;
+        isOpen ? body.style.overflowY = 'hidden' : body.style.overflowY = 'scroll';
+    }, [isOpen]);
     return (
         <>
             <ToastContainer
@@ -147,8 +147,8 @@ const TourPage = () => {
                         </div>
                     </div>
                 </section>
-                <motion.div initial={false} animate={isOpen ? "open" : "closed"} variants={modal}
-                            className={`w-full bg-[var(--main-color)] overflow-y-scroll rounded-2xl overflow-hidden border-t border-[#ffffff] bottom-[75px] fixed left-0 z-10 h-4/5 lg:hidden`}>
+                <motion.div initial={false} animate={isOpen ? 'open' : 'closed'} variants={modal}
+                            className={'w-full bg-[var(--main-color)] overflow-y-scroll rounded-2xl overflow-hidden border-t border-[#ffffff] bottom-[75px] fixed left-0 z-10 h-4/5 lg:hidden'}>
                     <Book/>
                 </motion.div>
                 <motion.div

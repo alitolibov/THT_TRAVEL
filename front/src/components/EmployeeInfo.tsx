@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion'
-import Image from "next/image";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 interface EmployeeInfoProps {
     photo?: string
@@ -21,7 +21,7 @@ const animation:{hidden: object, visible: object} = {
         opacity: 1,
         transition: {duration: 0.7}
     }
-}
+};
 
 const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, tg, phone}) => {
     return (
@@ -32,7 +32,7 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
         variants={animation}
         className='space-y-[24px]'>
             <div className={'mx-auto w-[260px] h-[260px] overflow-hidden'}>
-                <Image src={`/images/${photo}`} alt={'Photo'} width={260} height={260}/>
+                <img src={photo} alt={'photo'} />
             </div>
             <div className="space-y-[2px] w-fit mx-auto">
                 <h1 className='text-[18px] font-semibold text-[var(--main-color-two)] text-center'>{name}</h1>
@@ -50,7 +50,7 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
                 </a>
             </div>
         </motion.div>
-    )
+    );
 };
 
 export default EmployeeInfo;

@@ -4,7 +4,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {Montserrat} from "next/font/google";
+import {Montserrat} from 'next/font/google';
 
 interface AccordionComponentProps {
     title: string;
@@ -31,7 +31,7 @@ const AccordionComponent: React.FC<AccordionComponentProps> = ({title, desc}) =>
                 </AccordionDetails>
             </Accordion>
         </div>
-    )
-}
+    );
+};
 
-export default AccordionComponent
+export default AccordionComponent;

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import {motion} from 'framer-motion'
-import {useTranslation} from "next-i18next";
-import Image from "next/image";
+import {motion} from 'framer-motion';
+import {useTranslation} from 'next-i18next';
+import Image from 'next/image';
 
 interface VisesProps {}
 
@@ -21,16 +21,16 @@ const animation = {
         opacity: 1,
         transition: {duration: 0.7}
     }
-}
+};
 
 const Vises: React.FC<VisesProps> = () => {
-    const {t} = useTranslation()
-    const text:string = t('vises.dsc')
+    const {t} = useTranslation();
+    const text:string = t('vises.dsc');
 
     useEffect(() => {
-            let one = document.querySelector('#one') as HTMLElement
-            one.innerHTML = text
-      }, [text])
+            let one = document.querySelector('#one') as HTMLElement;
+            one.innerHTML = text;
+      }, [text]);
 
     return (
         <section 

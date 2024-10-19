@@ -1,24 +1,24 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import Layout from './layout/Layout'
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import Layout from '@/layout/Layout';
 import Head from 'next/head';
-import React, {useEffect, useState} from "react";
-import {appWithTranslation} from "next-i18next";
-import {useRouter} from "next/router";
-import Loader from "@/pages/components/Loader";
+import React, {useEffect, useState} from 'react';
+import {appWithTranslation} from 'next-i18next';
+import {useRouter} from 'next/router';
+import Loader from '@/components/Loader';
 
 function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
-        const body = document.body as HTMLElement
+        const body = document.body as HTMLElement;
         const handleStart = () => {
-            body.style.overflowY = 'hidden'
+            body.style.overflowY = 'hidden';
             setIsTransitioning(true);
         };
         const handleComplete = () => {
-            body.style.overflowY = 'scroll'
+            body.style.overflowY = 'scroll';
             setIsTransitioning(false);
         };
 
@@ -59,9 +59,9 @@ return (
         <Component {...pageProps} />
       </Layout>
     </div>
-  )
+  );
 }
 
 
 
-export default appWithTranslation(App)
+export default appWithTranslation(App);

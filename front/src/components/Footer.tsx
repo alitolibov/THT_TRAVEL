@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 import React from 'react';
-import Link from "next/link";
-import {useTranslation} from "next-i18next";
-import Image from "next/image";
+import Link from 'next/link';
+import {useTranslation} from 'next-i18next';
+import Image from 'next/image';
 
 interface FooterProps {
     
@@ -18,10 +18,10 @@ const animation = {
         opacity: 1,
         transition: {delay: custom * 0.5}
     })
-}
+};
 
 const Footer: React.FC<FooterProps> = () => {
-    const {t} = useTranslation()
+    const {t} = useTranslation();
 
     return (
         <motion.footer
@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = () => {
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
             <motion.nav custom={1} variants={animation} className='space-y-[5px]'>
                 <Link href={'/about'} className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.about')}</Link>
-                <Link href='/services' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.services')}</Link>
+                <Link href='/front/src/pages/services' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.services')}</Link>
                 <Link href='/' className="block text-[#fff] text-sm text-center md:text-base lg:cursor-pointer lg:hover:text-[var(--main-color-two)] duration-500 lg:text-left lg:text-lg">{t('header.index')}</Link>
             </motion.nav>
             <div className="gap-y-[5px] lg:hidden">
