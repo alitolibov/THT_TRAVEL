@@ -8,7 +8,10 @@
   },
   "about": {
     "title": "Nega Aynan Bizni Tanlashadi",
-    "advantagesTexts": ["Yil turizm sohasida", "Tayyor turlar", "Qoniqan mijozlar", "Aviachiptalarga chegirmalar"],
+    "yearInTourism": "Yil turizm sohasida",
+    "readyTours": "Tayyor turlar",
+    "clients": "Qoniqan mijozlar",
+    "sales": "Aviachiptalarga chegirmalar",
     "show": "Davomini ko'rsatish",
     "hidden": "Kamroq ko'rsatish",
     "dsc": "Bizning sayyohlik agentligimiz haqiqiy muvaffaqiyat tarixidir. Biz sayohatimizni 2020 yilda kichik kompaniya sifatida boshladik. Bugun biz butun dunyo bo'ylab sayohatlarni taklif etuvchi sayyohlik xizmatlari bozorida yetakchilardanmiz.",

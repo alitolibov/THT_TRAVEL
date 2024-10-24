@@ -6,10 +6,10 @@ interface CounterProps {
     num: number;
     time: number;
     value: string;
-    language: string;
+    keyLang: string;
 }
 
-const Counter: React.FC<CounterProps> = ({num, time, value, language}) => {
+const Counter: React.FC<CounterProps> = ({num, time, value, keyLang}) => {
     const {t} = useTranslation();
     const count = useMotionValue(1);
     const rounded = useTransform(count, Math.round);
@@ -28,7 +28,7 @@ const Counter: React.FC<CounterProps> = ({num, time, value, language}) => {
                 <span style={{display: value === '' ? 'none' : 'inline'}}>{value}</span>
             </div>
             <p className="font-[500] text-[13px] text-center text-white md:text-[15px] lg:text-[16px] xl:text-[17px]">
-                {language}
+                {t(`about.${keyLang}`)}
             </p>
         </div>
     );

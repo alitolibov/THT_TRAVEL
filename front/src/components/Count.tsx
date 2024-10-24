@@ -3,11 +3,14 @@ import { motion } from 'framer-motion';
 import Counter from './Counter';
 import {useTranslation} from 'next-i18next';
 import {useRouter} from 'next/router';
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
 
 interface Item {
     num: number;
     t: number;
     value: string;
+    key: string
 }
 
 interface CountProps {}
@@ -28,18 +31,18 @@ const animation = {
 const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation();
     const {locale, asPath} = useRouter();
-    const [advantagesTexts, setAdvantagesTexts] = useState<String[] | any>([]);
+    const settings = useSelector((state: RootState) => state.settings.settings);
+    
     const [arr, setArr] = useState<Item[]>([
-        { num: 3, t: 3, value: ''},
-        { num: 100, t: 5.5, value: ''},
-        { num: 100, t: 5, value: '+'},
-        { num: 10, t: 5, value: '%'}
+        { num: settings?.yearInTourism || 0, t: 3, value: '', key:  'yearInTourism'},
+        { num: settings?.readyTours || 0, t: 5.5, value: '', key: 'readyTours' },
+        { num: settings?.clients || 0, t: 5, value: '+', key: 'clients' },
+        { num: settings?.sales || 0, t: 5, value: '%', key: 'sales' }
     ]);
 
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        setAdvantagesTexts(t('about.advantagesTexts', {returnObjects: true}));
         setArr(arr);
     }, [locale, asPath]);
 
@@ -88,7 +91,7 @@ const Count: React.FC<CountProps> = () => {
                         num={item.num}
                         time={item.t}
                         value={item.value}
-                        language={advantagesTexts[index]}
+                        keyLang={item.key}
                         key={index}
                     />
                 )) : null}
