@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Services from '@/components/Services';
 import Vises from '@/components/Vises';
 import Head from 'next/head';

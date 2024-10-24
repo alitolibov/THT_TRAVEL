@@ -1,3 +1,5 @@
+'use client';
+
 import '@/styles/globals.css';
 import type { AppProps } from 'next/app';
 import Layout from '@/layout/Layout';
@@ -6,6 +8,7 @@ import React, {useEffect, useState} from 'react';
 import {appWithTranslation} from 'next-i18next';
 import {useRouter} from 'next/router';
 import Loader from '@/components/Loader';
+import { Providers } from '@/store/provider';
 
 function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
@@ -56,7 +59,9 @@ return (
             <meta property="og:locale" content="ru_RU"/>
             <link rel="icon" sizes="32x32" href="https://i.imgur.com/5e0nPBQ.png" />
         </Head>
-        <Component {...pageProps} />
+        <Providers>
+	        <Component {...pageProps} />
+        </Providers>
       </Layout>
     </div>
   );

@@ -11,12 +11,12 @@ const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
 const Team: React.FC<TeamProps> = () => {
     const {t} = useTranslation();
-    const [employees, setEmployees] = useState<PaginatedResponse<IEmployee> | null>(null);
+    const [employees, setEmployees] = useState<PaginatedResponse<IEmployee> | any>();
     const employeesService = useService('employees');
     
     useEffect(() => {
         const fetchEmployees = async () => {
-            const data = await employeesService.find<PaginatedResponse<IEmployee>>();
+            const data = await employeesService.find<IEmployee>();
             setEmployees(data);
         };
         

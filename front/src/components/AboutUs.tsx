@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react';
 import {motion} from 'framer-motion';
 import {useTranslation} from 'next-i18next';
 import Image from 'next/image';
+import { useSelector } from "react-redux";
+import { RootState } from "@/store/store";
+import { getValue } from "@/utils";
 
 interface AboutUsProps {
-    
+
 }
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
     const itemVariants = {
@@ -25,22 +28,13 @@ const animation = {
 };
 
 const AboutUs: React.FC<AboutUsProps> = () => {
-
     const {t} = useTranslation();
-    const descText:string = t('about.dsc');
-    const descText2:string = t('about.dsc2');
-    const [show, setShow] = useState<boolean>(false);
-
-      useEffect(() => {
-        let dsc = document.querySelector('#dsc') as HTMLElement;
-        let dsc2 = document.querySelector('#dsc2') as HTMLElement;
-        dsc.innerHTML = descText;
-        dsc2.innerHTML = descText2;
-      }, [descText, descText2]);
-
-
+	const settings = useSelector((state: RootState) => state.settings.settings);
+    
+    const aboutUsText = settings[getValue('aboutUs')] || 'Текст не найден';
+    
     return (
-        <motion.section 
+        <motion.section
         initial='hidden'
         whileInView='visible'
         viewport={{ amount: 0.4, once: true}}
@@ -51,15 +45,10 @@ const AboutUs: React.FC<AboutUsProps> = () => {
                     <p  className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{t('story.title')}</p>
                 </motion.div>
                 <motion.div variants={itemVariants} className="text-[#fff]">
-                    <p id='dsc' className='xl:text-lg'></p>
-                    <p className={`${show ? 'block' : 'hidden'} xl:text-lg`} id='dsc2'></p>
-                    <div onClick={() => setShow(!show)} className="flex items-center gap-x-[8px] lg:cursor-pointer mt-[15px]">
-                        <p className='text-[var(--main-color-two)]'>{show ? t('about.hidden') : t('about.show')}</p>
-                        <Image width={15} height={15} alt={''} src="/images/arrow_bottom.webp" className={`invert h-[15px] duration-300 ${show ? 'rotate-[-180deg]' : 'rotate-0'}`} />
-                    </div>
+                    <p id='dsc' className='xl:text-lg'>{aboutUsText}</p>
                 </motion.div>
             </div>
-            <motion.div 
+            <motion.div
             initial='hidden'
             whileInView='visible'
             viewport={{ amount: 0.4, once: true}}
