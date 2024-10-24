@@ -30,21 +30,21 @@ const animation = {
 
 const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation();
-    const {locale, asPath} = useRouter();
+    const {asPath} = useRouter();
     const settings = useSelector((state: RootState) => state.settings.settings);
     
-    const [arr, setArr] = useState<Item[]>([
-        { num: settings?.yearInTourism || 0, t: 3, value: '', key:  'yearInTourism'},
-        { num: settings?.readyTours || 0, t: 5.5, value: '', key: 'readyTours' },
-        { num: settings?.clients || 0, t: 5, value: '+', key: 'clients' },
-        { num: settings?.sales || 0, t: 5, value: '%', key: 'sales' }
-    ]);
+    const [arr, setArr] = useState<Item[]>([]);
 
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        setArr(arr);
-    }, [locale, asPath]);
+        setArr([
+            { num: settings?.yearInTourism || 0, t: 1.5, value: '', key:  'yearInTourism'},
+            { num: settings?.readyTours || 0, t: 5, value: '', key: 'readyTours' },
+            { num: settings?.clients || 0, t: 3.5, value: '+', key: 'clients' },
+            { num: settings?.sales || 0, t: 3, value: '%', key: 'sales' }
+        ]);
+    }, [settings]);
 
     useEffect(() => {
         const elem = document.querySelector('.scrollBlock') as HTMLElement;

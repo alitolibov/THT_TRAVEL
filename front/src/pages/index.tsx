@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import Services from '@/components/Services';
 import Count from '@/components/Count';
@@ -7,10 +7,6 @@ import Image from 'next/image';
 import Maps from '@/components/Maps';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
-import { useDispatch } from 'react-redux';
-import { ISettings } from '@/types';
-import { $api } from '@/composables/useService';
-import { update } from '@/store/features/settings';
 
 interface MainProps {
     
@@ -19,18 +15,6 @@ interface MainProps {
 const Main: React.FC<MainProps> = () => {
     const {t} = useTranslation();
     const visible:any = { opacity: 1, y: 0, transition: { duration: 0.7 } };
-	
-	const dispatch = useDispatch();
-	
-	useEffect(() => {
-		const fetchSettings = async () => {
-			const data = await $api.get('settings').json<ISettings>();
-			dispatch(update(data));
-			
-		};
-		
-		fetchSettings();
-	}, []);
 	
     const itemVariants:any = {
         hidden: { opacity: 0, y: 10 },
