@@ -2,12 +2,12 @@ name: Build & deploy
 
 on:
   push:
-    branches: [main, staging]
+    branches: [ main, staging ]
 
 
 jobs:
   build:
-    runs-on: [self-hosted]
+    runs-on: [ self-hosted ]
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
@@ -20,6 +20,10 @@ jobs:
           USER_EMAIL: ${{ secrets.USER_EMAIL}}
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run: docker compose up --build -d
+
+      - name: Generate .env file
+        run: |
+          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" > .env
 
       - name: Clean up
         run: docker system prune -f
