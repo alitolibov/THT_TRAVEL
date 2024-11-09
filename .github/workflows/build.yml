@@ -21,9 +21,5 @@ jobs:
           USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run: docker compose up --build -d
 
-      - name: Generate .env file
-        run: |
-          echo "POSTGRES_PASSWORD=${{ secrets.POSTGRES_PASSWORD }}" > .env
-
       - name: Clean up
         run: docker system prune -f
