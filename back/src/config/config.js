@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
-require('dotenv').config();
-import * as process from 'process';
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
     development: {
