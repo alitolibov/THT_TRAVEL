@@ -1,7 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 const dotenv = require('dotenv');
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const process = require('process');
 dotenv.config();
 
 console.log({
