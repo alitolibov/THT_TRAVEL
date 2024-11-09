@@ -14,7 +14,7 @@ export const postgresConfig = registerAs('postgres', () => ({
 }));
 
 export const jwtConfig = registerAs('jwt', () => ({
-    secret: 'j9b3VS!XROdDOLiWm&stIM7HB3%HlWCl8sY%3gRdTCb6gI1do415HVhG!gPdJ#pi',
+    secret: process.env.HASH_SECRET,
     signOptions: {
         expiresIn: '60d',
     },
@@ -22,5 +22,5 @@ export const jwtConfig = registerAs('jwt', () => ({
 
 export const defaultConfiguration = () => ({
     imagesUrl: process.env.PUBLIC_URL || 'http://localhost:3030/',
-    botToken: '7890859881:AAFzxIVjElStMfZT2kyd7JK86tnRzMQEz40',
+    botToken: process.env.BOT_TOKEN,
 });

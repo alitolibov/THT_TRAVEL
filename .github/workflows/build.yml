@@ -16,6 +16,10 @@ jobs:
       - name: Build
         env:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          HASH_SECRET: ${{ secrets.HASH_SECRET }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL}}
+          USER_PASSWORD: ${{ secrets.USER_PASSWORD }}
         run: docker compose up --build -d
 
       - name: Clean up
