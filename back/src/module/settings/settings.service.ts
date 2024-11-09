@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/sequelize';
 
-import { Settings } from './model/settings.model';
 import { UpdateSettingsDTO } from './dto';
+import { Settings } from './model/settings.model';
 
 @Injectable()
 export class SettingsService {

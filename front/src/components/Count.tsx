@@ -5,6 +5,7 @@ import {useTranslation} from 'next-i18next';
 import {useRouter} from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { ISettings } from '@/types';
 
 interface Item {
     num: number;
@@ -31,14 +32,14 @@ const animation = {
 const Count: React.FC<CountProps> = () => {
     const {t} = useTranslation();
     const {asPath} = useRouter();
-    const settings = useSelector((state: RootState) => state.settings.settings);
+    const settings: ISettings | Record<string, any> = useSelector((state: RootState) => state.settings.settings);
     
     const [arr, setArr] = useState<Item[]>([]);
 
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        setArr([
+	    setArr([
             { num: settings?.yearInTourism || 0, t: 1.5, value: '', key:  'yearInTourism'},
             { num: settings?.readyTours || 0, t: 5, value: '', key: 'readyTours' },
             { num: settings?.clients || 0, t: 3.5, value: '+', key: 'clients' },

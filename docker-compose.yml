@@ -6,14 +6,72 @@ services:
     build:
       context: ./front
       target: prod
+    environment:
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.front.rule=Host(`tht-visa.com`, `www.tht-visa.com`)"
       - "traefik.http.routers.front.tls=true"
       - "traefik.http.routers.front.tls.certresolver=letsencrypt"
-      - "traefik.http.services.front.loadbalancer.server.port=80"
+      - "traefik.http.services.front.loadbalancer.server.port=3000"
     networks:
       - app
+
+  houston:
+    restart: always
+    build:
+      context: ./houston
+      target: prod
+    environment:
+      - VITE_API_URL=${VITE_API_URL}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.houston.rule=Host(`houston.tht-visa.com`, `www.houston.tht-visa.com`)"
+      - "traefik.http.routers.houston.tls=true"
+      - "traefik.http.routers.houston.tls.certresolver=letsencrypt"
+      - "traefik.http.services.houston.loadbalancer.server.port=4100"
+    networks:
+      - app
+
+  back:
+    build:
+      context: ./back
+      target: prod
+    restart: always
+    environment:
+      - POSTGRES_HOST=127.0.0.1
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=postgres
+      - POSTGRES_PORT=5432
+      - PUBLIC_URL=${PUBLIC_URL}
+      - USER_EMAIL=thtvisa@gmail.com
+      - USER_PASSWORD=12345678910
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.backend.rule=Host(`api.tht-visa.com`, `www.api.tht-visa.com`)"
+      - "traefik.http.routers.backend.tls=true"
+      - "traefik.http.routers.backend.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.service=backend"
+      - "traefik.http.services.backend.loadbalancer.server.port=3030"
+    networks:
+      - app
+    volumes:
+      - ~/volumes/tht/uploads/:/app/uploads
+
+  postgresql:
+    image: "postgres:15.1"
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgresql
+      - POSTGRES_PASSWORD=postgresql
+      - POSTGRES_DB=thtvisa
+    networks:
+      - app
+    volumes:
+      - ~/volumes/tht/postgres:/var/lib/postgresql/data
 
 networks:
   app:

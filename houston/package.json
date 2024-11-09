@@ -7,7 +7,7 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "start:prod": "PORT=80 node .output/server/index.mjs",
+    "start:prod": "PORT=4000 node .output/server/index.mjs",
     "lint": "eslint --ext \".ts,.js,.vue\" --ignore-path .eslintignore --quiet .",
     "lint:fix": "eslint --fix --ext \".ts,.js,.vue\" --ignore-path .eslintignore ."
   },

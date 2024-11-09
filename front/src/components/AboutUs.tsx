@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {motion} from 'framer-motion';
 import {useTranslation} from 'next-i18next';
 import Image from 'next/image';
-import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
-import { getValue } from "@/utils";
+import { useSelector } from 'react-redux';
+import { RootState } from '@/store/store';
+import { getValue } from '@/utils';
 
 interface AboutUsProps {
 
@@ -31,6 +31,7 @@ const AboutUs: React.FC<AboutUsProps> = () => {
     const {t} = useTranslation();
 	const settings = useSelector((state: RootState) => state.settings.settings);
     
+    // @ts-ignore
     const aboutUsText = settings[getValue('aboutUs')] || 'Текст не найден';
     
     return (

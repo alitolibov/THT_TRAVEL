@@ -4,11 +4,13 @@ import { SequelizeModule } from '@nestjs/sequelize';
 
 import { defaultConfiguration, jwtConfig, postgresConfig } from '../../config';
 import { AuthModule } from '../auth/auth.module';
+import { BotModule } from '../bot/bot.module';
 import { CategoryToursModule } from '../category-tours/category-tours.module';
 import { CategoryTours } from '../category-tours/model/category-tours.model';
 import { EmployeesModule } from '../employees/employees.module';
 import { Employee } from '../employees/model/employee.model';
 import { Settings } from '../settings/model/settings.model';
+import { SettingsModule } from '../settings/settings.module';
 import { Tour } from '../tours/model/tours.model';
 import { ToursModule } from '../tours/tours.module';
 import { TourUploads } from '../uploads/model/tourUploads.model';
@@ -18,7 +20,6 @@ import { User } from '../users/model/user.model';
 import { UsersModule } from '../users/users.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { SettingsModule } from '../settings/settings.module';
 
 @Module({
     imports: [
@@ -56,6 +57,7 @@ import { SettingsModule } from '../settings/settings.module';
         ToursModule,
         CategoryToursModule,
         SettingsModule,
+        BotModule,
     ],
     controllers: [AppController],
     providers: [AppService],

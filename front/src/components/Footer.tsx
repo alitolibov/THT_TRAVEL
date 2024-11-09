@@ -5,6 +5,7 @@ import {useTranslation} from 'next-i18next';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
+import { ISettings } from '@/types';
 
 interface FooterProps {
     
@@ -24,7 +25,7 @@ const animation = {
 
 const Footer: React.FC<FooterProps> = () => {
     const {t} = useTranslation();
-    const settings = useSelector((state: RootState) => state.settings.settings);
+    const settings: ISettings | Record<string, any> = useSelector((state: RootState) => state.settings.settings);
 
     return (
         <motion.footer

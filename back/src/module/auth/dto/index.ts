@@ -1,8 +1,4 @@
-import {IsEmail, IsNotEmpty, MinLength} from 'class-validator';
-
-import {UserCreateDTO} from '../../users/dto';
-
-export class SignUpDTO extends UserCreateDTO {}
+import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
 
 export class SignInDTO {
     @MinLength(8)
