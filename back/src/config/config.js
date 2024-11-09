@@ -11,6 +11,7 @@ console.log({
     database: process.env.POSTGRES_DATABASE,
     host: process.env.POSTGRES_HOST,
     port: process.env.POSTGRES_PORT,
+    token: process.env.BOT_TOKEN,
 });
 
 module.exports = {

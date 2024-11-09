@@ -47,6 +47,8 @@ services:
       - PUBLIC_URL=${PUBLIC_URL}
       - USER_EMAIL=${USER_EMAIL}
       - USER_PASSWORD=${USER_PASSWORD}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - HASH_SECRET=${HASH_SECRET}
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.backend.rule=Host(`api.tht-visa.com`, `www.api.tht-visa.com`)"
