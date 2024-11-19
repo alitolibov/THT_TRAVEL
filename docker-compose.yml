@@ -60,8 +60,9 @@ services:
     volumes:
       - ~/volumes/tht/uploads/:/app/uploads
 
-  postgresql:
-    image: "postgres:15.1"
+  db:
+    image: "postgres:alpine"
+    container_name: "db"
     restart: always
     ports:
       - "5432:5432"
@@ -72,7 +73,11 @@ services:
     networks:
       - app
     volumes:
-      - ~/volumes/tht/postgres:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+
+
+volumes:
+  postgres-data:
 
 networks:
   app:
