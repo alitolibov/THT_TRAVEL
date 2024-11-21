@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Services from '@/components/Services';
 import Count from '@/components/Count';
 import Head from 'next/head';
-import Image from 'next/image';
+import { Icon } from '@iconify-icon/react';
 import Maps from '@/components/Maps';
 import {useTranslation} from 'next-i18next';
 import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
@@ -33,7 +33,7 @@ const Main: React.FC<MainProps> = () => {
             <div className="space-y-[20px] h-[80vh] flex flex-col justify-center pb-[50px]">
             <motion.h1 variants={{hidden: { opacity: 0, y: -20 }, visible}} className='font-[700] text-[36px] text-white leading-[44px] w-[285px] md:text-[45px] md:leading-[55px] md:w-[360px] lg:text-[60px] lg:leading-[75px] lg:w-[480px] xl:text-[72px] xl:leading-[85px] xl:w-[580px]'>{t('header.greetings')}</motion.h1>
             <motion.div variants={itemVariants} className="flex items-center gap-x-[5px]"><p className="font-[500] text-[12px] text-white md:text-[14px] lg:text-[15px] xl:text-base xxl:text-lg">{t('header.scroll')}</p>
-            <Image src="/images/bottom.webp" height={16} width={16} alt=""/>
+                <Icon icon="ep:bottom" className={'text-white text-lg'}/>
             </motion.div>
             </div>
             <Count/>

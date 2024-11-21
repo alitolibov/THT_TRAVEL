@@ -4,10 +4,15 @@ import {motion} from 'framer-motion';
 import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { ITour, IUpload } from '@/types';
 
 
-function SwiperTour(props:any) {
-    const img = props?.obj?.img;
+interface SwiperProps {
+    tour: ITour
+}
+
+const SwiperTour: React.FC<SwiperProps> = ({tour}) => {
+    const images= tour.images || [];
     const animation: { hidden: object, visible: object } = {
         hidden: {
             y: -30,
@@ -27,25 +32,25 @@ function SwiperTour(props:any) {
             variants={animation}
         >
             <Swiper
-                slidesPerView={'auto'}
-                centeredSlides={true}
-                navigation={true}
-                spaceBetween={10}
-                loop={true}
+                slidesPerView={1.3}
+                centeredSlides
+                navigation
+                spaceBetween={15}
+                loop
                 initialSlide={1}
                 modules={[Navigation]}
                 className="mySwiper aspect-[16/8.5] md:aspect-[16/5.5] rounded-2xl"
             >
                 {
-                    [1,2,3,4].map((item:number) =>
-                        <SwiperSlide key={item}>
-                            <div className={'bg-cover bg-center w-full h-full'} style={{backgroundImage: `url("/images/toursImage/${img + item}.webp")`}}></div>
+                    images.map((item:IUpload) =>
+                        <SwiperSlide key={item.id}>
+                            <div className={'bg-cover bg-center w-full h-full'} style={{backgroundImage: `url("${item.path}")`}}></div>
                         </SwiperSlide>
                     )
                 }
             </Swiper>
         </motion.div>
     );
-}
+};
 
 export default SwiperTour;

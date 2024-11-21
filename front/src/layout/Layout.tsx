@@ -27,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 	}, []);
 	
 	return (
-		<div className={pathname === '/' ? 'bg' : ''}>
+		<div className={pathname === '/' ? 'bg-start' : ''}>
 			<Header />
 			<main className="px-4 lt:px-0 container mx-auto">
 				{children}

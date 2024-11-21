@@ -1,4 +1,4 @@
-import ky from 'ky';
+import ky from 'ky-universal';
 import qs from 'qs';
 import { PaginatedResponse } from '@/types';
 

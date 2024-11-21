@@ -15,7 +15,6 @@ export const settings = createSlice({
 	initialState,
 	reducers: {
 		update: (state, action: {payload: ISettings, type: string}) => {
-			console.log(action.payload);
 			state.settings = action.payload;
 		}
 	}

@@ -3,31 +3,23 @@ import { motion } from 'framer-motion';
 import Item from './Item';
 import {useTranslation} from 'next-i18next';
 import {useRouter} from 'next/router';
-
-interface ServicesProps {
-
-}
-export interface ToursInterface {
-    id: number;
-    country: string;
-    typeTour: string;
-    duration: string;
-    price: string;
-    peoples: string;
-    lang: string;
-    img: string;
-    desc: string;
-}
+import { ITour, PaginatedResponse } from '@/types';
+import { $api } from '@/composables/useService';
 
 const visible:object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 
-const Services: React.FC<ServicesProps> = () => {
+const Services: React.FC<any> = () => {
     const {locale} = useRouter();
     const {t} = useTranslation();
-    const [toursArr, setToursArr] = useState<ToursInterface[] | any[]>([]);
+    const [toursArr, setToursArr] = useState<ITour[] | any[]>([]);
 
     useEffect(() => {
-        setToursArr(t('services.tours', {returnObjects: true}));
+	    const fetchSettings = async () => {
+		    const data = await $api.get('tours').json<PaginatedResponse<ITour>>();
+			setToursArr(data.data);
+	    };
+	    
+	    fetchSettings();
     }, [locale]);
 
     return (
@@ -49,7 +41,7 @@ const Services: React.FC<ServicesProps> = () => {
             viewport={{ amount: 0.2, once: true}}
             className="grid grid-cols-1 gap-y-[20px] md:grid-cols-2 md:gap-x-[30px] md:gap-y-[30px] lg:grid-cols-3 xl:gap-x-[35px]">
             {
-               toursArr.map((item:ToursInterface) => <Item key={item.id} item={item}/>)
+               toursArr.map((item:ITour) => <Item key={item.id} item={item}/>)
             }
         </motion.div>
         </section>
