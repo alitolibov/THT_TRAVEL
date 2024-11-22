@@ -54,6 +54,7 @@ backups/uploads
 backups/dump
 backups/backup.zip
 back/lib
+back/dist
 
 # IDE
 .idea
