@@ -17,3 +17,16 @@ export function getValue(key: string): string {
 	
 	return `${key}Ru`;
 }
+
+export interface IErrorPathAndMsg {
+	firstWord: string;
+	msg: string;
+}
+
+export function getErrorPathAndMsg(sentence: string): IErrorPathAndMsg {
+	const split = sentence.split(' ');
+	return {
+		firstWord: split[0],
+		msg: split.slice(1).join(' ')
+	};
+}

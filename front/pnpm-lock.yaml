@@ -14,6 +14,9 @@ importers:
       '@iconify-icon/react':
         specifier: ^2.1.0
         version: 2.1.0(react@18.2.0)
+      '@react-input/mask':
+        specifier: ^1.2.15
+        version: 1.2.15(@types/react@18.3.12)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@reduxjs/toolkit':
         specifier: ^2.3.0
         version: 2.3.0(react-redux@9.1.2(@types/react@18.3.12)(react@18.2.0)(redux@5.0.1))(react@18.2.0)
@@ -68,9 +71,6 @@ importers:
       react-i18next:
         specifier: ^13.1.2
         version: 13.5.0(i18next@23.16.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      react-international-phone:
-        specifier: ^2.3.2
-        version: 2.3.3(react@18.2.0)
       react-redux:
         specifier: ^9.1.2
         version: 9.1.2(@types/react@18.3.12)(react@18.2.0)(redux@5.0.1)
@@ -338,6 +338,26 @@ packages:
   '@pkgjs/parseargs@0.11.0':
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
+
+  '@react-input/core@1.0.19':
+    resolution: {integrity: sha512-mMbPwOwIsjyXiTm5WuKSIfjLHMfdtIo2BKYIcrtoFm+w1weJcj44nZcIs1UGLMZWMtmXvFiN5vNQuAGuCI0Gag==}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      react: '>=16.8 || ^19.0.0-rc'
+      react-dom: '>=16.8 || ^19.0.0-rc'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+
+  '@react-input/mask@1.2.15':
+    resolution: {integrity: sha512-GjvknLuaNw10/HLMQ5/naz6wd3qHPAAVelW2H5LrWAQD1jjUmJtmN9iMwx0HLK/0tpj66X9zfq8TM4ygFaQtGA==}
+    peerDependencies:
+      '@types/react': '>=16.8'
+      react: '>=16.8 || ^19.0.0-rc'
+      react-dom: '>=16.8 || ^19.0.0-rc'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
 
   '@reduxjs/toolkit@2.3.0':
     resolution: {integrity: sha512-WC7Yd6cNGfHx8zf+iu+Q1UPTfEcXhQ+ATi7CV1hlrSAaQBdlPzg7Ww/wJHNQem7qG9rxmWoFCDCPubSvFObGzA==}
@@ -1550,12 +1570,6 @@ packages:
       react-native:
         optional: true
 
-  react-international-phone@2.3.3:
-    resolution: {integrity: sha512-cOW7fDVALoxR1Mn8DeWANFN4jH28f1UTOsjyn7l3zEzmNvI/ceYzeso2dTwGNRprYv9+T8KZUD9ZYI9De0E8RQ==}
-    deprecated: v2.3.3 is deprecated, please use v3 or v2.3.2
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
   react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
@@ -2196,6 +2210,21 @@ snapshots:
 
   '@pkgjs/parseargs@0.11.0':
     optional: true
+
+  '@react-input/core@1.0.19(@types/react@18.3.12)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.3.12
+
+  '@react-input/mask@1.2.15(@types/react@18.3.12)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@react-input/core': 1.0.19(@types/react@18.3.12)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    optionalDependencies:
+      '@types/react': 18.3.12
 
   '@reduxjs/toolkit@2.3.0(react-redux@9.1.2(@types/react@18.3.12)(react@18.2.0)(redux@5.0.1))(react@18.2.0)':
     dependencies:
@@ -3562,10 +3591,6 @@ snapshots:
       react: 18.2.0
     optionalDependencies:
       react-dom: 18.2.0(react@18.2.0)
-
-  react-international-phone@2.3.3(react@18.2.0):
-    dependencies:
-      react: 18.2.0
 
   react-is@16.13.1: {}
 

@@ -1,9 +1,16 @@
-import ky from 'ky-universal';
+import ky, { HTTPError } from 'ky-universal';
 import qs from 'qs';
 import { PaginatedResponse } from '@/types';
 
 export const $api = ky.create({
 	prefixUrl: process.env.NEXT_PUBLIC_API_URL || '',
+	hooks: {
+		beforeError: [
+			async (error: HTTPError): Promise<any> => {
+				return await error.response.json();
+			}
+		]
+	}
 });
 
 export const useService = (service: string) => {

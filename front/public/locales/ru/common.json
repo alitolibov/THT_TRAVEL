@@ -43,10 +43,10 @@
       "name": "Ваше имя",
       "tel": "Ваш телефон",
       "email": "Ваш E-mail",
-      "required": "Это поле обязательно для заполнения",
+      "should not be empty": "Это поле обязательно для заполнения",
       "errorName": "Имя должно содержать не менее 3 символов",
-      "errorEmail": "Неверный E-mail",
-      "errorTel": "Неверный номер",
+      "must be an email": "Неверный E-mail",
+      "must be a valid phone number": "Неверный номер",
       "btnBook": "Забронировать"
     },
     "aboutTour": "О туре",

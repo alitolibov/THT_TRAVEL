@@ -43,10 +43,10 @@
       "name": "Your name",
       "tel": "Your phone",
       "email": "Your Email",
-      "required": "This field is required",
+      "should not be empty": "This field is required",
       "errorName": "Name must be at least 3 characters",
-      "errorEmail": "Invalid E-mail",
-      "errorTel": "Invalid number",
+      "must be an email": "Invalid E-mail",
+      "must be a valid phone number": "Invalid number",
       "btnBook": "Book"
     },
     "aboutTour": "About the tour",

@@ -43,10 +43,10 @@
       "name": "Ismingiz",
       "tel": "Telefon raqamingiz",
       "email": "Elektron pochtangiz",
-      "required": "Ushbu maydon to'ldirilishi shart",
+      "should not be empty": "Ushbu maydon to'ldirilishi shart",
       "errorName": "Ism kamida 3 ta belgidan iborat bo'lishi kerak",
-      "errorEmail": "Noto'g'ri E-mail",
-      "errorTel": "Noto'g'ri raqam",
+      "must be an email": "Noto'g'ri E-mail",
+      "must be a valid phone number": "Noto'g'ri raqam",
       "btnBook": "Buyurtma berish"
     },
     "aboutTour": "Sayohat haqida",
