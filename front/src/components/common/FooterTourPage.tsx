@@ -30,7 +30,7 @@ const modal = {
 
 const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 	const { asPath } = useRouter();
-	const [isOpen, toggleOpen] = useCycle<boolean>(false, true);
+	const [isOpen, toggleOpen] = useCycle(false, true);
 	const { t } = useTranslation('common');
 	
 	useEffect(() => {
