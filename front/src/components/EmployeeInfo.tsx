@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { viewport } from '@/constants/framer-motion-styles';
 
 interface EmployeeInfoProps {
     photo?: string
@@ -28,7 +29,7 @@ const EmployeeInfo: React.FC<EmployeeInfoProps> = ({photo, name, level, insta, t
         <motion.div
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.4, once: true}}
+        viewport={viewport}
         variants={animation}
         className='space-y-[24px]'>
             <div className={'mx-auto w-[260px] h-[260px] overflow-hidden'}>

@@ -6,6 +6,9 @@
     "greetings": "Путешествуй с THT TRAVEL",
     "scroll": "Пролистываете вниз"
   },
+  "tours": {
+    "title": "Наши Туры"
+  },
   "about": {
     "title": "Почему Выбирают Именно Нас",
     "yearInTourism": "Лет в сфере туризма",

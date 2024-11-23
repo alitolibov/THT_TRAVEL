@@ -19,7 +19,7 @@ const About = () => {
         </>
     );
 };
-export async function getStaticProps(props:{locale:string}) {
+export async function getServerSideProps(props:{locale:string}) {
     return {
         props: {
             ...(await serverSideTranslations(props.locale, ['common']))

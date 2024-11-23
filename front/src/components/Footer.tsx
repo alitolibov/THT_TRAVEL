@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { ISettings } from '@/types';
+import { viewport } from '@/constants/framer-motion-styles';
 
 interface FooterProps {
     
@@ -31,7 +32,7 @@ const Footer: React.FC<FooterProps> = () => {
         <motion.footer
         initial='hidden'
         whileInView='visible'
-        viewport={{ amount: 0.4, once: true}}
+        viewport={viewport}
          className=' py-[27px] flex flex-col items-center space-y-[20px] lg:flex-row lg:justify-between px-4 lt:px-0 container mx-auto'>
             <motion.img custom={0.7} variants={animation} src="/images/logo.webp" className='h-[75px] md:h-[85px]' alt="" />
             <motion.nav custom={1} variants={animation} className='space-y-[5px]'>

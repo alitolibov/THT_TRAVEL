@@ -5,6 +5,7 @@ import {Navigation} from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { ITour, IUpload } from '@/types';
+import { viewport } from '@/constants/framer-motion-styles';
 
 
 interface SwiperProps {
@@ -28,7 +29,7 @@ const SwiperTour: React.FC<SwiperProps> = ({tour}) => {
         <motion.div
             initial='hidden'
             whileInView='visible'
-            viewport={{amount: 0.5, once: true}}
+            viewport={viewport}
             variants={animation}
         >
             <Swiper

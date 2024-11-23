@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ITour } from '@/types';
 import { getValue } from '@/utils';
 import Money from '@/components/common/Money';
+import { viewport } from '@/constants/framer-motion-styles';
 
 
 interface ItemProps {
@@ -33,7 +34,7 @@ const Item: React.FC<ItemProps> = ({item}) => {
            <motion.div
                initial='hidden'
                whileInView='visible'
-               viewport={{ amount: 0.4, once: true}}
+               viewport={viewport}
                whileTap={{ scale: 0.95 }}
                variants={animation}
                className={'aspect-[1/1.33] rounded-lg overflow-hidden'}>

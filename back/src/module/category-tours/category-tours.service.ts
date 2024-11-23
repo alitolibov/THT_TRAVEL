@@ -10,6 +10,7 @@ import { response } from 'express';
 import { IPaginatedResponse } from '../../types';
 import { QuerySearchDTO } from '../../types/dtos.global';
 import { createQueryParams } from '../../utils/querySearch';
+import { Tour } from '../tours/model/tours.model';
 import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
 import { CategoryTours } from './model/category-tours.model';
 
@@ -42,6 +43,12 @@ export class CategoryToursService {
 
         const { count, rows } = await this.categoryRepository.findAndCountAll({
             ...queryParams,
+            include: [
+                {
+                    model: Tour,
+                    required: false
+                }
+            ]
         });
 
         return {

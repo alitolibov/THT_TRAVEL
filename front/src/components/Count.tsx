@@ -6,6 +6,7 @@ import {useRouter} from 'next/router';
 import { useSelector } from 'react-redux';
 import { RootState } from '@/store/store';
 import { ISettings } from '@/types';
+import { hidden, viewport, visible } from '@/constants/framer-motion-styles';
 
 interface Item {
     num: number;
@@ -16,7 +17,6 @@ interface Item {
 
 interface CountProps {}
 
-const visible: object = { opacity: 1, y: 0, transition: { duration: 0.8 } };
 const animation = {
     hidden: {
         y:  30,
@@ -73,18 +73,18 @@ const Count: React.FC<CountProps> = () => {
         <motion.section
             initial='hidden'
             whileInView='visible'
-            viewport={{ amount: 0.4, once: true }}
+            viewport={viewport}
             className='space-y-[40px] mb-[150px] mt-[50px] md:space-y-[50px]'>
             <motion.div
-                variants={{ hidden: { opacity: 0, y: -20 }, visible }}
+                variants={{ hidden, visible }}
                 className="relative w-fit mx-auto">
-                <p className="font-[900] text-[3.5rem] text-[var(--main-color-two)] opacity-[0.5] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">ABOUT</p>
-                <p className="sm:w-[287px] font-[600] text-[1.5rem] text-[#fff] absolute top-[20px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem] sm:left-[50%] sm:translate-x-[-50%] sm:top-[35px]">{t('about.title')}</p>
+                <p className="title-backgroud-text">ABOUT</p>
+                <p className="title-text">{t('about.title')}</p>
             </motion.div>
             <motion.div
                 initial='hidden'
                 whileInView='visible'
-                viewport={{ amount: 0.4, once: true }}
+                viewport={viewport}
                 variants={animation}
                 className="scrollBlock grid grid-cols-2 gap-[20px] md:grid-cols-4 md:gap-y-0 md:gap-x-[30px]">
                 {isVisible || asPath !== '/' ? arr.map((item, index) => (

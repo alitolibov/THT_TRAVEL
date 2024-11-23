@@ -13,6 +13,7 @@ import { getValue } from '@/utils';
 import Money from '@/components/common/Money';
 import FooterTourPage from '@/components/common/FooterTourPage';
 import { $api } from '@/composables/useService';
+import { viewport } from '@/constants/framer-motion-styles';
 
 interface TourPageProps {
 	tour: ITour;
@@ -88,17 +89,17 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 						<motion.div
 							initial="hidden"
 							whileInView="visible"
-							viewport={{ amount: 0.5, once: true }}
+							viewport={viewport}
 							variants={animation}
 							className="relative">
-							<p className="font-[900] uppercase text-[3.5rem] text-[var(--main-color-two)] opacity-[0.3] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">TOUR</p>
+							<p className="title-backgroud-text">TOUR</p>
 							<p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{tourName}</p>
 						</motion.div>
 						<div className="mt-5 flex justify-between">
 							<motion.div
 								initial="hidden"
 								whileInView="visible"
-								viewport={{ amount: 0.3, once: true }}
+								viewport={viewport}
 								variants={animation}
 								className={'space-y-6 w-full lg:w-3/5 xl:w-8/12'}>
 								<TourAbout item={tour} />
@@ -122,7 +123,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 							<motion.div
 								initial="hidden"
 								whileInView="visible"
-								viewport={{ amount: 0.4, once: true }}
+								viewport={viewport}
 								variants={animation}
 								className={'hidden relative lg:block lg:max-w-[340px] xl:max-w-[350px]'}>
 								<div className={'sticky top-0 bottom-0 w-full'}>

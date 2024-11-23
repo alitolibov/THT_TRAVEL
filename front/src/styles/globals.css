@@ -28,6 +28,14 @@ body {
     background-repeat: no-repeat;
 }
 
+.title-backgroud-text {
+    @apply font-extrabold text-5xl text-[var(--main-color-two)] opacity-40 sm:text-6xl md:text-7xl uppercase
+}
+
+.title-text {
+    @apply w-full font-semibold text-white text-center absolute top-5 sm:text-xl sm:top-7 md:text-2xl md:top-8
+}
+
 .bottom_img {
     background-image: url('../../public/images/bottom.webp');
 }
@@ -97,30 +105,6 @@ body {
 
 input {
     outline: none !important;
-}
-
-
-.react-international-phone-input {
-    background-color: transparent !important;
-    width: 100%;
-    color: white !important;
-    border-bottom-right-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
-
-.react-international-phone-country-selector-button {
-    background-color: transparent !important;
-    padding: 6px 8px !important;
-    border-bottom-left-radius: 8px !important;
-    border-top-left-radius: 8px !important;
-}
-
-@media (min-width: 768px) {
-    .react-international-phone-input {
-        font-size: 16px !important;
-    }
 }
 
 .pl {
