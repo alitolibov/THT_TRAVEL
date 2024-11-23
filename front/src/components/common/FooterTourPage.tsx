@@ -32,6 +32,9 @@ const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 	const { asPath } = useRouter();
 	const [isOpen, toggleOpen] = useCycle(false, true);
 	const { t } = useTranslation('common');
+
+	const key = getValue('nameDirection') as keyof ITour;
+	const tourName = String(tour[key]);
 	
 	useEffect(() => {
 		const body = document.body as HTMLElement;
@@ -42,7 +45,7 @@ const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 		<>
 			<motion.div initial={false} animate={isOpen ? 'open' : 'closed'} variants={modal}
 			            className={'w-full bg-[var(--main-color)] overflow-y-scroll rounded-2xl overflow-hidden border-t border-[#ffffff] bottom-[75px] fixed left-0 z-10 h-4/5 lg:hidden'}>
-				<Book tourName={tour[getValue('nameDirection')]}/>
+				<Book tourName={tourName}/>
 			</motion.div>
 			<motion.div
 				className={`fixed bottom-0 left-0 w-full h-[75px] bg-[var(--main-color)] border-t border-[#ffffff] lg:hidden ${asPath.includes('tour/') ? 'z-50' : 'z-0'}`}>

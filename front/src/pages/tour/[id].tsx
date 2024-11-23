@@ -44,6 +44,11 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 	const { t } = useTranslation();
 	
 	const accordionArr = t('dynamicPage.accordionQuestion', {returnObjects: true});
+
+	const keyName = getValue('nameDirection') as keyof ITour;
+	const keyDesc = getValue('description') as keyof ITour;
+	const tourName = String(tour[keyName]);
+	const tourDesc = String(tour[keyDesc]);
 	
 	const animation: {
 		hidden: object,
@@ -87,7 +92,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 							variants={animation}
 							className="relative">
 							<p className="font-[900] uppercase text-[3.5rem] text-[var(--main-color-two)] opacity-[0.3] leading-[3.5rem] sm:text-[5rem] sm:leading-[5rem]">TOUR</p>
-							<p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{tour[getValue('nameDirection')]}</p>
+							<p className="font-[600] text-[1.5rem] text-[#fff] absolute bottom-[5px] sm:bottom-[12px] sm:text-[1.75rem] text-center leading-[1.5rem] sm:leading-[1.75rem]">{tourName}</p>
 						</motion.div>
 						<div className="mt-5 flex justify-between">
 							<motion.div
@@ -99,7 +104,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 								<TourAbout item={tour} />
 								<div className={'border-t border-[var(--main-color-two)]'}></div>
 								<h1 className={'text-white text-2xl font-semibold lg:text-[26px]'}>{t('dynamicPage.aboutTour')}</h1>
-								<p className={'text-base text-white md:max-w-lg'}>{tour[getValue('description')]}</p>
+								<p className={'text-base text-white md:max-w-lg'}>{tourDesc}</p>
 								<h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{t('dynamicPage.duration')}</h2>
 								<p className={'text-lg text-white'}>{tour.durationDays} {t('services.days')} {!!tour.durationNights && `/ ${tour.durationNights} ${t('services.night')}`}</p>
 								<h2 className={'text-white text-xl font-semibold lg:text-2xl]'}>{t('dynamicPage.price')}</h2>
@@ -121,7 +126,7 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 								variants={animation}
 								className={'hidden relative lg:block lg:max-w-[340px] xl:max-w-[350px]'}>
 								<div className={'sticky top-0 bottom-0 w-full'}>
-									<Book tourName={tour[getValue('nameDirection')]}/>
+									<Book tourName={tourName}/>
 								</div>
 							</motion.div>
 						</div>

@@ -21,6 +21,7 @@ const Money: React.FC<FormatProps> = ({ value }) => {
 			spaceBetweenAmountAndSymbol = false,
 		} = options;
 		
+		// @ts-ignore
 		const stringified = Math.abs(value).toFixed(decimals);
 		const formattedValue = decimalSeparator
 			? stringified.replace('.', decimalSeparator)
