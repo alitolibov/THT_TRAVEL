@@ -29,11 +29,11 @@ body {
 }
 
 .title-backgroud-text {
-    @apply font-extrabold text-5xl text-[var(--main-color-two)] opacity-40 sm:text-6xl md:text-7xl uppercase
+    @apply font-black text-5xl text-[var(--main-color-two)] opacity-30 sm:text-6xl md:text-7xl uppercase
 }
 
 .title-text {
-    @apply w-full font-semibold text-white text-center absolute top-5 sm:text-xl sm:top-7 md:text-2xl md:top-8
+    @apply w-full font-semibold text-xl text-white text-center absolute top-5 sm:text-2xl sm:top-7 md:text-[28px] md:top-8
 }
 
 .bottom_img {

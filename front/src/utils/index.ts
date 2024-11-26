@@ -1,21 +1,38 @@
+import { bus } from './bus';
+
+let currentLocale = 'ru';
+
+bus.on('updateLocale', (newLocale: string) => {
+	currentLocale = newLocale;
+});
+
+export function getLocale() {
+	return currentLocale;
+}
+
 export function getValue(key: string): string {
-	if (typeof window !== 'undefined') {
-		const pathname = window.location.pathname;
-		
-		let language: 'uz' | 'en' | 'ru' = 'ru';
-		
-		if (pathname.includes('/en/')) {
+	const locale = getLocale();
+	
+	let language: 'uz' | 'en' | 'ru' = 'ru';
+	
+	if(locale) {
+		if (locale == 'en') {
 			language = 'en';
 		}
 		
-		if (pathname.includes('/uz/')) {
+		if (locale == 'uz') {
 			language = 'uz';
+		}
+		
+		if (locale == 'ru') {
+			language = 'ru';
 		}
 		
 		return `${key}${language.charAt(0).toUpperCase() + language.slice(1)}`;
 	}
 	
 	return `${key}Ru`;
+	
 }
 
 export interface IErrorPathAndMsg {

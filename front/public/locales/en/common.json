@@ -7,7 +7,9 @@
     "scroll": "Scroll down"
   },
   "tours": {
-    "title": "Our Tours"
+    "title": "Our Tours",
+    "show": "Show more",
+    "hide": "Hide"
   },
   "about": {
     "title": "Why We Are Chosen",

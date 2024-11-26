@@ -65,7 +65,7 @@ export interface ICategoryTour {
 	nameRu: string;
 	nameUz: string;
 	nameEn: string;
-	tours: ITour;
+	tours: ITour[];
 	priority: number;
 	createdAt: string;
 	updatedAt: string;

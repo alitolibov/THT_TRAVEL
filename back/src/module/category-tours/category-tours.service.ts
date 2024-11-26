@@ -11,6 +11,7 @@ import { IPaginatedResponse } from '../../types';
 import { QuerySearchDTO } from '../../types/dtos.global';
 import { createQueryParams } from '../../utils/querySearch';
 import { Tour } from '../tours/model/tours.model';
+import { Upload } from '../uploads/model/upload.model';
 import { CreateCategoryDTO, UpdateCategoryDTO } from './dto';
 import { CategoryTours } from './model/category-tours.model';
 
@@ -46,9 +47,16 @@ export class CategoryToursService {
             include: [
                 {
                     model: Tour,
-                    required: false
-                }
-            ]
+                    required: false,
+                    include: [
+                        {
+                            model: Upload,
+                            required: false,
+                        },
+                    ],
+                },
+            ],
+            distinct: true,
         });
 
         return {

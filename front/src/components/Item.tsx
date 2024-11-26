@@ -28,6 +28,7 @@ const Item: React.FC<ItemProps> = ({item}) => {
     
     // @ts-ignore
     const tourName = item[getValue('nameDirection')] || 'Текст не найден';
+    const image = item.hasOwnProperty('images') ? item?.images[0].path : null;
 
     const {locale} = useRouter();
     return (
@@ -35,13 +36,14 @@ const Item: React.FC<ItemProps> = ({item}) => {
                initial='hidden'
                whileInView='visible'
                viewport={viewport}
+               whileHover={{ scale: 0.95 }}
                whileTap={{ scale: 0.95 }}
                variants={animation}
-               className={'aspect-[1/1.33] rounded-lg overflow-hidden'}>
-                <Link locale={locale} href={`tour/${item?.id}`} className={'bg-full h-full bg-center flex flex-col justify-end items-center lg:hover:bg-org duration-300 lg:cursor-pointer'} style={{backgroundImage: `url(${item.images[0].path})`}}>
-                    <div className={'w-full py-2 bg-[var(--main-color-two)] text-[#fff]'}>
-                        <p className="text-lg text-center font-semibold lg:text-xl tracking-wide">{tourName}</p>
-                        <p className="text-base text-center font-medium lg:text-lg">
+               className={'aspect-[1/1.15] rounded-xl overflow-hidden duration-75 ease-linear'}>
+                <Link locale={locale} href={`tour/${item?.id}`} className={'bg-cover h-full bg-center bg-no-repeat flex flex-col justify-end items-center duration-300 lg:cursor-pointer'} style={{backgroundImage: `url(${image})`}}>
+                    <div className={'w-full py-1 bg-[var(--main-color-two)] text-white'}>
+                        <p className="text-sm md:text-base text-center font-semibold 2xl:text-lg tracking-wide">{tourName}</p>
+                        <p className="text-sm text-center font-medium 2xl:text-base">
                             <Money value={item?.price}/>
                         </p>
                     </div>

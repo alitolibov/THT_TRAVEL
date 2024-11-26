@@ -7,7 +7,9 @@
     "scroll": "Pastga aylantiring"
   },
   "tours": {
-    "title": "Bizning Turlar"
+    "title": "Bizning Turlar",
+    "show": "Ko'proq ko'rsatish",
+    "hide": "Yashirish"
   },
   "about": {
     "title": "Nega Aynan Bizni Tanlashadi",

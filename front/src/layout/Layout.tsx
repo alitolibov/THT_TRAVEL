@@ -6,15 +6,18 @@ import { useDispatch } from 'react-redux';
 import { $api } from '@/composables/useService';
 import { ISettings } from '@/types';
 import { update } from '@/store/features/settings';
+import { bus } from '@/utils/bus';
 
 interface LayoutProps {
 	children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-	const { pathname } = useRouter();
+	const { pathname, locale } = useRouter();
 	
 	const dispatch = useDispatch();
+	
+	bus.emit('updateLocale', locale);
 	
 	useEffect(() => {
 		const fetchSettings = async () => {

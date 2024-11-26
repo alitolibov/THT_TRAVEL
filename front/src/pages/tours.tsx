@@ -15,9 +15,7 @@ interface ToursPageProps {
 
 const Tours: React.FC<ToursPageProps>  = ({categoryWithTours}) => {
     const {t} = useTranslation();
-
-    console.log(categoryWithTours);
-    
+	
     return (
         <>
             <Head>
@@ -28,7 +26,7 @@ const Tours: React.FC<ToursPageProps>  = ({categoryWithTours}) => {
                     <p className="title-backgroud-text">TOURS</p>
                     <p className="title-text">{t('tours.title')}</p>
                 </motion.div>
-                <div className={'space-y-4 my-5'}>
+                <div className={'space-y-4 my-6 md:my-12'}>
                     {
                         categoryWithTours.total && categoryWithTours.data.map((category: ICategoryTour) => (
                             <CategoryWithToursSection category={category} key={category.id}/>
@@ -40,15 +38,16 @@ const Tours: React.FC<ToursPageProps>  = ({categoryWithTours}) => {
     );
 };
 
-export async function getServerSideProps(props:{locale:string}) {
-
+export async function getServerSideProps(context: { locale: string }) {
+    const { locale } = context;
+	
     try {
         const categoryWithTours = await $api.get('category-tours').json<PaginatedResponse<ICategoryTour>>();
 
         return {
             props: {
                 categoryWithTours,
-                ...(await serverSideTranslations(props.locale, ['common']))
+                ...(await serverSideTranslations(locale, ['common']))
             },
         };
     } catch (error) {
