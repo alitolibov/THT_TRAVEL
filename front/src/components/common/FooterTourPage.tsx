@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ITour } from '@/types';
-import { motion, useCycle } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Book from '@/components/Book';
 import Money from '@/components/common/Money';
 import { useRouter } from 'next/router';
@@ -31,7 +31,7 @@ const modal = {
 
 const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 	const { asPath } = useRouter();
-	const [isOpen, toggleOpen] = useCycle(false, true);
+	const [isOpen, toggleOpen] = useState(false);
 	const { t } = useTranslation('common');
 
 	const key = getValue('nameDirection') as keyof ITour;
@@ -44,7 +44,7 @@ const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 	
 	return (
 		<>
-			<OutsideClickHandler onOutsideClick={() => toggleOpen()}>
+			<OutsideClickHandler onOutsideClick={() => toggleOpen(false)}>
 				<motion.div initial={false} animate={isOpen ? 'open' : 'closed'} variants={modal}
 				            className={'w-full bg-[var(--main-color)] overflow-y-scroll rounded-2xl overflow-hidden border-t border-[#ffffff] bottom-[75px] fixed left-0 z-10 h-3/5 lg:hidden'}>
 					<Book tourName={tourName}/>
@@ -55,7 +55,7 @@ const FooterTourPage: React.FC<FooterTourPageProps> = ({ tour }) => {
 						<p className="text-lg font-semibold text-[var(--main-color-two)]">
 							<Money value={tour?.price} />
 						</p>
-						<button onClick={() => toggleOpen()}
+						<button onClick={() => toggleOpen(!isOpen)}
 						        className="rounded-3xl text-white px-4 py-2 bg-[var(--main-color-two)] font-medium">{t('dynamicPage.bookForm.btnBook')}
 						</button>
 					</div>
