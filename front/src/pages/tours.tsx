@@ -7,6 +7,7 @@ import { $api } from '@/composables/useService';
 import { ICategoryTour, PaginatedResponse } from '@/types';
 import CategoryWithToursSection from '@/components/common/CategoryWithToursSection';
 import { hidden, visible } from '@/constants/framer-motion-styles';
+import qs from 'qs';
 
 
 interface ToursPageProps {
@@ -26,7 +27,7 @@ const Tours: React.FC<ToursPageProps>  = ({categoryWithTours}) => {
                     <p className="title-backgroud-text">TOURS</p>
                     <p className="title-text">{t('tours.title')}</p>
                 </motion.div>
-                <div className={'space-y-4 my-6 md:my-12'}>
+                <div className={'space-y-16 lg:space-y-24 my-6 md:my-12'}>
                     {
                         categoryWithTours.total && categoryWithTours.data.map((category: ICategoryTour) => (
                             <CategoryWithToursSection category={category} key={category.id}/>
@@ -42,7 +43,8 @@ export async function getServerSideProps(context: { locale: string }) {
     const { locale } = context;
 	
     try {
-        const categoryWithTours = await $api.get('category-tours').json<PaginatedResponse<ICategoryTour>>();
+        const params = qs.stringify({sortBy: {priority: -1}});
+        const categoryWithTours = await $api.get(`category-tours?${params}`).json<PaginatedResponse<ICategoryTour>>();
 
         return {
             props: {

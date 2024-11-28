@@ -8,6 +8,7 @@ import {
 
 import { Employee } from '../../employees/model/employee.model';
 import { Tour } from '../../tours/model/tours.model';
+import { Visa } from '../../vises/model/vises.model';
 import { TourUploads } from './tourUploads.model';
 
 @Table
@@ -26,6 +27,9 @@ export class Upload extends Model {
 
     @HasOne(() => Employee)
     employee: Employee;
+
+    @HasOne(() => Visa)
+    visa: Visa;
 
     @BelongsToMany(() => Tour, () => TourUploads)
     tours: Tour[];

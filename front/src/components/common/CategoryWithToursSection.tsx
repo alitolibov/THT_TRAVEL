@@ -51,6 +51,9 @@ const CategoryWithToursSection: React.FC<CategoryWithToursSectionProps> = ({ cat
 					))
 				}
 			</div>
+			<button onClick={() => setShowMore(!isShowMore)} className={'text-white block rounded-xl bg-[var(--main-color-two)] font-semibold w-full py-3'}>
+				{isShowMore ? t('tours.hide') : t('tours.show')}
+			</button>
 		</section>
 	);
 };

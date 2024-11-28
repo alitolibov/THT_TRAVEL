@@ -18,6 +18,8 @@ import { Upload } from '../uploads/model/upload.model';
 import { UploadsModule } from '../uploads/uploads.module';
 import { User } from '../users/model/user.model';
 import { UsersModule } from '../users/users.module';
+import { Visa } from '../vises/model/vises.model';
+import { VisesModule } from '../vises/vises.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
@@ -47,6 +49,7 @@ import { AppService } from './app.service';
                     TourUploads,
                     CategoryTours,
                     Settings,
+                    Visa,
                 ],
             }),
         }),
@@ -58,6 +61,7 @@ import { AppService } from './app.service';
         CategoryToursModule,
         SettingsModule,
         BotModule,
+        VisesModule,
     ],
     controllers: [AppController],
     providers: [AppService],
