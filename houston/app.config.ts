@@ -28,6 +28,11 @@ export default defineAppConfig({
                         to: '/category'
                     },
                     {
+                        name: 'Визы',
+                        icon: { name: 'ri:visa-line', class: 'w-5 h-5' },
+                        to: '/vises'
+                    },
+                    {
                         name: 'Сотрудники',
                         icon: { name: 'ph:users', class: 'w-5 h-5' },
                         to: '/employees'

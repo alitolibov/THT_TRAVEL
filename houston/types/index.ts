@@ -12,6 +12,22 @@ export interface IEmployee {
     updatedAt: string;
 }
 
+export interface IVisa {
+	id: number
+	nameVisaUz: string;
+	nameVisaRu: string;
+	nameVisaEn: string;
+	reviewPeriods: number;
+	descriptionUz: string;
+	descriptionRu: string;
+	descriptionEn: string;
+	locationUz: string;
+	locationRu: string;
+	locationEn: string;
+	imageId: number;
+	image?: IUpload;
+}
+
 export interface ITour {
     id: number
     nameDirectionRu: string;

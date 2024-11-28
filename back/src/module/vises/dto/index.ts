@@ -1,10 +1,4 @@
-import {
-    IsInt,
-    IsNotEmpty,
-    IsNumber,
-    IsOptional,
-    IsString,
-} from 'class-validator';
+import { IsInt, IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateVisaDTO {
     @IsString()
@@ -19,7 +13,7 @@ export class CreateVisaDTO {
     @IsNotEmpty()
     nameVisaEn: string;
 
-    @IsNumber()
+    @IsInt()
     @IsNotEmpty()
     reviewPeriods: number;
 
@@ -47,8 +41,8 @@ export class CreateVisaDTO {
     @IsNotEmpty()
     locationEn: string;
 
-    @IsNumber()
     @IsNotEmpty()
+    @IsInt()
     imageId: number;
 }
 
@@ -68,7 +62,7 @@ export class UpdateVisaDTO {
     @IsOptional()
     nameVisaEn?: string;
 
-    @IsNumber()
+    @IsInt()
     @IsNotEmpty()
     @IsOptional()
     reviewPeriods?: number;
