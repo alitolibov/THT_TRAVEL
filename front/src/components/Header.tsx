@@ -39,18 +39,18 @@ const Header = () => {
 				
 				<nav className="hidden lg:flex gap-x-5 2xl:gap-x-6">
 					<Link
-						href={'/services'}
-						locale={locale}
-						className={'font-semibold duration-300 leading-none cursor-pointer hover:text-[var(--main-color-two)] lg:text-lg xl:text-xl text-white'}
-					>
-						{t('header.services')}
-					</Link>
-					<Link
 						href={'/about'}
 						locale={locale}
 						className="font-semibold duration-300 leading-none cursor-pointer hover:text-[var(--main-color-two)] lg:text-lg xl:text-xl text-white"
 					>
 						{t('header.about')}
+					</Link>
+					<Link
+						href={'/vises'}
+						locale={locale}
+						className={'font-semibold duration-300 leading-none cursor-pointer hover:text-[var(--main-color-two)] lg:text-lg xl:text-xl text-white'}
+					>
+						{t('header.vises')}
 					</Link>
 					<Link
 						href={'/tours'}

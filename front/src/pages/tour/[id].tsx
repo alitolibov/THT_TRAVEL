@@ -7,7 +7,6 @@ import AccordionComponent from '@/components/AccordionComponent';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { ToastContainer } from 'react-toastify';
 import { ITour } from '@/types';
 import { getValue } from '@/utils';
 import Money from '@/components/common/Money';
@@ -68,16 +67,6 @@ const TourPage: React.FC<TourPageProps> = ({ tour }) => {
 	
 	return (
 		<>
-			<ToastContainer
-				style={{ fontSize: '14px' }}
-				autoClose={5000}
-				hideProgressBar={false}
-				closeOnClick
-				rtl={false}
-				pauseOnFocusLoss
-				draggable
-				pauseOnHover
-			/>
 			<div className="">
 				<Head>
 					<title>THT VISA - {tour.nameDirectionEn}</title>

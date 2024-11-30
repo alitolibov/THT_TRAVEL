@@ -1,9 +1,8 @@
 {
   "header": {
-    "index": "Home",
-    "services": "Services",
     "about": "About us",
     "tours": "Tours",
+    "vises": "vises",
     "greetings": "Travel with THT TRAVEL",
     "scroll": "Scroll down"
   },
@@ -30,8 +29,12 @@
     "categoryCommon": "Common category"
   },
   "vises": {
-    "title": "Visa Application",
-    "dsc": "Applying for a Schengen visa category C <br/> -Full package <br/> -Only tour <br/><br/> Applying for a Schengen work visa D <br/> -Getting a guaranteed invitation <br/> -Full support <br/> <br/> Applying for a US visa <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Receipt of a guarantor of an invitation!"
+    "title": "Vises",
+    "reviewPeriods": "Review periods:",
+    "days": "days",
+    "bookTitle": "Submit an application",
+    "description": "Leave your contact details and we will contact you to clarify all the details of the order",
+    "bookBtn": "Sumbit"
   },
   "team": {
     "title": "Meet Our Team"

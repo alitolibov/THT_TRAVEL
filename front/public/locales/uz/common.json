@@ -1,9 +1,8 @@
 {
   "header": {
-    "index": "Bosh sahifa",
-    "services": "Xizmatlar",
     "about": "Biz haqida",
     "tours": "Turlar",
+    "vises": "Visalar",
     "greetings": "Sayohatlar THT TRAVEL bilan",
     "scroll": "Pastga aylantiring"
   },
@@ -30,8 +29,12 @@
     "categoryCommon": "Umumiy kategoriya"
   },
   "vises": {
-    "title": "Vizalar",
-    "dsc": "Shengen vizasini C toifasiga topshirish <br/> -To'liq paket <br/> -Faqat sayohat <br/><br/>Shengen ish vizasini olish uchun ariza berish D <br/> -Kafolatlangan taklifnoma olish <br/> -To'liq qo'llab-quvvatlash  <br/><br/> AQSh vizasini olish uchun ariza berish <br/> -B1-B2 <br/> -F1 <br/> -DV1 <br/> -B3A <br/> Taklifnomaga garant!"
+    "title": "Visalar",
+    "reviewPeriods": "Ko'rib chiqish muddatlari:",
+    "days": "kun",
+    "bookTitle": "Ariza yuboring",
+    "description": "Kontaktlaringizni qoldiring va biz buyurtmaning barcha tafsilotlarini aniqlashtirish uchun siz bilan bog'lanamiz",
+    "bookBtn": "Yuborish"
   },
   "team": {
     "title": "Jamoamiz Bilan Tanishing"

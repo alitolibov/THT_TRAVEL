@@ -84,7 +84,7 @@ const BurgerMenu: React.FC = () => {
 	return (
 		<div ref={scope}>
 			<OutsideClickHandler onOutsideClick={() => setToggle(false)}>
-				<button onClick={() => setToggle(!toggle)} className={'button !z-[100000] relative'}>
+				<button onClick={() => setToggle(!toggle)} className={'button !z-[1000] relative'}>
 					<svg width="25" height="20" viewBox="0 0 23 18">
 						<Path
 							d="M 2 2.5 L 20 2.5"
@@ -103,12 +103,12 @@ const BurgerMenu: React.FC = () => {
 						<nav>
 							<ul className="flex flex-col items-end gap-4">
 								<li onClick={() => setToggle(false)}>
-									<Link href={'/services'} locale={locale}
-									      className={'font-semibold text-xl text-white'}>{t('header.services')}</Link>
-								</li>
-								<li onClick={() => setToggle(false)}>
 									<Link href={'/about'} locale={locale}
 									      className={'font-semibold text-xl text-white'}>{t('header.about')}</Link>
+								</li>
+								<li onClick={() => setToggle(false)}>
+									<Link href={'/vises'} locale={locale}
+									      className={'font-semibold text-xl text-white'}>{t('header.vises')}</Link>
 								</li>
 								<li onClick={() => setToggle(false)}>
 									<Link href={'/tours'} locale={locale}

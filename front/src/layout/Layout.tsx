@@ -7,6 +7,7 @@ import { $api } from '@/composables/useService';
 import { ISettings } from '@/types';
 import { update } from '@/store/features/settings';
 import { bus } from '@/utils/bus';
+import Toast from '@/components/common/Toast';
 
 interface LayoutProps {
 	children: React.ReactNode;
@@ -36,6 +37,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 				{children}
 			</main>
 			<Footer />
+			<Toast/>
 		</div>
 	);
 };

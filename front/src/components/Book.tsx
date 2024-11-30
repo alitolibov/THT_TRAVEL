@@ -2,11 +2,10 @@ import React, { useState } from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'next-i18next';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { InputMask } from '@react-input/mask';
 import { useService } from '@/composables/useService';
 import { getErrorPathAndMsg } from '@/utils';
+import { bus } from '@/utils/bus';
 
 type FormData = {
     name: string;
@@ -36,12 +35,12 @@ const Book: React.FC<BookProps> = ({ tourName }) => {
             name: data.name,
             phone: data.phone,
             email: data.email,
-            tourName: tourName,
+            tourName,
         };
 
         try {
             await service.create(sendData);
-            toast.success(t('toast'));
+            bus.emit('toastOpen', {type: 'success', message: t('toast')});
             reset();
         } catch (e: any) {
             const newErrors: Record<string, string> = {};

@@ -11,10 +11,12 @@ export class BotService {
 
     sendApp(body: SendAppDTO): any {
         const sendBody = `
+        Заявка на ${body.tourName ? 'тур' : 'визу'}\n
 		Имя: ${body.name}
-		\nНомер: ${body.phone}
-		\nПочта: ${body.email}
-		\n${body.tourName ? `Тур: ${body.tourName}` : ''}
+		Номер: ${body.phone}
+		Почта: ${body.email}
+		${body.tourName ? `Тур: ${body.tourName}` : ''}
+		${body.visaName ? `Виза: ${body.visaName}` : ''}
 		`;
 
         try {
