@@ -107,7 +107,7 @@ const BurgerMenu: React.FC = () => {
 									      className={'font-semibold text-xl text-white'}>{t('header.about')}</Link>
 								</li>
 								<li onClick={() => setToggle(false)}>
-									<Link href={'/vises'} locale={locale}
+									<Link href={'/visas'} locale={locale}
 									      className={'font-semibold text-xl text-white'}>{t('header.vises')}</Link>
 								</li>
 								<li onClick={() => setToggle(false)}>

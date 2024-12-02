@@ -46,7 +46,7 @@ const Header = () => {
 						{t('header.about')}
 					</Link>
 					<Link
-						href={'/vises'}
+						href={'/visas'}
 						locale={locale}
 						className={'font-semibold duration-300 leading-none cursor-pointer hover:text-[var(--main-color-two)] lg:text-lg xl:text-xl text-white'}
 					>

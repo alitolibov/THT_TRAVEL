@@ -28,7 +28,7 @@ const VisesPage:React.FC<VisesPageProps> = ({vises}) => {
 					viewport={viewport}
 					className="">
 					<motion.div variants={{hidden, visible}} className="relative w-fit mx-auto">
-						<p className="title-backgroud-text">VISES</p>
+						<p className="title-backgroud-text">VISAS</p>
 						<p className="title-text">{t('vises.title')}</p>
 					</motion.div>
 				</motion.div>

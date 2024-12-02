@@ -2,7 +2,7 @@
   "header": {
     "about": "About us",
     "tours": "Tours",
-    "vises": "vises",
+    "vises": "Visas",
     "greetings": "Travel with THT TRAVEL",
     "scroll": "Scroll down"
   },
@@ -29,7 +29,7 @@
     "categoryCommon": "Common category"
   },
   "vises": {
-    "title": "Vises",
+    "title": "Visas",
     "reviewPeriods": "Review periods:",
     "days": "days",
     "bookTitle": "Submit an application",
