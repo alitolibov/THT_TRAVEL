@@ -1,10 +1,10 @@
 import React from 'react';
-import Count from "@/pages/components/Count";
-import AboutUs from "@/pages/components/AboutUs";
-import Team from "@/pages/components/Team";
-import Maps from "@/pages/components/Maps";
-import Head from "next/head";
-import {serverSideTranslations} from "next-i18next/serverSideTranslations";
+import Count from '@/components/Count';
+import AboutUs from '@/components/AboutUs';
+import Team from '@/components/Team';
+import Maps from '@/components/Maps';
+import Head from 'next/head';
+import {serverSideTranslations} from 'next-i18next/serverSideTranslations';
 
 const About = () => {
     return (
@@ -17,13 +17,13 @@ const About = () => {
             <Team/>
             <Maps/>
         </>
-    )
-}
-export async function getStaticProps(props:{locale:string}) {
+    );
+};
+export async function getServerSideProps(props:{locale:string}) {
     return {
         props: {
             ...(await serverSideTranslations(props.locale, ['common']))
         },
     };
 }
-export default About
+export default About;

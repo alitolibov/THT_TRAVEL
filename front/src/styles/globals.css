@@ -20,16 +20,20 @@ body {
     background-color: var(--main-color);
 }
 
-.bg {
+.bg-start {
     height: 100vh;
-    background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1696758011667-346ef53c70d6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80');
+    background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1554357475-accb8a88a330?q=80&w=3259&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
 }
 
-.bottom_img {
-    background-image: url('../../public/images/bottom.webp');
+.title-backgroud-text {
+    @apply font-black text-5xl text-[var(--main-color-two)] opacity-30 sm:text-6xl md:text-7xl uppercase
+}
+
+.title-text {
+    @apply w-full font-semibold text-xl text-white text-center absolute top-5 sm:text-2xl sm:top-7 md:text-[28px] md:top-8
 }
 
 .spacing {
@@ -80,8 +84,8 @@ body {
 }
 
 @media (min-width: 650px) {
-    .bg {
-        background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1696280292021-76c29fb11f99?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80');
+    .bg-start {
+        background-image: linear-gradient(180deg, transparent 26.09%, var(--main-color) 95%), url('https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=3274&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
         background-size: cover;
         background-position: center;
     }
@@ -97,30 +101,6 @@ body {
 
 input {
     outline: none !important;
-}
-
-
-.react-international-phone-input {
-    background-color: transparent !important;
-    width: 100%;
-    color: white !important;
-    border-bottom-right-radius: 8px !important;
-    border-top-right-radius: 8px !important;
-    font-size: 14px !important;
-    padding: 6px 8px !important;
-}
-
-.react-international-phone-country-selector-button {
-    background-color: transparent !important;
-    padding: 6px 8px !important;
-    border-bottom-left-radius: 8px !important;
-    border-top-left-radius: 8px !important;
-}
-
-@media (min-width: 768px) {
-    .react-international-phone-input {
-        font-size: 16px !important;
-    }
 }
 
 .pl {
@@ -222,6 +202,14 @@ input {
         stroke-dashoffset: 169.5;
         transform: rotate(-180deg);
     }
+}
+
+.textEllipsisForVisa {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 @keyframes tick42 {

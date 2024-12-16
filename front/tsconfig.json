@@ -18,6 +18,8 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/components/SwiperTour.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx",
+    "src/components/SwiperTour.tsx"
+  ],
   "exclude": ["node_modules"]
 }

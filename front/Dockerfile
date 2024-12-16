@@ -1,10 +1,12 @@
-FROM node:16-alpine as build-stage
+FROM node:18-alpine as build-stage
 
 WORKDIR /app
-COPY package.json ./
-RUN npm i
+RUN npm install -g pnpm@9.12.0
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm i
 COPY . .
 
 FROM build-stage as prod
-RUN npm run build
-CMD npm run start
+RUN pnpm run lint
+RUN pnpm run build
+CMD pnpm run start

@@ -1,24 +1,27 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import Layout from './layout/Layout'
+'use client';
+
+import '@/styles/globals.css';
+import type { AppProps } from 'next/app';
+import Layout from '@/layout/Layout';
 import Head from 'next/head';
-import React, {useEffect, useState} from "react";
-import {appWithTranslation} from "next-i18next";
-import {useRouter} from "next/router";
-import Loader from "@/pages/components/Loader";
+import React, {useEffect, useState} from 'react';
+import {appWithTranslation} from 'next-i18next';
+import {useRouter} from 'next/router';
+import Loader from '@/components/Loader';
+import { Providers } from '@/store/provider';
 
 function App({ Component, pageProps }: AppProps) {
     const router = useRouter();
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     useEffect(() => {
-        const body = document.body as HTMLElement
+        const body = document.body as HTMLElement;
         const handleStart = () => {
-            body.style.overflowY = 'hidden'
+            body.style.overflowY = 'hidden';
             setIsTransitioning(true);
         };
         const handleComplete = () => {
-            body.style.overflowY = 'scroll'
+            body.style.overflowY = 'scroll';
             setIsTransitioning(false);
         };
 
@@ -35,7 +38,6 @@ function App({ Component, pageProps }: AppProps) {
 return (
     <div>
         {isTransitioning && <Loader />}
-      <Layout>
         <Head>
             <meta name="description" content="Откройте дверь в мир удивительных приключений с нами – лучшим турагентством, где мечты становятся реальностью. Планируйте свой незабываемый отдых вместе с нами, пока мы берем на себя всю заботу об оформлении виз. Путешествуйте без границ, обогащая свою жизнь встречами с культурами и пейзажами, которые оставят даже самых искушенных путешественников в восторге."/>
             <meta name="keywords" content="турагентство самарканд, турагентства в самарканде, туры из самарканда, горящий тур, турфирмы самарканда, туристическая фирма, туристическое агентство, туристическая компания, туроператоры в самарканде, тур туроператор, тур фирма, туропраторы по самаркунду, туризм, путешествия, туры, отдых, экскурсии, отели, авиабилеты, визы, шенген"/>
@@ -56,12 +58,15 @@ return (
             <meta property="og:locale" content="ru_RU"/>
             <link rel="icon" sizes="32x32" href="https://i.imgur.com/5e0nPBQ.png" />
         </Head>
-        <Component {...pageProps} />
-      </Layout>
+        <Providers>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </Providers>
     </div>
-  )
+  );
 }
 
 
 
-export default appWithTranslation(App)
+export default appWithTranslation(App);
